@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=../../../docs/lean/schema/v0.4.schema.json
 version: v0.4
 project:
-  name: 'FR-05: deterministic rank-two seed for phase-retrieval noninjectivity'
+  name: 'FR-05: vanishing complex phase-retrieval injectivity probability'
   description: >-
-    A checked partial checkpoint for the phase-retrieval construction:
-    exact all-signal measurement semantics, an explicit noninjective frame,
-    the source's iid planted law and a radial tail bound, and conditional
-    algebraic reductions at the ends of Proposition 3.2 and Theorem 1.4.
-    It does not formalize the source's full probabilistic O(d^-1) theorem.
+    A locally Lean-checked proof of p_d <= C/d for every d >= 2 and the
+    original limit p_d -> 0, for iid standard complex-Gaussian 4d-5 row
+    frames and all-signals phase-retrieval injectivity. Includes the planted
+    probability bound, likelihood comparison, exact sampler identities, and
+    final assembly. Independent review and isolated verification are pending.
   authors:
   - OpenAI Codex AI
   license: Apache-2.0
@@ -22,21 +22,22 @@ sources:
   author_endorsement: n/a
   note: >-
     The permanent problem number, canonical target, source credit, and
-    solution-claimed catalog status are unchanged. This project certifies an
-    explicit deterministic witness and conditional algebraic reductions, not
-    the claimed resolution.
+    solution-claimed catalog status are unchanged. Both the original limit
+    and the manuscript's stronger quantitative bound are proved locally,
+    without assuming the intermediate analytic estimates.
 - title: "Resolution of Vinzant's Conjecture on Phase Retrieval Injectivity"
   authors:
   - Zhangsong Li
   id: https://zhangsong-li.github.io/injectivity_phase_retrieval.pdf
   type: manuscript
-  location: Sections 2--3, especially the diagonal seed Q_0, Lemma 2.1, and the final comparison
+  location: Theorem 1.4; Sections 2--3, especially Propositions 3.1 and 3.2
   relationship: adapts
   author_endorsement: not-contacted
   note: >-
     Retrieved and hash-frozen as sources/injectivity_phase_retrieval.pdf.
-    The full small-ball, least-singular-value, derivative-control, and
-    probability assembly estimates remain outside the checked export.
+    Propositions 3.1 and 3.2 and the sampler-to-likelihood bridges are proved,
+    rather than postulated. The proof adapts some intermediate arguments;
+    see the source map and fidelity notes below.
 automation:
   methods:
   - method: agent
@@ -51,18 +52,18 @@ automation:
       analytic source steps by placeholders in Solution.
   notes: >-
     Implemented at the user's request. No human author endorsement, external
-    review, priority claim, measured cost, or full theorem verification is
-    inferred from this checkpoint.
+    review, priority claim, measured cost, or repository-verified status is
+    inferred from the local build and axiom audit.
 status:
   scope: >-
-    Incomplete checkpoint, locally type-checked on arm64 macOS. The exports
-    supply a simple explicit noninjective 4d-5 row frame, an exact source
-    planted-frame law representation, a radial tail estimate, a real-Gaussian
-    representation of a complex frame law, and conditional final reductions
-    for Proposition 3.2 and Theorem 1.4. They do not prove the full Lemma 3.6
-    small-ball estimate, Lemma 3.7, the source good-event probability,
-    injectivity-event measurability, source likelihoods, Haar/Stiefel
-    estimates, or p_d <= C/d without the analytic comparison hypotheses.
+    Complete mathematical target, locally type-checked on arm64 macOS:
+    exists C > 0, for all d >= 2, p_d <= C/d, hence p_d -> 0. Includes
+    measurability of the actual injectivity event, the planted good-event
+    estimate, Haar/overlap likelihood estimates, both exact law identities,
+    and finite-prefix absorption. No analytic hypotheses remain in either
+    final theorem. This is not independent statement review or an isolated
+    Linux Comparator/kernel verification; repository status remains
+    Solution claimed.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms:
@@ -70,19 +71,19 @@ status:
   - Classical.choice
   - Quot.sound
   main_results:
+  - declaration: NLA.FR05.phaseRetrieval_injective_probability_le_inv
+    file: Solution.lean
+    sorry_count: 0
+    axioms: [propext, Classical.choice, Quot.sound]
+    comparator_config: comparator.json
+    literature_dependencies: []
+  - declaration: NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero
+    file: Solution.lean
+    sorry_count: 0
+    axioms: [propext, Classical.choice, Quot.sound]
+    comparator_config: comparator.json
+    literature_dependencies: []
   - declaration: NLA.FR05.explicit_noninjective_frame
-    file: Solution.lean
-    sorry_count: 0
-    axioms: [propext, Classical.choice, Quot.sound]
-    comparator_config: comparator.json
-    literature_dependencies: []
-  - declaration: NLA.FR05.source_planted_frame_law_representation
-    file: Solution.lean
-    sorry_count: 0
-    axioms: [propext, Classical.choice, Quot.sound]
-    comparator_config: comparator.json
-    literature_dependencies: []
-  - declaration: NLA.FR05.source_planted_radial_tail
     file: Solution.lean
     sorry_count: 0
     axioms: [propext, Classical.choice, Quot.sound]
@@ -102,27 +103,28 @@ verification_plan:
   definition_names: []
   note: >-
     The exact signatures are duplicated in Challenge solely for future
-    Comparator checking. Challenge contains three isolated deliberate
+    Comparator checking. Challenge contains four isolated deliberate
     placeholders and is not imported by Solution. A fresh non-root Linux
     Comparator run, statement review, source-to-definition audit, and proof
     review remain outstanding.
 fidelity:
   divergences: >-
-    The source's target is a probability estimate p_d <= C/d. This project
-    exports a deterministic witness, the exact planted coordinate law and one
-    radial tail bound, and conditional algebraic reductions. Its Proposition
-    3.2 result assumes the two second-moment estimates rather than deriving
-    them from the source likelihoods, cone kernels, or overlap law. The
-    planted branch does not yet establish the source small-ball and
-    least-singular-value estimates or their contraction event, so the export
-    remains a checkpoint rather than the manuscript's theorem.
+    The original probability law, all-signals predicate, dimensions, and
+    final quantifiers are retained. The planted proof uses an exactly
+    quadratic factor chart and a frozen-Jacobian contraction, avoiding a
+    separate perturbed inverse. A measurable row-distance event replaces
+    the need for a measurable choice of unit normal. Weaker intermediate
+    small-ball estimates suffice for the same O(M^-2) planted bound.
+    Elementary phase and exponential estimates are simplified without
+    changing the final statements. No claim of new mathematical priority
+    or an independently audited line-by-line equivalence is made.
 review:
   status: unchecked
   notes: >-
     No independent statement or proof review has been requested or completed.
 alignment:
   source_freeze: SOURCE_FREEZE.md
-  source_map: ../formalisation-plan.md
+  source_map: README.md
   checked_definitions:
   - NLA.FR05.PhaseRetrievalInjective
   - NLA.FR05.qZero
@@ -141,6 +143,14 @@ alignment:
   - NLA.FR05.sourcePlantedFrameLawAt_eq_viaPlantedRows
   - NLA.FR05.sourceRadialLaw_sourceM_apply_Ici_le
   - NLA.FR05.plantedEquationLinear_source_formula
+  - NLA.FR05.proposition_3_1
+  - NLA.FR05.proposition_3_1_haar
+  - NLA.FR05.proposition_3_2
+  - NLA.FR05.source_haar_planted_frame_law_eq_likelihood
+  - NLA.FR05.source_reference_frame_law_eq_likelihood
+  - NLA.FR05.source_reference_injective_probability
+  - NLA.FR05.phaseRetrieval_injective_probability_le_inv
+  - NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero
 acknowledgements: >-
   The Lean and Mathlib contributors provide the proof assistant and library.
   Zhangsong Li is credited as the manuscript author, separately from this

@@ -1,77 +1,99 @@
-# FR-05 Lean development
+# FR-05 Lean formalisation
 
-This project begins the formalisation of the claimed (O(d^{-1})) phase
-retrieval result, using the frozen [source manuscript](sources/README.md).
-It is deliberately an **incomplete checkpoint**, not a Lean
-verification of FR-05 and not evidence for changing the catalog status.
+The full FR-05 Gaussian probability theorem is locally Lean-checked, following
+the frozen [source manuscript](sources/README.md). [Solution.lean](Solution.lean)
+exports:
 
-The checked exports include `NLA.FR05.explicit_noninjective_frame`,
-`NLA.FR05.source_planted_frame_law_representation`,
-`NLA.FR05.source_planted_radial_tail`, and
-`NLA.FR05.likelihood_l2_bound_of_second_moment_estimates`. For every
-dimension `d ≥ 2`, the first builds a `4d-5` row complex frame whose actual
-entrywise-modulus phase-retrieval map is noninjective. The public definitions
-retain all signals and the original relation `y = exp(θ i) • x`; the proof
-constructs the two standard-basis witnesses directly. Supporting lemmas also
-check that Li's diagonal seed `Q₀ = diag(1,-1,0,...)` is Hermitian and that
-its quadratic form vanishes on the constant-one row.
+- `NLA.FR05.phaseRetrieval_injective_probability_le_inv`:
+  $p_d \le C/d$ for every $d \ge 2$, for some $C>0$.
+- `NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero`:
+  the original target $p_d \to 0$.
 
-The planted-law branch now encodes the radial density (3.2) as the stated
-conditioned exponential/Gamma mixture, the four scalar coordinates and
-complex-Gaussian tail in (3.18), and the iid frame law. The exported law
-representation proves that this is exactly the pushforward of independent
-source coordinates through the checked planted-row construction. The radial
-tail export gives the source-scale bound
-`P(S ≥ 8M) ≤ 25 exp(-4M)` for `M ≥ 1`.
+Both use the original iid standard complex-Gaussian law, `4d-5` rows, and
+all-signals injectivity predicate. No analytic hypotheses remain. Independent
+review and the isolated Linux verification are still pending; the catalog
+status remains unchanged.
 
-`RankTwoChart.lean` checks the source Schur-complement chart, while the
-polynomial factor chart used for the fixed-point endpoint has the matching
-first-order coordinates and gives an immediate exact ambiguity. The source
-Jacobian row identity (3.21), its variance-profile algebra, the exact initial
-residual bound, a complex-Gaussian tail bound, and the Banach-contraction
-endpoint are also kernel-checked. These are genuine ingredients of
-Proposition 3.1, but they have not yet been assembled into its probability
-estimate.
+## Where to start
 
-`Probability.lean` defines the iid complex-Gaussian frame law by scaling a
-real multivariate Gaussian, proves its coordinate map measurable and its
-total mass one, and records the nonnegativity and upper bound of the resulting
-outer measure. `MainReduction.lean` proves the final algebraic assembly: an
-explicit eventual inequality of Li's displayed Cauchy--Schwarz form implies
-the claimed inverse bound. That eventual inequality is a hypothesis of the
-checked lemma, not an assumed result.
+1. [Definitions](NLA/FR05/Definitions.lean) and
+   [Probability](NLA/FR05/Probability.lean) give the exact statement boundary.
+   [NUMERICAL_TARGETS.md](NUMERICAL_TARGETS.md) records its scope and parameters.
+2. [FinalAssembly](NLA/FR05/FinalAssembly.lean) is the short proof joining the
+   two propositions and the sampler identities. [FINAL_ASSEMBLY.md](FINAL_ASSEMBLY.md)
+   explains the argument.
+3. [Proposition31](NLA/FR05/Proposition31.lean) supplies the planted-law
+   $C/M^2$ bound; [PROPOSITION_3_1.md](PROPOSITION_3_1.md) explains the proof.
+4. [LikelihoodComparison](NLA/FR05/LikelihoodComparison.lean) is the public
+   entry point for Proposition 3.2; [PROPOSITION_3_2.md](PROPOSITION_3_2.md)
+   explains its $L^2$ comparison and Lemmas 3.3–3.5.
 
-`LikelihoodAlgebra.lean` checks the exact algebraic end of Proposition 3.2:
-given integrability and two eventual $C/M$ second-moment estimates for
-$L_g^2-L_r^2$ and $L_gL_r-L_r^2$, it derives the eventual L² estimate
-$\int (L_g-L_r)^2 \le 3C/M$. This is a generic conditional reduction; it does
-not define Li's likelihoods or establish those hypotheses from the source.
+The public import `NLA.FR05.Proof` exposes the complete development. The
+repository-standard `Definitions.lean`, `Proof.lean`, `Challenge.lean`, and
+`Solution.lean` entry points and final theorem names have been retained.
+Imports of individual implementation modules now use the subject folders;
+retired auxiliary lemmas are recorded in the library-style guide.
 
-This formalises the exact-ambiguity bridge, major deterministic and
-one-dimensional-probabilistic ingredients of Proposition 3.1, the last
-numerical reduction, and the final algebraic transition in the source's
-Proposition 3.2. It does **not** yet prove the full phase small-ball bound of
-Lemma 3.6, the distance-to-span/least-singular-value bound of Lemma 3.7, the
-source derivative-perturbation and joint good-event estimate, Haar/Stiefel
-measure, overlap density, the source-specific likelihood comparison, or its
-eventual second-moment estimates. Consequently, it does **not** prove either
-the full source Proposition 3.1 or Proposition 3.2, nor the unconditional
-`p_d ≤ C/d` theorem. Those dependencies are mapped in the parent
-[formalisation plan](../formalisation-plan.md) and in
-[NUMERICAL_TARGETS.md](NUMERICAL_TARGETS.md).
+## Source organisation
 
-## Development checks
+The library has 112 modules, arranged by mathematical subject (down from 177
+before reorganisation and 157 before the latest consolidation). Short, closely
+related developments are combined into sections; longer analytic proofs stay
+separate. The root of `NLA/FR05/` contains only eight definition/entry-point
+modules, including the parameter definitions and final numerical reduction.
 
-The project pins Lean 4.33.1 and Mathlib in `lakefile.toml`. Once dependencies
-are present, run:
+| Folder under `NLA/FR05/` | Contents |
+| --- | --- |
+| `Geometry/` | Exact ambiguity, rank-two charts, finite-dimensional linear algebra, event measurability |
+| `Planted/` | Jacobian and derivative bounds, perturbations, Newton contraction, good-event assembly |
+| `SmallBall/` | Phase/Gaussian small-ball bounds and their source-row specialisations |
+| `Gaussian/` | Gaussian densities, moments, radial laws, and sphere projections |
+| `Densities/` | Source sampling laws, row coordinates, planted/reference densities and moments |
+| `Cone/` | Cone coordinates, phase integrals, correlation and exponential estimates |
+| `Overlap/` | Haar conditioning, overlap geometry, and overlap-density identities |
+| `Likelihood/` | Likelihoods, kernel bounds, Taylor estimates, and Proposition 3.2 integration |
+| `Bridges/` | Exact sampler-to-density and Haar-mixture identities |
+| `Measure/` | Product-section estimates, Haar mixtures, and event-local Cauchy–Schwarz |
+
+The [library-style guide](LIBRARY_STYLE.md) describes the reusable measure-theory,
+coordinate-invariance, Gaussian, small-ball, and overlap APIs and their regression
+checks. The refactors share product/symmetry laws and remove duplicated analytic
+arguments without adding library modules. Paper-specific small-ball assembly and
+reference-law constants remain in their application modules.
+The latest mathematical simplifications use exact midpoint cancellation for the
+quadratic planted map and factorised exponential/cosh estimates for the likelihood.
+They shorten the proof and strengthen intermediate bounds without changing the
+original final statements; see the guide for retired auxiliary lemma names.
+The final simplification pass removes another 309 source lines without adding
+modules or declarations, chiefly by simplifying the cosine-band argument and
+reusing mathlib's norm comparisons.
+
+The source organisation is not a strict dependency layering: some subjects
+share technical lemmas. The module import graph is acyclic. The
+[module map](verification/reorganisation/module-map.json) records every old
+flat module's current location and the 45 subsequently retired subject modules.
+Merged developments have named sections; their subsequent proof simplifications
+are recorded separately in the library-style guide.
+
+## Build and verification
+
+The project pins Lean 4.33.1 and Mathlib in `lakefile.toml`. With the pinned
+dependencies available, run:
 
 ```sh
-lake build
-lake build Challenge
-lake env lean Solution.lean
+bash verification/library-cleanup/check.sh
+shasum -a 256 -c verification/library-cleanup/source-sha256.txt
 ```
 
-The three `Challenge.lean` placeholders are development-only statement
-comparison fixtures and are never imported by `Solution`. No Comparator run,
-independent statement review, Linux sandbox verification, or formalisation
-claim for the full FR-05 result is made at this stage.
+The four `Challenge.lean` placeholders are isolated statement-comparison
+fixtures and are never imported by `Solution`. The solution contains no proof
+placeholders; the final theorems use only `propext`, `Classical.choice`, and
+`Quot.sound`. The [current local audit](verification/library-cleanup/README.md)
+records the checks after the reusable-API refactor. Earlier verification directories are
+preserved as historical evidence for their original source layouts.
+
+These local development checks are not the repository's isolated Linux
+Comparator/kernel verification or independent statement review. Neither is
+claimed here. The source manuscript, author attribution, license, public
+FR-05 theorem statements, and canonical problem ID are unchanged by these refactors.
+Both the quantitative bound and original limit are selected in `comparator.json`.

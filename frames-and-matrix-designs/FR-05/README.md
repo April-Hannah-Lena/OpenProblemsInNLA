@@ -37,7 +37,11 @@ p_d\leq C/d\qquad(d\geq2)
 
 for an absolute constant $`C>0`$. This implies the displayed limit. The argument plants a two-dimensional ambiguity, compares its law in $`L^2`$ to a covariance-matched Gaussian law, and uses a quantitative implicit-function argument to turn the planted approximate ambiguity into an exact one.
 
-This is a **solution claim**, not a verified resolution: the manuscript is the primary source and has not yet received the independent review required here for `Solved`, nor a Lean verification. The original target, permanent identifier, and canonical path are unchanged. The implementation route is recorded in the [formalisation plan](formalisation-plan.md).
+This remains a **solution claim**, not a repository-verified resolution: the manuscript is the primary source, and independent review and the repository's isolated Linux Lean verification remain outstanding. The original target, permanent identifier, and canonical path are unchanged. The implementation route is recorded in the [formalisation plan](formalisation-plan.md).
+
+### Local Lean development — 27 September 2026
+
+The [Lean solution](lean/Solution.lean) now proves the bound $`p_d\le C/d`$ for every $`d\ge2`$ and the original limit $`p_d\to0`$, using the original Gaussian law and all-signals injectivity predicate. The local build and transitive axiom audit pass, using only standard Lean axioms and no proof placeholders in the solution. See the [final assembly](lean/FINAL_ASSEMBLY.md), [source guide](lean/README.md), and [local verification record](lean/verification/library-cleanup/README.md). This development check does not replace independent statement review or the isolated Linux Comparator/kernel workflow; the catalog status is unchanged.
 
 ## References
 

@@ -7,5 +7,8 @@
 | Formalisation plan | local snapshot, amended for the checked planted-law, tail, and conditional-reduction checkpoints | `67aebc63cf337dd1a9b182bcf900741e033b0616ebe530fab506992850fc9d93` |
 
 The PDF is retained as an unmodified source snapshot for correspondence and
-review. It is not relicensed by this repository. This development checkpoint
-has not yet frozen its Lean statement boundary or obtained statement reviews.
+review. It is not relicensed by this repository. The page and plan hashes above
+identify the historical checkpoint, not their subsequently updated versions.
+The current Lean statements and sources are hashed in
+`verification/library-cleanup/source-sha256.txt`. Independent statement reviews
+have not been obtained; these hashes do not constitute reviewer approval.

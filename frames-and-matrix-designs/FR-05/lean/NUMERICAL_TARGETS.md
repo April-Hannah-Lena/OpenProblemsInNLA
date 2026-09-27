@@ -1,119 +1,70 @@
 # FR-05 theorem contract and current scope
 
-## Full target (specified, not yet formalised)
-
-For every natural number `d ≥ 2`, take an independently standard complex
-Gaussian matrix `A : ℂ^((4d-5) × d)`, where each real and imaginary coordinate
-has variance `1/2`. Let `p_d` be the probability that, for all signals `x,y`,
-equality of the componentwise moduli of `A x` and `A y` implies
-`y = exp(θ i) x` for some real `θ`. The source's Theorem 1.4 claims
+The full target in `Challenge.lean` remains:
 
 ```text
-∃ C : ℝ, 0 < C ∧ ∀ d : ℕ, 2 ≤ d → p_d ≤ C / d.
+∃ C > 0, ∀ d ≥ 2, phaseRetrievalProbability d ≤ C / d.
 ```
 
-This exact signature is recorded, deliberately unproved, in `Challenge.lean`.
-The original FR-05 conclusion is `p_d → 0` as `d → ∞`.
+Here `phaseRetrievalProbability` uses the iid standard complex-Gaussian frame
+law with `4d-5` rows and the original all-signal phase-retrieval predicate.
+The injectivity event is now proved Borel measurable.
+The exact quantitative target is now proved in `Solution.lean`, together with
+the original limit $p_d \to 0$; see [FINAL_ASSEMBLY.md](FINAL_ASSEMBLY.md).
 
-## Current kernel-checked checkpoint
+## Completed propositions
 
-`NLA.FR05.explicit_noninjective_frame` proves, for every `d ≥ 2`,
+- [Proposition 3.1](PROPOSITION_3_1.md):
+  `NLA.FR05.proposition_3_1` bounds the canonical planted injectivity
+  probability by `C/M²` eventually.
+  `NLA.FR05.proposition_3_1_haar` proves the same statement after Haar
+  orientation. The construction supplies `C = 113`, a complete probability
+  good event, and the local contraction proof.
+- [Proposition 3.2](PROPOSITION_3_2.md):
+  `NLA.FR05.proposition_3_2` proves `sourceLikelihoodL2 M ≤ C/M`
+  eventually for the literal planted/reference likelihoods. Lemmas 3.3–3.5
+  and all analytic prerequisites are proved.
+
+No analytic assumptions or proof placeholders remain in these propositions.
+The sharper intermediate exponents of Lemmas 3.6–3.7 are not claimed: a
+conservative small-ball calibration suffices for Proposition 3.1.
+
+## Completed final assembly
+
+`NLA/FR05/Asymptotics.lean` proves that an eventual comparison
 
 ```text
-∃ A : Matrix (Fin (4*d-5)) (Fin d) ℂ,
-  ¬ PhaseRetrievalInjective A.
+p_d ≤ a/d² + sqrt(b p_d/d)
 ```
 
-Here `PhaseRetrievalInjective` is the original all-pairs statement, with actual
-row-modulus measurements and the relation `y = exp(θ i) • x`. The explicit
-frame is intentionally simple (all entries one); its witnesses are the first
-two standard basis vectors. This establishes the deterministic exact-ambiguity
-bridge used by the source, but it does **not** assert an open neighbourhood,
-positive Gaussian probability for the good event, a source-specific `L²`
-likelihood comparison, or the claimed `C/d` bound.
+implies the full `C/d` theorem. `NLA/FR05/FinalAssembly.lean` now proves this comparison
+for the original event using the planted/reference law identities, Propositions
+3.1 and 3.2, and event-local Cauchy–Schwarz. Finite-prefix absorption gives a
+single positive constant for every `d ≥ 2`; squeezing then gives the limit.
+No mathematical proof obligation remains for these exported targets. The
+separate independent review and isolated Linux verification remain outstanding,
+so the problem catalog status is unchanged.
 
-`NLA.FR05.RankTwoSeed` additionally checks the finite identities
+The scalar sampler is now identified exactly with the planted two-coordinate
+density law, and the sampled column with that law plus an independent Gaussian
+tail. The full-frame and Haar-mixture equality is also proved:
+`NLA.FR05.source_haar_planted_frame_law_eq_likelihood` identifies the generative
+Haar-planted frame law, after the canonical dimension relabelling, with
+`standardComplexGaussianFrame (4*M-5) M` reweighted by
+`ENNReal.ofReal (sourcePlantedLikelihood hM)`, for every `M ≥ 2`.
 
-```text
-Q₀ = diag(1,-1,0,...),   Q₀ = Q₀ᴴ,   1ᴴ Q₀ 1 = 0.
-```
+The corresponding reference-law identity is proved as
+`NLA.FR05.source_reference_frame_law_eq_likelihood`. Its construction scales
+the first two Gaussian coordinates by the positive square root of the reference
+variance, then applies an independent Haar orientation. Both transformations
+preserve injectivity. Thus `NLA.FR05.source_reference_injective_probability`
+identifies its injectivity probability with the original Gaussian probability;
+`NLA.FR05.source_reference_injective_integral` gives the equivalent identity
+$\int_E L_r\,d\mu = p_M$. These statements use the original event, row count,
+and Gaussian law, and hold for every `M ≥ 2`.
 
-The last equality is the source's exact seed cancellation for a constant row.
-It is not a proof that the flat frame has the locally regular, rank-two kernel
-structure or probability behavior required by the manuscript.
+## Parameters
 
-## Checked Proposition 3.1 components
-
-The current development also formalizes several source-specific components of
-the planted argument:
-
-- the conditioned radial mixture (3.2), the independent scalar/Gaussian
-  coordinates in (3.18), and the exact iid planted-frame law;
-- an equality representing that law as the pushforward of the checked
-  `PlantedRow` construction;
-- the exact source Jacobian row expression (3.21) at zero imbalance and its
-  Gaussian variance profile;
-- the initial-residual estimate `‖F^ε(0)‖₂ ≤ ε√N`, a source-scale radial tail
-  `P(S ≥ 8M) ≤ 25 exp(-4M)`, and a complex-Gaussian tail estimate;
-- the fixed-point implication from a verified contraction certificate to an
-  exact noninjectivity witness.
-
-The unproved central bridge is still the quantitative good-event probability:
-the full phase small-ball estimate in Lemma 3.6, Lemma 3.7's least-singular
-tail, and the derivative perturbation/Lipschitz estimates that make the
-contraction certificate hold with high probability. Hence this is not yet a
-formal proof of Proposition 3.1.
-
-## Checked conditional L² step of Proposition 3.2
-
-`LikelihoodAlgebra.lean` proves the source's final algebraic transition in
-an explicit family-level form. For every $M \ge D$, assume the three product
-integrands are integrable and
-
-```math
-\left|\int L_g^2\,d\mu_M-\int L_r^2\,d\mu_M\right| \le C/M,
-\qquad
-\left|\int L_gL_r\,d\mu_M-\int L_r^2\,d\mu_M\right| \le C/M.
-```
-
-It then proves
-
-```math
-\int (L_g-L_r)^2\,d\mu_M \le 3C/M.
-```
-
-This is the exact expansion-and-triangle-inequality end of Proposition 3.2,
-after the source has established its pairwise moment estimates. It does not
-define the planted/reference likelihoods, prove equation (3.17), construct
-the Haar two-frame overlap law, or establish Lemmas 3.3--3.5 and the
-local/tail bounds. It is therefore not a proof of source Proposition 3.2.
-
-## Kernel-checked quantitative assembly
-
-`Probability.lean` defines the scaled real-Gaussian complex frame law and
-proves `0 ≤ p_d ≤ 1`; until event measurability is proved, this is the outer
-measure of the exact injectivity event. `MainReduction.lean` proves the
-following conditional form without asymptotic notation:
-
-```text
-if D ≥ 1, a,b ≥ 0, and for every d ≥ D,
-  p_d ≤ a/d² + sqrt(b p_d/d),
-then ∃ C > 0, for every d ≥ 2, p_d ≤ C/d.
-```
-
-Thus the only quantitative analytic interface remaining at the final assembly
-boundary is the displayed eventual comparison. It still has to be derived
-from the planted-failure and likelihood-comparison estimates in the source.
-
-## Source constants used by the planted development
-
-- `N = 4d - 5`, `d ≥ 2`;
-- `η = 1/100`, `δ = d⁻²`, `ε = d⁻⁵⁰`;
-- the source's local correlation margin is
-  `η(1-η)/10 - 4η² > 1/2000`;
-- the planted small-singular-value threshold is `κ = d⁻¹²`.
-
-The definitions of `N`, `η`, `δ`, `ε`, and `κ` are already present in
-`SourceParameters.lean`. The remaining displayed margins and all big-O
-statements still require quantified constants and thresholds before they can
-cross a theorem boundary.
+`N = 4M-5`, `n = M-2`, `η = 1/100`, `δ = M^-2`,
+`ε = M^-50`, and `κ = M^-12`.
+The completed contraction uses radius `R = M^-30` for `M ≥ 8192`.

@@ -1,0 +1,482 @@
+⚠ [3658/3788] Replayed NLA.FR05.Densities.PlantedLaw
+warning: NLA/FR05/Densities/PlantedLaw.lean:58:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:107:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:115:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:160:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:162:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:164:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:184:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:202:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:204:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:229:40: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourcePlantedColumn, joinTwo, hone]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:242:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:281:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:340:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/PlantedLaw.lean:342:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3670/3788] Replayed NLA.FR05.Densities.SourceRows
+warning: NLA/FR05/Densities/SourceRows.lean:25:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:33:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:44:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:46:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:48:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:50:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:54:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:73:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:75:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:232:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:234:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceRows.lean:261:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3673/3788] Replayed NLA.FR05.Densities.SourceMarginals
+warning: NLA/FR05/Densities/SourceMarginals.lean:23:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceMarginals.lean:25:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceMarginals.lean:36:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceMarginals.lean:97:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Densities/SourceMarginals.lean:99:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3807/3833] Replayed NLA.FR05.Bridges.SourceRadialDensity
+warning: NLA/FR05/Bridges/SourceRadialDensity.lean:33:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: NLA/FR05/Bridges/SourceRadialDensity.lean:63:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourceRadialDensity.lean:102:35: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_mul, add_zero, div_one, one_pow, one_div] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NLA/FR05/Bridges/SourceRadialDensity.lean:102:62: This simp argument is unused:
+  one_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zero_mul, add_zero, one_mul, div_one, one_pow] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3808/3833] Replayed NLA.FR05.Bridges.SourcePlantedDensityBridge
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:107:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:140:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:142:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:145:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:219:60: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourcePlantedColumn, sourceHeadTailJoin, sourceCoordinatePolarMap, sourceScalarPolarMap,
+    sourceMagnitudePairMap, sourcePhasePairMap, phaseVectorMap, coneMagnitudeMap, conePhasePoint,
+    AddCircle.toCircle_apply_mk, Circle.coe_exp, joinTwo, hone]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:229:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:233:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3811/3833] Replayed Challenge
+warning: Challenge.lean:17:8: declaration uses `sorry`
+warning: Challenge.lean:23:8: declaration uses `sorry`
+warning: Challenge.lean:30:8: declaration uses `sorry`
+✔ [3813/3833] Built NLA.FR05.Planted.DerivativeNorm (6.5s)
+✔ [3814/3833] Built NLA.FR05.SmallBall.NonTailConditionalSmallBall (7.3s)
+✔ [3815/3833] Built NLA.FR05.SmallBall.SourceScalarShift (7.4s)
+⚠ [3816/3833] Built NLA.FR05.Planted.SourceGoodEvent (7.9s)
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:34:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:67:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:99:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:118:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3817/3833] Built NLA.FR05.Planted.ImbalancePerturbation (8.0s)
+✔ [3818/3833] Built NLA.FR05.SmallBall.SourceNonTailGlobal (8.4s)
+✔ [3819/3833] Built NLA.FR05.Planted.SourceMatrixPerturbation (7.4s)
+✔ [3820/3833] Built NLA.FR05.SmallBall.SourceRowSmallBall (8.2s)
+✔ [3821/3833] Built NLA.FR05.Planted.SourceLocalControl (7.8s)
+✔ [3822/3833] Built NLA.FR05.Planted.SourceRowDistance (7.6s)
+✔ [3823/3833] Built NLA.FR05.Planted.SourceHighProbability (7.9s)
+✔ [3824/3833] Built NLA.FR05.Proposition31 (7.6s)
+✔ [3825/3833] Built NLA.FR05.Planted.PlantedHaarFailure (7.2s)
+✔ [3826/3833] Built NLA.FR05.Bridges.SourceHaarPlantedDensity (23s)
+✔ [3827/3833] Built NLA.FR05.Bridges.SourceReferenceFrameDensity (7.7s)
+✔ [3828/3833] Built NLA.FR05.Bridges.SourceReferenceLawBridge (22s)
+✔ [3829/3833] Built NLA.FR05.FinalAssembly (7.6s)
+✔ [3830/3833] Built NLA.FR05.Proof (7.3s)
+ℹ [3832/3833] Built Solution (7.6s)
+info: Solution.lean:110:0: 'NLA.FR05.proposition_3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:111:0: 'NLA.FR05.proposition_3_1_haar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:112:0: 'NLA.FR05.proposition_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:113:0: 'NLA.FR05.explicit_noninjective_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:114:0: 'NLA.FR05.source_planted_frame_law_representation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:115:0: 'NLA.FR05.source_planted_radial_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:116:0: 'NLA.FR05.source_planted_radial_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:117:0: 'NLA.FR05.source_planted_column_density_head_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:118:0: 'NLA.FR05.source_haar_planted_frame_law_eq_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:119:0: 'NLA.FR05.source_reference_frame_law_eq_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:120:0: 'NLA.FR05.source_reference_injective_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:121:0: 'NLA.FR05.source_reference_injective_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:122:0: 'NLA.FR05.likelihood_l2_bound_of_second_moment_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:123:0: 'NLA.FR05.phaseRetrieval_injective_probability_le_inv_of_source_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Solution.lean:124:0: 'NLA.FR05.phaseRetrieval_probability_le_planted_add_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:125:0: 'NLA.FR05.phaseRetrieval_injective_probability_le_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Solution.lean:126:0: 'NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3833 jobs).
+-- Found 0 errors in 14 declarations (plus 4 automatically generated ones) in NLA.FR05.Definitions with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 17 declarations (plus 12 automatically generated ones) in NLA.FR05.Geometry.Obstruction with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 7 declarations (plus 1 automatically generated ones) in NLA.FR05.Measure.Comparison with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 16 declarations (plus 9 automatically generated ones) in NLA.FR05.Gaussian.GaussianFrameRows with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 12 declarations (plus 3 automatically generated ones) in NLA.FR05.Gaussian.GaussianGram with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 11 declarations (plus 15 automatically generated ones) in NLA.FR05.SmallBall.GaussianSmallBall with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 5 declarations (plus 3 automatically generated ones) in NLA.FR05.Overlap.HaarCorner with 15 linters
+
+
+-- All linting checks passed!
+-- Found 0 errors in 30 declarations (plus 17 automatically generated ones) in NLA.FR05.Overlap.Spectrum with 15 linters
+
+
+-- All linting checks passed!
+'MeasureTheory.Measure.map_prod_eq_withDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MeasureTheory.Measure.map_prod_eq_withDensity_ofReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MeasureTheory.Measure.map_prod_eq_withDensity_of_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MeasureTheory.abs_setIntegral_le_sqrt_setIntegral_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MeasureTheory.abs_setIntegral_le_sqrt_integral_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.phaseRetrievalInjective_iff_of_linearEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.phaseRetrievalInjective_mul_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.measurePreserving_real_star_dotProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Matrix.IsHermitian.det_one_add_smul_eq_prod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.standardComplexGaussianTail_map_splitSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.gaussianMatrixProjection_law_eq_of_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.gaussianReal_abs_add_smallBall_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.sourceOverlapLaw_eq_haarCorner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.volume_phaseCircle_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.sourceUniformInterval_phase_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.exists_row_mem_otherRowSpan_of_not_isUnit_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.exists_unit_mem_otherRowSpan_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.cone_integral_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.kernelEvenExp_factor_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.kernel_even_exp_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.sourceEquation_midpoint_difference_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.sourceEquation_nonlinear_difference_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.arccos_gap_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.arccos_gap_le_pi_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.volume_cosineBandPhaseSublevel_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.affineTrig_cosine_normalForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.norm_sq_le_squaredEuclideanNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.euclideanNorm_le_sqrt_card_mul_of_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.abs_plantedEquationLinear_sub_sourceRowJacobianForm_le_of_radial_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'NLA.FR05.proposition_3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.proposition_3_1_haar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.proposition_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.source_haar_planted_frame_law_eq_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.source_reference_frame_law_eq_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.source_reference_injective_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.phaseRetrieval_probability_le_planted_add_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.phaseRetrieval_injective_probability_le_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+All 17 new API lemmas occur in the final proof dependency closure.

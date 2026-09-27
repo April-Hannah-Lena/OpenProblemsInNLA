@@ -1,5 +1,12 @@
 # FR-05 formalisation plan
 
+This is the historical development plan, retained with its original checkpoint
+descriptions and proposed module names. As of 27 September 2026, the complete
+bound and limit are locally proved; its statements below about unfinished work
+are superseded by the [current source guide](lean/README.md) and
+[final assembly](lean/FINAL_ASSEMBLY.md). Independent review and the isolated
+Linux verification are still pending.
+
 ## Scope and source boundary
 
 The intended Lean result is the original FR-05 statement, strengthened to the quantitative theorem claimed as Theorem 1.4 of Zhangsong Li, [*Resolution of Vinzant's Conjecture on Phase Retrieval Injectivity*](https://zhangsong-li.github.io/injectivity_phase_retrieval.pdf), 13 September 2026:
