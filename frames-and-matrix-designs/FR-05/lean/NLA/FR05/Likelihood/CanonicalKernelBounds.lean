@@ -1,6 +1,4 @@
 import NLA.FR05.Overlap.OverlapCholesky
-import NLA.FR05.SourceParameters
-import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 
 /-!
 # Canonical kernels and comparison bounds
@@ -17,7 +15,6 @@ section CanonicalKernelBounds
 
 open MeasureTheory Complex Real Matrix WithLp
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 theorem canonicalOverlapLaw_map_fst (K : SourceOverlapMatrix) :
     (canonicalOverlapLaw K).map Prod.fst = standardComplexGaussianTail 2 := by
@@ -104,7 +101,7 @@ theorem sourceDensityCorrelation_polynomial_bound {M : ℕ} (hM : 2 ≤ M)
     (a b : SourceDensityKind) {K : SourceOverlapMatrix} (hK : overlapOperatorNorm K < 1) :
     sourceDensityCorrelation a b M K ≤ (Real.exp 1 + 4) * (M : ℝ)^52 := by
   apply (sourceDensityCorrelation_le_densityBound hM a b hK).trans
-  have hM1 : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by omega)
+  have hM1 : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by lia)
   have hpow : (1 : ℝ) ≤ (M : ℝ)^52 := one_le_pow₀ hM1
   unfold sourceDensityBound
   nlinarith
@@ -122,8 +119,8 @@ theorem source_tail_factorization {M : ℕ} (hM : 5 ≤ M) (ρ Δ : ℝ) :
       ρ ^ 15 * (ρ ^ 4 * Δ) ^ (M - 5) * Δ := by
   have hN : sourceRowCount M = 15 + 4 * (M - 5) := by
     unfold sourceRowCount
-    omega
-  have hD : M - 4 = (M - 5) + 1 := by omega
+    lia
+  have hD : M - 4 = (M - 5) + 1 := by lia
   rw [hN, hD, pow_add, pow_add, pow_one, mul_pow, pow_mul]
   ring
 

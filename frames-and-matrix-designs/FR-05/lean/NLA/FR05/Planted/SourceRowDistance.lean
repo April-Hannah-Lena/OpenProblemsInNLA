@@ -1,6 +1,5 @@
 import NLA.FR05.SmallBall.SourceRowSmallBall
 import NLA.FR05.SmallBall.RowDistanceProbability
-import Mathlib.MeasureTheory.Constructions.Pi
 open MeasureTheory WithLp
 open scoped ENNReal RealInnerProductSpace
 namespace NLA.FR05

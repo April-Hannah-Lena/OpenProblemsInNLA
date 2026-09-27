@@ -8,10 +8,7 @@ the tail perturbation. This module combines the scalar estimate from
 `GaussianSmallBall` with the product-phase bound, before the outer radial mixture.
 -/
 import NLA.FR05.SmallBall.PhaseAbsolute
-import NLA.FR05.SmallBall.GaussianSmallBall
 import NLA.FR05.SmallBall.TailConditionalSmallBall
-import Mathlib.Probability.Distributions.Gaussian.Real
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

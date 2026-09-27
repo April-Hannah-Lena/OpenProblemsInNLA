@@ -1,7 +1,6 @@
 import NLA.FR05.Geometry.LeastSingular
-import NLA.FR05.Measure.ProductSections
 import Mathlib.MeasureTheory.Constructions.Pi
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Real
+import NLA.FR05.Measure.ProductSections
 
 set_option autoImplicit false
 set_option maxHeartbeats 300000
@@ -34,26 +33,20 @@ theorem exists_unit_otherRowNormal (A : Matrix ι ι ℝ) (i : ι) :
     simp [Fintype.card_subtype_compl]
   have hd : Module.finrank ℝ (otherRowSpan A i) ≤ Fintype.card ι - 1 := by
     rw [otherRowSpan_eq_span_subtype]
-    change (Set.range (fun j : {j : ι // j ≠ i} ↦ toLp 2 (A j))).finrank ℝ ≤ _
-    simpa [hc] using (finrank_range_le_card (R := ℝ)
+    simpa [Set.finrank, hc] using (finrank_range_le_card (R := ℝ)
       (fun j : {j : ι // j ≠ i} ↦ toLp 2 (A j)))
   have hsum := (otherRowSpan A i).finrank_add_finrank_orthogonal
   have hcard : 0 < Fintype.card ι := Fintype.card_pos_iff.mpr ⟨i⟩
   have hdim : Module.finrank ℝ (EuclideanSpace ℝ ι) = Fintype.card ι := by simp
-  have hpos : 0 < Module.finrank ℝ (otherRowSpan A i)ᗮ := by omega
+  have hpos : 0 < Module.finrank ℝ (otherRowSpan A i)ᗮ := by
+    by_contra h
+    rw [Nat.eq_zero_of_not_pos h, add_zero, hdim] at hsum
+    lia
   let : Nontrivial (otherRowSpan A i)ᗮ := Module.nontrivial_of_finrank_pos hpos
-  obtain ⟨w, hw⟩ := exists_ne (0 : (otherRowSpan A i)ᗮ)
-  have hw' : (w : EuclideanSpace ℝ ι) ≠ 0 := by
-    intro h
-    exact hw (Subtype.ext h)
-  have hn := norm_pos_iff.mpr hw'
-  refine ⟨‖(w : EuclideanSpace ℝ ι)‖⁻¹ • (w : EuclideanSpace ℝ ι), ?_, ?_⟩
-  · rw [norm_smul, Real.norm_eq_abs, abs_of_nonneg (inv_nonneg.mpr hn.le), inv_mul_cancel₀ hn.ne']
-  · intro j hj
-    rw [inner_smul_left]
-    have h := (Submodule.mem_orthogonal' _ _).mp w.property (toLp 2 (A j))
-      (Submodule.subset_span (show toLp 2 (A j) ∈ {x | ∃ k, k ≠ i ∧ x = toLp 2 (A k)} from ⟨j, hj, rfl⟩))
-    simp [h]
+  obtain ⟨w, hw⟩ := exists_norm_eq (otherRowSpan A i)ᗮ (by norm_num : (0 : ℝ) ≤ 1)
+  refine ⟨w, hw, fun j hj ↦ ?_⟩
+  exact (Submodule.mem_orthogonal' _ _).mp w.property (toLp 2 (A j))
+    (Submodule.subset_span ⟨j, hj, rfl⟩)
 
 def rowNearSpan (A : Matrix ι ι ℝ) (i : ι) (t : ℝ) : Prop :=
   ∃ c : {j : ι // j ≠ i} → ℝ,

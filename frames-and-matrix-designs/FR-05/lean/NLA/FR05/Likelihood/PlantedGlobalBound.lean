@@ -41,7 +41,7 @@ theorem lintegral_planted_pair_global_bound {M : ℕ} (hM : 2 ≤ M)
   let B := Real.exp (2 * sourceEpsilon M ^ 2 - overlapOperatorNorm K ^ 2 / 2000) *
     overlapDeterminant K ^ (-(1 / 4 : ℝ))
   have hB : 0 ≤ B := mul_nonneg (Real.exp_pos _).le (Real.rpow_nonneg (overlapDeterminant_pos hK).le _)
-  have hM1 : 1 ≤ M := by omega
+  have hM1 : 1 ≤ M := by lia
   have he := (sourceEpsilon_pos M hM1).le
   apply (lintegral_planted_pair_le_cones hM _ (by fun_prop)).trans
   calc

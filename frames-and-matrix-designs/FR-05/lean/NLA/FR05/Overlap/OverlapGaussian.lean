@@ -1,6 +1,4 @@
 import Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

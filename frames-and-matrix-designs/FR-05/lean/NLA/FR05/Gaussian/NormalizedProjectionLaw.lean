@@ -1,6 +1,5 @@
 import NLA.FR05.Gaussian.SimplexProjectionLaw
 import NLA.FR05.Gaussian.GaussianSphere
-import NLA.FR05.Gaussian.GaussianFrameRows
 
 /-!
 # Normalised Gaussian projections and Haar sphere projections
@@ -18,7 +17,6 @@ section NormalizedProjectionLaw
 open MeasureTheory ProbabilityTheory Matrix Set
 open scoped ENNReal BigOperators
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 def normalizedGaussianHead (p : ℝ × Signal 2) : Signal 2 :=
   fun i ↦ (((Real.sqrt (signalEnergy p.2 + p.1))⁻¹ : ℝ) : ℂ) * p.2 i
@@ -85,16 +83,14 @@ theorem measurable_normalizedFirstTwo {m : ℕ} (hm : 2 ≤ m) :
 
 theorem normalizedFirstTwo_gaussian_law (n : ℕ) :
     (standardComplexGaussianTail (2 + (n + 1))).map
-      (normalizedFirstTwo (by omega)) = sphereProjectionLaw n := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail (n + 1)) :=
-    isProbabilityMeasure_standardComplexGaussianTail (n + 1)
+      (normalizedFirstTwo (by lia)) = sphereProjectionLaw n := by
   let F : Signal 2 × Signal (n + 1) → ℝ × Signal 2 :=
     fun p ↦ (signalEnergy p.2, p.1)
   have hF : Measurable F := by
     apply Continuous.measurable
     unfold F signalEnergy squaredEuclideanNorm
     fun_prop
-  have he : normalizedFirstTwo (by omega : 2 ≤ 2 + (n + 1)) =
+  have he : normalizedFirstTwo (by lia : 2 ≤ 2 + (n + 1)) =
       normalizedGaussianHead ∘ F ∘ splitGaussianSum 2 (n + 1) := by
     funext z
     ext i
@@ -113,7 +109,7 @@ theorem normalizedFirstTwo_gaussian_law (n : ℕ) :
       (show Measurable (signalEnergy (n := n + 1)) by
         apply Continuous.measurable; unfold signalEnergy squaredEuclideanNorm; fun_prop)
       measurable_id
-    rw [standardComplexGaussianTail_map_energy (by omega), Measure.map_id] at hmap
+    rw [standardComplexGaussianTail_map_energy (by lia), Measure.map_id] at hmap
     simp only [Nat.cast_add, Nat.cast_one] at hmap
     have hswap : ((standardComplexGaussianTail 2).prod
         (standardComplexGaussianTail (n + 1))).map Prod.swap =
@@ -134,24 +130,24 @@ open MeasureTheory ProbabilityTheory Matrix
 open scoped BigOperators
 
 theorem normalizedFirstTwo_gaussian_law_of_le {m : ℕ} (hm : 3 ≤ m) :
-    (standardComplexGaussianTail m).map (normalizedFirstTwo (by omega)) =
+    (standardComplexGaussianTail m).map (normalizedFirstTwo (by lia)) =
       sphereProjectionLaw (m - 3) := by
-  obtain ⟨n, rfl⟩ : ∃ n, m = 2 + (n + 1) := ⟨m - 3, by omega⟩
-  simpa only [show 2 + (n + 1) - 3 = n by omega] using normalizedFirstTwo_gaussian_law n
+  obtain ⟨n, rfl⟩ : ∃ n, m = 2 + (n + 1) := ⟨m - 3, by lia⟩
+  simpa only [show 2 + (n + 1) - 3 = n by lia] using normalizedFirstTwo_gaussian_law n
 
 theorem normalizedGaussian_orthonormal_projection {m : ℕ} (hm : 3 ≤ m)
     (B : Matrix (Fin m) (Fin 2) ℂ) (hB : Bᴴ * B = 1) :
     (standardComplexGaussianTail m).map (fun z ↦ Bᴴ *ᵥ normalizedComplexVector z) =
       sphereProjectionLaw (m - 3) := by
-  obtain ⟨U, hU⟩ := exists_sourceUnitary_extension (by omega : 2 ≤ m) B hB
+  obtain ⟨U, hU⟩ := exists_sourceUnitary_extension (by lia : 2 ≤ m) B hB
   have he : (fun z ↦ Bᴴ *ᵥ normalizedComplexVector z) =
-      normalizedFirstTwo (by omega : 2 ≤ m) ∘ (fun z ↦ (star U).val *ᵥ z) := by
+      normalizedFirstTwo (by lia : 2 ≤ m) ∘ (fun z ↦ (star U).val *ᵥ z) := by
     funext z
     ext i
-    change _ = normalizedComplexVector ((star U).val *ᵥ z) (Fin.castLE (by omega) i)
+    change _ = normalizedComplexVector ((star U).val *ᵥ z) (Fin.castLE (by lia) i)
     rw [normalizedComplexVector_unitary_mulVec]
     change (∑ j, star (B j i) * normalizedComplexVector z j) =
-      ∑ j, star (U.val j (Fin.castLE (by omega) i)) * normalizedComplexVector z j
+      ∑ j, star (U.val j (Fin.castLE (by lia) i)) * normalizedComplexVector z j
     simp_rw [hU]
   rw [he, ← Measure.map_map (measurable_normalizedFirstTwo _) (by fun_prop),
     standardComplexGaussianTail_map_unitary_mulVec (star U).val
@@ -159,20 +155,20 @@ theorem normalizedGaussian_orthonormal_projection {m : ℕ} (hm : 3 ≤ m)
     normalizedFirstTwo_gaussian_law_of_le hm]
 
 def sourceHaarFirstTwoCoordinates {m : ℕ} (hm : 2 ≤ m) (U : SourceUnitary m) : Signal 2 :=
-  fun i ↦ U.val (Fin.castLE hm i) ⟨0, by omega⟩
+  fun i ↦ U.val (Fin.castLE hm i) ⟨0, by lia⟩
 
 @[fun_prop]
 theorem continuous_sourceHaarFirstTwoCoordinates {m : ℕ} (hm : 2 ≤ m) :
     Continuous (sourceHaarFirstTwoCoordinates hm) := by
   exact continuous_pi fun i ↦
-    ((continuous_apply (Fin.castLE hm i)).comp (continuous_sourceHaarFirstColumn (by omega)))
+    ((continuous_apply (Fin.castLE hm i)).comp (continuous_sourceHaarFirstColumn (by lia)))
 
 theorem sourceHaarFirstTwoCoordinates_law {m : ℕ} (hm : 3 ≤ m) :
-    (sourceUnitaryLaw m).map (sourceHaarFirstTwoCoordinates (by omega)) =
+    (sourceUnitaryLaw m).map (sourceHaarFirstTwoCoordinates (by lia)) =
       sphereProjectionLaw (m - 3) := by
   have h := congrArg (Measure.map (fun z : Signal m ↦ fun i : Fin 2 ↦
-      z (Fin.castLE (by omega : 2 ≤ m) i)))
-    (sourceHaarFirstColumn_eq_normalizedGaussian (by omega : 0 < m))
+      z (Fin.castLE (by lia : 2 ≤ m) i)))
+    (sourceHaarFirstColumn_eq_normalizedGaussian (by lia : 0 < m))
   rw [Measure.map_map (by fun_prop) (continuous_sourceHaarFirstColumn _).measurable,
     Measure.map_map (by fun_prop) (measurable_normalizedComplexVector m)] at h
   exact h.trans (normalizedFirstTwo_gaussian_law_of_le hm)

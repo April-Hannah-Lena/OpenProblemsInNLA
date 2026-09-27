@@ -1,5 +1,4 @@
 import NLA.FR05.Densities.PlantedLaw
-import Mathlib.MeasureTheory.Constructions.Pi
 
 /-! ## SourceRowBridge -/
 
@@ -22,7 +21,7 @@ namespace NLA.FR05
 theorem ae_mem_sourceRadialLaw_Ici {η δ : ℝ}
     (hη0 : 0 ≤ η) (hη1 : η < 1) :
     ∀ᵐ S ∂sourceRadialLaw η δ, S ∈ Ici δ := by
-  letI : IsProbabilityMeasure (sourceRadialLaw η δ) :=
+  let : IsProbabilityMeasure (sourceRadialLaw η δ) :=
     isProbabilityMeasure_sourceRadialLaw hη0 hη1
   change Ici δ ∈ ae (sourceRadialLaw η δ)
   rw [mem_ae_iff_prob_eq_one measurableSet_Ici]
@@ -30,7 +29,7 @@ theorem ae_mem_sourceRadialLaw_Ici {η δ : ℝ}
 
 theorem ae_mem_sourceUniformInterval_self {a b : ℝ} (hab : a < b) :
     ∀ᵐ x ∂sourceUniformInterval a b, x ∈ Icc a b := by
-  letI : IsProbabilityMeasure (sourceUniformInterval a b) :=
+  let : IsProbabilityMeasure (sourceUniformInterval a b) :=
     isProbabilityMeasure_sourceUniformInterval hab
   change Icc a b ∈ ae (sourceUniformInterval a b)
   rw [mem_ae_iff_prob_eq_one measurableSet_Icc]
@@ -41,17 +40,17 @@ almost surely. -/
 theorem ae_sourceScalarLaw_support {η δ ε : ℝ}
     (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) :
     ∀ᵐ q ∂sourceScalarLaw η δ ε, δ ≤ q.1 ∧ |q.2.1| ≤ ε := by
-  letI : IsProbabilityMeasure (sourceRadialLaw η δ) :=
+  let : IsProbabilityMeasure (sourceRadialLaw η δ) :=
     isProbabilityMeasure_sourceRadialLaw hη0 hη1
-  letI : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
+  let : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
     isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
+  let : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
     isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       ((sourceUniformInterval 0 (2 * Real.pi)).prod
         (sourceUniformInterval 0 (2 * Real.pi))) :=
     Measure.prod.instIsProbabilityMeasure _ _
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       ((sourceUniformInterval (-ε) ε).prod
         ((sourceUniformInterval 0 (2 * Real.pi)).prod
           (sourceUniformInterval 0 (2 * Real.pi)))) :=
@@ -70,10 +69,8 @@ theorem ae_sourceCoordinateLaw_support {η δ ε : ℝ} (n : ℕ)
     (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) :
     ∀ᵐ p ∂sourceCoordinateLaw η δ ε n,
       δ ≤ p.1.1 ∧ |p.1.2.1| ≤ ε := by
-  letI : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
+  let : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
     isProbabilityMeasure_sourceScalarLaw hη0 hη1 hε
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   rw [sourceCoordinateLaw]
   apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
   filter_upwards [ae_sourceScalarLaw_support hη0 hη1 hε] with q hq
@@ -229,9 +226,9 @@ theorem iidSourcePlantedColumnLaw_eq_coordinatesMap
     (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) :
     iidSourcePlantedColumnLaw η δ ε m n =
       (iidSourceCoordinateLaw η δ ε m n).map sourceColumnsFromCoordinates := by
-  letI : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
+  let : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
     isProbabilityMeasure_sourceCoordinateLaw hη0 hη1 hε n
-  letI : IsProbabilityMeasure (sourcePlantedColumnLaw η δ ε n) :=
+  let : IsProbabilityMeasure (sourcePlantedColumnLaw η δ ε n) :=
     isProbabilityMeasure_sourcePlantedColumnLaw hη0 hη1 hε n
   unfold iidSourcePlantedColumnLaw iidSourceCoordinateLaw sourcePlantedColumnLaw
   symm
@@ -258,7 +255,7 @@ theorem ae_sourceFrameFromCoordinates_eq_plantedFrame
     (hδ : 0 < δ) (hε1 : ε ≤ 1) :
     sourceFrameFromCoordinates =ᵐ[iidSourceCoordinateLaw η δ ε m n]
       fun p => plantedFrame (sourceRowsFromCoordinates p) := by
-  letI : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
+  let : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
     isProbabilityMeasure_sourceCoordinateLaw hη0 hη1 hε n
   have hcolumns :
       (fun p : Fin m → SourcePlantedCoordinates n =>
@@ -329,7 +326,6 @@ This is the conditioning interface needed in the row-to-span part of
 Lemma 3.7: one selected row is separated from all other rows while preserving
 the actual source-coordinate product law.
 -/
-
 
 
 set_option autoImplicit false

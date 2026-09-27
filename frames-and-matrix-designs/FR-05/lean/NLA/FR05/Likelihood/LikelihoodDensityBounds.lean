@@ -1,5 +1,4 @@
 import NLA.FR05.Likelihood.UniformKernels
-import NLA.FR05.Likelihood.CanonicalKernelBounds
 import NLA.FR05.Overlap.HaarOverlapDensity
 
 /-!
@@ -93,14 +92,13 @@ theorem source_local_power_density {M : ℕ} (hM : 1600 ≤ M)
       apply Real.exp_le_exp.mpr
       have hn' : (n : ℝ) ≤ 4 * M := by exact_mod_cast hn
       have hm : (1600 : ℝ) ≤ M := by exact_mod_cast hM
-      have hsub : ((M - 4 : ℕ) : ℝ) = (M : ℝ) - 4 := by rw [Nat.cast_sub (by omega)]; norm_num
+      have hsub : ((M - 4 : ℕ) : ℝ) = (M : ℝ) - 4 := by rw [Nat.cast_sub (by lia)]; norm_num
       rw [hsub]
       have hh := mul_le_mul_of_nonneg_right hn' (mul_nonneg (by norm_num : (0 : ℝ) ≤ 199 / 800) hx)
       have hh' := mul_nonneg (show 0 ≤ (M : ℝ) / 400 - 4 by linarith) hx
       nlinarith
 
 theorem tendsto_sourceEpsilon : Tendsto sourceEpsilon atTop (𝓝 0) := by
-  change Tendsto (fun M : ℕ ↦ ((M : ℝ) ^ 50)⁻¹) atTop (𝓝 0)
   exact ((tendsto_pow_atTop (α := ℝ) (by norm_num : 50 ≠ 0)).comp
     (tendsto_natCast_atTop_atTop (R := ℝ))).inv_tendsto_atTop
 
@@ -155,7 +153,7 @@ theorem measurable_sourceOverlapLebesgueDensity (M : ℕ) :
   exact Measurable.ite measurableSet_overlapOperatorNorm_lt_one (by fun_prop) measurable_const
 
 theorem integral_sourceOverlapLaw_density {M : ℕ} (hM : 4 ≤ M) (f : SourceOverlapMatrix → ℝ) :
-    (∫ K, f K ∂sourceOverlapLaw M (by omega)) =
+    (∫ K, f K ∂sourceOverlapLaw M (by lia)) =
       ∫ K, sourceOverlapLebesgueDensity M K * f K := by
   rw [lemma_3_5 hM, integral_withDensity_eq_integral_toReal_smul
     (measurable_sourceOverlapLebesgueDensity M).ennreal_ofReal
@@ -180,8 +178,8 @@ theorem integrable_sourceKernelDifference {M : ℕ} (hM : 2 ≤ M) (a b : Source
 
 theorem integrable_sourceWeightedKernelDifference {M : ℕ} (hM : 4 ≤ M) (a b : SourceDensityKind) :
     Integrable (fun K ↦ sourceOverlapLebesgueDensity M K *
-      sourceKernelDifference (by omega : 2 ≤ M) a b K) := by
-  have hi := integrable_sourceKernelDifference (by omega : 2 ≤ M) a b
+      sourceKernelDifference (by lia : 2 ≤ M) a b K) := by
+  have hi := integrable_sourceKernelDifference (by lia : 2 ≤ M) a b
   rw [lemma_3_5 hM] at hi
   have h := (integrable_withDensity_iff_integrable_smul'
     (measurable_sourceOverlapLebesgueDensity M).ennreal_ofReal
@@ -191,10 +189,10 @@ theorem integrable_sourceWeightedKernelDifference {M : ℕ} (hM : 4 ≤ M) (a b 
 theorem source_local_weighted_difference {M : ℕ} (hM : 1600 ≤ M)
     (a b : SourceDensityKind) {K : SourceOverlapMatrix}
     (hK : overlapOperatorNorm K ≤ sourceLocalRadius) :
-    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by omega) a b K ≤
+    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by lia) a b K ≤
       8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
         Real.exp (-(1 / 400) * M * overlapFrobeniusSq K) := by
-  have hm : 2 ≤ M := by omega
+  have hm : 2 ≤ M := by lia
   have hball : overlapOperatorNorm K < 1 :=
     lt_of_le_of_lt (hK.trans sourceLocalRadius_le) (by norm_num)
   have hΔ := (overlapDeterminant_pos hball).le
@@ -213,9 +211,9 @@ theorem source_local_weighted_difference {M : ℕ} (hM : 1600 ≤ M)
     have hmax := source_local_power_density hM (le_max_of_le_left hu) hK
       (max_le (source_local_kernel_exp hm a b hK)
         (source_local_kernel_exp hm .reference .reference hK))
-      (show sourceRowCount M - 1 ≤ 4 * M by unfold sourceRowCount; omega)
+      (show sourceRowCount M - 1 ≤ 4 * M by unfold sourceRowCount; lia)
     have hN : (sourceRowCount M : ℝ) ≤ 4 * M := by
-      exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; omega)
+      exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; lia)
     have hd : 0 ≤ sourceKernelDifference hm a b K := abs_nonneg _
     rw [sourceOverlapLebesgueDensity, if_pos hball]
     change sourceOverlapPrefactor M * overlapDeterminant K ^ (M - 4) * _ ≤ _
@@ -224,7 +222,7 @@ theorem source_local_weighted_difference {M : ℕ} (hM : 1600 ≤ M)
           (2 * sourceTaylorConstant * overlapFrobeniusSq K ^ 2 * sourceRowCount M *
             max u v ^ (sourceRowCount M - 1)) := by
         exact mul_le_mul
-          (mul_le_mul_of_nonneg_right (sourceOverlapPrefactor_le (M := M) (by omega)) (pow_nonneg hΔ _))
+          (mul_le_mul_of_nonneg_right (sourceOverlapPrefactor_le (M := M) (by lia)) (pow_nonneg hΔ _))
           hdiff hd (by positivity)
       _ = 2 * sourceTaylorConstant * overlapFrobeniusSq K ^ 2 * sourceRowCount M * (M : ℝ) ^ 4 *
           (max u v ^ (sourceRowCount M - 1) * overlapDeterminant K ^ (M - 4)) := by ring
@@ -259,10 +257,10 @@ theorem source_tail_power_determinant {M : ℕ} (hM : 5 ≤ M)
     (hp : 2 * sourceDelta M + 2 * sourceEpsilon M ^ 2 ≤ sourceLocalRadius ^ 2 / 4000)
     (a b : SourceDensityKind) {K : SourceOverlapMatrix}
     (hball : overlapOperatorNorm K < 1) (hK : sourceLocalRadius < overlapOperatorNorm K) :
-    sourceOverlapKernel (by omega : 2 ≤ M) a b K ^ sourceRowCount M *
+    sourceOverlapKernel (by lia : 2 ≤ M) a b K ^ sourceRowCount M *
       overlapDeterminant K ^ (M - 4) ≤
         sourceTailCoefficient * (M : ℝ) ^ 780 * Real.exp (-sourceTailRate * M) := by
-  have hm : 2 ≤ M := by omega
+  have hm : 2 ≤ M := by lia
   have hx := overlapFrobeniusSq_nonneg K
   have hF : overlapFrobeniusSq K ≤ 2 := (overlapOperatorNorm_lt_one_iff K).mp hball |>.1.le
   have hΔ := overlapDeterminant_pos hball
@@ -293,9 +291,9 @@ theorem source_tail_weighted_difference {M : ℕ} (hM : 5 ≤ M)
     (hp : 2 * sourceDelta M + 2 * sourceEpsilon M ^ 2 ≤ sourceLocalRadius ^ 2 / 4000)
     (a b : SourceDensityKind) {K : SourceOverlapMatrix}
     (hball : overlapOperatorNorm K < 1) (hK : sourceLocalRadius < overlapOperatorNorm K) :
-    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by omega) a b K ≤
+    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by lia) a b K ≤
       2 * sourceTailCoefficient * (M : ℝ) ^ 784 * Real.exp (-sourceTailRate * M) := by
-  have hm : 2 ≤ M := by omega
+  have hm : 2 ≤ M := by lia
   have hΔ := (overlapDeterminant_pos hball).le
   have hc := sourceTailCoefficient_pos.le
   have hu := sourceOverlapKernel_nonneg hm a b K
@@ -314,7 +312,7 @@ theorem source_tail_weighted_difference {M : ℕ} (hM : 5 ≤ M)
         (sourceOverlapKernel hm a b K ^ sourceRowCount M +
           sourceOverlapKernel hm .reference .reference K ^ sourceRowCount M) := by
       exact mul_le_mul
-        (mul_le_mul_of_nonneg_right (sourceOverlapPrefactor_le (M := M) (by omega)) (pow_nonneg hΔ _))
+        (mul_le_mul_of_nonneg_right (sourceOverlapPrefactor_le (M := M) (by lia)) (pow_nonneg hΔ _))
         hdiff (abs_nonneg _) (by positivity)
     _ = (M : ℝ) ^ 4 *
         (sourceOverlapKernel hm a b K ^ sourceRowCount M * overlapDeterminant K ^ (M - 4) +
@@ -328,7 +326,7 @@ theorem source_tail_weighted_difference {M : ℕ} (hM : 5 ≤ M)
 theorem source_weighted_difference_majorant {M : ℕ} (hM : 1600 ≤ M)
     (hp : 2 * sourceDelta M + 2 * sourceEpsilon M ^ 2 ≤ sourceLocalRadius ^ 2 / 4000)
     (a b : SourceDensityKind) (K : SourceOverlapMatrix) :
-    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by omega) a b K ≤
+    sourceOverlapLebesgueDensity M K * sourceKernelDifference (M := M) (by lia) a b K ≤
       8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
         Real.exp (-(1 / 400) * M * overlapFrobeniusSq K) +
       (2 * sourceTailCoefficient * Real.exp 2 * (M : ℝ) ^ 784 * Real.exp (-sourceTailRate * M)) *
@@ -338,7 +336,7 @@ theorem source_weighted_difference_majorant {M : ℕ} (hM : 1600 ≤ M)
   by_cases hball : overlapOperatorNorm K < 1
   · by_cases hlocal : overlapOperatorNorm K ≤ sourceLocalRadius
     · exact (source_local_weighted_difference hM a b hlocal).trans (le_add_of_nonneg_right (by positivity))
-    · have ht := source_tail_weighted_difference (by omega : 5 ≤ M) hp a b hball (lt_of_not_ge hlocal)
+    · have ht := source_tail_weighted_difference (by lia : 5 ≤ M) hp a b hball (lt_of_not_ge hlocal)
       have hx : overlapFrobeniusSq K ≤ 2 := (overlapOperatorNorm_lt_one_iff K).mp hball |>.1.le
       have he : 1 ≤ Real.exp 2 * Real.exp (-overlapFrobeniusSq K) := by
         rw [← Real.exp_add]

@@ -1,5 +1,4 @@
 import Mathlib.Analysis.SpecialFunctions.Exp
-import Mathlib.Analysis.Complex.Trigonometric
 
 /-! ## KernelTaylorBounds -/
 
@@ -178,8 +177,8 @@ theorem kernel_even_exp_remainder {ρ T A B : ℝ}
           32 * (1 + T) ^ 4) := by
         gcongr
         · linarith
-        · exact kernel_radius_power_bound hT 2 (by omega)
-        · exact kernel_radius_power_bound hT 3 (by omega)
+        · exact kernel_radius_power_bound hT 2 (by lia)
+        · exact kernel_radius_power_bound hT 3 (by lia)
       _ = _ := by ring
   exact (kernelEvenExp_factor_bound A B).trans
     (mul_le_mul hpoly (Real.exp_le_exp.mpr hS) (Real.exp_pos _).le (by positivity))
@@ -238,19 +237,19 @@ theorem kernel_scalar_remainder {ρ T A B D E F L : ℝ}
   have hExp : 1 ≤ Real.exp (T / 8) := Real.one_le_exp (by positivity)
   have hQ0 : ρ^4 ≤ ρ^4 * (1 + T)^4 * Real.exp (T / 8) := by
     calc
-      _ ≤ ρ^4 * (1 + T)^4 := le_mul_of_one_le_right (by positivity) (by nlinarith [kernel_radius_power_bound hT 0 (by omega)])
+      _ ≤ ρ^4 * (1 + T)^4 := le_mul_of_one_le_right (by positivity) (by nlinarith [kernel_radius_power_bound hT 0 (by lia)])
       _ ≤ _ := le_mul_of_one_le_right (by positivity) hExp
   have hQ1 : ρ^4 * T ≤ ρ^4 * (1 + T)^4 * Real.exp (T / 8) := by
     calc
       _ ≤ ρ^4 * (1 + T)^4 := by
         gcongr
-        simpa only [pow_one] using kernel_radius_power_bound hT 1 (by omega)
+        simpa only [pow_one] using kernel_radius_power_bound hT 1 (by lia)
       _ ≤ _ := le_mul_of_one_le_right (by positivity) hExp
   have hQ2 : ρ^4 * T^2 ≤ ρ^4 * (1 + T)^4 * Real.exp (T / 8) := by
     calc
       _ ≤ ρ^4 * (1 + T)^4 := by
         gcongr
-        exact kernel_radius_power_bound hT 2 (by omega)
+        exact kernel_radius_power_bound hT 2 (by lia)
       _ ≤ _ := le_mul_of_one_le_right (by positivity) hExp
   have hfinal : |D * kernelEvenExp A B - (1 + F - E + L^2 / 2)| ≤
       |D * (kernelEvenExp A B - (1 - A + B^2 / 2))| +

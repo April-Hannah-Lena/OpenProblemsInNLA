@@ -7,7 +7,6 @@ applied.
 -/
 import NLA.FR05.Planted.Jacobian
 import NLA.FR05.Gaussian.GaussianTail
-import Mathlib.Tactic
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate Matrix

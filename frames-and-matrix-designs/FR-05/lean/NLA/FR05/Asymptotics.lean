@@ -1,5 +1,3 @@
-import Mathlib.Analysis.Real.Sqrt
-import Mathlib.Tactic
 import NLA.FR05.Probability
 
 /-! ## Assembly -/
@@ -11,7 +9,6 @@ The purely numerical final step of Theorem 1.4. The analytic work in the
 source is precisely what supplies `comparison`; no asymptotic notation or
 unnamed constant crosses this finite algebraic boundary.
 -/
-
 
 
 set_option autoImplicit false
@@ -29,41 +26,15 @@ theorem inverse_bound_of_source_comparison (d : ℕ) (hd : 1 ≤ d)
     p ≤ (2 * a + b) / d := by
   have hdR : 0 < (d : ℝ) := by exact_mod_cast (Nat.zero_lt_of_lt hd)
   have hdR' : 1 ≤ (d : ℝ) := by exact_mod_cast hd
-  have hc : 0 ≤ b / (d : ℝ) := div_nonneg hb hdR.le
-  have young :
-      Real.sqrt (p * (b / (d : ℝ))) ≤ (p + b / (d : ℝ)) / 2 := by
-    have hprod : 0 ≤ p * (b / (d : ℝ)) := mul_nonneg hp hc
-    have hsqrt : 0 ≤ Real.sqrt (p * (b / (d : ℝ))) := Real.sqrt_nonneg _
-    have hsquare : Real.sqrt (p * (b / (d : ℝ))) ^ 2 = p * (b / (d : ℝ)) :=
-      Real.sq_sqrt hprod
+  rw [mul_comm b p, mul_div_assoc] at comparison
+  have young : Real.sqrt (p * (b / (d : ℝ))) ≤ (p + b / (d : ℝ)) / 2 := by
+    rw [Real.sqrt_le_left (by positivity)]
     nlinarith [sq_nonneg (p - b / (d : ℝ))]
-  have comparison' :
-      p ≤ a / (d : ℝ) ^ 2 + Real.sqrt (p * (b / (d : ℝ))) := by
-    have hsqrt : b * p / (d : ℝ) = p * (b / (d : ℝ)) := by ring
-    rwa [hsqrt] at comparison
-  have hmid : p ≤ 2 * a / (d : ℝ) ^ 2 + b / (d : ℝ) := by
-    have linear_step (x A r c : ℝ) (h₁ : x ≤ A + r) (h₂ : r ≤ (x + c) / 2) :
-        x ≤ 2 * A + c := by
-      linarith
-    have h := linear_step p (a / (d : ℝ) ^ 2)
-      (Real.sqrt (p * (b / (d : ℝ)))) (b / (d : ℝ)) comparison' young
-    have hrewrite : 2 * (a / (d : ℝ) ^ 2) + b / (d : ℝ) =
-        2 * a / (d : ℝ) ^ 2 + b / (d : ℝ) := by ring
-    rwa [hrewrite] at h
-  have hdSq : (d : ℝ) ≤ (d : ℝ) ^ 2 := by nlinarith
-  have hrecip : (1 : ℝ) / (d : ℝ) ^ 2 ≤ 1 / (d : ℝ) := by
-    apply (div_le_div_iff₀ (sq_pos_of_pos hdR) hdR).2
-    simpa using hdSq
-  have hsmall : 2 * a / (d : ℝ) ^ 2 ≤ 2 * a / (d : ℝ) := by
-    calc
-      2 * a / (d : ℝ) ^ 2 = (2 * a) * (1 / (d : ℝ) ^ 2) := by ring
-      _ ≤ (2 * a) * (1 / (d : ℝ)) :=
-        mul_le_mul_of_nonneg_left hrecip (by positivity)
-      _ = 2 * a / (d : ℝ) := by ring
-  calc
-    p ≤ 2 * a / (d : ℝ) ^ 2 + b / (d : ℝ) := hmid
-    _ ≤ 2 * a / (d : ℝ) + b / (d : ℝ) := add_le_add hsmall le_rfl
-    _ = (2 * a + b) / d := by ring
+  have hsmall : a / (d : ℝ) ^ 2 ≤ a / (d : ℝ) := by
+    gcongr
+    nlinarith
+  simp only [add_div, mul_div_assoc]
+  nlinarith
 
 /-- The standard finite-prefix absorption step used after an eventual inverse
 bound. This makes the final quantifier in the source theorem explicit. -/
@@ -107,7 +78,6 @@ The source-independent numerical reduction of the quantitative theorem.
 `FinalAssembly` supplies the explicit eventual comparison from the proved
 sampler identities and Propositions 3.1 and 3.2.
 -/
-
 
 
 set_option autoImplicit false

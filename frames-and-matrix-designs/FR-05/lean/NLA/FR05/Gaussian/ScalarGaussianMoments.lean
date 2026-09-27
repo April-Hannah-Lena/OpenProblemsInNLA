@@ -1,14 +1,10 @@
 import NLA.FR05.Gaussian.ComplexGaussianDensity
-import NLA.FR05.Cone.ConeGaussianMoments
 
 set_option autoImplicit false
 noncomputable section
 open MeasureTheory ProbabilityTheory Complex Real
 
 namespace NLA.FR05
-
-local instance : IsProbabilityMeasure (standardComplexGaussianTail 2) :=
-  isProbabilityMeasure_standardComplexGaussianTail 2
 
 theorem measurePreserving_gaussian_coordinate (i : Fin 2) :
     MeasurePreserving (fun z : Fin 2 → ℂ ↦ z i)

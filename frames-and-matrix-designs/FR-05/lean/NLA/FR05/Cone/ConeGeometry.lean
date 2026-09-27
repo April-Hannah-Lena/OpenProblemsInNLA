@@ -1,7 +1,5 @@
 import NLA.FR05.Cone.Phase
-import NLA.FR05.Densities.SourceLikelihood
 import NLA.FR05.Overlap.Overlap
-import Mathlib.Analysis.CStarAlgebra.Matrix
 
 /-!
 # Cone geometry, radial corrections, and matrix bounds

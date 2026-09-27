@@ -5,9 +5,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Identification of the source's independent planted frame with its Gaussian
 product-density law, including the conjugate-row convention.
 -/
+import NLA.FR05.Measure.Comparison
 import NLA.FR05.Bridges.SourcePlantedDensityBridge
-import NLA.FR05.Gaussian.GaussianFrameRows
-import NLA.FR05.Densities.SourceSymmetry
 import NLA.FR05.Likelihood.SourceKernelMarginals
 
 set_option autoImplicit false
@@ -19,14 +18,13 @@ open scoped ENNReal
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 /-- The first two coordinates in the source's `n + 2` convention. -/
 def sourceHead {n : ℕ} (x : Signal (n + 2)) : Signal 2 :=
-  fun i ↦ x ⟨i.val, by omega⟩
+  fun i ↦ x ⟨i.val, by lia⟩
 
 def sourceHeadTailSplit {n : ℕ} (x : Signal (n + 2)) : Signal 2 × Signal n :=
-  (sourceHead x, fun i ↦ x ⟨i.val + 2, by omega⟩)
+  (sourceHead x, fun i ↦ x ⟨i.val + 2, by lia⟩)
 
 @[fun_prop] theorem measurable_sourceHead {n : ℕ} :
     Measurable (sourceHead (n := n)) := by unfold sourceHead; fun_prop
@@ -55,7 +53,7 @@ theorem sourceHeadTailJoin_split {n : ℕ} (x : Signal (n + 2)) :
     congr 1
     apply Fin.ext
     dsimp
-    omega
+    lia
 
 theorem standardComplexGaussianTail_map_sourceHeadTailSplit (n : ℕ) :
     (standardComplexGaussianTail (n + 2)).map sourceHeadTailSplit =
@@ -117,27 +115,6 @@ theorem sourcePlantedColumnLaw_eq_withDensity {M n : ℕ} (hM : 1 ≤ M) :
       ((measurable_sourcePlantedDensity M).comp measurable_sourceHead).ennreal_ofReal),
     standardComplexGaussianTail_prod_map_sourceHeadTailJoin]
 
-/-- A finite independent product of density laws has the product density. -/
-theorem source_pi_withDensity {X : Type*} [MeasurableSpace X]
-    (μ : Measure X) [SigmaFinite μ] (f : X → ℝ)
-    (_hf : Measurable f) (hf0 : ∀ x, 0 ≤ f x) (hfi : Integrable f μ)
-    [SigmaFinite (μ.withDensity (fun x ↦ ENNReal.ofReal (f x)))] (m : ℕ) :
-    Measure.pi (fun _ : Fin m ↦ μ.withDensity (fun x ↦ ENNReal.ofReal (f x))) =
-      (Measure.pi (fun _ : Fin m ↦ μ)).withDensity
-        (fun a ↦ ENNReal.ofReal (∏ i, f (a i))) := by
-  apply Measure.pi_eq
-  intro s hs
-  rw [withDensity_apply _ (MeasurableSet.univ_pi hs), Measure.restrict_pi_pi,
-    ← ofReal_integral_eq_lintegral_ofReal
-      (Integrable.fintype_prod (fun i ↦ hfi.restrict))
-      (Filter.Eventually.of_forall fun a ↦ Finset.prod_nonneg fun i _ ↦ hf0 (a i)),
-    integral_fintype_prod_eq_prod]
-  rw [ENNReal.ofReal_prod_of_nonneg (fun i _ ↦ integral_nonneg (hf0))]
-  apply Finset.prod_congr rfl
-  intro i _
-  rw [withDensity_apply _ (hs i),
-    ofReal_integral_eq_lintegral_ofReal hfi.restrict (Filter.Eventually.of_forall hf0)]
-
 theorem standardComplexGaussianFrame_map_star (m d : ℕ) :
     (standardComplexGaussianFrame m d).map (fun A i ↦ star (A i)) =
       standardComplexGaussianFrame m d := by
@@ -168,7 +145,7 @@ theorem iidSourcePlantedFrameLaw_eq_withDensity {M m n : ℕ} (hM : 1 ≤ M) :
       (sourceEpsilon_pos M hM) n
   unfold iidSourcePlantedFrameLaw iidSourcePlantedColumnLaw
   simp_rw [sourcePlantedColumnLaw_eq_withDensity hM]
-  rw [source_pi_withDensity _ f hf hf0 hfi,
+  rw [Measure.pi_withDensity_ofReal (ι := Fin m) _ f hf0 hfi,
     ← standardComplexGaussianFrame_eq_pi]
   have he : (fun A : Frame m (n + 2) ↦ ENNReal.ofReal (∏ i, f (A i))) =
       (fun A ↦ ENNReal.ofReal (∏ i, f (star (A i)))) ∘ frameFromPlantedColumns := by

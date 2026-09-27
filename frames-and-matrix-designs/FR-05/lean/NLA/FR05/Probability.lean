@@ -6,7 +6,6 @@ Measurability of the injectivity event and the quantitative estimates remain
 separate proof obligations.
 -/
 import NLA.FR05.Definitions
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Complex
 import Mathlib.Probability.Distributions.Gaussian.Multivariate
 
 set_option autoImplicit false
@@ -31,14 +30,10 @@ def realCoordinatesToComplexFrame {m d : ℕ}
     (x : RealFrameCoordinates m d) : Frame m d :=
   fun i j ↦ (x ((i, j), 0) : ℂ) + (x ((i, j), 1) : ℂ) * Complex.I
 
+@[fun_prop]
 theorem measurable_realCoordinatesToComplexFrame {m d : ℕ} :
     Measurable (realCoordinatesToComplexFrame (m := m) (d := d)) := by
-  apply measurable_pi_lambda
-  intro i
-  apply measurable_pi_lambda
-  intro j
-  change Measurable (fun x : RealFrameCoordinates m d ↦
-    ((x ((i, j), 0) : ℝ) : ℂ) + ((x ((i, j), 1) : ℝ) : ℂ) * Complex.I)
+  unfold realCoordinatesToComplexFrame
   fun_prop
 
 /-- The iid standard complex-Gaussian law on `m × d` frames, represented as a
@@ -50,16 +45,15 @@ def standardComplexGaussianFrame (m d : ℕ) : Measure (Frame m d) :=
 
 theorem measurable_standardComplexGaussianFrame_map (m d : ℕ) :
     Measurable (fun x : RealFrameCoordinates m d ↦
-      ((Real.sqrt 2)⁻¹ : ℝ) • realCoordinatesToComplexFrame x) :=
-  by
-    apply measurable_pi_lambda
-    intro i
-    apply measurable_pi_lambda
-    intro j
-    change Measurable (fun x : RealFrameCoordinates m d ↦
-      ((Real.sqrt 2)⁻¹ : ℝ) •
-        (((x ((i, j), 0) : ℝ) : ℂ) + ((x ((i, j), 1) : ℝ) : ℂ) * Complex.I))
-    fun_prop
+      ((Real.sqrt 2)⁻¹ : ℝ) • realCoordinatesToComplexFrame x) := by
+  apply measurable_pi_lambda
+  intro i
+  apply measurable_pi_lambda
+  intro j
+  change Measurable (fun x : RealFrameCoordinates m d ↦
+    ((Real.sqrt 2)⁻¹ : ℝ) •
+      (((x ((i, j), 0) : ℝ) : ℂ) + ((x ((i, j), 1) : ℝ) : ℂ) * Complex.I))
+  fun_prop
 
 instance (m d : ℕ) : IsProbabilityMeasure (standardComplexGaussianFrame m d) :=
   Measure.isProbabilityMeasure_map

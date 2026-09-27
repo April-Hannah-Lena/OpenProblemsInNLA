@@ -1,6 +1,5 @@
 import NLA.FR05.Gaussian.GaussianProjection
 import NLA.FR05.SmallBall.GaussianSmallBall
-import Mathlib.Tactic
 
 /-!
 # Gaussian projection small-ball bounds

@@ -1,8 +1,4 @@
 import NLA.FR05.Cone.ConeGaussianMoments
-import NLA.FR05.Gaussian.GaussianFrameRows
-import Mathlib.MeasureTheory.Measure.Lebesgue.Complex
-import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
-import Mathlib.MeasureTheory.Group.Integral
 
 /-!
 # Complex Gaussian densities and affine transformations

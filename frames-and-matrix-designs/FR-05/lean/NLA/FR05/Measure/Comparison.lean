@@ -3,9 +3,7 @@ Copyright (c) 2026 OpenAI. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
 import Mathlib.MeasureTheory.Function.L2Space
-import Mathlib.MeasureTheory.Integral.Bochner.Set
-import Mathlib.MeasureTheory.Measure.WithDensity
-import Mathlib.MeasureTheory.Integral.Prod
+import Mathlib.MeasureTheory.Integral.Pi
 import Mathlib.MeasureTheory.Group.Integral
 
 /-!
@@ -17,6 +15,8 @@ This file depends only on mathlib, not on the phase-retrieval construction.
   parametrised mixture. The parameter, source, and target spaces may differ;
   the density is extended-nonnegative-valued, so no integrability is required.
 * `MeasureTheory.Measure.map_prod_eq_withDensity_ofReal` handles real densities.
+* `MeasureTheory.Measure.pi_withDensity_ofReal` identifies finite product densities,
+  requiring only integrability and nonnegativity of the individual density.
 * `MeasureTheory.Measure.map_prod_eq_withDensity_of_inv` handles the inverse-action
   convention for an inversion-invariant parameter law (in particular Haar measure).
 * `MeasureTheory.abs_setIntegral_le_sqrt_integral_sq` bounds an event integral
@@ -56,15 +56,34 @@ theorem abs_setIntegral_le_sqrt_setIntegral_sq (s : Set X) [IsFiniteMeasure (μ.
 theorem abs_setIntegral_le_sqrt_integral_sq [IsFiniteMeasure μ]
     (hf : MemLp f 2 μ) (s : Set X) :
     |∫ x in s, f x ∂μ| ≤ Real.sqrt ((∫ x, f x ^ 2 ∂μ) * μ.real s) := by
-  refine (abs_setIntegral_le_sqrt_setIntegral_sq s (hf.restrict s)).trans ?_
-  apply Real.sqrt_le_sqrt
-  exact mul_le_mul_of_nonneg_right
-    (setIntegral_le_integral hf.integrable_sq
-      (Filter.Eventually.of_forall fun x ↦ sq_nonneg (f x))) ENNReal.toReal_nonneg
+  grw [abs_setIntegral_le_sqrt_setIntegral_sq s (hf.restrict s),
+    setIntegral_le_integral hf.integrable_sq
+      (Filter.Eventually.of_forall fun x ↦ sq_nonneg (f x))]
 
 end CauchySchwarz
 
 namespace Measure
+
+/-- A finite independent product of density laws has the product density. -/
+theorem pi_withDensity_ofReal {ι X : Type*} [Fintype ι] [MeasurableSpace X]
+    (μ : Measure X) [SigmaFinite μ] (f : X → ℝ)
+    (hf0 : ∀ x, 0 ≤ f x) (hfi : Integrable f μ) :
+    Measure.pi (fun _ : ι ↦ μ.withDensity (fun x ↦ ENNReal.ofReal (f x))) =
+      (Measure.pi (fun _ : ι ↦ μ)).withDensity
+        (fun a ↦ ENNReal.ofReal (∏ i, f (a i))) := by
+  have := isFiniteMeasure_withDensity_ofReal hfi.2
+  apply Measure.pi_eq
+  intro s hs
+  rw [withDensity_apply _ (MeasurableSet.univ_pi hs), Measure.restrict_pi_pi,
+    ← ofReal_integral_eq_lintegral_ofReal
+      (Integrable.fintype_prod (fun i ↦ hfi.restrict))
+      (Filter.Eventually.of_forall fun a ↦ Finset.prod_nonneg fun i _ ↦ hf0 (a i)),
+    integral_fintype_prod_eq_prod]
+  rw [ENNReal.ofReal_prod_of_nonneg (fun _ _ ↦ integral_nonneg hf0)]
+  apply Finset.prod_congr rfl
+  intro i _
+  rw [withDensity_apply _ (hs i),
+    ofReal_integral_eq_lintegral_ofReal hfi.restrict (Filter.Eventually.of_forall hf0)]
 
 section Mixture
 
@@ -81,7 +100,7 @@ theorem map_prod_eq_withDensity
   apply ext_of_lintegral
   intro f hf
   rw [lintegral_map hf hT]
-  change (∫⁻ p : G × Y, f (T p.1 p.2) ∂ρ.prod ν) = _
+  simp only [Function.uncurry_def]
   rw [lintegral_prod (fun p : G × Y ↦ f (T p.1 p.2)) (hf.comp hT).aemeasurable,
     lintegral_withDensity_eq_lintegral_mul _ hd.lintegral_prod_left hf]
   calc

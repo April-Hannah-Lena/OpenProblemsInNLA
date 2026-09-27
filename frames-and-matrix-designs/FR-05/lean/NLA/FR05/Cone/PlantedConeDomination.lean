@@ -52,7 +52,7 @@ theorem lintegral_planted_pair_le_cones {M : ℕ} (hM : 2 ≤ M)
           ∫⁻ s in Icc (-sourceEpsilon M) (sourceEpsilon M),
             ∫⁻ p, R p ∂(coneMeasure t).prod (coneMeasure s) := by
   let : IsProbabilityMeasure (sourceDensityLaw .planted M) := isProbabilityMeasure_sourceDensityLaw hM _
-  have hM1 : 1 ≤ M := by omega
+  have hM1 : 1 ≤ M := by lia
   rw [lintegral_prod _ hR.aemeasurable]
   apply (lintegral_sourcePlanted_le_cones hM1
     (fun z ↦ ∫⁻ w, R (z, w) ∂sourceDensityLaw .planted M)

@@ -1,7 +1,5 @@
-import NLA.FR05.Cone.ConeRayDensity
 import NLA.FR05.Gaussian.GaussianConditionalDensity
 import NLA.FR05.Likelihood.KernelLocalEstimates
-import NLA.FR05.Likelihood.SourceKernelMarginals
 
 /-!
 # Overlap Cholesky coordinates and the Gaussian coupling
@@ -123,7 +121,6 @@ set_option maxHeartbeats 800000
 open MeasureTheory Complex Real Matrix
 open scoped ENNReal
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 theorem triangularGaussian_eq_overlap {K : SourceOverlapMatrix} (z ξ : Signal 2) :
     triangularGaussian (overlapCholeskyFirst K) (overlapCholeskySecond K)
@@ -215,7 +212,6 @@ section GaussianOverlapBridge
 
 open MeasureTheory Complex Real Matrix WithLp
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 /-- The two independent Gaussian pairs in the canonical overlap construction. -/
 def splitGaussianFour : Signal 4 → Signal 2 × Signal 2 := splitGaussianSum 2 2

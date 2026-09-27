@@ -4,12 +4,7 @@ The exact density of the scalar radial sampling law used in (3.18).
 This is the first measure-theoretic bridge between the coordinate sampler in
 `PlantedLaw` and the density formulation used in Proposition 3.2.
 -/
-import NLA.FR05.Cone.Phase
-import NLA.FR05.Gaussian.RadialMoments
 import NLA.FR05.Gaussian.GammaSimplexLaw
-import NLA.FR05.Densities.PlantedPolarLaw
-import NLA.FR05.Densities.PlantedLaw
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
 
 set_option autoImplicit false
 noncomputable section
@@ -30,7 +25,8 @@ theorem sourceRadialBase_eq_density {eta : ℝ}
   have hgamma : gammaMeasure 2 1 =
       (volume.restrict (Ioi (0 : ℝ))).withDensity
         (fun s ↦ ENNReal.ofReal (gammaNatWeight 1 s)) := by
-    convert gammaMeasure_nat_eq_density 1 using 1 <;> norm_num
+    convert gammaMeasure_nat_eq_density 1 using 1
+    norm_num
   rw [sourceRadialBase, expMeasure_one_eq_density, hgamma]
   rw [← withDensity_smul (μ := volume.restrict (Ioi (0 : ℝ)))
       (ENNReal.ofReal (1 - eta)) (by fun_prop),
@@ -60,7 +56,7 @@ Haar measure on the additive circle. -/
 theorem sourceUniformInterval_zero_two_pi_map_conePhase :
     (sourceUniformInterval 0 (2 * Real.pi)).map
       (fun x : ℝ ↦ (x : ConePhase)) = AddCircle.haarAddCircle := by
-  letI : Fact (0 < 2 * Real.pi) := ⟨by positivity⟩
+  let : Fact (0 < 2 * Real.pi) := ⟨by positivity⟩
   have hperiod : ENNReal.ofReal (2 * Real.pi) ≠ 0 :=
     (ENNReal.ofReal_pos.mpr (by positivity)).ne'
   have hmap : Measure.map (fun x : ℝ ↦ (x : ConePhase))
@@ -99,7 +95,7 @@ theorem sourceRadialBase_sourceEta_apply_Ici {M : ℕ} (hM : 1 ≤ M) :
     have h := (exponential_quadratic_tail (δ := sourceDelta M) (r := 1)
       (a := 1 - sourceEta) (b := sourceEta) (c := 0) hdelta (by norm_num)
       (sub_nonneg.mpr sourceEta_lt_one.le) sourceEta_pos.le (by norm_num)).2
-    simp only [zero_mul, add_zero, one_mul, div_one, one_pow, one_div] at h
+    simp only [zero_mul, add_zero, div_one, one_pow] at h
     rw [show (1 - sourceEta) + sourceEta * (sourceDelta M + 1) =
         1 + sourceEta * sourceDelta M by ring] at h
     simpa [f, sourceRadialNormalizer] using h

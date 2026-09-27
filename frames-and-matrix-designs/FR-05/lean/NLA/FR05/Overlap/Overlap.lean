@@ -1,5 +1,4 @@
 import NLA.FR05.Likelihood.HaarLikelihood
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 set_option autoImplicit false
 noncomputable section

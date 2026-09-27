@@ -15,7 +15,6 @@ open scoped ENNReal
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 theorem sourceReferenceDensity_star (M : ℕ) (z : Signal 2) :
     sourceReferenceDensity M (star z) = sourceReferenceDensity M z := by
@@ -99,7 +98,7 @@ theorem sourceReferenceColumn_join (M : ℕ) {n : ℕ} (p : Signal 2 × Signal n
   by_cases h1 : j.val = 1
   · simp [sourceReferenceColumn, sourceReferenceScale, sourceHeadTailJoin, joinTwo, h1,
       Complex.real_smul]
-  · have hj : ¬ j.val < 2 := by omega
+  · have hj : ¬ j.val < 2 := by lia
     simp [sourceReferenceColumn, sourceReferenceScale, sourceHeadTailJoin, joinTwo, h0, h1, hj]
 
 theorem standardComplexGaussianTail_map_referenceColumn (M n : ℕ) :
@@ -180,6 +179,6 @@ theorem sourceReferenceFrameLaw_eq_withDensity {M m n : ℕ} (hM : 2 ≤ M) :
   change Measure.map (fun A : Fin m → Signal (n + 2) ↦ fun i ↦ sourceReferenceColumn M (A i)) _ = _
   rw [hpi]
   simp_rw [hrow]
-  exact source_pi_withDensity _ f hf hf0 hfi m
+  exact Measure.pi_withDensity_ofReal (ι := Fin m) _ f hf0 hfi
 
 end NLA.FR05

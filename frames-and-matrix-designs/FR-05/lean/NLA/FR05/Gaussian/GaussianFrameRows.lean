@@ -1,4 +1,5 @@
-import NLA.FR05.Densities.PlantedLaw
+import NLA.FR05.Gaussian.GaussianTail
+import NLA.FR05.Probability
 
 /-!
 # Product structure and symmetries of complex Gaussian coordinates
@@ -93,8 +94,6 @@ theorem standardComplexGaussianFrame_eq_pi (m d : ℕ) :
       (measurable_standardComplexGaussianFrame_map m d)
       (MeasurableEquiv.toLp 2 _).measurable
   rw [hbase, ← hflat, Measure.map_map hconvert hflatten, hcoord]
-  let : IsProbabilityMeasure (standardComplexGaussianTail d) :=
-    isProbabilityMeasure_standardComplexGaussianTail d
   exact Measure.pi_map_pi
     (fun _ ↦ measurable_standardComplexGaussianTail_map.aemeasurable)
 

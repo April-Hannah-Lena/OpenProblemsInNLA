@@ -8,7 +8,6 @@ matrix-level least-singular-value argument.
 -/
 import NLA.FR05.Planted.SourceJacobianMatrix
 import NLA.FR05.Planted.DerivativeNorm
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -216,8 +215,7 @@ theorem norm_plantedColumn_sub_zeroImbalance_le {n : ℕ}
   by_cases hi0 : i.1 = 0
   · have hindex : i = ⟨0, Nat.zero_lt_succ _⟩ := Fin.ext hi0
     subst i
-    simp only [Pi.sub_apply, plantedColumn, PlantedRow.zeroImbalance,
-      joinTwo_zero]
+    simp only [Pi.sub_apply, plantedColumn, PlantedRow.zeroImbalance]
     simp only [add_zero, mul_one]
     change ‖((Real.sqrt (r.radial * (1 + r.imbalance) / 2) : ℂ) *
         Complex.exp (r.phaseOne * Complex.I)) -
@@ -229,8 +227,7 @@ theorem norm_plantedColumn_sub_zeroImbalance_le {n : ℕ}
     · have hindex : i = ⟨1, Nat.succ_lt_succ (Nat.zero_lt_succ _)⟩ :=
         Fin.ext hi1
       subst i
-      simp only [Pi.sub_apply, plantedColumn, PlantedRow.zeroImbalance,
-        joinTwo_one]
+      simp only [Pi.sub_apply, plantedColumn, PlantedRow.zeroImbalance]
       simp only [sub_zero, mul_one]
       change ‖((Real.sqrt (r.radial * (1 - r.imbalance) / 2) : ℂ) *
           Complex.exp (r.phaseTwo * Complex.I)) -

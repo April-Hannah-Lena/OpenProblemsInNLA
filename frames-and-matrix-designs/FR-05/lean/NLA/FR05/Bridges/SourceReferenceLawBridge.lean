@@ -6,7 +6,6 @@ The reference Gaussian mixture has likelihood (3.5), and its injectivity
 probability is the original Gaussian probability.
 -/
 import NLA.FR05.Bridges.SourceReferenceFrameDensity
-import NLA.FR05.Measure.Comparison
 
 set_option autoImplicit false
 noncomputable section
@@ -17,7 +16,7 @@ namespace NLA.FR05
 
 def sourceOrientedReferenceDensity (M : ℕ) {m n : ℕ}
     (U : SourceUnitary (n + 2)) (A : Frame m (n + 2)) : ℝ :=
-  ∏ i, sourceReferenceDensity M (sourceProjectedRow (by omega) U (A i))
+  ∏ i, sourceReferenceDensity M (sourceProjectedRow (by lia) U (A i))
 
 @[fun_prop] theorem measurable_sourceOrientedReferenceDensity (M m n : ℕ) :
     Measurable (fun p : SourceUnitary (n + 2) × Frame m (n + 2) ↦
@@ -25,7 +24,7 @@ def sourceOrientedReferenceDensity (M : ℕ) {m n : ℕ}
   apply Finset.measurable_prod
   intro i _
   exact (measurable_sourceReferenceDensity M).comp
-    ((continuous_sourceProjectedRow (by omega)).measurable.comp
+    ((continuous_sourceProjectedRow (by lia)).measurable.comp
       (measurable_fst.prodMk ((measurable_pi_apply i).comp measurable_snd)))
 
 theorem sourceOrientedReferenceDensity_nonneg (M : ℕ) {m n : ℕ}
@@ -41,7 +40,7 @@ theorem integrable_sourceOrientedReferenceDensity {M m n : ℕ} (hM : 2 ≤ M)
     apply Finset.measurable_prod
     intro i _
     exact (measurable_sourceReferenceDensity M).comp
-      ((continuous_sourceProjectedRow (by omega)).measurable.comp
+      ((continuous_sourceProjectedRow (by lia)).measurable.comp
         (measurable_id.prodMk measurable_const))
   apply Integrable.of_bound hmeas.aestronglyMeasurable (4 ^ m)
   filter_upwards with U

@@ -1,6 +1,4 @@
 import NLA.FR05.Cone.ConeSchur
-import NLA.FR05.Cone.ConeImageEstimates
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 /-!
 # Cone phase averages, moments, and Gaussian ratios
@@ -411,7 +409,7 @@ theorem coneRotatedOverlap_residualInverse {t s : ℝ} (ht : |t| ≤ 1) (hs : |s
   rw [Matrix.inv_eq_left_inv hV, Matrix.inv_eq_left_inv hV']
   simp only [Matrix.mul_assoc]
 
-theorem coneRotatedOverlap_residual {t s : ℝ} (_ht : |t| ≤ 1) (hs : |s| ≤ 1)
+theorem coneRotatedOverlap_residual {t s : ℝ} (hs : |s| ≤ 1)
     (K : SourceOverlapMatrix) (φ ψ : ConePhase) (z w : Fin 2 → ℂ) :
     coneBasis s (conePhasePoint ψ) *ᵥ w - Kᴴ *ᵥ (coneBasis t (conePhasePoint φ) *ᵥ z) =
       coneBasis s (conePhasePoint ψ) *ᵥ (w - (coneRotatedOverlap K t s φ ψ)ᴴ *ᵥ z) := by
@@ -428,7 +426,7 @@ theorem overlapGaussianRatio_coneBasis {t s : ℝ} (ht : |t| ≤ 1) (hs : |s| �
       (coneBasis s (conePhasePoint ψ) *ᵥ w) =
         overlapGaussianRatio (coneRotatedOverlap K t s φ ψ) z w := by
   rw [overlapGaussianRatio, overlapGaussianRatio, coneRotatedOverlap_determinant ht hs,
-    coneBasis_energy hs (norm_conePhasePoint ψ), coneRotatedOverlap_residual ht hs,
+    coneBasis_energy hs (norm_conePhasePoint ψ), coneRotatedOverlap_residual hs,
     coneRotatedOverlap_residualInverse ht hs]
   congr 2
   rw [coneInner_adjoint]

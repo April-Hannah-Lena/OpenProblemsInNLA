@@ -1,5 +1,4 @@
 import NLA.FR05.Likelihood.LikelihoodDensityBounds
-import NLA.FR05.Overlap.HaarOverlapDensity
 
 set_option autoImplicit false
 noncomputable section
@@ -24,7 +23,7 @@ theorem integrable_source_local_majorant (M : ℕ) (hM : 1 ≤ M) :
     Integrable (fun K : SourceOverlapMatrix ↦
       8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
         Real.exp (-(1 / 400) * M * overlapFrobeniusSq K)) := by
-  have hm : (0 : ℝ) < M := by exact_mod_cast (show 0 < M by omega)
+  have hm : (0 : ℝ) < M := by exact_mod_cast (show 0 < M by lia)
   have h := (integrable_matrix_quartic_gaussian
     (show 0 < (1 / 400 : ℝ) * M by positivity)).const_mul
       (8 * sourceTaylorConstant * (M : ℝ) ^ 5)
@@ -35,7 +34,7 @@ theorem integral_source_local_majorant (M : ℕ) (hM : 1 ≤ M) :
       8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
         Real.exp (-(1 / 400) * M * overlapFrobeniusSq K)) =
       (sourcePairComparisonConstant - 1) / M := by
-  have hm : (0 : ℝ) < M := by exact_mod_cast (show 0 < M by omega)
+  have hm : (0 : ℝ) < M := by exact_mod_cast (show 0 < M by lia)
   have he : (fun K : SourceOverlapMatrix ↦
       8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
         Real.exp (-(1 / 400) * M * overlapFrobeniusSq K)) =
@@ -56,18 +55,18 @@ theorem source_overlap_differences_le :
   let J := ∫ K : SourceOverlapMatrix, Real.exp (-overlapFrobeniusSq K)
   obtain ⟨D₁, hD₁⟩ := polynomial_exp_tail_le_inv
     (2 * sourceTailCoefficient * Real.exp 2 * J) sourceTailRate sourceTailRate_pos 784
-  refine ⟨max 1600 (max D₀ D₁), by omega, ?_⟩
+  refine ⟨max 1600 (max D₀ D₁), by lia, ?_⟩
   intro M hM hD a b
-  have hm : 1600 ≤ M := by omega
-  have hp := hD₀ M (by omega)
-  have ht := hD₁ M (by omega)
-  have hi := integrable_sourceWeightedKernelDifference (by omega : 4 ≤ M) a b
-  have hl := integrable_source_local_majorant M (by omega)
+  have hm : 1600 ≤ M := by lia
+  have hp := hD₀ M (by lia)
+  have ht := hD₁ M (by lia)
+  have hi := integrable_sourceWeightedKernelDifference (by lia : 4 ≤ M) a b
+  have hl := integrable_source_local_majorant M (by lia)
   have hg : Integrable (fun K : SourceOverlapMatrix ↦ Real.exp (-overlapFrobeniusSq K)) := by
     simpa using integrable_matrix_gaussian (by norm_num : (0 : ℝ) < 1)
   have htail := hg.const_mul
     (2 * sourceTailCoefficient * Real.exp 2 * (M : ℝ) ^ 784 * Real.exp (-sourceTailRate * M))
-  rw [integral_sourceOverlapLaw_density (by omega : 4 ≤ M)]
+  rw [integral_sourceOverlapLaw_density (by lia : 4 ≤ M)]
   calc
     _ ≤ ∫ K : SourceOverlapMatrix,
         (8 * sourceTaylorConstant * (M : ℝ) ^ 5 * overlapFrobeniusSq K ^ 2 *
@@ -78,7 +77,7 @@ theorem source_overlap_differences_le :
     _ = (sourcePairComparisonConstant - 1) / M +
         (2 * sourceTailCoefficient * Real.exp 2 * J) * (M : ℝ) ^ 784 *
           Real.exp (-sourceTailRate * M) := by
-      rw [integral_add hl htail, integral_source_local_majorant M (by omega), integral_const_mul]
+      rw [integral_add hl htail, integral_source_local_majorant M (by lia), integral_const_mul]
       dsimp [J]
       ring
     _ ≤ (sourcePairComparisonConstant - 1) / M + 1 / M := add_le_add le_rfl ht

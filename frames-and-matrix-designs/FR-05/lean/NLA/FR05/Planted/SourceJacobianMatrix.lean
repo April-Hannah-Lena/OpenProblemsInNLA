@@ -1,7 +1,5 @@
-import NLA.FR05.Planted.Jacobian
 import NLA.FR05.Geometry.LeastSingular
 import NLA.FR05.Densities.SourceRows
-import Mathlib.Tactic
 import NLA.FR05.SmallBall.SmallBallAlgebra
 
 /-! ## SourceJacobianMatrix -/
@@ -15,9 +13,6 @@ The coordinate type keeps the scalar, complex, and complex-tail components
 separate, while the last theorems put it back at the source dimensions
 `4 M - 5`.
 -/
-
-
-
 
 
 set_option autoImplicit false
@@ -247,7 +242,7 @@ theorem card_sourceJacobianCoordinate (n : ℕ) :
     Fintype.card (SourceJacobianCoordinate n) = 1 + 2 + 2 * n + 2 * n := by
   rw [Fintype.card_congr (sourceJacobianCoordinateEquivSum n)]
   simp
-  omega
+  lia
 
 /-- The real coordinate energy splits into the three scalar coordinates and
 the two decoded complex tail energies. -/
@@ -444,7 +439,6 @@ Source-coordinate energy bookkeeping for the two small-ball branches in
 Lemma 3.6.  This is a thin bridge between the finite real Jacobian chart and
 the `tailEnergy` notation used by the conditional Gaussian estimate.
 -/
-
 
 
 set_option autoImplicit false

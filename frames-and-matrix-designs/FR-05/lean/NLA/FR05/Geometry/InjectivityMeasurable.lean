@@ -1,8 +1,9 @@
-import NLA.FR05.Probability
+import NLA.FR05.Definitions
+import Mathlib.Analysis.CStarAlgebra.Classes
 import Mathlib.Analysis.SpecialFunctions.Complex.Arg
-import Mathlib.Topology.Maps.Proper.Basic
-import Mathlib.Topology.Compactness.Lindelof
-import Mathlib.Tactic
+import Mathlib.MeasureTheory.Constructions.BorelSpace.Complex
+import Mathlib.Topology.Algebra.Module.ModuleTopology
+import Mathlib.Topology.LocallyClosed
 
 set_option autoImplicit false
 noncomputable section

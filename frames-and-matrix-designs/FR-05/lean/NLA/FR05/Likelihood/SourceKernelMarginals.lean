@@ -1,5 +1,4 @@
 import NLA.FR05.Gaussian.ComplexGaussianDensity
-import NLA.FR05.Gaussian.GaussianGram
 import NLA.FR05.Densities.SourceDensityMoments
 import NLA.FR05.Likelihood.SourceOverlapKernel
 
@@ -35,8 +34,6 @@ theorem integrable_sourceProjectedDensity {M : ℕ} (hM : 2 ≤ M)
 theorem sourcePairKernel_le_densityBound {M : ℕ} (hM : 2 ≤ M)
     (a b : SourceDensityKind) (U V : SourceUnitary M) :
     sourcePairKernel hM a b U V ≤ sourceDensityBound M := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail M) :=
-    isProbabilityMeasure_standardComplexGaussianTail M
   have hi : Integrable (fun x ↦ sourceDensity a M (sourceProjectedRow hM U x) *
       sourceDensity b M (sourceProjectedRow hM V x)) (standardComplexGaussianTail M) := by
     apply Integrable.of_bound
@@ -71,7 +68,7 @@ theorem sourceOverlapKernel_nonneg {M : ℕ} (hM : 2 ≤ M)
 theorem sourceOverlapKernel_polynomial_bound {M : ℕ} (hM : 2 ≤ M)
     (a b : SourceDensityKind) (K : SourceOverlapMatrix) :
     sourceOverlapKernel hM a b K ≤ (Real.exp 1 + 4) * (M : ℝ) ^ 52 := by
-  have hM' : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by omega)
+  have hM' : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by lia)
   have hp : (1 : ℝ) ≤ (M : ℝ) ^ 52 := one_le_pow₀ hM'
   have hc : sourceDensityBound M ≤ (Real.exp 1 + 4) * (M : ℝ) ^ 52 := by
     unfold sourceDensityBound

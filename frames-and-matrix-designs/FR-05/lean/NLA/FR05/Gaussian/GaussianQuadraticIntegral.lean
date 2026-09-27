@@ -1,6 +1,4 @@
 import NLA.FR05.Gaussian.GaussianPolarLaw
-import NLA.FR05.Gaussian.GaussianGram
-import Mathlib.Analysis.Matrix.Order
 
 set_option autoImplicit false
 noncomputable section
@@ -9,7 +7,6 @@ open scoped ComplexOrder
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 theorem integral_scalarGaussian_exp_neg {t : ℝ} (ht : 0 ≤ t) :
     (∫ z, Real.exp (-t * Complex.normSq z) ∂scalarComplexGaussian) = (1 + t)⁻¹ := by

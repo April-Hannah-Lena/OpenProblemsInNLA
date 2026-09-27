@@ -1,5 +1,4 @@
 import NLA.FR05.SmallBall.PhaseAbsolute
-import Mathlib.Tactic
 import NLA.FR05.SmallBall.SourceTailConditional
 
 /-!

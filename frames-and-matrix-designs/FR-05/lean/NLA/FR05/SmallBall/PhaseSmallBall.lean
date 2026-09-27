@@ -6,8 +6,6 @@ estimate below proves the sharp linear bound for the canonical cosine profile
 which arises after a phase normalization.
 -/
 import NLA.FR05.Densities.PlantedLaw
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

@@ -66,7 +66,7 @@ theorem headFixedUnitary_mul_tail {n : ℕ} (U : SourceUnitary (n + 1))
 
 def sourceComplementRows {n : ℕ} (hn : 1 ≤ n) (U : SourceUnitary (n + 1)) :
     Matrix (Fin 2) (Fin n) ℂ :=
-  fun i j ↦ U.val (Fin.castLE (by omega) i) j.succ
+  fun i j ↦ U.val (Fin.castLE (by lia) i) j.succ
 
 def matrixOfColumns (z w : Signal 2) : SourceOverlapMatrix :=
   fun i ↦ ![z i, w i]
@@ -84,28 +84,28 @@ theorem continuous_matrixOfColumns :
 
 theorem sourceHaarCorner_headFixedUnitary {n : ℕ} (hn : 1 ≤ n)
     (U : SourceUnitary (n + 1)) (W : SourceUnitary n) :
-    sourceHaarCorner (by omega) (U * headFixedUnitary W) =
-      matrixOfColumns (sourceHaarFirstTwoCoordinates (by omega) U)
-        (sourceComplementRows hn U *ᵥ sourceHaarFirstColumn (by omega) W) := by
+    sourceHaarCorner (by lia) (U * headFixedUnitary W) =
+      matrixOfColumns (sourceHaarFirstTwoCoordinates (by lia) U)
+        (sourceComplementRows hn U *ᵥ sourceHaarFirstColumn (by lia) W) := by
   ext i j
   fin_cases j
   · exact headFixedUnitary_mul_first U W _
-  · exact headFixedUnitary_mul_tail U W _ ⟨0, by omega⟩
+  · exact headFixedUnitary_mul_tail U W _ ⟨0, by lia⟩
 
 theorem sourceComplementRows_gram {n : ℕ} (hn : 1 ≤ n) (U : SourceUnitary (n + 1)) :
     sourceComplementRows hn U * (sourceComplementRows hn U)ᴴ =
-      1 - Matrix.vecMulVec (sourceHaarFirstTwoCoordinates (by omega) U)
-        (star (sourceHaarFirstTwoCoordinates (by omega) U)) := by
+      1 - Matrix.vecMulVec (sourceHaarFirstTwoCoordinates (by lia) U)
+        (star (sourceHaarFirstTwoCoordinates (by lia) U)) := by
   ext i j
   have h := congrFun (congrFun (Unitary.coe_mul_star_self U)
-    (Fin.castLE (by omega : 2 ≤ n + 1) i)) (Fin.castLE (by omega : 2 ≤ n + 1) j)
+    (Fin.castLE (by lia : 2 ≤ n + 1) i)) (Fin.castLE (by lia : 2 ≤ n + 1) j)
   simp only [Unitary.coe_star, Matrix.star_eq_conjTranspose, Matrix.mul_apply,
     Matrix.conjTranspose_apply, Matrix.one_apply, Fin.castLE_inj] at h
   rw [Fin.sum_univ_succ] at h
-  change (∑ k : Fin n, U.val (Fin.castLE (by omega) i) k.succ *
-    star (U.val (Fin.castLE (by omega) j) k.succ)) =
+  change (∑ k : Fin n, U.val (Fin.castLE (by lia) i) k.succ *
+    star (U.val (Fin.castLE (by lia) j) k.succ)) =
     (if i = j then 1 else 0) -
-      U.val (Fin.castLE (by omega) i) 0 * star (U.val (Fin.castLE (by omega) j) 0)
+      U.val (Fin.castLE (by lia) i) 0 * star (U.val (Fin.castLE (by lia) j) 0)
   linear_combination h
 
 end HaarColumnConditioning
@@ -115,7 +115,6 @@ section HaarSequentialLaw
 open MeasureTheory ProbabilityTheory Matrix
 open scoped ENNReal BigOperators Matrix.Norms.Elementwise
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 theorem normalizedGaussian_projection_of_factor {m : ℕ} (hm : 3 ≤ m)
     (C : Matrix (Fin 2) (Fin m) ℂ) (L : SourceOverlapMatrix)
@@ -150,36 +149,36 @@ theorem continuous_sourceComplementRows {n : ℕ} (hn : 1 ≤ n) :
     Continuous (sourceComplementRows hn) := by
   exact continuous_pi fun i ↦ continuous_pi fun j ↦
     (continuous_apply j.succ).comp
-      ((continuous_apply (Fin.castLE (by omega : 2 ≤ n + 1) i)).comp continuous_subtype_val)
+      ((continuous_apply (Fin.castLE (by lia : 2 ≤ n + 1) i)).comp continuous_subtype_val)
 
 theorem lintegral_sourceHaarCorner_conditioning {n : ℕ} (hn : 1 ≤ n)
     (f : SourceOverlapMatrix → ℝ≥0∞) (hf : Measurable f) :
-    (∫⁻ U : SourceUnitary (n + 1), f (sourceHaarCorner (by omega) U) ∂sourceUnitaryLaw (n + 1)) =
+    (∫⁻ U : SourceUnitary (n + 1), f (sourceHaarCorner (by lia) U) ∂sourceUnitaryLaw (n + 1)) =
       ∫⁻ U : SourceUnitary (n + 1), ∫⁻ x : Signal n,
-        f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by omega) U)
+        f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by lia) U)
           (sourceComplementRows hn U *ᵥ normalizedComplexVector x))
         ∂standardComplexGaussianTail n ∂sourceUnitaryLaw (n + 1) := by
   have hc : Measurable (fun p : SourceUnitary (n + 1) × SourceUnitary n ↦
-      f (sourceHaarCorner (by omega) (p.1 * headFixedUnitary p.2))) := by
+      f (sourceHaarCorner (by lia) (p.1 * headFixedUnitary p.2))) := by
     apply hf.comp
     apply Continuous.measurable
     exact (continuous_sourceHaarCorner _).comp
       (continuous_fst.mul ((continuous_headFixedUnitary n).comp continuous_snd))
   have htranslate (W : SourceUnitary n) :
       (∫⁻ U : SourceUnitary (n + 1),
-        f (sourceHaarCorner (by omega) (U * headFixedUnitary W)) ∂sourceUnitaryLaw (n + 1)) =
+        f (sourceHaarCorner (by lia) (U * headFixedUnitary W)) ∂sourceUnitaryLaw (n + 1)) =
       ∫⁻ U : SourceUnitary (n + 1),
-        f (sourceHaarCorner (by omega) U) ∂sourceUnitaryLaw (n + 1) :=
+        f (sourceHaarCorner (by lia) U) ∂sourceUnitaryLaw (n + 1) :=
     lintegral_mul_right_eq_self (μ := sourceUnitaryLaw (n + 1))
-      (fun U ↦ f (sourceHaarCorner (by omega) U)) (headFixedUnitary W)
+      (fun U ↦ f (sourceHaarCorner (by lia) U)) (headFixedUnitary W)
   calc
     _ = ∫⁻ W : SourceUnitary n, ∫⁻ U : SourceUnitary (n + 1),
-        f (sourceHaarCorner (by omega) (U * headFixedUnitary W))
+        f (sourceHaarCorner (by lia) (U * headFixedUnitary W))
           ∂sourceUnitaryLaw (n + 1) ∂sourceUnitaryLaw n := by
       simp_rw [htranslate]
       simp
     _ = ∫⁻ U : SourceUnitary (n + 1), ∫⁻ W : SourceUnitary n,
-        f (sourceHaarCorner (by omega) (U * headFixedUnitary W))
+        f (sourceHaarCorner (by lia) (U * headFixedUnitary W))
           ∂sourceUnitaryLaw n ∂sourceUnitaryLaw (n + 1) :=
       lintegral_lintegral_swap hc.aemeasurable |>.symm
     _ = _ := by
@@ -187,15 +186,15 @@ theorem lintegral_sourceHaarCorner_conditioning {n : ℕ} (hn : 1 ≤ n)
       intro U
       simp_rw [sourceHaarCorner_headFixedUnitary hn]
       have hfv : Measurable (fun v : Signal n ↦
-          f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by omega) U)
+          f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by lia) U)
             (sourceComplementRows hn U *ᵥ v))) := by
         apply hf.comp
         have hmul : Continuous (fun v : Signal n ↦ sourceComplementRows hn U *ᵥ v) :=
           continuous_const.matrix_mulVec continuous_id
         exact continuous_matrixOfColumns.measurable.comp
           (measurable_const.prodMk hmul.measurable)
-      rw [← lintegral_map hfv (continuous_sourceHaarFirstColumn (by omega)).measurable,
-        sourceHaarFirstColumn_eq_normalizedGaussian (by omega),
+      rw [← lintegral_map hfv (continuous_sourceHaarFirstColumn (by lia)).measurable,
+        sourceHaarFirstColumn_eq_normalizedGaussian (by lia),
         lintegral_map hfv (measurable_normalizedComplexVector n)]
 
 end HaarSequentialLaw

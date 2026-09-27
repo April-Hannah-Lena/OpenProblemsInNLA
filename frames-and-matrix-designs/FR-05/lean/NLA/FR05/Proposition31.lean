@@ -1,6 +1,5 @@
 import NLA.FR05.Planted.SourceHighProbability
 import NLA.FR05.Planted.SourceLocalControl
-import NLA.FR05.Planted.Newton
 import NLA.FR05.Geometry.InjectivityMeasurable
 
 set_option autoImplicit false
@@ -10,20 +9,20 @@ namespace NLA.FR05
 
 theorem sourceNewtonGood_not_injective {M : ℕ} (hM : 8192 ≤ M)
     (sample : Fin (sourceRowCount M) → SourcePlantedCoordinates (sourceTailDimension M))
-    (hgood : SourceNewtonGood M (by omega) sample) :
+    (hgood : SourceNewtonGood M (by lia) sample) :
     ¬ PhaseRetrievalInjective (plantedFrame (sourceRowsFromCoordinates sample)) := by
-  let e := sourceJacobianCoordinateEquivSourceRows M (by omega)
+  let e := sourceJacobianCoordinateEquivSourceRows M (by lia)
   obtain ⟨hR, hR1, hres, hlip⟩ := sourceNewton_calibration hM
-  have hseed := sourceEquation_seed_le (by omega : 2 ≤ M) e sample hgood.1 hgood.2.2
+  have hseed := sourceEquation_seed_le (by lia : 2 ≤ M) e sample hgood.1 hgood.2.2
   obtain ⟨x, hx, hzero⟩ := exists_zero_of_local_linear_control
     (sourceEquationEuclidean e sample)
-    (euclideanMap (sourceJacobianMatrixAt M (by omega) sample))
-    (sourceKappa_pos M (by omega)) hR hgood.2.1
+    (euclideanMap (sourceJacobianMatrixAt M (by lia) sample))
+    (sourceKappa_pos M (by lia)) hR hgood.2.1
     (show 2 * ‖sourceEquationEuclidean e sample 0‖ ≤
         sourceKappa M * sourceNewtonRadius M by linarith)
     (by
       intro x y hx hy
-      exact (sourceEquation_frozen_difference_le (by omega : 2 ≤ M) e sample
+      exact (sourceEquation_frozen_difference_le (by lia : 2 ≤ M) e sample
         hgood.1 hgood.2.2 x y hR hx hy).trans
         (mul_le_mul_of_nonneg_right hlip (norm_nonneg _)))
   let θ := sourceFactorDecode x
@@ -42,18 +41,18 @@ theorem sourcePlantedFrameLaw_injective_le_bad {M : ℕ} (hM : 8192 ≤ M) :
     (sourcePlantedFrameLawAt M).real {A | PhaseRetrievalInjective A} ≤
       (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M)
         (sourceRowCount M) (sourceTailDimension M)).real
-        {sample | ¬ SourceNewtonGood M (by omega) sample} := by
+        {sample | ¬ SourceNewtonGood M (by lia) sample} := by
   let μ := iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M)
     (sourceRowCount M) (sourceTailDimension M)
   let _ : IsProbabilityMeasure μ := isProbabilityMeasure_iidSourceCoordinateLaw
-    sourceEta_pos.le sourceEta_lt_one (sourceEpsilon_pos M (by omega)) _ _
+    sourceEta_pos.le sourceEta_lt_one (sourceEpsilon_pos M (by lia)) _ _
   have hm : Measurable (sourceFrameFromCoordinates
       (m := sourceRowCount M) (n := sourceTailDimension M)) :=
     measurable_frameFromPlantedColumns.comp measurable_sourceColumnsFromCoordinates
-  have he := ae_sourceFrameFromCoordinates_eq_plantedFrameAt (show 1 ≤ M by omega)
+  have he := ae_sourceFrameFromCoordinates_eq_plantedFrameAt (show 1 ≤ M by lia)
   have hsub :
       {sample | PhaseRetrievalInjective (sourceFrameFromCoordinates sample)} ≤ᵐ[μ]
-      {sample | ¬ SourceNewtonGood M (by omega) sample} := by
+      {sample | ¬ SourceNewtonGood M (by lia) sample} := by
     filter_upwards [he] with sample heq
     intro hinj hgood
     change PhaseRetrievalInjective (sourceFrameFromCoordinates sample) at hinj
@@ -64,7 +63,7 @@ theorem sourcePlantedFrameLaw_injective_le_bad {M : ℕ} (hM : 8192 ≤ M) :
   have hmap := Measure.map_apply (μ := μ) hm hs
   unfold sourcePlantedFrameLawAt
   rw [iidSourcePlantedFrameLaw_eq_coordinatesMap _ _ sourceEta_pos.le
-    sourceEta_lt_one (sourceEpsilon_pos M (by omega)), Measure.real_def]
+    sourceEta_lt_one (sourceEpsilon_pos M (by lia)), Measure.real_def]
   change ((μ.map sourceFrameFromCoordinates) _).toReal ≤ μ.real _
   rw [hmap]
   exact ENNReal.toReal_mono (measure_ne_top μ _) (measure_mono_ae hsub)
@@ -75,8 +74,8 @@ theorem proposition_3_1 :
       (sourcePlantedFrameLawAt M).real {A | PhaseRetrievalInjective A} ≤
         C / (M : ℝ) ^ 2 := by
   obtain ⟨D, _, hD⟩ := sourceNewtonGood_failure_order
-  refine ⟨113, by norm_num, max D 8192, by omega, fun M hM ↦ ?_⟩
+  refine ⟨113, by norm_num, max D 8192, by lia, fun M hM ↦ ?_⟩
   exact (sourcePlantedFrameLaw_injective_le_bad
     ((le_max_right D 8192).trans hM)).trans
-    (hD M (by omega) ((le_max_left D 8192).trans hM))
+    (hD M (by lia) ((le_max_left D 8192).trans hM))
 end NLA.FR05

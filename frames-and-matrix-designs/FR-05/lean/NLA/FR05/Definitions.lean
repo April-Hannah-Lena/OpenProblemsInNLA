@@ -8,7 +8,6 @@ by phase or replace the measurement model by a rank condition.
 -/
 import Mathlib.Analysis.Complex.Basic
 import Mathlib.Analysis.Complex.Exponential
-import Mathlib.LinearAlgebra.Matrix.Notation
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate Matrix
@@ -39,10 +38,10 @@ def PhaseRetrievalInjective {m d : ℕ} (A : Frame m d) : Prop :=
   ∀ x y : Signal d, SameMeasurements A x y → GloballyPhased x y
 
 /-- The first coordinate, available in every dimension at least two. -/
-def firstCoordinate (d : ℕ) (hd : 2 ≤ d) : Fin d := ⟨0, by omega⟩
+def firstCoordinate (d : ℕ) (hd : 2 ≤ d) : Fin d := ⟨0, by lia⟩
 
 /-- The second coordinate, available in every dimension at least two. -/
-def secondCoordinate (d : ℕ) (hd : 2 ≤ d) : Fin d := ⟨1, by omega⟩
+def secondCoordinate (d : ℕ) (hd : 2 ≤ d) : Fin d := ⟨1, by lia⟩
 
 /-- A standard coordinate vector. -/
 def standardBasis {d : ℕ} (j : Fin d) : Signal d :=

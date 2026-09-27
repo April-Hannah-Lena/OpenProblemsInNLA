@@ -1,5 +1,4 @@
 import NLA.FR05.Gaussian.GaussianSquaredRadius
-import NLA.FR05.Gaussian.RadialMoments
 import NLA.FR05.Densities.SourceSymmetry
 import NLA.FR05.Cone.ConePhaseAverages
 
@@ -9,9 +8,6 @@ open MeasureTheory ProbabilityTheory Complex Real Set
 open scoped ENNReal NNReal
 
 namespace NLA.FR05
-
-local instance : IsProbabilityMeasure (standardComplexGaussianTail 2) :=
-  isProbabilityMeasure_standardComplexGaussianTail 2
 
 local instance : IsProbabilityMeasure (expMeasure 1) :=
   isProbabilityMeasure_expMeasure (by norm_num)

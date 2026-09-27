@@ -1,6 +1,5 @@
 import NLA.FR05.Overlap.HaarCorner
 import NLA.FR05.Gaussian.GaussianGram
-import Mathlib.Analysis.InnerProductSpace.PiL2
 
 set_option autoImplicit false
 noncomputable section
@@ -51,7 +50,7 @@ theorem exists_sourceUnitary_firstColumn {n : ℕ} (hn : 0 < n) (v : Signal n)
     change (∑ l, star (v l) * v l) = if i = j then 1 else 0
     rw [if_pos (Subsingleton.elim i j)]
     exact h
-  obtain ⟨U, hU⟩ := exists_sourceUnitary_extension (by omega : 1 ≤ n) B hB
+  obtain ⟨U, hU⟩ := exists_sourceUnitary_extension (by lia : 1 ≤ n) B hB
   exact ⟨U, fun i ↦ hU i 0⟩
 
 end NLA.FR05

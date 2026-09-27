@@ -1,6 +1,4 @@
 import NLA.FR05.Overlap.Overlap
-import Mathlib.MeasureTheory.Measure.HasOuterApproxClosed
-import Mathlib.MeasureTheory.Group.Prod
 
 /-!
 # The overlap law as a corner of a Haar unitary

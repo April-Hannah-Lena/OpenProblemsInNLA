@@ -45,9 +45,17 @@ as historical snapshots; their hashes are not expected to match changed proof bo
   factors. Ten private helpers are retired. The unrestricted arccosine corollary
   is stronger; all phase probability bounds and final constants are unchanged.
 
-The refactors left `Definitions.lean`, `Probability.lean`,
-`SourceParameters.lean`, `Solution.lean`, `lakefile.toml`, and `lean-toolchain`
-byte-identical to the preceding manifest. During PR preparation, `Challenge.lean`
+- The pre-PR readability pass registers canonical simp/fun-prop rules and the
+  Gaussian probability instance, generalises and relocates the used product-density
+  identity, removes unnecessary assumptions, and shortens measure and arithmetic
+  proofs. Local instance syntax and arithmetic tactics are modernised. Redundant
+  imports and all direct umbrella `Mathlib.Tactic` imports are removed from `NLA`.
+  No library modules are added. See `LIBRARY_STYLE.md` for the scope and limits.
+
+The pre-PR pass changes imports and proof bodies in `Definitions.lean`,
+`Probability.lean`, and `SourceParameters.lean`, but preserves their mathematical
+definitions and assumptions. `Solution.lean`, `lakefile.toml`, and `lean-toolchain`
+are unchanged. During PR preparation, `Challenge.lean`
 and `comparator.json` additionally select the already-proved original limit,
 alongside the unchanged quantitative target and supporting targets. The stale
 partial-checkpoint metadata in `formalization.yaml` is updated to the completed
@@ -76,10 +84,13 @@ The script checks all library modules and both repository entry points, then:
   strengthened constants 304 and 1024, and the zero-odd-term exponential case;
   also checks saturated arccosine endpoints, a zero-width band outside the cosine
   range, a zero-amplitude affine polynomial, and an empty coordinate norm bound;
+  checks the registered Gaussian probability instance, simp/fun-prop rules,
+  the product-density theorem without separate measurability or finite-density assumptions,
+  and the lower singular-value predicate without decidable equality on the index type;
   runs declaration linters including
   theorem documentation on the curated modules and original definitions;
 - checks the exact final targets and prints transitive axioms in `Inspect.lean`;
-- traverses the final proof's project-local dependencies to check that all 17
+- traverses the final proof's project-local dependencies to check that all 18
   substantive new API lemmas from the cleanup passes are actually used
   (the two compatibility aliases are excluded);
 - rejects proof placeholders, custom axiom declarations, native decision proofs,
@@ -91,7 +102,7 @@ a claim that every mathlib style check runs downstream: in particular, the
 header linter skips modules absent from a library-root import file, and this
 project uses Lake globs rather than `NLA.lean`.
 
-All 38 declarations in `Inspect.lean`, including the original final theorem,
+All 39 declarations in `Inspect.lean`, including the original final theorem,
 use only `propext`, `Classical.choice`, and `Quot.sound`. The four intentional
 `Challenge.lean` placeholders remain isolated and are not solution dependencies.
 Older application modules still produce existing linter suggestions; this pass

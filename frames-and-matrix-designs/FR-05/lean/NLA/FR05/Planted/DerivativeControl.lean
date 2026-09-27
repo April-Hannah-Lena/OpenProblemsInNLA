@@ -9,9 +9,7 @@ the directional derivative changes bilinearly with the base point and the
 second directional difference is constant.  A quantitative Euclidean-to-
 operator-norm estimate remains a later analytic layer.
 -/
-import NLA.FR05.Geometry.Planted
 import NLA.FR05.Planted.Newton
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

@@ -22,7 +22,7 @@ Its general results live in `MeasureTheory` and `MeasureTheory.Measure`:
   used in the final FR-05 comparison.
 
 These are project-local additions, not declarations already accepted into mathlib.
-The previous FR-05 helper names remain available as compatibility aliases.
+The previous FR-05 event-bound and mixture names remain available as compatibility aliases.
 
 [Geometry/Obstruction](NLA/FR05/Geometry/Obstruction.lean) now contains the
 deterministic transport API as well as the rank-two obstruction:
@@ -71,11 +71,12 @@ measure-preserving projection wrapper and the shared determinant identity.
 Each replaces duplication in two existing proofs. The phase simplification adds
 two shared identities; the mathematical compression below adds two replacement
 helpers. The audit follows the final theorem's
-proof dependencies: all 17 substantive API additions across these cleanup passes
+proof dependencies: all 17 substantive API additions across those preceding cleanup passes
 are used. The two old compatibility aliases are intentionally excluded.
 
 The dependency graph remains acyclic, but it is not a fully independent library
-layer: Gaussian definitions still pass through existing planted-law modules.
+layer: the Gaussian tail module still imports planted geometry for energy estimates.
+The pre-PR cleanup below removes its dependence on planted probability laws.
 The preceding API cleanup reduced the project-module dependency closure of
 `NormalizedProjectionLaw` from 77 to 61 modules and the uniform projection
 small-ball bound from 22 to 14, before the latest file consolidation. Those are
@@ -191,6 +192,48 @@ and linter checks. Run these with the complete proof build and axiom inspection:
 bash verification/library-cleanup/check.sh
 ```
 
+## Pre-PR readability and assumption audit
+
+This pass keeps the 112-module layout and the original theorem boundary, with
+355 fewer source lines. Direct library imports decrease from 363 to 219, and
+the complete build's dependency graph decreases from 3,833 to 3,348 jobs.
+
+- Register the unconditional Gaussian-tail probability instance once in
+  `Gaussian/GaussianTail`; remove repeated local registrations. The Gaussian
+  row-law module now imports this foundation and `Probability`, not `PlantedLaw`.
+- Add canonical coordinate/seed `simp` rules and measurability/continuity
+  `fun_prop` rules. Shorten the zero-factor proofs with arithmetic automation.
+  Replace `omega` by `lia` and local `letI`/`haveI` commands by `let`/`have`;
+  remove the obsolete local-instance style-linter suppressions.
+- Replace manual row-law probability conversions by mathlib's
+  `MeasurePreserving.measureReal_preimage` and `ENNReal.toReal_le_of_le_ofReal`.
+  Use `grw` for monotone integral and probability comparisons. Retain `change`
+  where it exposes a genuine representation boundary or avoids fragile elaboration.
+- Move the product-density identity into `MeasureTheory.Measure` as
+  `pi_withDensity_ofReal`, with arbitrary finite index type. Its integrability
+  hypothesis supplies a.e. measurability and finite density mass: separate
+  measurability and sigma-finiteness hypotheses on the density measure are removed.
+  Both existing sampler proofs use this one replacement, not an additional copy.
+- Remove unused lower-bound assumptions from `sourceLikelihood_le`,
+  `sourceRadialBase_Ici_ne_zero`, and `coneRotatedOverlap_residual`.
+  The matrix-to-Euclidean-map definition and its lower-bound predicate no longer
+  require decidable equality on the finite index type.
+  Retain dimension assumptions needed to select two coordinates or transport
+  `Fin` indices, and positivity/support hypotheses needed by `PlantedRow`.
+  Probability normalisation remains in lemmas, not in definitions of the laws.
+- Reduce the final numerical comparison to Young's inequality, denominator
+  monotonicity, and arithmetic automation, without changing its statement or constants.
+- Remove redundant imports and all direct `import Mathlib.Tactic` commands from
+  the proof library. Use targeted mathematical and tactic dependencies instead.
+  The injectivity-measurability argument imports the deterministic definitions,
+  not the Gaussian probability model. The legacy module format is retained.
+
+The regression checks cover the new instance and automation, the weaker density
+and matrix-index assumptions, and both final targets. The new generic density lemma
+is also checked to occur in the final proof's dependency closure (18 tracked API
+lemmas in total).
+These changes are local library improvements, not a claim of mathlib acceptance.
+
 ## Remaining library-quality work
 
 1. Continue separating foundational definitions from planted-law application
@@ -199,9 +242,9 @@ bash verification/library-cleanup/check.sh
 2. Continue replacing paper-stage names and incidental coordinate encodings
    with mathematical namespaces and standard structures where useful, while
    retaining the exact FR-05 statement boundary and source correspondence.
-3. Finish import minimisation, documentation, and linter cleanup across the
-   older modules. Their broad tactic imports, repeated section wrappers, and
-   existing warnings have not all been removed by this pass.
+3. Continue documentation and linter cleanup across the older modules. The
+   pre-PR cleanup removes umbrella tactic imports, but repeated section wrappers
+   and older application-level linter suggestions remain.
 4. Review potential upstream contributions individually. Mathlib acceptance,
    independent statement review, and the repository's isolated Linux verification
    are separate from the local Lean checks.

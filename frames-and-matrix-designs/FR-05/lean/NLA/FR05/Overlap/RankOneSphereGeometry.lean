@@ -133,8 +133,6 @@ open scoped ENNReal
 instance (n : ℕ) : IsProbabilityMeasure (sphereProjectionLaw n) := by
   let : IsProbabilityMeasure (gammaMeasure (n + 1) 1) :=
     isProbabilityMeasure_gammaMeasure (by positivity) zero_lt_one
-  let : IsProbabilityMeasure (standardComplexGaussianTail 2) :=
-    isProbabilityMeasure_standardComplexGaussianTail 2
   rw [← normalizedGaussianHead_law n]
   exact Measure.isProbabilityMeasure_map measurable_normalizedGaussianHead.aemeasurable
 
@@ -148,7 +146,7 @@ theorem ae_sphereProjectionLaw_energy (n : ℕ) :
 
 theorem ae_sourceHaarFirstTwoCoordinates_energy {m : ℕ} (hm : 3 ≤ m) :
     ∀ᵐ U ∂sourceUnitaryLaw m,
-      signalEnergy (sourceHaarFirstTwoCoordinates (by omega) U) < 1 := by
+      signalEnergy (sourceHaarFirstTwoCoordinates (by lia) U) < 1 := by
   have h := ae_sphereProjectionLaw_energy (m - 3)
   rw [← sourceHaarFirstTwoCoordinates_law hm] at h
   exact (ae_map_iff (continuous_sourceHaarFirstTwoCoordinates _).measurable.aemeasurable
@@ -184,33 +182,33 @@ theorem measurable_sequentialSphereMap : Measurable sequentialSphereMap := by
 
 theorem lintegral_sourceHaarCorner_spheres {n : ℕ} (hn : 3 ≤ n)
     (f : SourceOverlapMatrix → ℝ≥0∞) (hf : Measurable f) :
-    (∫⁻ U : SourceUnitary (n + 1), f (sourceHaarCorner (by omega) U) ∂sourceUnitaryLaw (n + 1)) =
+    (∫⁻ U : SourceUnitary (n + 1), f (sourceHaarCorner (by lia) U) ∂sourceUnitaryLaw (n + 1)) =
       ∫⁻ z, ∫⁻ w, f (sequentialSphereMap (z, w))
         ∂sphereProjectionLaw (n - 3) ∂sphereProjectionLaw (n - 2) := by
-  rw [lintegral_sourceHaarCorner_conditioning (by omega) f hf]
+  rw [lintegral_sourceHaarCorner_conditioning (by lia) f hf]
   have he :
       (∫⁻ U : SourceUnitary (n + 1), ∫⁻ x : Signal n,
-        f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by omega) U)
-          (sourceComplementRows (by omega) U *ᵥ normalizedComplexVector x))
+        f (matrixOfColumns (sourceHaarFirstTwoCoordinates (by lia) U)
+          (sourceComplementRows (by lia) U *ᵥ normalizedComplexVector x))
         ∂standardComplexGaussianTail n ∂sourceUnitaryLaw (n + 1)) =
       ∫⁻ U : SourceUnitary (n + 1), ∫⁻ w,
-        f (sequentialSphereMap (sourceHaarFirstTwoCoordinates (by omega) U, w))
+        f (sequentialSphereMap (sourceHaarFirstTwoCoordinates (by lia) U, w))
         ∂sphereProjectionLaw (n - 3) ∂sourceUnitaryLaw (n + 1) := by
     apply lintegral_congr_ae
-    filter_upwards [ae_sourceHaarFirstTwoCoordinates_energy (by omega : 3 ≤ n + 1)] with U hU
-    let z := sourceHaarFirstTwoCoordinates (by omega : 2 ≤ n + 1) U
+    filter_upwards [ae_sourceHaarFirstTwoCoordinates_energy (by lia : 3 ≤ n + 1)] with U hU
+    let z := sourceHaarFirstTwoCoordinates (by lia : 2 ≤ n + 1) U
     have hfv : Measurable (fun w : Signal 2 ↦ f (matrixOfColumns z w)) :=
       hf.comp (continuous_matrixOfColumns.measurable.comp (measurable_const.prodMk measurable_id))
     have hc : (standardComplexGaussianTail n).map
-        (fun x ↦ sourceComplementRows (by omega) U *ᵥ normalizedComplexVector x) =
+        (fun x ↦ sourceComplementRows (by lia) U *ᵥ normalizedComplexVector x) =
         (sphereProjectionLaw (n - 3)).map (fun w ↦ sphereComplementFactor z *ᵥ w) :=
       normalizedGaussian_projection_of_factor hn _ _ (sphereComplementFactor_det_ne_zero hU)
-        ((sourceComplementRows_gram (by omega) U).trans (sphereComplementFactor_gram hU).symm)
-    have hmul : Continuous (fun v : Signal n ↦ sourceComplementRows (by omega) U *ᵥ v) :=
+        ((sourceComplementRows_gram (by lia) U).trans (sphereComplementFactor_gram hU).symm)
+    have hmul : Continuous (fun v : Signal n ↦ sourceComplementRows (by lia) U *ᵥ v) :=
       continuous_const.matrix_mulVec continuous_id
     have hi := congrArg (fun μ : Measure (Signal 2) ↦ ∫⁻ w, f (matrixOfColumns z w) ∂μ) hc
     rw [lintegral_map hfv (show Measurable (fun x : Signal n ↦
-        sourceComplementRows (by omega) U *ᵥ normalizedComplexVector x) from
+        sourceComplementRows (by lia) U *ᵥ normalizedComplexVector x) from
           hmul.measurable.comp (measurable_normalizedComplexVector n)),
       lintegral_map hfv (show Measurable (fun w ↦ sphereComplementFactor z *ᵥ w) by
         apply Continuous.measurable; fun_prop)] at hi
@@ -221,12 +219,12 @@ theorem lintegral_sourceHaarCorner_spheres {n : ℕ} (hn : 3 ≤ n)
     (show Measurable (Function.uncurry (fun z w : Signal 2 ↦
       f (sequentialSphereMap (z, w)))) from hf.comp measurable_sequentialSphereMap).lintegral_prod_right
   rw [← lintegral_map hg (continuous_sourceHaarFirstTwoCoordinates _).measurable,
-    sourceHaarFirstTwoCoordinates_law (by omega : 3 ≤ n + 1)]
-  have he' : n + 1 - 3 = n - 2 := by omega
+    sourceHaarFirstTwoCoordinates_law (by lia : 3 ≤ n + 1)]
+  have he' : n + 1 - 3 = n - 2 := by lia
   rw [he']
 
 theorem sourceOverlapLaw_eq_sequentialSpheres {n : ℕ} (hn : 3 ≤ n) :
-    sourceOverlapLaw (n + 1) (by omega) =
+    sourceOverlapLaw (n + 1) (by lia) =
       ((sphereProjectionLaw (n - 2)).prod (sphereProjectionLaw (n - 3))).map sequentialSphereMap := by
   rw [sourceOverlapLaw_eq_haarCorner]
   apply Measure.ext_of_lintegral

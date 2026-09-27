@@ -1,7 +1,5 @@
 import NLA.FR05.Planted.DerivativeControl
 import Mathlib.Analysis.Normed.Lp.PiLp
-import Mathlib.Tactic
-import NLA.FR05.SourceParameters
 
 /-!
 # Derivative norms and good-event bounds
@@ -369,7 +367,7 @@ perturbation scale.
 theorem source_tailDimension_add_two {M : ℕ} (hM : 2 ≤ M) :
     sourceTailDimension M + 2 = M := by
   unfold sourceTailDimension
-  omega
+  lia
 
 /-- On the source's radial/tail-energy event, every row has a polynomial
 `16 M^5` upper bound for the conservative derivative constant. -/
@@ -378,7 +376,7 @@ theorem plantedRowSupEnergy_le_source_bound
     (hradial : sourceDelta M ≤ row.radial)
     (henergy : row.radial + squaredEuclideanNorm row.tail ≤ 16 * (M : ℝ)) :
     plantedRowSupEnergy row ≤ 16 * (M : ℝ) ^ 5 := by
-  have hMone : 1 ≤ M := le_trans (by omega) hM
+  have hMone : 1 ≤ M := le_trans (by lia) hM
   have hMreal : 0 < (M : ℝ) := by
     exact_mod_cast Nat.zero_lt_of_lt hMone
   calc

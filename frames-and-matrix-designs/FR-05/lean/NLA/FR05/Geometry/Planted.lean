@@ -1,6 +1,5 @@
 import NLA.FR05.Geometry.FactorChart
 import Mathlib.Analysis.Complex.Trigonometric
-import Mathlib.Tactic
 
 /-!
 # The planted chart and its quadratic expansion
@@ -59,7 +58,6 @@ theorem plantedColumn_first_normSq {n : ℕ} (r : PlantedRow n) :
   have hξ := abs_le.mp r.imbalance_le_one
   have hradial : 0 ≤ r.radial * (1 + r.imbalance) / 2 := by
     exact div_nonneg (mul_nonneg r.radial_pos.le (by linarith [hξ.1])) (by norm_num)
-  simp only [plantedColumn, joinTwo_zero]
   exact normSq_polar _ _ hradial
 
 theorem plantedColumn_second_normSq {n : ℕ} (r : PlantedRow n) :
@@ -68,7 +66,6 @@ theorem plantedColumn_second_normSq {n : ℕ} (r : PlantedRow n) :
   have hξ := abs_le.mp r.imbalance_le_one
   have hradial : 0 ≤ r.radial * (1 - r.imbalance) / 2 := by
     exact div_nonneg (mul_nonneg r.radial_pos.le (by linarith [hξ.2])) (by norm_num)
-  simp only [plantedColumn, joinTwo_one]
   exact normSq_polar _ _ hradial
 
 theorem normSq_star_dotProduct_standardBasis {d : ℕ}
@@ -101,11 +98,11 @@ theorem factorChart_zero_quadraticForm_plantedColumn {n : ℕ}
     quadraticForm_rankOneDifference]
   rw [normSq_star_dotProduct_standardBasis,
     normSq_star_dotProduct_standardBasis]
-  have hfirst : firstCoordinate (n + 2) (by omega) =
+  have hfirst : firstCoordinate (n + 2) (by lia) =
       ⟨0, Nat.zero_lt_succ _⟩ := by
     apply Fin.ext
     rfl
-  have hsecond : secondCoordinate (n + 2) (by omega) =
+  have hsecond : secondCoordinate (n + 2) (by lia) =
       ⟨1, Nat.succ_lt_succ (Nat.zero_lt_succ _)⟩ := by
     apply Fin.ext
     rfl
@@ -128,6 +125,7 @@ def plantedEquation {n : ℕ} (r : PlantedRow n)
   (quadraticForm (factorChart s b z t) (plantedColumn r)).re / r.radial
 
 /-- Equation (3.18) yields the exact seed value `F_i^ε(0) = ξ_i`. -/
+@[simp]
 theorem plantedEquation_zero {n : ℕ} (r : PlantedRow n) :
     plantedEquation r 0 0 0 0 = r.imbalance := by
   unfold plantedEquation

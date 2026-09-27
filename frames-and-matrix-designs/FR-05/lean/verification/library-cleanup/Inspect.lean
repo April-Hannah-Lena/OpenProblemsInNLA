@@ -11,6 +11,7 @@ example : Filter.Tendsto NLA.FR05.phaseRetrievalProbability Filter.atTop (𝓝 0
   NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero
 
 #print axioms MeasureTheory.Measure.map_prod_eq_withDensity
+#print axioms MeasureTheory.Measure.pi_withDensity_ofReal
 #print axioms MeasureTheory.Measure.map_prod_eq_withDensity_ofReal
 #print axioms MeasureTheory.Measure.map_prod_eq_withDensity_of_inv
 #print axioms MeasureTheory.abs_setIntegral_le_sqrt_setIntegral_sq
@@ -71,6 +72,7 @@ run_cmd do
           if (`NLA).isPrefixOf mod || mod == `Solution then
             todo := dep :: todo
   let candidates := #[
+    `MeasureTheory.Measure.pi_withDensity_ofReal,
     `MeasureTheory.Measure.map_prod_eq_withDensity,
     `MeasureTheory.Measure.map_prod_eq_withDensity_ofReal,
     `MeasureTheory.Measure.map_prod_eq_withDensity_of_inv,

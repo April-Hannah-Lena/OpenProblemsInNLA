@@ -1,8 +1,8 @@
 import NLA.FR05.Geometry.Planted
 import NLA.FR05.SourceParameters
 import Mathlib.LinearAlgebra.Complex.FiniteDimensional
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 import Mathlib.Topology.MetricSpace.Contracting
-import Mathlib.Tactic
 import Mathlib.Analysis.SpecialFunctions.Sqrt
 
 /-! ## Newton -/
@@ -17,9 +17,6 @@ source-specific estimates which establish its hypotheses.  It is stated for
 the planted equation map, so a fixed point is immediately an exact
 phase-retrieval ambiguity through `Planted.lean`.
 -/
-
-
-
 
 
 set_option autoImplicit false
@@ -37,7 +34,7 @@ this is the source row count `4M - 5`. -/
 theorem finrank_factorParameters (n : ℕ) :
     Module.finrank ℝ (FactorParameters n) = 1 + 2 + 2 * n + 2 * n := by
   simp [FactorParameters, Complex.finrank_real_complex, Module.finrank_pi_fintype]
-  omega
+  lia
 
 /-- At the source dimensions, the planted equation map has square real
 Jacobian size. -/
@@ -254,15 +251,15 @@ theorem sourceNewton_calibration {M : ℕ} (hM : 8192 ≤ M) :
   have hm0 : (0 : ℝ) < M := by linarith
   have hm1 : (1 : ℝ) ≤ M := by linarith
   have hm7 : (4 : ℝ) ≤ (M : ℝ) ^ 7 := by
-    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 7 by omega)
+    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 7 by lia)
     norm_num only [pow_one] at h
     linarith
   have hm12 : (8192 : ℝ) ≤ (M : ℝ) ^ 12 := by
-    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 12 by omega)
+    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 12 by lia)
     norm_num only [pow_one] at h
     linarith
   have hm32 : (2048 : ℝ) ≤ (M : ℝ) ^ 32 := by
-    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 32 by omega)
+    have h := pow_le_pow_right₀ hm1 (show 1 ≤ 32 by lia)
     norm_num only [pow_one] at h
     linarith
   have hres : 4 / (M : ℝ) ^ 49 ≤ 1 / (M : ℝ) ^ 42 := by
@@ -317,8 +314,6 @@ The norm in this file is the actual Euclidean norm (rather than Lean's
 default sup norm on a finite function type), matching the vector norm in
 equation (3.24) of the source.
 -/
-
-
 
 
 set_option autoImplicit false

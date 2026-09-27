@@ -1,10 +1,7 @@
 import NLA.FR05.Definitions
-import Mathlib.Data.Matrix.Block
 import Mathlib.Data.Matrix.ColumnRowPartitioned
 import Mathlib.LinearAlgebra.Matrix.Hermitian
 import Mathlib.LinearAlgebra.Matrix.Rank
-import Mathlib.Tactic
-import Mathlib.LinearAlgebra.Matrix.Diagonal
 
 /-! ## RankTwoChart -/
 
@@ -16,11 +13,6 @@ The source uses this chart to turn a small residual into an exact ambiguity.
 This module verifies its finite-dimensional geometry independently of the
 subsequent probability estimates.
 -/
-
-
-
-
-
 
 
 set_option autoImplicit false
@@ -35,7 +27,7 @@ abbrev ChartIndex (n : ℕ) := Fin 2 ⊕ Fin n
 /-- The block-coordinate identification used to transport the source chart
 back to the original `Fin M` ambient signal space. -/
 def chartEquiv (M : ℕ) (hM : 2 ≤ M) : ChartIndex (M - 2) ≃ Fin M :=
-  finSumFinEquiv.trans (Fin.castOrderIso (by omega)).toEquiv
+  finSumFinEquiv.trans (Fin.castOrderIso (by lia)).toEquiv
 
 /-! ### Generic graph construction -/
 
@@ -177,9 +169,6 @@ The concrete Hermitian seed at the beginning of Li's construction.  This file
 contains only finite-dimensional exact identities; the later local chart and
 probability estimates are intentionally separate.
 -/
-
-
-
 
 
 set_option autoImplicit false

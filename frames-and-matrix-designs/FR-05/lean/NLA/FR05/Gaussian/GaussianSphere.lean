@@ -8,7 +8,6 @@ open scoped BigOperators Matrix.Norms.Elementwise
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 def normalizedComplexVector {n : ℕ} (z : Signal n) : Signal n :=
   fun i ↦ (((Real.sqrt (signalEnergy z))⁻¹ : ℝ) : ℂ) * z i
@@ -56,8 +55,7 @@ theorem ae_standardComplexGaussian_energy_pos {n : ℕ} (hn : 0 < n) :
     rfl
   have hne : ∀ᵐ s ∂expMeasure 1, s ≠ 0 := by
     rw [ae_iff]
-    change (volume.withDensity (gammaPDF 1 1)) {s : ℝ | ¬s ≠ 0} = 0
-    simpa only [not_not, Set.ofPred_eq_eq_singleton] using
+    simpa only [expMeasure, gammaMeasure, not_not, Set.ofPred_eq_eq_singleton] using
       withDensity_absolutelyContinuous volume (gammaPDF 1 1) (measure_singleton (0 : ℝ))
   have hpos : ∀ᵐ z ∂standardComplexGaussianTail n, Complex.normSq (z i) ≠ 0 := by
     rw [← hmap] at hne

@@ -1,8 +1,6 @@
 import NLA.FR05.Planted.DerivativeNorm
 import NLA.FR05.Densities.SourceMarginals
 import NLA.FR05.Densities.SourceRows
-import Mathlib.Tactic
-import NLA.FR05.Planted.Newton
 
 /-!
 # Source good events and finite row-energy estimates
@@ -31,31 +29,18 @@ theorem iidSourceCoordinateLawAt_radial_tail_real
       25 * Real.exp (-(4 * (M : ℝ))) := by
   let μ0 : Measure (SourcePlantedCoordinates n) :=
     sourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) n
-  letI : IsProbabilityMeasure μ0 :=
+  let : IsProbabilityMeasure μ0 :=
     isProbabilityMeasure_sourceCoordinateLaw sourceEta_pos.le sourceEta_lt_one
       (sourceEpsilon_pos M hM) n
   have hpres : MeasurePreserving (Function.eval i)
-      (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) μ0 := by
-    change MeasurePreserving (Function.eval i) (Measure.pi (fun _ : Fin m => μ0)) μ0
-    exact measurePreserving_eval _ i
+      (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) μ0 :=
+    measurePreserving_eval _ i
   let s : Set (SourcePlantedCoordinates n) := {p | 8 * (M : ℝ) ≤ p.1.1}
   have hs : MeasurableSet s := measurableSet_Ici.preimage (measurable_fst.comp measurable_fst)
-  have hmeasure :
-      iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n
-          ((Function.eval i) ⁻¹' s) = μ0 s := by
-    exact hpres.measure_preimage hs.nullMeasurableSet
-  have htail : μ0 s ≤
-      (25 : ℝ≥0∞) * ENNReal.ofReal (Real.exp (-(4 * (M : ℝ)))) := by
-    simpa [μ0, s] using sourceCoordinateLaw_sourceM_radial_tail n hM
-  have hreal : μ0.real s ≤ 25 * Real.exp (-(4 * (M : ℝ))) := by
-    rw [Measure.real_def]
-    have h := (ENNReal.toReal_le_toReal (measure_ne_top _ _)
-      (ENNReal.mul_ne_top (by norm_num) ENNReal.ofReal_ne_top)).mpr htail
-    simpa [ENNReal.toReal_ofReal (Real.exp_nonneg _)] using h
-  change (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
-    ((Function.eval i) ⁻¹' s) ≤ _
-  rw [Measure.real_def, hmeasure]
-  exact hreal
+  refine (hpres.measureReal_preimage hs.nullMeasurableSet).le.trans ?_
+  apply ENNReal.toReal_le_of_le_ofReal (by positivity)
+  rw [ENNReal.ofReal_mul (by norm_num), ENNReal.ofReal_ofNat]
+  exact sourceCoordinateLaw_sourceM_radial_tail n hM
 
 theorem iidSourceCoordinateLawAt_tail_energy_tail_real
     {M m n : ℕ} (hM : 1 ≤ M) (i : Fin m) :
@@ -64,49 +49,34 @@ theorem iidSourceCoordinateLawAt_tail_energy_tail_real
       Real.exp (-3 * (n : ℝ)) := by
   let μ0 : Measure (SourcePlantedCoordinates n) :=
     sourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) n
-  letI : IsProbabilityMeasure μ0 :=
+  let : IsProbabilityMeasure μ0 :=
     isProbabilityMeasure_sourceCoordinateLaw sourceEta_pos.le sourceEta_lt_one
       (sourceEpsilon_pos M hM) n
   have hpres : MeasurePreserving (Function.eval i)
-      (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) μ0 := by
-    change MeasurePreserving (Function.eval i) (Measure.pi (fun _ : Fin m => μ0)) μ0
-    exact measurePreserving_eval _ i
+      (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) μ0 :=
+    measurePreserving_eval _ i
   let s : Set (SourcePlantedCoordinates n) :=
     {p | 8 * (n : ℝ) ≤ signalEnergy p.2}
   have hs : MeasurableSet s :=
     measurableSet_Ici.preimage (measurable_signalEnergy.comp measurable_snd)
-  have hmeasure :
-      iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n
-          ((Function.eval i) ⁻¹' s) = μ0 s := by
-    exact hpres.measure_preimage hs.nullMeasurableSet
-  have htail : μ0 s ≤ ENNReal.ofReal (Real.exp (-3 * (n : ℝ))) := by
-    simpa [μ0, s] using sourceCoordinateLaw_tail_energy_tail n sourceEta_pos.le
-      sourceEta_lt_one (sourceEpsilon_pos M hM)
-  have hreal : μ0.real s ≤ Real.exp (-3 * (n : ℝ)) := by
-    rw [Measure.real_def]
-    have h := (ENNReal.toReal_le_toReal (measure_ne_top _ _) ENNReal.ofReal_ne_top).mpr htail
-    simpa [ENNReal.toReal_ofReal (Real.exp_nonneg _)] using h
-  change (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
-    ((Function.eval i) ⁻¹' s) ≤ _
-  rw [Measure.real_def, hmeasure]
-  exact hreal
+  refine (hpres.measureReal_preimage hs.nullMeasurableSet).le.trans ?_
+  exact ENNReal.toReal_le_of_le_ofReal (Real.exp_nonneg _)
+    (sourceCoordinateLaw_tail_energy_tail n sourceEta_pos.le
+      sourceEta_lt_one (sourceEpsilon_pos M hM))
 
 theorem iidSourceCoordinateLawAt_tail_energy_tail_at_M_real
     {M m n : ℕ} (hM : 1 ≤ M) (hnM : n ≤ M) (i : Fin m) :
     (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
         {p | 8 * (M : ℝ) ≤ signalEnergy (p i).2} ≤
       Real.exp (-3 * (n : ℝ)) := by
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) :=
     isProbabilityMeasure_iidSourceCoordinateLaw sourceEta_pos.le sourceEta_lt_one
       (sourceEpsilon_pos M hM) m n
   apply le_trans (measureReal_mono ?_)
     (iidSourceCoordinateLawAt_tail_energy_tail_real hM i)
   intro p hp
-  change 8 * (M : ℝ) ≤ signalEnergy (p i).2 at hp
-  change 8 * (n : ℝ) ≤ signalEnergy (p i).2
-  have hnM' : (n : ℝ) ≤ M := by exact_mod_cast hnM
-  linarith
+  exact (mul_le_mul_of_nonneg_left (Nat.cast_le.mpr hnM) (by norm_num : (0 : ℝ) ≤ 8)).trans hp
 
 /-- The source's coordinatewise tail estimates lift to the finite-row event
 in (3.22), before converting source coordinates to checked planted rows. -/
@@ -115,7 +85,7 @@ theorem iidSourceCoordinateLawAt_row_energy_max_tail_real
     (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
         {p | ∃ i, 16 * (M : ℝ) ≤ (p i).1.1 + signalEnergy (p i).2} ≤
       m * (25 * Real.exp (-(4 * (M : ℝ))) + Real.exp (-3 * (n : ℝ))) := by
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) :=
     isProbabilityMeasure_iidSourceCoordinateLaw sourceEta_pos.le sourceEta_lt_one
       (sourceEpsilon_pos M hM) m n
@@ -166,15 +136,9 @@ theorem ae_iidSourceCoordinateLaw_support
   let _ : IsProbabilityMeasure μ :=
     isProbabilityMeasure_sourceCoordinateLaw hη0 hη1 hε n
   have hpres : MeasurePreserving (Function.eval i)
-      (iidSourceCoordinateLaw η δ ε m n) μ := by
-    change MeasurePreserving (Function.eval i) (Measure.pi (fun _ : Fin m => μ)) μ
-    exact measurePreserving_eval _ i
-  have hmapae : ∀ᵐ q ∂Measure.map (Function.eval i)
-      (iidSourceCoordinateLaw η δ ε m n),
-      δ ≤ q.1.1 ∧ |q.1.2.1| ≤ ε := by
-    rw [hpres.map_eq]
-    exact ae_sourceCoordinateLaw_support n hη0 hη1 hε
-  exact ae_of_ae_map (measurable_pi_apply i).aemeasurable hmapae
+      (iidSourceCoordinateLaw η δ ε m n) μ :=
+    measurePreserving_eval _ i
+  exact hpres.quasiMeasurePreserving.ae (ae_sourceCoordinateLaw_support n hη0 hη1 hε)
 
 /-- Except on the explicit finite-row energy tail event, every source sample
 lies in the good event needed by the derivative argument. -/
@@ -186,7 +150,7 @@ theorem ae_not_sourceCoordinateSampleGood_le_rowEnergyTail
   have hsupp := ae_iidSourceCoordinateLaw_support
     (η := sourceEta) (δ := sourceDelta M) (ε := sourceEpsilon M)
     (m := m) (n := n) sourceEta_pos.le sourceEta_lt_one
-    (sourceEpsilon_pos M (by omega))
+    (sourceEpsilon_pos M (by lia))
   filter_upwards [hsupp] with p hp
   change ¬ SourceCoordinateSampleGood M p →
     ∃ i, 16 * (M : ℝ) ≤ (p i).1.1 + signalEnergy (p i).2
@@ -194,7 +158,7 @@ theorem ae_not_sourceCoordinateSampleGood_le_rowEnergyTail
   by_contra htail
   apply hnot
   intro i
-  refine ⟨(hp i).1, (hp i).2.trans (sourceEpsilon_le_one M (by omega)), ?_⟩
+  refine ⟨(hp i).1, (hp i).2.trans (sourceEpsilon_le_one M (by lia)), ?_⟩
   exact le_of_lt (lt_of_not_ge fun henergy => htail ⟨i, henergy⟩)
 
 /-- The source's explicit finite-row tail estimate controls the probability
@@ -207,19 +171,12 @@ theorem iidSourceCoordinateLawAt_not_sourceCoordinateSampleGood_real_le
   let _ : IsProbabilityMeasure
       (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n) :=
     isProbabilityMeasure_iidSourceCoordinateLaw sourceEta_pos.le sourceEta_lt_one
-      (sourceEpsilon_pos M (by omega)) m n
+      (sourceEpsilon_pos M (by lia)) m n
   have hmeasure := ae_not_sourceCoordinateSampleGood_le_rowEnergyTail
     (m := m) (n := n) hM
-  have hreal :
-      (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
-          {p | ¬ SourceCoordinateSampleGood M p} ≤
-        (iidSourceCoordinateLaw sourceEta (sourceDelta M) (sourceEpsilon M) m n).real
-          {p | ∃ i, 16 * (M : ℝ) ≤ (p i).1.1 + signalEnergy (p i).2} := by
-    rw [Measure.real_def, Measure.real_def]
-    exact (ENNReal.toReal_le_toReal (measure_ne_top _ _) (measure_ne_top _ _)).mpr
-      (measure_mono_ae hmeasure)
-  exact hreal.trans (iidSourceCoordinateLawAt_row_energy_max_tail_real
-    (by omega) hnM)
+  grw [Measure.real_def, measure_mono_ae hmeasure]
+  · exact iidSourceCoordinateLawAt_row_energy_max_tail_real (by lia) hnM
+  · exact measure_ne_top _ _
 
 /-- The actual iid source law satisfies the seed-residual estimate in
 equation (3.24) almost surely; this is the direct source-coordinate version
@@ -233,15 +190,15 @@ theorem ae_iidSourceCoordinateLawAt_plantedEquationMap_zero_euclideanNorm_le
   have hsupp := ae_iidSourceCoordinateLaw_support
     (η := sourceEta) (δ := sourceDelta M) (ε := sourceEpsilon M)
     (m := m) (n := sourceTailDimension M)
-    sourceEta_pos.le sourceEta_lt_one (sourceEpsilon_pos M (by omega))
+    sourceEta_pos.le sourceEta_lt_one (sourceEpsilon_pos M (by lia))
   filter_upwards [hsupp] with sample hsample
   apply plantedEquationMap_zero_euclideanNorm_le
-  · exact (sourceEpsilon_pos M (by omega)).le
+  · exact (sourceEpsilon_pos M (by lia)).le
   · intro i
     have hpos : 0 < (sample i).1.1 :=
-      lt_of_lt_of_le (sourceDelta_pos M (by omega)) (hsample i).1
+      lt_of_lt_of_le (sourceDelta_pos M (by lia)) (hsample i).1
     have hxi : |(sample i).1.2.1| ≤ 1 :=
-      (hsample i).2.trans (sourceEpsilon_le_one M (by omega))
+      (hsample i).2.trans (sourceEpsilon_le_one M (by lia))
     have hsupport : 0 < (sample i).1.1 ∧ |(sample i).1.2.1| ≤ 1 :=
       ⟨hpos, hxi⟩
     change |(sourceCoordinatesToPlantedRowOrDefault (sample i)).imbalance| ≤
@@ -256,9 +213,9 @@ theorem sourceCoordinatesToPlantedRowOrDefault_eq_of_good
     (hgood : SourceCoordinateRowGood M p) :
     sourceCoordinatesToPlantedRowOrDefault p =
       sourceCoordinatesToPlantedRow p
-        (lt_of_lt_of_le (sourceDelta_pos M (by omega)) hgood.1) hgood.2.1 := by
+        (lt_of_lt_of_le (sourceDelta_pos M (by lia)) hgood.1) hgood.2.1 := by
   have hs : 0 < p.1.1 ∧ |p.1.2.1| ≤ 1 :=
-    ⟨lt_of_lt_of_le (sourceDelta_pos M (by omega)) hgood.1, hgood.2.1⟩
+    ⟨lt_of_lt_of_le (sourceDelta_pos M (by lia)) hgood.1, hgood.2.1⟩
   simp [sourceCoordinatesToPlantedRowOrDefault, hs]
 
 /-- The coordinate good event gives the source-scale uniform row constant

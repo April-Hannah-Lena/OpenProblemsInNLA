@@ -1,6 +1,5 @@
 import Mathlib.Analysis.Complex.Harmonic.Poisson
 import Mathlib.Analysis.InnerProductSpace.Harmonic.Constructions
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.Fourier.AddCircle
 
 /-! ## ConePhaseIntegral -/

@@ -1,7 +1,5 @@
 import NLA.FR05.Gaussian.GaussianSquaredRadius
 import NLA.FR05.Densities.SourceSymmetry
-import Mathlib.MeasureTheory.Group.Prod
-import NLA.FR05.Gaussian.RadialMoments
 
 /-!
 # Planted radial laws and moments

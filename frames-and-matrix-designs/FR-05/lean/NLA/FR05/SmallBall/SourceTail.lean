@@ -1,7 +1,6 @@
 import NLA.FR05.SmallBall.SourceTailConditional
 import NLA.FR05.Densities.SourceRows
 import NLA.FR05.Densities.SourceMarginals
-import Mathlib.Tactic
 
 /-! ## SourceTailBridge -/
 
@@ -14,7 +13,6 @@ The conditional estimate is stated on reassociated product coordinates for
 Tonelli's theorem.  This bridge identifies it with the literal row form in
 equation (3.21) on the support of the planted source law.
 -/
-
 
 
 set_option autoImplicit false
@@ -56,10 +54,7 @@ facts in a neutral location for their later combination.
 -/
 
 
-
-
 set_option autoImplicit false
-set_option linter.style.haveILetI false
 noncomputable section
 
 open MeasureTheory ProbabilityTheory Set
@@ -84,14 +79,12 @@ theorem ae_sourceCoordinateLaw_fullSupport
       0 < x.1.1 ∧ |x.1.2.1| ≤ 1 ∧
         x.1.2.2.1 ∈ Icc 0 (2 * Real.pi) ∧
         x.1.2.2.2 ∈ Icc 0 (2 * Real.pi) := by
-  letI : IsProbabilityMeasure (sourceRadialLaw eta delta) :=
+  let : IsProbabilityMeasure (sourceRadialLaw eta delta) :=
     isProbabilityMeasure_sourceRadialLaw heta0 heta1
-  letI : IsProbabilityMeasure (sourceUniformInterval (-epsilon) epsilon) :=
+  let : IsProbabilityMeasure (sourceUniformInterval (-epsilon) epsilon) :=
     isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
+  let : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
     isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   rw [sourceCoordinateLaw, sourceScalarLaw]
   apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
   apply (Measure.ae_prod_iff_ae_ae (by measurability)).2
@@ -124,9 +117,7 @@ specialization) explicitly.
 -/
 
 
-
 set_option autoImplicit false
-set_option linter.style.haveILetI false
 noncomputable section
 
 open MeasureTheory ProbabilityTheory Set

@@ -3,8 +3,6 @@ Copyright (c) 2026 OpenAI. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
 import NLA.FR05.Proposition31
-import NLA.FR05.Likelihood.HaarLikelihood
-import NLA.FR05.Geometry.Obstruction
 
 /-!
 # Haar rotations preserve the planted failure estimate
@@ -78,6 +76,6 @@ theorem proposition_3_1_haar :
         C / (M : ℝ) ^ 2 := by
   obtain ⟨C, hC, D, hD, h⟩ := proposition_3_1
   refine ⟨C, hC, D, hD, fun M hM ↦ ?_⟩
-  rw [Measure.real_def, sourceHaarPlantedFrameLaw_injective_eq (by omega)]
+  rw [Measure.real_def, sourceHaarPlantedFrameLaw_injective_eq (by lia)]
   exact h M hM
 end NLA.FR05

@@ -6,7 +6,6 @@ checks that its linearized normalized planted equation has exactly the
 phase/Gaussian form used in Lemmas 3.6 and 3.7.
 -/
 import NLA.FR05.Geometry.Planted
-import Mathlib.Tactic
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate Matrix
@@ -50,7 +49,7 @@ theorem factorChartLinear_quadraticForm_re {n : ℕ}
 
 /-- The coordinates after the two planted entries. -/
 def tailPart {n : ℕ} (a : Signal (n + 2)) : Signal n :=
-  fun j ↦ a ⟨j.1 + 2, by omega⟩
+  fun j ↦ a ⟨j.1 + 2, by lia⟩
 
 theorem star_dotProduct_joinTwo {n : ℕ}
     (u v U V : ℂ) (w W : Signal n) :
@@ -75,7 +74,7 @@ theorem joinTwo_expand {n : ℕ} (a : Signal (n + 2)) :
     · have h : i = ⟨1, Nat.succ_lt_succ (Nat.zero_lt_succ _)⟩ := Fin.ext hi1
       subst i
       simp [joinTwo]
-    · have hi2 : 2 ≤ i.1 := by omega
+    · have hi2 : 2 ≤ i.1 := by lia
       simp only [joinTwo, dite_false, hi0, hi1, tailPart]
       apply congrArg a
       apply Fin.ext
@@ -137,15 +136,13 @@ theorem plantedColumn_first_balanced {n : ℕ} (r : PlantedRow n)
     (hbalanced : r.imbalance = 0) :
     plantedColumn r ⟨0, Nat.zero_lt_succ _⟩ =
       (Real.sqrt (r.radial / 2) : ℂ) * Complex.exp (r.phaseOne * Complex.I) := by
-  rw [plantedColumn, joinTwo_zero]
-  simp [hbalanced]
+  simp [plantedColumn, hbalanced]
 
 theorem plantedColumn_second_balanced {n : ℕ} (r : PlantedRow n)
     (hbalanced : r.imbalance = 0) :
     plantedColumn r ⟨1, Nat.succ_lt_succ (Nat.zero_lt_succ _)⟩ =
       (Real.sqrt (r.radial / 2) : ℂ) * Complex.exp (r.phaseTwo * Complex.I) := by
-  rw [plantedColumn, joinTwo_one]
-  simp [hbalanced]
+  simp [plantedColumn, hbalanced]
 
 theorem sqrt_scale {S : ℝ} (hS : 0 < S) :
     2 * (Real.sqrt S / Real.sqrt 2) / S = Real.sqrt 2 / Real.sqrt S := by

@@ -1,6 +1,4 @@
 import NLA.FR05.Overlap.RankOneSphereGeometry
-import NLA.FR05.Overlap.Spectrum
-import NLA.FR05.Overlap.HaarColumnConditioning
 import NLA.FR05.Overlap.OverlapGaussian
 
 /-!
@@ -116,10 +114,10 @@ theorem sphereLebesgueDensity_nonneg (n : ℕ) (z : Signal 2) :
   split_ifs with h <;> positivity
 
 theorem sourceOverlapLaw_eq_density (n : ℕ) :
-    sourceOverlapLaw (n + 4) (by omega) =
+    sourceOverlapLaw (n + 4) (by lia) =
       volume.withDensity (fun K ↦ ENNReal.ofReal (haarOverlapDensity n K)) := by
-  have h := sourceOverlapLaw_eq_sequentialSpheres (n := n + 3) (by omega)
-  rw [show n + 3 - 2 = n + 1 by omega, show n + 3 - 3 = n by omega] at h
+  have h := sourceOverlapLaw_eq_sequentialSpheres (n := n + 3) (by lia)
+  rw [show n + 3 - 2 = n + 1 by lia, show n + 3 - 3 = n by lia] at h
   rw [h]
   apply Measure.ext_of_lintegral
   intro f hf
@@ -167,9 +165,9 @@ def sourceOverlapLebesgueDensity (M : ℕ) (K : SourceOverlapMatrix) : ℝ :=
 
 /-- The density of the overlap of two independent complex Haar two-frames. -/
 theorem lemma_3_5 {M : ℕ} (hM : 4 ≤ M) :
-    sourceOverlapLaw M (by omega) =
+    sourceOverlapLaw M (by lia) =
       volume.withDensity (fun K ↦ ENNReal.ofReal (sourceOverlapLebesgueDensity M K)) := by
-  obtain ⟨n, rfl⟩ : ∃ n, M = n + 4 := ⟨M - 4, by omega⟩
+  obtain ⟨n, rfl⟩ : ∃ n, M = n + 4 := ⟨M - 4, by lia⟩
   rw [sourceOverlapLaw_eq_density]
   congr 1
   funext K

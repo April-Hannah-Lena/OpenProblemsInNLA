@@ -8,7 +8,6 @@ open scoped ENNReal
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 attribute [local fun_prop] measurable_sourceDensity
 
 def gaussianSmoothedDensity (a : SourceDensityKind) (M : ℕ)

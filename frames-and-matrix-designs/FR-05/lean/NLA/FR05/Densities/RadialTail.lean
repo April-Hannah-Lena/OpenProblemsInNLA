@@ -7,7 +7,6 @@ proves a stand-alone exponential tail bound for that scalar coordinate.
 -/
 import NLA.FR05.Densities.PlantedLaw
 import Mathlib.Analysis.Complex.ExponentialBounds
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -22,7 +21,6 @@ the exponential law. -/
 theorem radial_expMeasure_Iio_eq_Iic (r t : ℝ) :
     expMeasure r (Iio t) = expMeasure r (Iic t) := by
   have hatom : expMeasure r ({t} : Set ℝ) = 0 := by
-    change (volume.withDensity (gammaPDF 1 r)) ({t} : Set ℝ) = 0
     exact withDensity_absolutelyContinuous volume (gammaPDF 1 r)
       Real.volume_singleton
   have hd : Disjoint (Iio t) ({t} : Set ℝ) := by

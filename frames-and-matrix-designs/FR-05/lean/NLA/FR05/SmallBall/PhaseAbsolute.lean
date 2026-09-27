@@ -6,9 +6,6 @@ Its constant extension outside `[-1, 1]` avoids separate band-clamping
 definitions; the affine reduction uses the cosine addition formula.
 -/
 import NLA.FR05.SmallBall.PhaseAffine
-import Mathlib.Analysis.SpecialFunctions.Complex.Arg
-import Mathlib.Analysis.Convex.Jensen
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

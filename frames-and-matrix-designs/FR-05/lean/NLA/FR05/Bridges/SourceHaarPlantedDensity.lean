@@ -8,7 +8,6 @@ relative to the original standard complex Gaussian frame law.
 import NLA.FR05.Bridges.SourcePlantedFrameDensity
 import NLA.FR05.Planted.PlantedHaarFailure
 import NLA.FR05.Overlap.HaarCorner
-import NLA.FR05.Measure.Comparison
 
 set_option autoImplicit false
 set_option maxHeartbeats 300000
@@ -18,7 +17,6 @@ open scoped ENNReal
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 
 instance sourceUnitaryLaw_isInvInvariant (n : ℕ) :
     (sourceUnitaryLaw n).IsInvInvariant where
@@ -51,7 +49,7 @@ theorem standardComplexGaussianFrame_map_mul_unitary {m d : ℕ} (U : SourceUnit
 
 theorem sourceHead_star_frame_mul {m n : ℕ} (U : SourceUnitary (n + 2))
     (A : Frame m (n + 2)) (i : Fin m) :
-    sourceHead (star ((A * U.val) i)) = sourceProjectedRow (by omega) U (A i) := by
+    sourceHead (star ((A * U.val) i)) = sourceProjectedRow (by lia) U (A i) := by
   ext j
   simp [sourceHead, sourceProjectedRow, sourceTwoFrame, Matrix.mul_apply,
     mul_comm, Fin.castLE]
@@ -59,7 +57,7 @@ theorem sourceHead_star_frame_mul {m n : ℕ} (U : SourceUnitary (n + 2))
 /-- The likelihood for one fixed orientation, before Haar averaging. -/
 def sourceOrientedPlantedDensity (M : ℕ) {m n : ℕ}
     (U : SourceUnitary (n + 2)) (A : Frame m (n + 2)) : ℝ :=
-  ∏ i, sourcePlantedDensity M (sourceProjectedRow (by omega) U (A i))
+  ∏ i, sourcePlantedDensity M (sourceProjectedRow (by lia) U (A i))
 
 @[fun_prop] theorem measurable_sourceOrientedPlantedDensity (M : ℕ) (m n : ℕ) :
     Measurable (fun p : SourceUnitary (n + 2) × Frame m (n + 2) ↦
@@ -67,7 +65,7 @@ def sourceOrientedPlantedDensity (M : ℕ) {m n : ℕ}
   apply Finset.measurable_prod
   intro i _
   exact (measurable_sourcePlantedDensity M).comp
-    ((continuous_sourceProjectedRow (by omega)).measurable.comp
+    ((continuous_sourceProjectedRow (by lia)).measurable.comp
       (measurable_fst.prodMk ((measurable_pi_apply i).comp measurable_snd)))
 
 theorem sourceOrientedPlantedDensity_eq (M : ℕ) {m n : ℕ}
@@ -113,7 +111,7 @@ theorem integrable_sourceOrientedPlantedDensity {M m n : ℕ} (hM : 1 ≤ M)
     apply Finset.measurable_prod
     intro i _
     exact (measurable_sourcePlantedDensity M).comp
-      ((continuous_sourceProjectedRow (by omega)).measurable.comp
+      ((continuous_sourceProjectedRow (by lia)).measurable.comp
         (measurable_id.prodMk measurable_const))
   apply Integrable.of_bound hmeas.aestronglyMeasurable
     ((Real.exp 1 * (M : ℝ) ^ 52) ^ m)
@@ -167,7 +165,7 @@ theorem sourceHaarPlantedFrameLawAt_eq_likelihood {M : ℕ} (hM : 2 ≤ M) :
     subst M
     change Measure.map id _ = _
     rw [Measure.map_id]
-    exact iidSourcePlantedFrameLaw_haar_eq_withDensity (by omega)
+    exact iidSourcePlantedFrameLaw_haar_eq_withDensity (by lia)
   exact transport M (sourceTailDimension M) hM (sourceTailDimension_add_two hM)
 
 end NLA.FR05

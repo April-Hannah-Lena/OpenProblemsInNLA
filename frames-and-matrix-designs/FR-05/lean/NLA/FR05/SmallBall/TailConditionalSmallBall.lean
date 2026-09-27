@@ -9,9 +9,6 @@ simplifying it to the familiar `sqrt S / t` factor.
 -/
 import NLA.FR05.SmallBall.GaussianProjectionSmallBall
 import NLA.FR05.SmallBall.TailVariancePhase
-import NLA.FR05.Measure.ProductSections
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -53,11 +50,7 @@ theorem prod_measure_le_add_of_bad_sections
       · apply prod_measure_le_of_sections_le μ ν hgoodPart c
         intro x
         by_cases hx : x ∈ bad
-        · have hempty : {y : β | (x, y) ∈ goodPart} = ∅ := by
-            ext y
-            simp [goodPart, hx]
-          rw [hempty, measure_empty]
-          exact bot_le
+        · simp [goodPart, hx]
         · exact (measure_mono (by
             intro y hy
             exact hy.1)).trans (hsection x hx)

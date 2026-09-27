@@ -1,8 +1,6 @@
 import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.Probability.Moments.Basic
-import Mathlib.Tactic
-import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
+import Mathlib.MeasureTheory.Measure.Real
+import Mathlib.Algebra.Order.Star.Real
 
 /-!
 # Least singular values and row-span normals
@@ -19,7 +17,7 @@ section LeastSingular
 
 /-! A finite-dimensional algebraic core for FR-05, Lemma 3.7. -/
 
-open MeasureTheory ProbabilityTheory
+open MeasureTheory
 open scoped BigOperators RealInnerProductSpace
 
 variable {n : Type*} [Fintype n] [DecidableEq n]
@@ -76,10 +74,12 @@ theorem inverseRowDual_mem_otherRowSpan_orthogonal (A : Matrix n n ℝ) (hA : Is
   rw [real_inner_comm] at hker
   exact hker
 
+omit [DecidableEq n] in
 /-- The Euclidean operator induced by a matrix. -/
 noncomputable def euclideanMap (A : Matrix n n ℝ) :
-    EuclideanSpace ℝ n →ₗ[ℝ] EuclideanSpace ℝ n :=
-  Matrix.toEuclideanLin A
+    EuclideanSpace ℝ n →ₗ[ℝ] EuclideanSpace ℝ n := by
+  let : DecidableEq n := Classical.decEq n
+  exact Matrix.toEuclideanLin A
 
 /-- Invertibility of a matrix gives an exact inverse identity on Euclidean coordinate space. -/
 theorem inverse_euclideanMap_apply (A : Matrix n n ℝ) (hA : IsUnit A.det)
@@ -89,7 +89,8 @@ theorem inverse_euclideanMap_apply (A : Matrix n n ℝ) (hA : IsUnit A.det)
   change A⁻¹.mulVec (A.mulVec (WithLp.ofLp x)) = WithLp.ofLp x
   rw [Matrix.mulVec_mulVec, Matrix.nonsing_inv_mul A hA, Matrix.one_mulVec]
 
-/-- Matrix multiplication expands into the inverse matrix's Euclidean columns. -/
+omit [DecidableEq n] in
+/-- Matrix multiplication expands into the matrix's Euclidean columns. -/
 theorem euclideanMap_eq_sum_columns (A : Matrix n n ℝ) (y : EuclideanSpace ℝ n) :
     euclideanMap A y = ∑ i, (y i) • WithLp.toLp 2 (A.col i) := by
   apply WithLp.ofLp_injective
@@ -176,8 +177,7 @@ theorem otherRowSpan_eq_inverseRowDual_ker (A : Matrix n n ℝ) (hA : IsUnit A.d
     change inner ℝ (WithLp.toLp 2 (inverseRowDual A i)) x = 0 at hx
     rw [real_inner_comm] at hx
     have hcoefi : (Matrix.vecMul (WithLp.ofLp x) A⁻¹) i = 0 := by
-      change dotProduct (WithLp.ofLp x) (A⁻¹.col i) = 0
-      simpa [PiLp.inner_apply, dotProduct, inverseRowDual, mul_comm] using hx
+      simpa [Matrix.vecMul, PiLp.inner_apply, dotProduct, inverseRowDual, mul_comm] using hx
     have hsum : ∑ j, (Matrix.vecMul (WithLp.ofLp x) A⁻¹) j • WithLp.toLp 2 (A j) ∈
         otherRowSpan A i := by
       rw [otherRowSpan]
@@ -469,7 +469,9 @@ theorem nontrivial_otherRowSpan_orthogonal {n : ℕ}
   have hdim : Module.finrank ℝ (EuclideanSpace ℝ (Fin (n + 1))) = n + 1 := by
     simp
   have hpos : 0 < Module.finrank ℝ (otherRowSpan A i)ᗮ := by
-    omega
+    by_contra h
+    rw [Nat.eq_zero_of_not_pos h, add_zero, hdim] at hsum
+    lia
   exact Module.nontrivial_of_finrank_pos hpos
 
 /-- A unit vector orthogonal to all rows other than the distinguished row.

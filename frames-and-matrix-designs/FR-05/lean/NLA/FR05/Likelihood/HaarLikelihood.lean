@@ -1,12 +1,6 @@
 import NLA.FR05.Densities.SourceLikelihood
 import NLA.FR05.Probability
-import Mathlib.Analysis.CStarAlgebra.Matrix
-import Mathlib.Topology.Instances.Matrix
 import Mathlib.Topology.Algebra.Star.Unitary
-import Mathlib.MeasureTheory.Measure.Haar.Unique
-import Mathlib.MeasureTheory.Integral.Prod
-import Mathlib.MeasureTheory.Integral.Pi
-import Mathlib.Tactic
 import NLA.FR05.Likelihood.LikelihoodAlgebra
 
 /-!
@@ -125,7 +119,7 @@ theorem sourceLikelihood_nonneg {M : ℕ} (hM : 2 ≤ M)
 
 theorem sourceLikelihood_le {M : ℕ} (hM : 2 ≤ M)
     {f : (Fin 2 → ℂ) → ℝ} (hf : Measurable f)
-    {B : ℝ} (_hB : 0 ≤ B) (hbound : ∀ z, 0 ≤ f z ∧ f z ≤ B)
+    {B : ℝ} (hbound : ∀ z, 0 ≤ f z ∧ f z ≤ B)
     (A : Frame (sourceRowCount M) M) :
     sourceLikelihood hM f A ≤ B ^ sourceRowCount M := by
   have hmeas : Measurable (fun U : SourceUnitary M ↦
@@ -233,14 +227,14 @@ theorem sourceReferenceLikelihood_nonneg {M : ℕ} (hM : 2 ≤ M)
 theorem sourcePlantedLikelihood_le {M : ℕ} (hM : 2 ≤ M)
     (A : Frame (sourceRowCount M) M) :
     sourcePlantedLikelihood hM A ≤ (Real.exp 1 * (M : ℝ) ^ 52) ^ sourceRowCount M :=
-  sourceLikelihood_le hM (measurable_sourcePlantedDensity M) (by positivity)
+  sourceLikelihood_le hM (measurable_sourcePlantedDensity M)
     (fun z ↦ ⟨sourcePlantedDensity_nonneg M z,
-      sourcePlantedDensity_le (by omega) z⟩) A
+      sourcePlantedDensity_le (by lia) z⟩) A
 
 theorem sourceReferenceLikelihood_le {M : ℕ} (hM : 2 ≤ M)
     (A : Frame (sourceRowCount M) M) :
     sourceReferenceLikelihood hM A ≤ 4 ^ sourceRowCount M :=
-  sourceLikelihood_le hM (measurable_sourceReferenceDensity M) (by norm_num)
+  sourceLikelihood_le hM (measurable_sourceReferenceDensity M)
     (fun z ↦ ⟨(sourceReferenceDensity_pos M z).le, sourceReferenceDensity_le_four hM z⟩) A
 
 theorem measurable_sourcePlantedLikelihood {M : ℕ} (hM : 2 ≤ M) :

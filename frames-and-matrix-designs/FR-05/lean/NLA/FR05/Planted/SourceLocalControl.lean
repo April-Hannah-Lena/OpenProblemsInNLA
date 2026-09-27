@@ -21,8 +21,7 @@ theorem sourceFactorDecode_direction_le {n : ℕ}
       (sourceFactorDecode x).2.2.1 (sourceFactorDecode x).2.2.2 ≤ 4 * ‖x‖ := by
   have hp := norm_plusDirection_sourceJacobian_le_two_mul_euclideanNorm (ofLp x)
   have hq := norm_minusDirection_sourceJacobian_le_two_mul_euclideanNorm (ofLp x)
-  change ‖plusDirection _ _ _‖ + ‖minusDirection _ _‖ ≤ _
-  simpa [sourceFactorDecode] using (show
+  simpa [sourceFactorDecode, factorDirectionSup] using (show
     ‖plusDirection ((ofLp x) .sigma) (((ofLp x) .beta : ℂ) + (ofLp x) .gamma * Complex.I)
       (sourceJacobianP (ofLp x))‖ +
     ‖minusDirection ((ofLp x) .sigma) (sourceJacobianQ (ofLp x))‖ ≤ 4 * ‖toLp 2 (ofLp x)‖ by
@@ -74,11 +73,11 @@ theorem sourceEquation_midpoint_difference_identity {m n : ℕ}
 
 theorem source_sqrt_card_le_two_mul {M : ℕ} (hM : 2 ≤ M) :
     Real.sqrt (Fintype.card (SourceJacobianCoordinate (sourceTailDimension M))) ≤ 2 * M := by
-  have hm : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by omega)
+  have hm : (1 : ℝ) ≤ M := by exact_mod_cast (show 1 ≤ M by lia)
   have hc : (Fintype.card (SourceJacobianCoordinate (sourceTailDimension M)) : ℝ) ≤
       4 * M := by
     rw [card_sourceJacobianCoordinate, source_chart_real_parameter_count M hM]
-    exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; omega)
+    exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; lia)
   apply (Real.sqrt_le_iff).2
   constructor
   · positivity
@@ -132,7 +131,7 @@ theorem sourceEquation_nonlinear_difference_le {M m : ℕ} (hM : 2 ≤ M)
 
 theorem sourceJacobianPerturbationScale_le {M : ℕ} (hM : 2 ≤ M) :
     sourceJacobianPerturbationScale M (sourceTailDimension M) ≤ 512 / (M : ℝ) ^ 44 := by
-  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by omega)
+  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by lia)
   unfold sourceJacobianPerturbationScale
   rw [source_tailDimension_add_two hM]
   calc
@@ -176,7 +175,7 @@ theorem sourceEquation_seed_le {M m : ℕ} (hM : 2 ≤ M)
     (hgood : SourceCoordinateSampleGood M sample)
     (himbalance : ∀ j, |(sample j).1.2.1| ≤ sourceEpsilon M) :
     ‖sourceEquationEuclidean e sample 0‖ ≤ 2 / (M : ℝ) ^ 49 := by
-  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by omega)
+  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by lia)
   have he : sourceEquationEuclidean e sample 0 =
       toLp 2 (fun i ↦ (sample (e i)).1.2.1) := by
     unfold sourceEquationEuclidean
@@ -190,10 +189,10 @@ theorem sourceEquation_seed_le {M m : ℕ} (hM : 2 ≤ M)
   calc
     _ ≤ Real.sqrt (Fintype.card (SourceJacobianCoordinate (sourceTailDimension M))) *
         sourceEpsilon M := euclideanNorm_le_sqrt_card_mul_of_abs_le _
-          (sourceEpsilon_pos M (by omega)).le (fun i ↦ himbalance (e i))
+          (sourceEpsilon_pos M (by lia)).le (fun i ↦ himbalance (e i))
     _ ≤ (2 * M) * sourceEpsilon M := by
       exact mul_le_mul_of_nonneg_right (source_sqrt_card_le_two_mul hM)
-        (sourceEpsilon_pos M (by omega)).le
+        (sourceEpsilon_pos M (by lia)).le
     _ = _ := by unfold sourceEpsilon; field_simp
 
 end NLA.FR05

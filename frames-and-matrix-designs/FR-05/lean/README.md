@@ -34,6 +34,12 @@ repository-standard `Definitions.lean`, `Proof.lean`, `Challenge.lean`, and
 Imports of individual implementation modules now use the subject folders;
 retired auxiliary lemmas are recorded in the library-style guide.
 
+For reuse, import the relevant subject module instead of the full `Proof`:
+`NLA.FR05.Measure.Comparison` for product densities, mixtures, and Cauchy–Schwarz;
+`NLA.FR05.Geometry.Obstruction` for deterministic phase-retrieval invariance;
+or `NLA.FR05.SmallBall.GaussianSmallBall` for scalar Gaussian bounds. The Gaussian
+tail law has a registered probability-measure instance, so callers need no local setup.
+
 ## Source organisation
 
 The library has 112 modules, arranged by mathematical subject (down from 177

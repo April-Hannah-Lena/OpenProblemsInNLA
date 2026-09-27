@@ -1,6 +1,5 @@
 import NLA.FR05.Gaussian.GaussianQuadraticIntegral
 import NLA.FR05.Likelihood.KernelMatrixAlgebra
-import Mathlib.Analysis.SpecialFunctions.ContinuousFunctionalCalculus.Rpow.Isometric
 import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order
 
 /-!

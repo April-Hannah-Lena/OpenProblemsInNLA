@@ -1,6 +1,5 @@
 import NLA.FR05.Gaussian.GaussianFrameRows
-import Mathlib.Analysis.SpecialFunctions.PolarCoord
-import Mathlib.MeasureTheory.Measure.HasOuterApproxClosed
+import Mathlib.Probability.Distributions.Exponential
 
 set_option autoImplicit false
 noncomputable section

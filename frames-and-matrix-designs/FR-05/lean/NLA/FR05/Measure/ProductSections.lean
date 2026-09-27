@@ -7,7 +7,6 @@ a uniform conditional tail estimate into an estimate under the full product
 law.
 -/
 import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -27,9 +26,7 @@ theorem prod_measure_le_of_sections_le
     (hsection : ∀ x : α, ν {y | (x, y) ∈ s} ≤ c) :
     (μ.prod ν) s ≤ c := by
   rw [Measure.prod_apply hs]
-  calc
-    ∫⁻ x, ν {y | (x, y) ∈ s} ∂μ ≤ ∫⁻ _x, c ∂μ :=
-      lintegral_mono fun x ↦ hsection x
-    _ = c := by simp
+  grw [show ∀ x, ν (Prod.mk x ⁻¹' s) ≤ c from hsection]
+  simp
 
 end NLA.FR05

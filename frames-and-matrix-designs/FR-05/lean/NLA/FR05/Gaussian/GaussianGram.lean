@@ -23,6 +23,7 @@ def gaussianMatrixProjection {n : ℕ} {ι : Type*}
   toLp 2 (Bᴴ *ᵥ star x)
 
 /-- The adjoint projection of a conjugated Gaussian row is continuous. -/
+@[fun_prop]
 theorem continuous_gaussianMatrixProjection {n : ℕ} {ι : Type*}
     (B : Matrix (Fin n) ι ℂ) : Continuous (gaussianMatrixProjection B) := by
   apply (PiLp.continuous_toLp 2 _).comp
@@ -96,10 +97,6 @@ theorem gaussianMatrixProjection_law_eq_of_gram
     (standardComplexGaussianTail n).map (gaussianMatrixProjection B) =
       (standardComplexGaussianTail m).map (gaussianMatrixProjection C) := by
   let : Fintype ι := Fintype.ofFinite ι
-  let : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
-  let : IsProbabilityMeasure (standardComplexGaussianTail m) :=
-    isProbabilityMeasure_standardComplexGaussianTail m
   apply Measure.ext_of_charFun
   funext t
   rw [charFun_gaussianMatrixProjection, charFun_gaussianMatrixProjection,

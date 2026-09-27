@@ -1,5 +1,4 @@
 import NLA.FR05.Gaussian.GaussianPolarLaw
-import Mathlib.MeasureTheory.Function.Jacobian
 
 set_option autoImplicit false
 noncomputable section

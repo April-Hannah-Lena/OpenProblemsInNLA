@@ -104,7 +104,7 @@ theorem sourceSampledPhases_eq_phaseVectorLaw :
   let μ := sourceUniformInterval 0 (2 * Real.pi)
   let e := MeasurableEquiv.piFinTwo (fun _ : Fin 2 ↦ ConePhase)
   let f : ℝ → ConePhase := fun x ↦ (x : ConePhase)
-  letI : IsProbabilityMeasure μ := by
+  let : IsProbabilityMeasure μ := by
     dsimp [μ]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
   have hf : Measurable f := by
@@ -137,12 +137,12 @@ theorem sourceScalarLaw_map_polar_eq_sourcePlantedDensityLaw {M : ℕ}
     (hM : 1 ≤ M) :
     (sourceScalarLaw sourceEta (sourceDelta M) (sourceEpsilon M)).map
       sourceScalarPolarMap = (plantedMagnitudeLaw M).prod phaseVectorLaw := by
-  letI : IsProbabilityMeasure (sourceRadialLaw sourceEta (sourceDelta M)) :=
+  let : IsProbabilityMeasure (sourceRadialLaw sourceEta (sourceDelta M)) :=
     isProbabilityMeasure_sourceRadialLaw sourceEta_pos.le sourceEta_lt_one
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       (sourceUniformInterval (-sourceEpsilon M) (sourceEpsilon M)) :=
     isProbabilityMeasure_sourceUniformInterval (by linarith [sourceEpsilon_pos M hM])
-  letI : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
+  let : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
     isProbabilityMeasure_sourceUniformInterval (by positivity)
   let e : SourcePlantedScalars ≃ᵐ (ℝ × ℝ) × (ℝ × ℝ) :=
     MeasurableEquiv.prodAssoc.symm
@@ -189,7 +189,7 @@ theorem measurable_sourceHeadTailJoin {n : ℕ} : Measurable (sourceHeadTailJoin
   by_cases hone : j.1 = 1
   · simp only [sourceHeadTailJoin, joinTwo, dif_neg hzero, dif_pos hone]
     fun_prop
-  · let k : Fin n := ⟨j.1 - 2, by omega⟩
+  · let k : Fin n := ⟨j.1 - 2, by lia⟩
     simp only [sourceHeadTailJoin, joinTwo, dif_neg hzero, dif_neg hone]
     fun_prop
 
@@ -216,7 +216,7 @@ theorem sourcePlantedColumn_eq_sourceHeadTailJoin {n : ℕ}
   · simp [sourcePlantedColumn, sourceHeadTailJoin, sourceCoordinatePolarMap,
       sourceScalarPolarMap, sourceMagnitudePairMap, sourcePhasePairMap,
       phaseVectorMap, coneMagnitudeMap, conePhasePoint,
-      AddCircle.toCircle_apply_mk, Circle.coe_exp, joinTwo, hzero, hone]
+      AddCircle.toCircle_apply_mk, Circle.coe_exp, joinTwo, hone]
   · simp [sourcePlantedColumn, sourceHeadTailJoin, sourceCoordinatePolarMap,
       joinTwo, hzero, hone]
 
@@ -226,12 +226,10 @@ theorem sourcePlantedColumnLaw_eq_density_head_tail {M n : ℕ} (hM : 1 ≤ M) :
     sourcePlantedColumnLaw sourceEta (sourceDelta M) (sourceEpsilon M) n =
       ((sourceDensityLaw .planted M).prod (standardComplexGaussianTail n)).map
         sourceHeadTailJoin := by
-  letI : IsProbabilityMeasure
+  let : IsProbabilityMeasure
       (sourceScalarLaw sourceEta (sourceDelta M) (sourceEpsilon M)) :=
     isProbabilityMeasure_sourceScalarLaw sourceEta_pos.le sourceEta_lt_one
       (sourceEpsilon_pos M hM)
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   change sourcePlantedColumnLaw sourceEta (sourceDelta M) (sourceEpsilon M) n =
     ((sourcePlantedDensityLaw M).prod (standardComplexGaussianTail n)).map sourceHeadTailJoin
   unfold sourcePlantedColumnLaw sourceCoordinateLaw

@@ -2,10 +2,6 @@ import NLA.FR05.SourceParameters
 import NLA.FR05.Probability
 import NLA.FR05.Gaussian.GaussianTail
 import Mathlib.Probability.Distributions.Exponential
-import Mathlib.Probability.Distributions.Gamma
-import Mathlib.Probability.ConditionalProbability
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
 import NLA.FR05.Measure.ProductSections
 
 /-! ## PlantedLaw -/
@@ -16,13 +12,6 @@ section
 The source-faithful planted row law from §3.1 and equation (3.18) of the
 frozen FR-05 manuscript.
 -/
-
-
-
-
-
-
-
 
 
 set_option autoImplicit false
@@ -55,7 +44,7 @@ theorem isProbabilityMeasure_sourceRadialBase {η : ℝ}
 
 /-- The exponential component gives positive mass to every upper ray. -/
 theorem expMeasure_Ici_ne_zero (δ : ℝ) : expMeasure 1 (Ici δ) ≠ 0 := by
-  letI : IsProbabilityMeasure (expMeasure 1) := isProbabilityMeasure_expMeasure zero_lt_one
+  let : IsProbabilityMeasure (expMeasure 1) := isProbabilityMeasure_expMeasure zero_lt_one
   have hcdf_lt : cdf (expMeasure 1) δ < 1 := by
     rw [cdf_expMeasure_eq zero_lt_one]
     split_ifs with hδ
@@ -83,7 +72,7 @@ theorem expMeasure_Ici_ne_zero (δ : ℝ) : expMeasure 1 (Ici δ) ≠ 0 := by
 
 /-- Positive mass of the source mixture on its radial support. -/
 theorem sourceRadialBase_Ici_ne_zero {η δ : ℝ}
-    (_hη0 : 0 ≤ η) (hη1 : η < 1) :
+    (hη1 : η < 1) :
     sourceRadialBase η (Ici δ) ≠ 0 := by
   have hweight : 0 < ENNReal.ofReal (1 - η) :=
     ENNReal.ofReal_pos.mpr (sub_pos.mpr hη1)
@@ -104,20 +93,20 @@ def sourceRadialLaw (η δ : ℝ) : Measure ℝ :=
 theorem isProbabilityMeasure_sourceRadialLaw {η δ : ℝ}
     (hη0 : 0 ≤ η) (hη1 : η < 1) :
     IsProbabilityMeasure (sourceRadialLaw η δ) := by
-  letI : IsProbabilityMeasure (sourceRadialBase η) :=
+  let : IsProbabilityMeasure (sourceRadialBase η) :=
     isProbabilityMeasure_sourceRadialBase hη0 hη1.le
   apply ProbabilityTheory.cond_isProbabilityMeasure
-  exact sourceRadialBase_Ici_ne_zero hη0 hη1
+  exact sourceRadialBase_Ici_ne_zero hη1
 
 theorem sourceRadialLaw_apply_Ici {η δ : ℝ}
     (hη0 : 0 ≤ η) (hη1 : η < 1) :
     sourceRadialLaw η δ (Ici δ) = 1 := by
-  letI : IsProbabilityMeasure (sourceRadialBase η) :=
+  let : IsProbabilityMeasure (sourceRadialBase η) :=
     isProbabilityMeasure_sourceRadialBase hη0 hη1.le
   unfold sourceRadialLaw ProbabilityTheory.cond
   rw [Measure.smul_apply, Measure.restrict_apply measurableSet_Ici,
     inter_self, smul_eq_mul, ENNReal.inv_mul_cancel]
-  · exact sourceRadialBase_Ici_ne_zero hη0 hη1
+  · exact sourceRadialBase_Ici_ne_zero hη1
   · exact measure_ne_top _ _
 
 /-- Lebesgue-uniform law on a nondegenerate closed interval. -/
@@ -157,37 +146,13 @@ def sourceScalarLaw (η δ ε : ℝ) : Measure SourcePlantedScalars :=
 theorem isProbabilityMeasure_sourceScalarLaw
     {η δ ε : ℝ} (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) :
     IsProbabilityMeasure (sourceScalarLaw η δ ε) := by
-  letI : IsProbabilityMeasure (sourceRadialLaw η δ) :=
+  let : IsProbabilityMeasure (sourceRadialLaw η δ) :=
     isProbabilityMeasure_sourceRadialLaw hη0 hη1
-  letI : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
+  let : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
     isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
+  let : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
     isProbabilityMeasure_sourceUniformInterval (by positivity)
   exact Measure.prod.instIsProbabilityMeasure _ _
-
-/-- One standard complex-Gaussian tail row in `ℂⁿ`, using exactly the
-real-coordinate representation consumed by `GaussianTail.lean`. -/
-def standardComplexGaussianTail (n : ℕ) : Measure (Signal n) :=
-  (Measure.pi (fun _ : Fin n × Fin 2 ↦ gaussianReal 0 1)).map standardComplexTail
-
-theorem measurable_standardComplexGaussianTail_map {n : ℕ} :
-    Measurable (standardComplexTail (n := n)) := by
-  apply measurable_pi_lambda
-  intro j
-  change Measurable (fun x : (Fin n × Fin 2) → ℝ ↦
-    ((x (j, 0) / Real.sqrt 2 : ℝ) : ℂ) +
-      ((x (j, 1) / Real.sqrt 2 : ℝ) : ℂ) * Complex.I)
-  fun_prop
-
-theorem isProbabilityMeasure_standardComplexGaussianTail (n : ℕ) :
-    IsProbabilityMeasure (standardComplexGaussianTail n) := by
-  letI : IsProbabilityMeasure
-      (Measure.pi (fun _ : Fin n × Fin 2 ↦ gaussianReal 0 1)) :=
-    @MeasureTheory.Measure.pi.instIsProbabilityMeasure
-      (Fin n × Fin 2) (fun _ ↦ ℝ) _ _
-      (fun _ ↦ gaussianReal 0 1) (fun _ ↦ inferInstance)
-  exact Measure.isProbabilityMeasure_map
-    (measurable_standardComplexGaussianTail_map (n := n)).aemeasurable
 
 /-- All independent coordinates of one planted source row. -/
 abbrev SourcePlantedCoordinates (n : ℕ) := SourcePlantedScalars × Signal n
@@ -199,10 +164,8 @@ def sourceCoordinateLaw (η δ ε : ℝ) (n : ℕ) :
 theorem isProbabilityMeasure_sourceCoordinateLaw
     {η δ ε : ℝ} (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) (n : ℕ) :
     IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) := by
-  letI : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
+  let : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
     isProbabilityMeasure_sourceScalarLaw hη0 hη1 hε
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   exact Measure.prod.instIsProbabilityMeasure _ _
 
 /-- Equation (3.18), mapping independent source coordinates to a planted
@@ -226,7 +189,7 @@ theorem measurable_sourcePlantedColumn {n : ℕ} :
   · simp [sourcePlantedColumn, joinTwo, hzero]
     fun_prop
   by_cases hone : j.1 = 1
-  · simp [sourcePlantedColumn, joinTwo, hzero, hone]
+  · simp [sourcePlantedColumn, joinTwo, hone]
     fun_prop
   · simp [sourcePlantedColumn, joinTwo, hzero, hone]
     fun_prop
@@ -239,7 +202,7 @@ def sourcePlantedColumnLaw (η δ ε : ℝ) (n : ℕ) :
 theorem isProbabilityMeasure_sourcePlantedColumnLaw
     {η δ ε : ℝ} (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) (n : ℕ) :
     IsProbabilityMeasure (sourcePlantedColumnLaw η δ ε n) := by
-  letI : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
+  let : IsProbabilityMeasure (sourceCoordinateLaw η δ ε n) :=
     isProbabilityMeasure_sourceCoordinateLaw hη0 hη1 hε n
   exact Measure.isProbabilityMeasure_map measurable_sourcePlantedColumn.aemeasurable
 
@@ -278,7 +241,7 @@ def iidSourcePlantedFrameLaw (η δ ε : ℝ) (m n : ℕ) :
 theorem isProbabilityMeasure_iidSourcePlantedFrameLaw
     {η δ ε : ℝ} (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) (m n : ℕ) :
     IsProbabilityMeasure (iidSourcePlantedFrameLaw η δ ε m n) := by
-  letI : IsProbabilityMeasure (iidSourcePlantedColumnLaw η δ ε m n) :=
+  let : IsProbabilityMeasure (iidSourcePlantedColumnLaw η δ ε m n) :=
     isProbabilityMeasure_iidSourcePlantedColumnLaw hη0 hη1 hε m n
   exact Measure.isProbabilityMeasure_map measurable_frameFromPlantedColumns.aemeasurable
 
@@ -298,7 +261,7 @@ theorem isProbabilityMeasure_sourcePlantedFrameLawAt
 theorem sourceTailDimension_add_two {M : ℕ} (hM : 2 ≤ M) :
     sourceTailDimension M + 2 = M := by
   unfold sourceTailDimension
-  omega
+  lia
 
 end NLA.FR05
 
@@ -318,8 +281,6 @@ available for the tail conditional estimates in Lemma 3.6.
 -/
 
 
-
-
 set_option autoImplicit false
 noncomputable section
 
@@ -336,10 +297,8 @@ theorem sourceCoordinateLaw_le_of_tail_sections_le
     (hsection : ∀ q : SourcePlantedScalars,
       standardComplexGaussianTail n {w | (q, w) ∈ s} ≤ c) :
     sourceCoordinateLaw η δ ε n s ≤ c := by
-  letI : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
+  let : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
     isProbabilityMeasure_sourceScalarLaw hη0 hη1 hε
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   unfold sourceCoordinateLaw
   exact prod_measure_le_of_sections_le (sourceScalarLaw η δ ε)
     (standardComplexGaussianTail n) hs c hsection

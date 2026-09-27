@@ -3,7 +3,9 @@ The numerical parameters used in Section 3.4 of the frozen source manuscript.
 Keeping these as definitions (rather than informal comments) makes the
 dimension match between the chart and its square Jacobian explicit.
 -/
-import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
 
 set_option autoImplicit false
 noncomputable section
@@ -34,7 +36,7 @@ theorem source_chart_real_parameter_count (M : ℕ) (hM : 2 ≤ M) :
     1 + 2 + 2 * sourceTailDimension M + 2 * sourceTailDimension M =
       sourceRowCount M := by
   unfold sourceTailDimension sourceRowCount
-  omega
+  lia
 
 theorem sourceEta_pos : 0 < sourceEta := by
   norm_num [sourceEta]

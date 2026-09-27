@@ -7,11 +7,8 @@ law is reassociated, the independent `S, ξ, α, β, w` factors are integrated,
 and a radial cutoff `0 < S ≤ B` makes the resulting bound uniform.
 -/
 import NLA.FR05.SmallBall.TailConditionalSmallBall
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
 
 set_option autoImplicit false
-set_option linter.style.haveILetI false
 noncomputable section
 
 open MeasureTheory ProbabilityTheory Set
@@ -64,19 +61,19 @@ theorem sourceCoordinateLaw_map_reassoc (η δ ε : ℝ) (n : ℕ)
   let μ₂ := sourceUniformInterval 0 (2 * Real.pi)
   let μ₃ := sourceUniformInterval 0 (2 * Real.pi)
   let μ₄ := standardComplexGaussianTail n
-  letI : IsProbabilityMeasure μ₀ := by
+  let : IsProbabilityMeasure μ₀ := by
     dsimp [μ₀]
     exact isProbabilityMeasure_sourceRadialLaw hη0 hη1
-  letI : IsProbabilityMeasure μ₁ := by
+  let : IsProbabilityMeasure μ₁ := by
     dsimp [μ₁]
     exact isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure μ₂ := by
+  let : IsProbabilityMeasure μ₂ := by
     dsimp [μ₂]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure μ₃ := by
+  let : IsProbabilityMeasure μ₃ := by
     dsimp [μ₃]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure μ₄ := by
+  let : IsProbabilityMeasure μ₄ := by
     dsimp [μ₄]
     exact isProbabilityMeasure_standardComplexGaussianTail n
   let e₁ := sourceCoordinateReassocFirst n
@@ -200,19 +197,19 @@ theorem sourceCoordinateLawRight_tailDominatedCutoffSmallBall_le
   let μα := sourceUniformInterval 0 (2 * Real.pi)
   let μβ := sourceUniformInterval 0 (2 * Real.pi)
   let ν := standardComplexGaussianTail n
-  letI : IsProbabilityMeasure μS := by
+  let : IsProbabilityMeasure μS := by
     dsimp [μS]
     exact isProbabilityMeasure_sourceRadialLaw hη0 hη1
-  letI : IsProbabilityMeasure μξ := by
+  let : IsProbabilityMeasure μξ := by
     dsimp [μξ]
     exact isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure μα := by
+  let : IsProbabilityMeasure μα := by
     dsimp [μα]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure μβ := by
+  let : IsProbabilityMeasure μβ := by
     dsimp [μβ]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure ν := by
+  let : IsProbabilityMeasure ν := by
     dsimp [ν]
     exact isProbabilityMeasure_standardComplexGaussianTail n
   change (μS.prod (μξ.prod (μα.prod (μβ.prod ν))))

@@ -1,5 +1,4 @@
 import NLA.FR05.Likelihood.CanonicalKernelBounds
-import NLA.FR05.Gaussian.GaussianFrameRows
 
 set_option autoImplicit false
 noncomputable section
@@ -7,7 +6,6 @@ open MeasureTheory Complex Matrix WithLp
 
 namespace NLA.FR05
 
-attribute [local instance] isProbabilityMeasure_standardComplexGaussianTail
 attribute [local fun_prop] measurable_sourceDensity
 
 def conditionalGaussianMap (L R : Matrix (Fin 4) (Fin 2) ℂ)

@@ -1,5 +1,5 @@
 import NLA.FR05.Geometry.Obstruction
-import Mathlib.Tactic
+import Mathlib.Analysis.InnerProductSpace.Basic
 
 /-! ## FactorChart -/
 
@@ -17,7 +17,6 @@ measurements.
 -/
 
 
-
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate Matrix
 noncomputable section
@@ -30,14 +29,16 @@ def joinTwo {n : ℕ} (u v : ℂ) (w : Signal n) : Signal (n + 2) :=
   fun i =>
     if h0 : i.1 = 0 then u
     else if h1 : i.1 = 1 then v
-    else w ⟨i.1 - 2, by omega⟩
+    else w ⟨i.1 - 2, by lia⟩
 
+@[simp]
 theorem joinTwo_zero {n : ℕ} (u v : ℂ) (w : Signal n) :
-    joinTwo u v w ⟨0, Nat.zero_lt_succ _⟩ = u := by
+    joinTwo u v w 0 = u := by
   simp [joinTwo]
 
+@[simp]
 theorem joinTwo_one {n : ℕ} (u v : ℂ) (w : Signal n) :
-    joinTwo u v w ⟨1, Nat.succ_lt_succ (Nat.zero_lt_succ _)⟩ = v := by
+    joinTwo u v w 1 = v := by
   simp [joinTwo]
 
 /-- Positive factor in the local polynomial chart.  The `s/4` choice makes
@@ -89,41 +90,23 @@ theorem factorChart_not_phaseRetrievalInjective_of_quadraticForm_zero
   · simpa [factorChart] using hzero
   · exact factorPlus_not_globallyPhased_factorMinus s b z t hs
 
+@[simp]
 theorem factorPlus_zero {n : ℕ} :
     factorPlus (n := n) 0 0 0 =
-      standardBasis (firstCoordinate (n + 2) (by omega)) := by
+      standardBasis (firstCoordinate (n + 2) (by lia)) := by
   funext i
-  by_cases hi : i = firstCoordinate (n + 2) (by omega)
-  · subst i
-    simp [factorPlus, joinTwo, standardBasis, firstCoordinate]
-  · have hi0 : i.1 ≠ 0 := by
-      intro hzero
-      apply hi
-      apply Fin.ext
-      simpa [firstCoordinate] using hzero
-    have hi' : i ≠ (0 : Fin (n + 2)) := by
-      intro heq
-      apply hi
-      simpa [firstCoordinate] using heq
-    simp [factorPlus, joinTwo, standardBasis, firstCoordinate, hi0, hi']
+  unfold factorPlus joinTwo standardBasis firstCoordinate
+  norm_num
+  grind [Fin.ext_iff]
 
+@[simp]
 theorem factorMinus_zero {n : ℕ} :
     factorMinus (n := n) 0 0 =
-      standardBasis (secondCoordinate (n + 2) (by omega)) := by
+      standardBasis (secondCoordinate (n + 2) (by lia)) := by
   funext i
-  by_cases hi : i = secondCoordinate (n + 2) (by omega)
-  · subst i
-    simp [factorMinus, joinTwo, standardBasis, secondCoordinate]
-  · have hi1 : i.1 ≠ 1 := by
-      intro hone
-      apply hi
-      apply Fin.ext
-      simpa [secondCoordinate] using hone
-    have hi' : i ≠ (1 : Fin (n + 2)) := by
-      intro heq
-      apply hi
-      simpa [secondCoordinate] using heq
-    simp [factorMinus, joinTwo, standardBasis, secondCoordinate, hi1, hi']
+  simp only [factorMinus, joinTwo, standardBasis, secondCoordinate, Complex.ofReal_zero,
+    zero_div, sub_zero, neg_zero, Pi.zero_apply, Fin.ext_iff]
+  split_ifs <;> simp_all
 
 end NLA.FR05
 
@@ -140,7 +123,6 @@ Exact first- and second-order algebra for the polynomial factor chart.
 This provides the Jacobian layer of the planted proof without introducing an
 unnecessary transcendental coordinate change.
 -/
-
 
 
 set_option autoImplicit false

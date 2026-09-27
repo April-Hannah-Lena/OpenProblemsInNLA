@@ -1,7 +1,5 @@
-import NLA.FR05.SmallBall.SourceTail
 import NLA.FR05.SmallBall.SourceNonTailGlobal
 import NLA.FR05.Planted.SourceJacobianMatrix
-import Mathlib.Tactic
 
 /-!
 # Source row small-ball bounds and calibration
@@ -123,9 +121,9 @@ theorem source_smallBall_calibration {m u : ℝ} (hm : 2 ≤ m)
     calc
       _ ≤ (6 * (4 / m ^ 11)) / (1 * (1 / m ^ 6)) := by gcongr
       _ = 24 / m ^ 5 := by field_simp; ring
-  have h34 : m ^ 3 ≤ m ^ 4 := pow_le_pow_right₀ hm1 (by omega)
-  have h35 : m ^ 3 ≤ m ^ 5 := pow_le_pow_right₀ hm1 (by omega)
-  have h36 : m ^ 3 ≤ m ^ 6 := pow_le_pow_right₀ hm1 (by omega)
+  have h34 : m ^ 3 ≤ m ^ 4 := pow_le_pow_right₀ hm1 (by lia)
+  have h35 : m ^ 3 ≤ m ^ 5 := pow_le_pow_right₀ hm1 (by lia)
+  have h36 : m ^ 3 ≤ m ^ 6 := pow_le_pow_right₀ hm1 (by lia)
   refine ⟨(show 2 * u ≤ 8 / m ^ 11 by have h := mul_le_mul_of_nonneg_left hub (by norm_num : (0 : ℝ) ≤ 2); simpa only [div_eq_mul_inv, ← mul_assoc, show (2 : ℝ) * 4 = 8 by norm_num] using h).trans hscale, ?_, ?_⟩
   · have h1 : 4 * (1 / m ^ 6) ≤ 4 / m ^ 3 := by
       simpa only [div_eq_mul_inv, one_mul] using div_le_div_of_nonneg_left (by norm_num : (0 : ℝ) ≤ 4)
@@ -141,9 +139,9 @@ theorem source_smallBall_calibration {m u : ℝ} (hm : 2 ≤ m)
 
 theorem source_row_threshold_le {M : ℕ} (hM : 2 ≤ M) :
     (sourceRowCount M : ℝ) * sourceKappa M ≤ 4 / (M : ℝ) ^ 11 := by
-  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by omega)
+  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by lia)
   have hn : (sourceRowCount M : ℝ) ≤ 4 * M := by
-    exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; omega)
+    exact_mod_cast (show sourceRowCount M ≤ 4 * M by unfold sourceRowCount; lia)
   unfold sourceKappa
   calc
     _ ≤ (4 * M) / (M : ℝ) ^ 12 := by
@@ -156,9 +154,9 @@ theorem source_smallBall_bound_calibrated {M : ℕ} (hM : 2 ≤ M) :
       (sourceNonTailSmallBallBound
         ((sourceRowCount M : ℝ) * sourceKappa M) (1 / (M : ℝ) ^ 6)) ≤
       ENNReal.ofReal (28 / (M : ℝ) ^ 3 + 25 * Real.exp (-(4 * (M : ℝ)))) := by
-  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by omega)
+  have hm : 0 < (M : ℝ) := by exact_mod_cast (show 0 < M by lia)
   have hu : 0 ≤ (sourceRowCount M : ℝ) * sourceKappa M :=
-    mul_nonneg (Nat.cast_nonneg _) (sourceKappa_pos M (by omega)).le
+    mul_nonneg (Nat.cast_nonneg _) (sourceKappa_pos M (by lia)).le
   obtain ⟨_, ht, hn⟩ := source_smallBall_calibration (by exact_mod_cast hM) hu
     (source_row_threshold_le hM)
   apply max_le

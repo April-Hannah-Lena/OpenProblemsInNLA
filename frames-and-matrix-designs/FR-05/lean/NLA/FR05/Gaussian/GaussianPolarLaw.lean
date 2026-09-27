@@ -1,5 +1,4 @@
 import NLA.FR05.Cone.ConeCorrelation
-import NLA.FR05.Densities.SourceSymmetry
 
 set_option autoImplicit false
 noncomputable section

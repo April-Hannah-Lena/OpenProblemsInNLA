@@ -1,6 +1,4 @@
 import NLA.FR05.SmallBall.PhaseSmallBall
-import Mathlib.Tactic
-import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
 
 /-! ## PhaseAffine -/
 
@@ -15,7 +13,6 @@ canonical estimate in `PhaseSmallBall` into the uniform bound `4t` for its
 sublevel probability.  The remaining task is to connect an arbitrary phase
 shift in the variance profile to this normalized form.
 -/
-
 
 
 set_option autoImplicit false
@@ -150,8 +147,6 @@ additive circle, uses Haar invariance to remove that offset, and transports the
 result back.  It therefore connects the affine estimate in `PhaseAffine` to
 the source-faithful shifted profile.
 -/
-
-
 
 
 set_option autoImplicit false

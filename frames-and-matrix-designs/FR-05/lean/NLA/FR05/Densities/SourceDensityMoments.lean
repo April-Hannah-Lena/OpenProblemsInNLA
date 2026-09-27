@@ -14,13 +14,13 @@ def sourceDensityLaw (a : SourceDensityKind) (M : ℕ) : Measure (Signal 2) :=
 theorem isProbabilityMeasure_sourceDensityLaw {M : ℕ} (hM : 2 ≤ M) (a : SourceDensityKind) :
     IsProbabilityMeasure (sourceDensityLaw a M) := by
   cases a with
-  | planted => exact isProbabilityMeasure_sourcePlantedDensityLaw (by omega)
+  | planted => exact isProbabilityMeasure_sourcePlantedDensityLaw (by lia)
   | reference => exact isProbabilityMeasure_sourceReferenceLaw M
 
 theorem sourceDensityLaw_integrable_radius {M : ℕ} (hM : 2 ≤ M) (a : SourceDensityKind) :
     Integrable sourceRadiusSq (sourceDensityLaw a M) := by
   cases a with
-  | planted => exact sourcePlantedDensityLaw_integrable_radius (by omega)
+  | planted => exact sourcePlantedDensityLaw_integrable_radius (by lia)
   | reference => exact sourceReferenceLaw_integrable_radius M
 
 theorem sourceDensityLaw_map_coordinatePhase (a : SourceDensityKind) (M : ℕ)
@@ -58,7 +58,7 @@ theorem integrable_sourceDensityLaw_complex_iff (a : SourceDensityKind) (M : ℕ
 theorem integral_sourceDensity {M : ℕ} (hM : 2 ≤ M) (a : SourceDensityKind) :
     (∫ z, sourceDensity a M z ∂standardComplexGaussianTail 2) = 1 := by
   cases a with
-  | planted => exact integral_sourcePlantedDensity (by omega)
+  | planted => exact integral_sourcePlantedDensity (by lia)
   | reference => exact integral_sourceReferenceDensity M
 
 theorem integrable_sourceDensity_coordinate {M : ℕ} (hM : 2 ≤ M)
@@ -101,7 +101,7 @@ theorem integral_sourceDensity_coordinate_conj_product {M : ℕ} (hM : 2 ≤ M)
       if i = j then (sourceVariance M : ℂ) else 0 := by
   rw [← integral_sourceDensityLaw_complex]
   cases a with
-  | planted => exact sourcePlantedDensityLaw_covariance (by omega) i j
+  | planted => exact sourcePlantedDensityLaw_covariance (by lia) i j
   | reference => exact sourceReferenceLaw_covariance M i j
 
 theorem integrable_sourceDensity_exp_quarter {M : ℕ} (hM : 2 ≤ M)
@@ -111,7 +111,7 @@ theorem integrable_sourceDensity_exp_quarter {M : ℕ} (hM : 2 ≤ M)
   have he (z : Signal 2) : sourceRadiusSq z / 4 = (1 / 4) * sourceRadiusSq z := by ring
   simp_rw [he]
   cases a with
-  | planted => exact integrable_sourcePlantedDensity_mul_exp (by omega) (by norm_num)
+  | planted => exact integrable_sourcePlantedDensity_mul_exp (by lia) (by norm_num)
   | reference =>
     apply integrable_sourceReferenceDensity_mul_exp
     have h := (one_le_inv₀ (sourceVariance_pos M)).mpr (sourceVariance_le_one hM)
@@ -122,7 +122,7 @@ theorem sourceDensity_exp_quarter_bound {M : ℕ} (hM : 2 ≤ M)
     (∫ z, sourceDensity a M z * Real.exp (sourceRadiusSq z / 4)
       ∂standardComplexGaussianTail 2) ≤ 4 * Real.exp 1 := by
   cases a with
-  | planted => exact sourcePlantedDensity_exp_quarter_bound (by omega)
+  | planted => exact sourcePlantedDensity_exp_quarter_bound (by lia)
   | reference =>
     apply (sourceReferenceDensity_exp_quarter_bound hM).trans
     have h : (1 : ℝ) ≤ Real.exp 1 := Real.one_le_exp (by norm_num)

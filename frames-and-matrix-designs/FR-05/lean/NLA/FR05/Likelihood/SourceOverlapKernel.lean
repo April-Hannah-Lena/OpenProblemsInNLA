@@ -2,7 +2,6 @@ import NLA.FR05.Gaussian.GaussianGram
 import NLA.FR05.Likelihood.SourceCorrelation
 import NLA.FR05.Overlap.Overlap
 import Mathlib.Data.Matrix.ColumnRowPartitioned
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
 
 set_option autoImplicit false
 noncomputable section
@@ -61,8 +60,6 @@ theorem measurable_sourceJointProjection {M : ℕ} (hM : 2 ≤ M)
 
 instance {M : ℕ} (hM : 2 ≤ M) (U V : SourceUnitary M) :
     IsProbabilityMeasure (sourceJointProjectionLaw hM U V) := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail M) :=
-    isProbabilityMeasure_standardComplexGaussianTail M
   exact Measure.isProbabilityMeasure_map (measurable_sourceJointProjection hM U V).aemeasurable
 
 theorem sourceJointProjectionLaw_eq_map {M : ℕ} (hM : 2 ≤ M) (U V : SourceUnitary M) :

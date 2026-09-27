@@ -1,5 +1,3 @@
-import NLA.FR05.Cone.ConeMagnitudeCoordinates
-import NLA.FR05.Gaussian.RadialMoments
 import NLA.FR05.Densities.PlantedPolarLaw
 
 /-!

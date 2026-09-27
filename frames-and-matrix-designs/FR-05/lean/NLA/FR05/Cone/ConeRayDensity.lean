@@ -1,5 +1,3 @@
-import NLA.FR05.Cone.ConePhaseAverages
-import NLA.FR05.Gaussian.ComplexGaussianDensity
 import NLA.FR05.Gaussian.ScalarGaussianMoments
 
 /-!

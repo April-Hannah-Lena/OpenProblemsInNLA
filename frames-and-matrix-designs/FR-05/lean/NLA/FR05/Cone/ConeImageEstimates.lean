@@ -1,5 +1,4 @@
 import NLA.FR05.Cone.ConeGeometry
-import Mathlib.Probability.Moments.Variance
 
 /-!
 # Cone image coordinates and integral estimates

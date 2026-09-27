@@ -1,8 +1,4 @@
-import NLA.FR05.Gaussian.GaussianTail
 import NLA.FR05.Densities.PlantedLaw
-import Mathlib.Probability.Moments.MGFAnalytic
-import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
-import Mathlib.Probability.Moments.ComplexMGF
 
 /-!
 # Gaussian radial moments, exponential tails, and gamma laws
@@ -88,8 +84,6 @@ theorem mgf_standardComplexGaussian_energy (n : ℕ) {t : ℝ} (ht : t < 1) :
 theorem integrable_exp_standardComplexGaussian_energy (n : ℕ) {t : ℝ} (ht : t < 1) :
     Integrable (fun z : Signal n ↦ Real.exp (t * signalEnergy z))
       (standardComplexGaussianTail n) := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   apply mgf_pos_iff.mp
   rw [mgf_standardComplexGaussian_energy n ht]
   exact pow_pos (inv_pos.mpr (by linarith)) _
@@ -288,8 +282,6 @@ theorem mgf_gammaMeasure_one {a t : ℝ} (ha : 0 < a) (ht : t < 1) :
 
 theorem standardComplexGaussianTail_map_energy {n : ℕ} (hn : 0 < n) :
     (standardComplexGaussianTail n).map signalEnergy = gammaMeasure n 1 := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   have hn' : (0 : ℝ) < n := by exact_mod_cast hn
   let : IsProbabilityMeasure (gammaMeasure n 1) := isProbabilityMeasure_gammaMeasure hn' zero_lt_one
   have h := map_eq_of_mgf_on_Iio_one

@@ -1,7 +1,4 @@
 import NLA.FR05.SmallBall.SourceScalarShift
-import NLA.FR05.SmallBall.GaussianProjectionSmallBall
-import Mathlib.MeasureTheory.Measure.Prod
-import Mathlib.Tactic
 import NLA.FR05.SmallBall.SourceTail
 
 /-!
@@ -185,7 +182,6 @@ source law and integrates those independent factors without replacing the
 source distribution by a surrogate.
 -/
 
-set_option linter.style.haveILetI false
 
 open MeasureTheory ProbabilityTheory Set
 open scoped ENNReal
@@ -236,19 +232,19 @@ theorem sourceCoordinateLawRight_sourceNonTailSmallBall_le
   let mualpha := sourceUniformInterval 0 (2 * Real.pi)
   let muphi := sourceUniformInterval 0 (2 * Real.pi)
   let nu := standardComplexGaussianTail n
-  letI : IsProbabilityMeasure muS := by
+  let : IsProbabilityMeasure muS := by
     dsimp [muS]
     exact isProbabilityMeasure_sourceRadialLaw heta0 heta1
-  letI : IsProbabilityMeasure muxi := by
+  let : IsProbabilityMeasure muxi := by
     dsimp [muxi]
     exact isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure mualpha := by
+  let : IsProbabilityMeasure mualpha := by
     dsimp [mualpha]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure muphi := by
+  let : IsProbabilityMeasure muphi := by
     dsimp [muphi]
     exact isProbabilityMeasure_sourceUniformInterval (by positivity)
-  letI : IsProbabilityMeasure nu := by
+  let : IsProbabilityMeasure nu := by
     dsimp [nu]
     exact isProbabilityMeasure_standardComplexGaussianTail n
   change (muS.prod (muxi.prod (mualpha.prod (muphi.prod nu))))

@@ -7,10 +7,7 @@ branch of Lemma 3.6.  In particular, it does not replace the source law by a
 surrogate: the result is about `standardComplexGaussianTail` itself.
 -/
 import NLA.FR05.Densities.PlantedLaw
-import NLA.FR05.Gaussian.GaussianTail
 import NLA.FR05.Planted.Jacobian
-import Mathlib.Probability.Distributions.Gaussian.Multivariate
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

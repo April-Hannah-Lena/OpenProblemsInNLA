@@ -19,6 +19,37 @@ zero variance. Declaration linters are limited to the curated source modules.
 open MeasureTheory NLA.FR05
 open scoped ENNReal Matrix
 
+-- The Gaussian tail is a probability law, including zero-dimensional tails,
+-- without installing a local instance in every proof.
+example (n : ℕ) : IsProbabilityMeasure (standardComplexGaussianTail n) := inferInstance
+
+-- Canonical coordinate and seed equations are available to simp.
+example {n : ℕ} (u v : ℂ) (w : Signal n) :
+    joinTwo u v w ⟨0, by lia⟩ = u := by simp
+
+example {n : ℕ} (u v : ℂ) (w : Signal n) : joinTwo u v w 1 = v := by simp
+
+example {n : ℕ} (r : PlantedRow n) : plantedEquation r 0 0 0 0 = r.imbalance := by simp
+
+-- Continuity of the projection is registered with fun_prop.
+example {n : ℕ} {ι : Type*} (B : Matrix (Fin n) ι ℂ) :
+    Continuous (gaussianMatrixProjection B) := by fun_prop
+
+-- Integrability supplies a.e. measurability and finite density mass; no separate
+-- measurability, finite-density, nonempty-index, or probability assumptions.
+example {ι X : Type*} [Fintype ι] [MeasurableSpace X]
+    (μ : Measure X) [SigmaFinite μ] (f : X → ℝ)
+    (hf0 : ∀ x, 0 ≤ f x) (hfi : Integrable f μ) :
+    Measure.pi (fun _ : ι ↦ μ.withDensity (fun x ↦ ENNReal.ofReal (f x))) =
+      (Measure.pi (fun _ : ι ↦ μ)).withDensity
+        (fun a ↦ ENNReal.ofReal (∏ i, f (a i))) :=
+  Measure.pi_withDensity_ofReal μ f hf0 hfi
+
+-- A lower singular-value bound needs no decidable equality on the index type.
+example {ι : Type*} [Fintype ι] (A : Matrix ι ι ℝ) (s : ℝ) :
+    HasEuclideanLowerBound A s ↔
+      ∀ x : EuclideanSpace ℝ ι, s * ‖x‖ ≤ ‖euclideanMap A x‖ := Iff.rfl
+
 -- Rectangular matrix products do not require invertibility or dimension inequalities.
 example {m d e : ℕ} (A : Frame m d) (B : Matrix (Fin d) (Fin e) ℂ)
     (x y : Signal e) :
@@ -95,9 +126,9 @@ example {ι : Type*} [Fintype ι] [DecidableEq ι] {A : Matrix ι ι ℂ}
   hA.det_one_add_smul_eq_prod q
 
 -- The Haar-corner identification also includes the smallest allowed dimension.
-example : sourceOverlapLaw 2 (by omega) =
-    (sourceUnitaryLaw 2).map (sourceHaarCorner (by omega)) :=
-  sourceOverlapLaw_eq_haarCorner (by omega)
+example : sourceOverlapLaw 2 (by lia) =
+    (sourceUnitaryLaw 2).map (sourceHaarCorner (by lia)) :=
+  sourceOverlapLaw_eq_haarCorner (by lia)
 
 -- The shared phase identity applies to arbitrary measurable events, not just cosine bands.
 example (s : Set (AddCircle (2 * Real.pi))) (hs : MeasurableSet s) :

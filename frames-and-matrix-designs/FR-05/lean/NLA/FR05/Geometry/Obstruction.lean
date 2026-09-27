@@ -3,10 +3,6 @@ Copyright (c) 2026 OpenAI. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
 import NLA.FR05.Definitions
-import Mathlib.Analysis.Complex.Norm
-import Mathlib.LinearAlgebra.Matrix.ConjTranspose
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.Tactic.NormNum
 
 /-!
 # Phase retrieval: coordinate invariance and obstructions
@@ -50,8 +46,7 @@ corresponding linear map on signals. The right-hand matrix need not be square. -
 theorem rowMagnitude_mul (A : Frame m d) (B : Matrix (Fin d) (Fin e) ℂ)
     (x : Signal e) (i : Fin m) :
     rowMagnitude (A * B) x i = rowMagnitude A (B *ᵥ x) i := by
-  change ‖((A * B) *ᵥ x) i‖ = ‖(A *ᵥ (B *ᵥ x)) i‖
-  rw [← Matrix.mulVec_mulVec]
+  exact congrArg (fun y : Signal m ↦ ‖y i‖) (Matrix.mulVec_mulVec x A B).symm
 
 /-- Measurement equality after a right matrix product is equality on the transformed signals. -/
 theorem sameMeasurements_mul (A : Frame m d) (B : Matrix (Fin d) (Fin e) ℂ)

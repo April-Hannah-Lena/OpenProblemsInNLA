@@ -8,7 +8,7 @@ L² likelihood estimate. Constructing the source-specific likelihoods and
 proving their pairwise estimates remain separate obligations.
 -/
 import Mathlib.MeasureTheory.Integral.Bochner.Basic
-import Mathlib.Tactic
+import Mathlib.Analysis.InnerProductSpace.Basic
 
 set_option autoImplicit false
 noncomputable section

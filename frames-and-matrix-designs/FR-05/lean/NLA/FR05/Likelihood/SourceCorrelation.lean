@@ -41,7 +41,7 @@ theorem sourceDensity_le {M : ℕ} (hM : 2 ≤ M) (a : SourceDensityKind)
   unfold sourceDensityBound
   cases a with
   | planted =>
-    exact (sourcePlantedDensity_le (by omega) z).trans (by linarith)
+    exact (sourcePlantedDensity_le (by lia) z).trans (by linarith)
   | reference =>
     exact (sourceReferenceDensity_le_four hM z).trans (le_add_of_nonneg_left (by positivity))
 
@@ -54,8 +54,6 @@ def sourcePairKernel {M : ℕ} (hM : 2 ≤ M) (a b : SourceDensityKind)
 theorem measurable_sourcePairKernel {M : ℕ} (hM : 2 ≤ M) (a b : SourceDensityKind) :
     Measurable (fun p : SourceUnitary M × SourceUnitary M ↦
       sourcePairKernel hM a b p.1 p.2) := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail M) :=
-    isProbabilityMeasure_standardComplexGaussianTail M
   apply StronglyMeasurable.measurable
   apply StronglyMeasurable.integral_prod_right
   apply Measurable.stronglyMeasurable
@@ -74,8 +72,6 @@ theorem sourcePairKernel_nonneg {M : ℕ} (hM : 2 ≤ M) (a b : SourceDensityKin
 theorem sourcePairKernel_le {M : ℕ} (hM : 2 ≤ M) (a b : SourceDensityKind)
     (U V : SourceUnitary M) :
     sourcePairKernel hM a b U V ≤ sourceDensityBound M ^ 2 := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail M) :=
-    isProbabilityMeasure_standardComplexGaussianTail M
   have hf : Measurable (fun x ↦ sourceDensity a M (sourceProjectedRow hM U x) *
       sourceDensity b M (sourceProjectedRow hM V x)) :=
     ((measurable_sourceDensity a M).comp
@@ -128,8 +124,6 @@ theorem source_second_moment_eq_pair_kernel {M : ℕ} (hM : 2 ≤ M)
     ∫ p : SourceUnitary M × SourceUnitary M,
       sourcePairKernel hM a b p.1 p.2 ^ sourceRowCount M
       ∂(sourceUnitaryLaw M).prod (sourceUnitaryLaw M) := by
-  let : IsProbabilityMeasure (standardComplexGaussianTail M) :=
-    isProbabilityMeasure_standardComplexGaussianTail M
   rw [standardComplexGaussianFrame_eq_pi]
   exact iid_mixture_second_moment (sourceUnitaryLaw M) (standardComplexGaussianTail M)
     (fun U x ↦ sourceDensity a M (sourceProjectedRow hM U x))

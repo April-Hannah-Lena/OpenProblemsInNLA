@@ -7,7 +7,6 @@ aggregates the rowwise imbalance bound on the source good event.
 -/
 import NLA.FR05.Planted.ImbalancePerturbation
 import NLA.FR05.Planted.SourceGoodEvent
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -117,7 +116,7 @@ theorem norm_joinTwo_le_of_coordinate_bounds {n : ℕ}
       subst i
       simpa [joinTwo] using hv
     · simp only [joinTwo, dif_neg hi0, dif_neg hi1]
-      exact hw ⟨i.1 - 2, by omega⟩
+      exact hw ⟨i.1 - 2, by lia⟩
 
 /-- The two seed factors appearing in the frozen Jacobian have ambient norm
 one. -/
@@ -256,16 +255,14 @@ theorem abs_sourceEpsilonJacobianApply_sub_sourceJacobianMatrix_apply_le_good
   have hrow := sourceCoordinatesToPlantedRowOrDefault_eq_of_good hM
     (sample (e i)) hi
   let r : PlantedRow n := sourceCoordinatesToPlantedRow (sample (e i))
-    (lt_of_lt_of_le (sourceDelta_pos M (by omega)) hi.1) hi.2.1
+    (lt_of_lt_of_le (sourceDelta_pos M (by lia)) hi.1) hi.2.1
   have hradial : sourceDelta M ≤ r.radial := by
-    change sourceDelta M ≤ (sample (e i)).1.1
     exact hi.1
   have henergy : r.radial + squaredEuclideanNorm r.tail ≤ 16 * (M : ℝ) := by
     change (sample (e i)).1.1 + squaredEuclideanNorm (sample (e i)).2 ≤
       16 * (M : ℝ)
     simpa [signalEnergy] using hi.2.2
   have hsmall : |r.imbalance| ≤ sourceEpsilon M := by
-    change |(sample (e i)).1.2.1| ≤ sourceEpsilon M
     exact himbalance (e i)
   unfold sourceEpsilonJacobianApply
   rw [sourceJacobianMatrixFromCoordinates_mulVec_apply]
@@ -280,7 +277,7 @@ theorem abs_sourceEpsilonJacobianApply_sub_sourceJacobianMatrix_apply_le_good
     (abs_plantedEquationLinear_sub_sourceRowJacobianForm_le_of_radial_tail
       r
       (x .sigma) (x .beta) (x .gamma) (sourceJacobianP x) (sourceJacobianQ x)
-      (sourceDelta_pos M (by omega)) hradial henergy hsmall)
+      (sourceDelta_pos M (by lia)) hradial henergy hsmall)
 
 /-- Euclidean aggregation of the source-good-event row bound.  This is the
 finite-sample `J_epsilon - J_0` estimate before bounding the chart-direction
@@ -299,9 +296,9 @@ theorem euclideanNorm_sourceEpsilonJacobianError_le_good
         (4 * ((n + 2 : ℕ) : ℝ) ^ 2 * (16 * (M : ℝ)) /
           sourceDelta M * sourceEpsilon M * sourceJacobianDirectionFactor x) := by
   apply euclideanNorm_le_sqrt_card_mul_of_abs_le
-  · have hdelta : 0 < sourceDelta M := sourceDelta_pos M (by omega)
+  · have hdelta : 0 < sourceDelta M := sourceDelta_pos M (by lia)
     have hepsilon : 0 ≤ sourceEpsilon M :=
-      (sourceEpsilon_pos M (by omega)).le
+      (sourceEpsilon_pos M (by lia)).le
     have hMreal : 0 ≤ (M : ℝ) := by positivity
     have hnum : 0 ≤ 4 * ((n + 2 : ℕ) : ℝ) ^ 2 * (16 * (M : ℝ)) := by
       positivity
@@ -374,9 +371,9 @@ theorem norm_sourceEpsilonJacobianEuclideanApply_sub_frozen_le_good_operator
     ‖sourceEpsilonJacobianEuclideanApply e sample x -
         euclideanMap (sourceJacobianMatrixFromCoordinates e sample) x‖ ≤
       sourceJacobianPerturbationScale M n * ‖x‖ := by
-  have hdelta : 0 < sourceDelta M := sourceDelta_pos M (by omega)
+  have hdelta : 0 < sourceDelta M := sourceDelta_pos M (by lia)
   have hepsilon : 0 ≤ sourceEpsilon M :=
-    (sourceEpsilon_pos M (by omega)).le
+    (sourceEpsilon_pos M (by lia)).le
   have hMreal : 0 ≤ (M : ℝ) := by positivity
   have hcoefficient : 0 ≤
       4 * ((n + 2 : ℕ) : ℝ) ^ 2 * (16 * (M : ℝ)) /

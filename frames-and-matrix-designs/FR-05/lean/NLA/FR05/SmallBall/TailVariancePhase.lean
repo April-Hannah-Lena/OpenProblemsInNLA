@@ -8,8 +8,6 @@ circle estimate applies under the source branch `A ≥ 1 / 4`.
 -/
 import NLA.FR05.SmallBall.SmallBallAlgebra
 import NLA.FR05.SmallBall.PhaseAffine
-import Mathlib.Analysis.SpecialFunctions.Complex.Arg
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section

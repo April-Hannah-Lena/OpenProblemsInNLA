@@ -6,10 +6,8 @@ sup norm by default.  We therefore retain the explicit energy sum from
 `Planted.lean` throughout this module.
 -/
 import NLA.FR05.Geometry.Planted
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import Mathlib.Probability.Moments.Basic
 import Mathlib.Probability.Distributions.Gaussian.Real
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum.RealSqrt
 
 set_option autoImplicit false
 open scoped BigOperators ComplexConjugate Matrix Topology
@@ -85,7 +83,6 @@ theorem mgf_sum_square_product_quarter
     integral_fintype_prod_eq_prod (f := fun _ x ↦ Real.exp ((1 / 4) * x ^ 2))]
   have hsingle : ∫ x : ℝ, Real.exp ((1 / 4) * x ^ 2) ∂gaussianReal 0 1 =
       Real.sqrt 2 := by
-    change mgf (fun x : ℝ ↦ x ^ 2) (gaussianReal 0 1) (1 / 4) = Real.sqrt 2
     exact mgf_square_standardGaussian_quarter
   simp_rw [hsingle]
   simp
@@ -116,6 +113,27 @@ standard-Gaussian coordinates and scaled to variance one half per component. -/
 def standardComplexTail {n : ℕ} (x : (Fin n × Fin 2) → ℝ) : Signal n :=
   fun j ↦ ((x (j, 0) / Real.sqrt 2 : ℝ) : ℂ) +
     ((x (j, 1) / Real.sqrt 2 : ℝ) : ℂ) * Complex.I
+
+/-- One standard complex-Gaussian tail row in `ℂⁿ`, using exactly the
+real-coordinate representation used for the tail estimates below. -/
+def standardComplexGaussianTail (n : ℕ) : Measure (Signal n) :=
+  (Measure.pi (fun _ : Fin n × Fin 2 ↦ gaussianReal 0 1)).map standardComplexTail
+
+@[fun_prop]
+theorem measurable_standardComplexGaussianTail_map {n : ℕ} :
+    Measurable (standardComplexTail (n := n)) := by
+  unfold standardComplexTail
+  fun_prop
+
+instance isProbabilityMeasure_standardComplexGaussianTail (n : ℕ) :
+    IsProbabilityMeasure (standardComplexGaussianTail n) := by
+  let : IsProbabilityMeasure
+      (Measure.pi (fun _ : Fin n × Fin 2 ↦ gaussianReal 0 1)) :=
+    @MeasureTheory.Measure.pi.instIsProbabilityMeasure
+      (Fin n × Fin 2) (fun _ ↦ ℝ) _ _
+      (fun _ ↦ gaussianReal 0 1) (fun _ ↦ inferInstance)
+  exact Measure.isProbabilityMeasure_map
+    (measurable_standardComplexGaussianTail_map (n := n)).aemeasurable
 
 theorem signalEnergy_standardComplexTail {n : ℕ} (x : (Fin n × Fin 2) → ℝ) :
     signalEnergy (standardComplexTail x) =
@@ -182,7 +200,7 @@ theorem tail_standardComplexTail_eight_mul (n : ℕ) :
         (Real.sqrt 2) ^ (n * 2) :=
       tail_standardComplexTail n (8 * (n : ℝ))
     _ = Real.exp (-4 * (n : ℝ)) * (2 : ℝ) ^ n := by
-      rw [show n * 2 = 2 * n by omega, pow_mul, hsqrt]
+      rw [show n * 2 = 2 * n by lia, pow_mul, hsqrt]
       congr 2
       ring
     _ ≤ Real.exp (-4 * (n : ℝ)) * Real.exp (n : ℝ) := by

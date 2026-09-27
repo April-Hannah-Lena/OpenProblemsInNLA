@@ -5,7 +5,6 @@ These transport the radial estimate from `RadialTail.lean` to the actual
 independent-coordinate measure used for one row in (3.18).
 -/
 import NLA.FR05.Densities.RadialTail
-import Mathlib.Tactic
 
 set_option autoImplicit false
 noncomputable section
@@ -20,9 +19,9 @@ theorem sourceScalarLaw_radial_marginal
     {η δ ε : ℝ} (hε : 0 < ε) :
     Measure.map (fun p : SourcePlantedScalars => p.1) (sourceScalarLaw η δ ε) =
       sourceRadialLaw η δ := by
-  letI : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
+  let : IsProbabilityMeasure (sourceUniformInterval (-ε) ε) :=
     isProbabilityMeasure_sourceUniformInterval (by linarith)
-  letI : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
+  let : IsProbabilityMeasure (sourceUniformInterval 0 (2 * Real.pi)) :=
     isProbabilityMeasure_sourceUniformInterval (by positivity)
   unfold sourceScalarLaw
   rw [Measure.map_fst_prod, measure_univ, one_smul]
@@ -33,8 +32,6 @@ theorem sourceCoordinateLaw_radial_marginal
     {η δ ε : ℝ} (n : ℕ) (hε : 0 < ε) :
     Measure.map (fun p : SourcePlantedCoordinates n => p.1.1)
       (sourceCoordinateLaw η δ ε n) = sourceRadialLaw η δ := by
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   change Measure.map ((fun p : SourcePlantedScalars => p.1) ∘ Prod.fst)
     (sourceCoordinateLaw η δ ε n) = sourceRadialLaw η δ
   rw [← Measure.map_map measurable_fst measurable_fst]
@@ -94,10 +91,8 @@ theorem sourceCoordinateLaw_tail_marginal
     (hη0 : 0 ≤ η) (hη1 : η < 1) (hε : 0 < ε) :
     Measure.map (fun p : SourcePlantedCoordinates n => p.2)
       (sourceCoordinateLaw η δ ε n) = standardComplexGaussianTail n := by
-  letI : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
+  let : IsProbabilityMeasure (sourceScalarLaw η δ ε) :=
     isProbabilityMeasure_sourceScalarLaw hη0 hη1 hε
-  letI : IsProbabilityMeasure (standardComplexGaussianTail n) :=
-    isProbabilityMeasure_standardComplexGaussianTail n
   unfold sourceCoordinateLaw
   rw [Measure.map_snd_prod, measure_univ, one_smul]
 

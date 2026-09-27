@@ -1,10 +1,4 @@
 import Mathlib.Probability.Distributions.Gaussian.Real
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.FunProp
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
 
 /-!
 # Scalar Gaussian small-ball estimates
@@ -39,7 +33,6 @@ theorem gaussianPDFReal_le_peak (μ : ℝ) (v : ℝ≥0) (x : ℝ) :
 /-- The extended-nonnegative Gaussian density is bounded by its normalising constant. -/
 theorem gaussianPDF_le_peak (μ : ℝ) (v : ℝ≥0) (x : ℝ) :
     gaussianPDF μ v x ≤ ENNReal.ofReal (Real.sqrt (2 * Real.pi * (v : ℝ)))⁻¹ := by
-  change ENNReal.ofReal (gaussianPDFReal μ v x) ≤ _
   exact ENNReal.ofReal_le_ofReal (gaussianPDFReal_le_peak μ v x)
 
 /-- Bound a Gaussian set probability by peak density times Lebesgue measure. -/
@@ -124,7 +117,6 @@ theorem gaussianReal_Icc_smallBall_of_real_variance
   have hVpos : 0 < V := lt_of_lt_of_le htSq hV
   have hv : v ≠ 0 := by
     exact ne_of_gt (by
-      change 0 < V / S
       exact div_pos hVpos hS)
   have hvar : (t / Real.sqrt S) ^ 2 ≤ (v : ℝ) := by
     change (t / Real.sqrt S) ^ 2 ≤ V / S
@@ -287,7 +279,6 @@ theorem gaussianReal_abs_add_smallBall_uniform
           _ ≤ u + |x| := by
             linarith
       have hhalf : t / 2 ≤ |x| := by linarith
-      change ENNReal.ofReal (gaussianPDFReal 0 v x) ≤ _
       exact ENNReal.ofReal_le_ofReal
         (gaussianPDFReal_zero_le_three_div_of_abs_ge_half t x ht hv hhalf)
     calc

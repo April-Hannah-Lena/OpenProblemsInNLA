@@ -1,9 +1,6 @@
 import NLA.FR05.SourceParameters
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Complex
 import Mathlib.Analysis.SpecialFunctions.ExpDeriv
-import Mathlib.Topology.Instances.Real.Lemmas
 import Mathlib.MeasureTheory.Function.SpecialFunctions.Basic
-import Mathlib.Topology.Algebra.Order.Field
 
 set_option autoImplicit false
 noncomputable section

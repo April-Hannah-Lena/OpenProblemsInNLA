@@ -1,8 +1,5 @@
 import NLA.FR05.Overlap.OverlapCholesky
-import Mathlib.LinearAlgebra.Matrix.SchurComplement
-import NLA.FR05.Gaussian.GaussianQuadraticIntegral
 import NLA.FR05.Overlap.Spectrum
-import Mathlib.Analysis.Convex.SpecificFunctions.Basic
 
 /-!
 # Exact reference kernels and determinant bounds

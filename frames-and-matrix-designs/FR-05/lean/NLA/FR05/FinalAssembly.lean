@@ -7,9 +7,7 @@ from the proved sampler identities and Propositions 3.1 and 3.2.
 -/
 import NLA.FR05.Bridges.SourceReferenceLawBridge
 import NLA.FR05.LikelihoodComparison
-import NLA.FR05.Measure.Comparison
 import NLA.FR05.Asymptotics
-import Mathlib.Analysis.SpecificLimits.Basic
 
 set_option autoImplicit false
 noncomputable section
@@ -126,7 +124,7 @@ theorem phaseRetrieval_injective_probability_le_inv_proved :
     ∃ C : ℝ, 0 < C ∧ ∀ d : ℕ, 2 ≤ d → phaseRetrievalProbability d ≤ C / d := by
   obtain ⟨D, a, b, hD, ha, hb, hc⟩ := source_eventual_probability_comparison
   exact phaseRetrieval_injective_probability_le_inv_of_source_comparison
-    D a b (by omega) ha.le hb.le hc
+    D a b (by lia) ha.le hb.le hc
 
 /-- The original FR-05 limit, for iid standard complex-Gaussian frames
 with `4d - 5` rows and the original all-signals injectivity predicate. -/

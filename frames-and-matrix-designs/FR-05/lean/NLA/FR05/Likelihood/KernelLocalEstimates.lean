@@ -1,5 +1,4 @@
 import NLA.FR05.Likelihood.KernelMatrixAlgebra
-import NLA.FR05.Likelihood.KernelMoments
 import NLA.FR05.Likelihood.ScalarTaylor
 
 /-!
