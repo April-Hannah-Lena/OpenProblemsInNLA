@@ -316,7 +316,6 @@ theorem sourcePlantedFrameLawAt_eq_viaPlantedRows
 end NLA.FR05
 
 end
-
 end
 
 /-! ## IidRowSplit -/
@@ -383,4 +382,3 @@ end NLA.FR05
 end
 
 end
-

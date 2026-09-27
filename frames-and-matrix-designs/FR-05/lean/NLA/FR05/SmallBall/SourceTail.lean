@@ -41,7 +41,6 @@ theorem mem_sourceTailDominatedCutoffSmallBallEventOnCoordinates_iff
 end NLA.FR05
 
 end
-
 end
 
 /-! ## SourceRowSmallBallEvent -/
@@ -238,4 +237,3 @@ end NLA.FR05
 end
 
 end
-

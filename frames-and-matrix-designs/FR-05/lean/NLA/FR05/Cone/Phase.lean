@@ -144,7 +144,6 @@ theorem circleAverage_inv_affine (a : ℝ) (b : ℂ) (ha : ‖b‖ < a) :
 end NLA.FR05
 
 end
-
 end
 
 /-! ## ConePhaseMeasure -/
@@ -193,4 +192,3 @@ end NLA.FR05
 end
 
 end
-

@@ -166,7 +166,6 @@ theorem qTheta_opposite_diagonal_of_abs_le_one {n : ℕ} (s : ℝ) (b : ℂ)
 end NLA.FR05
 
 end
-
 end
 
 /-! ## RankTwoSeed -/
@@ -241,4 +240,3 @@ end NLA.FR05
 end
 
 end
-

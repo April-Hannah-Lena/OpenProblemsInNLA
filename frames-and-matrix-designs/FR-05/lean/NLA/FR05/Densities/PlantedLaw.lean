@@ -303,7 +303,6 @@ theorem sourceTailDimension_add_two {M : ℕ} (hM : 2 ≤ M) :
 end NLA.FR05
 
 end
-
 end
 
 /-! ## SourceConditional -/
@@ -350,4 +349,3 @@ end NLA.FR05
 end
 
 end
-

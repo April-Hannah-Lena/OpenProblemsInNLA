@@ -433,7 +433,6 @@ theorem exists_sourceJacobianAt_rowSpanDistanceBad_of_not_hasEuclideanLowerBound
 end NLA.FR05
 
 end
-
 end
 
 /-! ## SourceJacobianEnergy -/
@@ -479,4 +478,3 @@ end NLA.FR05
 end
 
 end
-

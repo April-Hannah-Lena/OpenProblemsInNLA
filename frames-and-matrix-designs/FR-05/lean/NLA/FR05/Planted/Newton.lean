@@ -160,7 +160,6 @@ theorem plantedFrame_not_phaseRetrievalInjective_of_contracting_of_radius_le_one
 end NLA.FR05
 
 end
-
 end
 
 /-! ## LocalNewton -/
@@ -382,4 +381,3 @@ end NLA.FR05
 end
 
 end
-

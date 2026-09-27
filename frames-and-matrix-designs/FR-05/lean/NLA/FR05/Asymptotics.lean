@@ -98,7 +98,6 @@ theorem global_inverse_bound_of_eventual (D : ℕ) (p : ℕ → ℝ) (a b : ℝ)
 end NLA.FR05
 
 end
-
 /-! ## MainReduction -/
 
 section
@@ -135,4 +134,3 @@ theorem phaseRetrieval_injective_probability_le_inv_of_source_comparison
 end NLA.FR05
 
 end
-
