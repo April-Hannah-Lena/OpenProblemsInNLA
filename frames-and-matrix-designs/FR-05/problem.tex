@@ -98,13 +98,32 @@ to a covariance-matched Gaussian law, and uses a quantitative
 implicit-function argument to turn the planted approximate ambiguity
 into an exact one.
 
-This is a \textbf{solution claim}, not a verified resolution: the
-manuscript is the primary source and has not yet received the
-independent review required here for \textit{Solved}, nor a Lean
-verification. The original target, permanent identifier, and canonical
+This remains a \textbf{solution claim}, not a repository-verified
+resolution: the manuscript is the primary source, and independent review
+and the repository's isolated Linux Lean verification remain
+outstanding. The original target, permanent identifier, and canonical
 path are unchanged. The implementation route is recorded in the
 \href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/frames-and-matrix-designs/FR-05/formalisation-plan.md}{formalisation
 plan}.
+
+\subsubsection{Local Lean development --- 27 September
+2026}\label{local-lean-development-27-september-2026}
+
+The
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/frames-and-matrix-designs/FR-05/lean/Solution.lean}{Lean
+solution} now proves the bound \(p_d\le C/d\) for every \(d\ge2\) and
+the original limit \(p_d\to0\), using the original Gaussian law and
+all-signals injectivity predicate. The local build and transitive axiom
+audit pass, using only standard Lean axioms and no proof placeholders in
+the solution. See the
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/frames-and-matrix-designs/FR-05/lean/FINAL_ASSEMBLY.md}{final
+assembly},
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/frames-and-matrix-designs/FR-05/lean/README.md}{source
+guide}, and
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/frames-and-matrix-designs/FR-05/lean/verification/library-cleanup/README.md}{local
+verification record}. This development check does not replace
+independent statement review or the isolated Linux Comparator/kernel
+workflow; the catalog status is unchanged.
 
 \subsection{References}\label{references}
 

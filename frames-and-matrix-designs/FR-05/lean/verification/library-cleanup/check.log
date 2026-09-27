@@ -1,5 +1,5 @@
-⚠ [3658/3788] Replayed NLA.FR05.Densities.PlantedLaw
-warning: NLA/FR05/Densities/PlantedLaw.lean:58:2: Try this: 
+⚠ [3659/3833] Replayed NLA.FR05.Densities.PlantedLaw
+warning: NLA/FR05/Densities/PlantedLaw.lean:58:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -7,7 +7,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:107:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:107:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -15,7 +15,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:115:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:115:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -23,7 +23,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:160:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:160:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -31,7 +31,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:162:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:162:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -39,7 +39,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:164:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:164:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -47,7 +47,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:184:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:184:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -55,7 +55,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:202:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:202:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -63,7 +63,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:204:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:204:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -78,7 +78,7 @@ Hint: Omit it from the simp argument list.
   [apply] simp [sourcePlantedColumn, joinTwo, hone]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:242:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:242:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -86,7 +86,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:281:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:281:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -94,7 +94,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:340:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:340:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -102,7 +102,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/PlantedLaw.lean:342:2: Try this: 
+warning: NLA/FR05/Densities/PlantedLaw.lean:342:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -110,8 +110,8 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [3670/3788] Replayed NLA.FR05.Densities.SourceRows
-warning: NLA/FR05/Densities/SourceRows.lean:25:2: Try this: 
+⚠ [3671/3833] Replayed NLA.FR05.Densities.SourceRows
+warning: NLA/FR05/Densities/SourceRows.lean:25:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -119,7 +119,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:33:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:33:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -127,7 +127,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:44:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:44:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -135,7 +135,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:46:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:46:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -143,7 +143,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:48:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:48:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -151,7 +151,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:50:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:50:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -159,7 +159,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:54:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:54:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -167,7 +167,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:73:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:73:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -175,7 +175,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:75:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:75:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -183,7 +183,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:232:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:232:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -191,7 +191,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:234:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:234:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -199,7 +199,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceRows.lean:261:2: Try this: 
+warning: NLA/FR05/Densities/SourceRows.lean:261:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -207,8 +207,8 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [3673/3788] Replayed NLA.FR05.Densities.SourceMarginals
-warning: NLA/FR05/Densities/SourceMarginals.lean:23:2: Try this: 
+⚠ [3674/3833] Replayed NLA.FR05.Densities.SourceMarginals
+warning: NLA/FR05/Densities/SourceMarginals.lean:23:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -216,7 +216,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceMarginals.lean:25:2: Try this: 
+warning: NLA/FR05/Densities/SourceMarginals.lean:25:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -224,7 +224,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceMarginals.lean:36:2: Try this: 
+warning: NLA/FR05/Densities/SourceMarginals.lean:36:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -232,7 +232,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceMarginals.lean:97:2: Try this: 
+warning: NLA/FR05/Densities/SourceMarginals.lean:97:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -240,7 +240,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Densities/SourceMarginals.lean:99:2: Try this: 
+warning: NLA/FR05/Densities/SourceMarginals.lean:99:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -248,11 +248,44 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [3807/3833] Replayed NLA.FR05.Bridges.SourceRadialDensity
+⚠ [3810/3833] Replayed NLA.FR05.Planted.SourceGoodEvent
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:34:2: Try this:
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:67:2: Try this:
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:99:2: Try this:
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NLA/FR05/Planted/SourceGoodEvent.lean:118:2: Try this:
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3820/3833] Replayed NLA.FR05.Bridges.SourceRadialDensity
 warning: NLA/FR05/Bridges/SourceRadialDensity.lean:33:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-warning: NLA/FR05/Bridges/SourceRadialDensity.lean:63:2: Try this: 
+warning: NLA/FR05/Bridges/SourceRadialDensity.lean:63:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -274,8 +307,8 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [zero_mul, add_zero, one_mul, div_one, one_pow] at h
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3808/3833] Replayed NLA.FR05.Bridges.SourcePlantedDensityBridge
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:107:2: Try this: 
+⚠ [3821/3833] Replayed NLA.FR05.Bridges.SourcePlantedDensityBridge
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:107:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -283,7 +316,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:140:2: Try this: 
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:140:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -291,7 +324,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:142:2: Try this: 
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:142:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -299,7 +332,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:145:2: Try this: 
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:145:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -316,7 +349,7 @@ Hint: Omit it from the simp argument list.
     AddCircle.toCircle_apply_mk, Circle.coe_exp, joinTwo, hone]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:229:2: Try this: 
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:229:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -324,7 +357,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:233:2: Try this: 
+warning: NLA/FR05/Bridges/SourcePlantedDensityBridge.lean:233:2: Try this:
   letI̵
 
 The goal is a proposition, so `let` is preferred over `letI`.
@@ -332,61 +365,7 @@ The difference between `let` and `letI` is that `letI` inlines the value.
 But this is not relevant for proofs because of proof irrelevance.
 
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-⚠ [3811/3833] Replayed Challenge
-warning: Challenge.lean:17:8: declaration uses `sorry`
-warning: Challenge.lean:23:8: declaration uses `sorry`
-warning: Challenge.lean:30:8: declaration uses `sorry`
-✔ [3813/3833] Built NLA.FR05.Planted.DerivativeNorm (6.5s)
-✔ [3814/3833] Built NLA.FR05.SmallBall.NonTailConditionalSmallBall (7.3s)
-✔ [3815/3833] Built NLA.FR05.SmallBall.SourceScalarShift (7.4s)
-⚠ [3816/3833] Built NLA.FR05.Planted.SourceGoodEvent (7.9s)
-warning: NLA/FR05/Planted/SourceGoodEvent.lean:34:2: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Planted/SourceGoodEvent.lean:67:2: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Planted/SourceGoodEvent.lean:99:2: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-warning: NLA/FR05/Planted/SourceGoodEvent.lean:118:2: Try this: 
-  letI̵
-
-The goal is a proposition, so `let` is preferred over `letI`.
-The difference between `let` and `letI` is that `letI` inlines the value.
-But this is not relevant for proofs because of proof irrelevance.
-
-Note: This linter can be disabled with `set_option linter.style.haveILetI false`
-✔ [3817/3833] Built NLA.FR05.Planted.ImbalancePerturbation (8.0s)
-✔ [3818/3833] Built NLA.FR05.SmallBall.SourceNonTailGlobal (8.4s)
-✔ [3819/3833] Built NLA.FR05.Planted.SourceMatrixPerturbation (7.4s)
-✔ [3820/3833] Built NLA.FR05.SmallBall.SourceRowSmallBall (8.2s)
-✔ [3821/3833] Built NLA.FR05.Planted.SourceLocalControl (7.8s)
-✔ [3822/3833] Built NLA.FR05.Planted.SourceRowDistance (7.6s)
-✔ [3823/3833] Built NLA.FR05.Planted.SourceHighProbability (7.9s)
-✔ [3824/3833] Built NLA.FR05.Proposition31 (7.6s)
-✔ [3825/3833] Built NLA.FR05.Planted.PlantedHaarFailure (7.2s)
-✔ [3826/3833] Built NLA.FR05.Bridges.SourceHaarPlantedDensity (23s)
-✔ [3827/3833] Built NLA.FR05.Bridges.SourceReferenceFrameDensity (7.7s)
-✔ [3828/3833] Built NLA.FR05.Bridges.SourceReferenceLawBridge (22s)
-✔ [3829/3833] Built NLA.FR05.FinalAssembly (7.6s)
-✔ [3830/3833] Built NLA.FR05.Proof (7.3s)
-ℹ [3832/3833] Built Solution (7.6s)
+ℹ [3830/3833] Replayed Solution
 info: Solution.lean:110:0: 'NLA.FR05.proposition_3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: Solution.lean:111:0: 'NLA.FR05.proposition_3_1_haar' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: Solution.lean:112:0: 'NLA.FR05.proposition_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -406,6 +385,11 @@ info: Solution.lean:123:0: 'NLA.FR05.phaseRetrieval_injective_probability_le_inv
 info: Solution.lean:124:0: 'NLA.FR05.phaseRetrieval_probability_le_planted_add_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: Solution.lean:125:0: 'NLA.FR05.phaseRetrieval_injective_probability_le_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: Solution.lean:126:0: 'NLA.FR05.phaseRetrieval_injective_probability_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3832/3833] Built Challenge (22s)
+warning: Challenge.lean:18:8: declaration uses `sorry`
+warning: Challenge.lean:24:8: declaration uses `sorry`
+warning: Challenge.lean:30:8: declaration uses `sorry`
+warning: Challenge.lean:36:8: declaration uses `sorry`
 Build completed successfully (3833 jobs).
 -- Found 0 errors in 14 declarations (plus 4 automatically generated ones) in NLA.FR05.Definitions with 15 linters
 
