@@ -4,8 +4,9 @@ project:
   description: >-
     Full original target with a concrete terminating oracle algorithm,
     success probability at least 99/100, and universal query constant 32768
-    with exponents a = 1 and b = 2. Complete Lean proof; authoritative Linux
-    verification and independent final review are pending.
+    with exponents a = 1 and b = 2. The complete proof passed fresh Ubuntu
+    Comparator, default-kernel and permitted-axiom verification; two independent
+    nonauthor AI agents approved the full statement and proof.
   authors:
     - 'OpenAI Codex AI agent /root (formalization coauthor)'
     - 'OpenAI Codex AI agent /root/choose_tensors (formalization coauthor)'
@@ -75,17 +76,17 @@ status:
     most K and positive actual spectral radius. One concrete algorithm
     terminates on every finite random seed, uses at most
     32768*(1+log(n*K))/epsilon^2 exact matrix-vector queries on every seed,
-    and with probability at least 99/100 returns z and one actual eigenvalue
-    mu satisfying both required relative location and near-largest-modulus
+    and with probability at least 99/100 returns z such that one actual eigenvalue
+    mu satisfies both required relative location and near-largest-modulus
     inequalities. Repeated eigenvalues and ties are included.
-  whole_problem_verified: false
-  canonical_status: Solved
+  whole_problem_verified: true
+  canonical_status: Lean verified
   sorry_count: 0
   sorry_in_definitions: 0
   source_scan_note: >-
     Challenge contains one deliberate comparison placeholder and is excluded
     from the Solution import graph. No mathematical cases remain unproved;
-    whole-problem verification status awaits the repository's remaining gates.
+    all frozen proof inputs match the successful Linux verification receipt.
   axioms: [propext, Classical.choice, Quot.sound]
   main_results:
     - declaration: NLA.KE03.complete_query_algorithm
@@ -94,8 +95,11 @@ status:
       axioms: [propext, Classical.choice, Quot.sound]
       comparator_config: comparator.json
       verification_status: >-
-        Complete proof compiled locally and transitive axioms checked;
-        authoritative Linux Comparator and independent final reviews pending.
+        PASS on 2026-09-28: fresh Ubuntu Comparator, default-kernel replay,
+        permitted-axiom checks and rejection controls in run 36428948274,
+        proof revision 0b61bc859f622a69204f8705445c144095e4446d. All proof
+        source hashes match verification/PROOF_SHA256.json. Two independent
+        final AI-agent reviews approve the complete formalization.
 fidelity:
   divergences: >-
     No weakening of the original problem target. Replace the source's
@@ -111,7 +115,7 @@ fidelity:
     guarantee is asserted. The finite cardinality seed law is uniform and
     its power-of-two grid admits a fixed finite fair-bit realization.
 review:
-  status: 'Two independent pre-proof approvals; independent final AI-agent review in progress'
+  status: 'Two independent pre-proof approvals and two independent final AI-agent approvals'
   reviewers:
     - 'OpenAI Codex AI agent /root/choose_algebra'
     - 'OpenAI Codex AI agent /root/environment'
@@ -119,9 +123,11 @@ review:
     Both reviewers authored neither the KE-03 mathematical definitions nor
     its proof modules. Statement approvals are retained in
     reviews/statement-1.md and reviews/statement-2.md, with exact reviewed
-    hashes. Final reviewers independently inspect source and evidence.
+    hashes. Final reviewers independently inspected source and evidence; reports
+    are reviews/final-1.md and reviews/final-2.md.
     Coauthor checks are not counted as independent review. No human peer
-    review or completed Linux verification is claimed by this metadata.
+    review is claimed. Actual Linux verification evidence is retained at
+    verification/linux-36428948274, separate from local checks.
 alignment:
   original_target: 'Canonical KE-03 problem statement at revision 80c0e3e638b2f26dcb3a00353651fc3d2215dd65'
   target_record: NUMERICAL_TARGETS.md

@@ -794,6 +794,8 @@ historical and the entry no longer contributes to the open count.
 
 #### KE-03 — affirmative resolution
 
+**Lean verified — 2026-09-28.** The [immutable proof project](https://github.com/marcusdavidwebb/OpenProblemsInNLA/tree/0b61bc859f622a69204f8705445c144095e4446d/eigenvalues-and-inverse-problems/KE-03/lean) proves the entire original exact-query target with universal constants $C=32768$, $a=1$, $b=2$, all-seed termination, and joint success probability at least $99/100$. [Source correspondence and verification evidence](eigenvalues-and-inverse-problems/KE-03/README.md#lean-proof-and-verification-evidence) include successful fresh Ubuntu Comparator, default-kernel and permitted-axiom checks for that exact proof revision. Formalization by OpenAI Codex agents; original mathematical proof credit remains Matthew J. Colbrook. Independent AI-agent review is disclosed, with no claim of human peer review.
+
 [Original statement and resolution](eigenvalues-and-inverse-problems/KE-03/README.md) · [Complete manuscript](eigenvalues-and-inverse-problems/KE-03/solution.md) · [Manuscript PDF](eigenvalues-and-inverse-problems/KE-03/solution.pdf) · [Independent review](references/colbrook-2026-09-11/verification/reviews/KE-03-review.md). **Theorem KE-03, sections 1–5.** The algorithm uses $O(\varepsilon^{-2}[1+\log(nK)])$ exact matrix-vector queries, with success probability at least $0.997$, for every input in the displayed model. It supplies both eigenvalue-location guarantees using the given condition bound $K$ and finite exact arithmetic between queries. The result bounds query count, not total runtime, bit complexity or floating-point error.
 
 ### ✅ Three further resolutions by Matthew J. Colbrook — 2026-09-11
