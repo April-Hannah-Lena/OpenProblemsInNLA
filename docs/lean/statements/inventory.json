@@ -10,12 +10,13 @@
       "external-statement-source": 3,
       "local-scope-gap": 6,
       "local-statement-source": 62,
-      "missing-statement": 146
+      "missing-statement": 140,
+      "shared-statement-source": 6
     },
     "statement_backlog_by_status": {
       "Open": 40,
       "Partially resolved": 70,
-      "Solved": 42
+      "Solved": 36
     }
   },
   "entries": [
@@ -2560,13 +2561,26 @@
       "published_sha256": "3486bfa69ba99b106dfb059866d0f4fa3e0b9eac99276a05f911756639bbfd1e",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/matrix-discrepancy-and-optimization/MD-03/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/MD-03/statement.json",
+        "module": "NLA.Statements.MD03",
+        "declaration": "NLA.Statements.MD03.Target",
+        "source_path": "lean-statements/NLA/Statements/MD03.lean",
+        "source_present": true,
+        "source_sha256": "2638d903c1ccc478da9941f76d1903d838e4f6c5434ec1792dc1fbf811446b05",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -2590,13 +2604,26 @@
       "published_sha256": "a8be36a5217cb0b3031c8f87cfc25e5421ca78dd8c42ecc151219fa62eb8156e",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/matrix-discrepancy-and-optimization/MD-04/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/MD-04/statement.json",
+        "module": "NLA.Statements.MD04",
+        "declaration": "NLA.Statements.MD04.Target",
+        "source_path": "lean-statements/NLA/Statements/MD04.lean",
+        "source_present": true,
+        "source_sha256": "c3536d295078f8223c82046f80f2d4a02eee5310cd07125013d303991ae41894",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -5533,13 +5560,26 @@
       "published_sha256": "acbf30a432e4ee1898661c05a9efc2f24f9ec32183da33836315b58e6c46e08a",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/nonnegative-and-positive-factorizations/PF-04/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/PF-04/statement.json",
+        "module": "NLA.Statements.PF04",
+        "declaration": "NLA.Statements.PF04.Target",
+        "source_path": "lean-statements/NLA/Statements/PF04.lean",
+        "source_present": true,
+        "source_sha256": "0b374f4b5efdc770cf678264b99085bb4961ad2993b3edae725db0b1908fa01f",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -6804,13 +6844,26 @@
       "published_sha256": "8e3edc4c7c6c8b388ab7bbf87bc197b76756210b19338d27398af356016aa865",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/eigenvalues-and-inverse-problems/SP-11/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/SP-11/statement.json",
+        "module": "NLA.Statements.SP11",
+        "declaration": "NLA.Statements.SP11.Target",
+        "source_path": "lean-statements/NLA/Statements/SP11.lean",
+        "source_present": true,
+        "source_sha256": "7de112a24cb0b78894d495b840a77a58572cce574d5d77eda15381410c65b131",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -6832,13 +6885,26 @@
       "published_sha256": "cdc8003bc5160604408ce6b95c344a4ea1b9bfbf8af0f99ae1e8e016648d53e1",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/eigenvalues-and-inverse-problems/SP-12/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/SP-12/statement.json",
+        "module": "NLA.Statements.SP12",
+        "declaration": "NLA.Statements.SP12.Target",
+        "source_path": "lean-statements/NLA/Statements/SP12.lean",
+        "source_present": true,
+        "source_sha256": "c41acae980a06e3f1e8d59e2c552f85812c521ed5e66473b74e01542bfd80f2b",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -7361,13 +7427,26 @@
       "published_sha256": "a6ae45a647f1cb5e057c7b1f09c5b4d99bdd5a29c25677f352f91ea0788e6d86",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/tensor-computations/TR-14/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/TR-14/statement.json",
+        "module": "NLA.Statements.TR14",
+        "declaration": "NLA.Statements.TR14.Target",
+        "source_path": "lean-statements/NLA/Statements/TR14.lean",
+        "source_present": true,
+        "source_sha256": "515387732a4aff4c343625d7578d687fa9d11255ddeaaeb278b9410e55e02dc9",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",

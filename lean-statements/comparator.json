@@ -2,7 +2,13 @@
   "challenge_module": "IdentityChallenge",
   "solution_module": "IdentitySolution",
   "theorem_names": [
-    "NLA.Statements.ComparatorControl.log_two_upper"
+    "NLA.Statements.ComparatorControl.log_two_upper",
+    "NLA.Statements.ComparatorControl.identity_MD03",
+    "NLA.Statements.ComparatorControl.identity_MD04",
+    "NLA.Statements.ComparatorControl.identity_PF04",
+    "NLA.Statements.ComparatorControl.identity_SP11",
+    "NLA.Statements.ComparatorControl.identity_SP12",
+    "NLA.Statements.ComparatorControl.identity_TR14"
   ],
   "definition_names": [],
   "permitted_axioms": [
