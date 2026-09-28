@@ -10,13 +10,13 @@
       "external-statement-source": 3,
       "local-scope-gap": 6,
       "local-statement-source": 62,
-      "missing-statement": 135,
-      "shared-statement-source": 11
+      "missing-statement": 133,
+      "shared-statement-source": 13
     },
     "statement_backlog_by_status": {
       "Open": 40,
       "Partially resolved": 70,
-      "Solved": 31
+      "Solved": 29
     }
   },
   "entries": [
@@ -6991,13 +6991,26 @@
       "published_sha256": "3db39d15a2d3879c0e72a983dd78197bcc8b99ac256a07fcaeee5b6f0962a57a",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/eigenvalues-and-inverse-problems/SP-13/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/SP-13/statement.json",
+        "module": "NLA.Statements.SP13",
+        "declaration": "NLA.Statements.SP13.Target",
+        "source_path": "lean-statements/NLA/Statements/SP13.lean",
+        "source_present": true,
+        "source_sha256": "59b9796c201eb0991479586d4372bbaf4500ad26fcfadd2bb5691c29653b089b",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -7462,13 +7475,26 @@
       "published_sha256": "da720e9599af7271686127b618b21038685e52a754031c2d43915c9d255f015f",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/tensor-computations/TR-13/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/TR-13/statement.json",
+        "module": "NLA.Statements.TR13",
+        "declaration": "NLA.Statements.TR13.Target",
+        "source_path": "lean-statements/NLA/Statements/TR13.lean",
+        "source_present": true,
+        "source_sha256": "5b43b0a5410d91a7ec9a796a3e6d7cdd50f75929797d2eca4587cb2b0905a99d",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",

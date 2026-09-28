@@ -13,6 +13,8 @@
     "NLA.Statements.ComparatorControl.identity_RA13",
     "NLA.Statements.ComparatorControl.identity_SP11",
     "NLA.Statements.ComparatorControl.identity_SP12",
+    "NLA.Statements.ComparatorControl.identity_SP13",
+    "NLA.Statements.ComparatorControl.identity_TR13",
     "NLA.Statements.ComparatorControl.identity_TR14"
   ],
   "definition_names": [],

@@ -19,6 +19,10 @@ import NLA.Statements.SP11
 import Reviewed.SP11
 import NLA.Statements.SP12
 import Reviewed.SP12
+import NLA.Statements.SP13
+import Reviewed.SP13
+import NLA.Statements.TR13
+import Reviewed.TR13
 import NLA.Statements.TR14
 import Reviewed.TR14
 
@@ -35,5 +39,7 @@ theorem identity_RA12 : NLA.Statements.RA12.Target = NLA.ReviewedStatements.RA12
 theorem identity_RA13 : NLA.Statements.RA13.Target = NLA.ReviewedStatements.RA13.Target := by sorry
 theorem identity_SP11 : NLA.Statements.SP11.Target = NLA.ReviewedStatements.SP11.Target := by sorry
 theorem identity_SP12 : NLA.Statements.SP12.Target = NLA.ReviewedStatements.SP12.Target := by sorry
+theorem identity_SP13 : NLA.Statements.SP13.Target = NLA.ReviewedStatements.SP13.Target := by sorry
+theorem identity_TR13 : NLA.Statements.TR13.Target = NLA.ReviewedStatements.TR13.Target := by sorry
 theorem identity_TR14 : NLA.Statements.TR14.Target = NLA.ReviewedStatements.TR14.Target := by sorry
 end NLA.Statements.ComparatorControl
