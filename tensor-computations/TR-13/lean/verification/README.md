@@ -16,7 +16,9 @@ only the complete theorem, and Comparator selects that same declaration with
 no replaceable definition holes.
 
 [SOURCE_SHA256.json](SOURCE_SHA256.json) records the source bytes used for these
-checks, including the frozen comparison boundary and dependency pins. The
+checks, including the frozen comparison boundary and dependency pins, with
+the subsequent [Comparator configuration correction](CI_CONFIG_FIX.md) recorded
+explicitly. All Lean source hashes remain unchanged by that correction. The
 temporary development tree used local dependency symlinks to the exact pinned
 Mathlib checkout; no symlink, compiled artifact or dependency checkout is part
 of the contribution. The committed manifest uses HTTPS Git dependencies.

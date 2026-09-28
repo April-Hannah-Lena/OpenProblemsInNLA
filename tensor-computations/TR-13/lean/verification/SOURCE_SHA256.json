@@ -6,7 +6,7 @@
   "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
   "lakefile.toml": "caf1c13d2502f5e1a583c751b508cf744e61e6db34aae41a1ff844e99a41e4bc",
   "lake-manifest.json": "b944d14340ef6a6df21cf06ea1e6d78afcdd2d2ebc5a99412c58b5bcc7db0de1",
-  "comparator.json": "00f07bd311913de5e875865893b2f2c103bd23b4ce681a08126cc39dd1368e30",
+  "comparator.json": "cf41c450ca61d8d2969c387580905dd07b47c8ba527a06913309d80e6b1e3dbe",
   "NLA/TR13/Compression.lean": "a3c3ae15b0a4c0c1585bd2314a994a54f2b27e0cbc0cdf32447470647025702b",
   "NLA/TR13/Definitions.lean": "f026f45877d8e2bfc94a96c8be0dece8a1f2a843d8c1b7249891d720c42240c7",
   "NLA/TR13/Koszul.lean": "4b5d51a9c32de19ba90507522e41567f7e1452c8983e435481b96310ddba87eb",
