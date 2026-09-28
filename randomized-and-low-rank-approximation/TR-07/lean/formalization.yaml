@@ -6,7 +6,8 @@ project:
     uniform column subset tends to zero in probability for every admissible
     deterministic fixed-sparsity matrix sequence. The complete proof builds
     locally on macOS and its transitive axiom audit passes. Fresh sandboxed
-    Linux verification and the two independent full final reviews are pending.
+    Linux verification is pending; two independent nonauthor AI agents
+    approved the complete final mathematical source.
   authors:
     - 'OpenAI Codex AI agent /root (formalization coauthor)'
     - 'OpenAI Codex AI agent /root/choose_tensors (formalization coauthor)'
@@ -99,7 +100,8 @@ status:
     Challenge contains one deliberate comparison placeholder and is excluded
     from the Solution import graph. The complete proof development has no
     unresolved placeholders. Local compilation and axiom checks pass;
-    fresh Linux verification and full final reviews remain pending.
+    two independent final mathematical reviews approve the full source.
+    Fresh Linux verification remains pending.
   axioms: [propext, Classical.choice, Quot.sound]
   main_results:
     - declaration: NLA.TR07.random_column_subsets
@@ -112,8 +114,9 @@ status:
         in verification/local-build.log. The complete exported theorem's
         transitive axiom closure is exactly the three permitted standard
         axioms, recorded in verification/axioms.log. Fresh unprivileged
-        Linux Comparator and default-kernel verification, rejection controls,
-        and the two independent full final reviews are pending.
+        Linux Comparator and default-kernel verification and rejection controls
+        are pending. Both independent final AI-agent reviews approve the
+        complete mathematical source.
 fidelity:
   divergences: >-
     The entire original asymptotic target is retained. Explicit r_k <= n_k
@@ -147,7 +150,7 @@ fidelity:
     are not advertised. No numerical spectrum, floating-point calculation,
     unproved certificate, probabilistic oracle or new axiom is used.
 review:
-  status: 'Two independent pre-proof approvals; full final reviews pending'
+  status: 'Two independent pre-proof approvals and two independent final mathematical AI-agent approvals; Linux evidence pending'
   reviewers:
     - 'OpenAI Codex AI agent /root/choose_algebra'
     - 'OpenAI Codex AI agent /root/environment'
@@ -158,8 +161,11 @@ review:
     hashes. Intermediate core reviews are retained in reviews/core-1.md
     and reviews/proof-core-2.md; these are not counted as full final
     approvals. Coauthor checks are not counted as independent review.
-    No human peer review is claimed. Full final reports and authoritative
-    fresh Linux verification evidence remain pending.
+    Full final approvals are reviews/final-1.md and reviews/final-2.md,
+    binding all 36 proof inputs to revision
+    810014241511510dce72a418e1ba80a4cd4c7a7e. Each reviewer independently
+    rebuilt and audited the complete source. No human peer review is claimed.
+    Authoritative fresh Linux verification and its evidence review remain pending.
 alignment:
   original_target: 'Canonical TR-07 problem statement at revision 80c0e3e638b2f26dcb3a00353651fc3d2215dd65'
   target_record: NUMERICAL_TARGETS.md
