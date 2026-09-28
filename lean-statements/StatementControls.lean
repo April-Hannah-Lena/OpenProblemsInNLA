@@ -1,4 +1,6 @@
 import NLA.Statements.Infrastructure
+import NLA.Computation.ExactRealControls
+import NLA.Computation.OracleControls
 
 namespace StatementControls
 

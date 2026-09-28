@@ -7,10 +7,10 @@ This generated source inventory covers every permanent registered ID. It does no
 Registered entries: **217**.
 
 - external-statement-source: **3**
-- local-scope-gap: **6**
+- local-scope-gap: **4**
 - local-statement-source: **62**
-- missing-statement: **133**
-- shared-statement-source: **13**
+- missing-statement: **128**
+- shared-statement-source: **20**
 
 The six existing scope gaps remain explicit even when a new shared statement is recorded. IE-01, TR-01, and MI-32 already cite pinned external formalizations and are tracked separately from entries with no Lean statement. Copied historical and review projects do not count.
 
@@ -32,7 +32,7 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [AC-11](../../../arithmetic-and-complexity/AC-11/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [AC-12](../../../arithmetic-and-complexity/AC-12/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [AC-13](../../../arithmetic-and-complexity/AC-13/README.md) | Partially resolved | missing-statement | Not audited here. |
-| [AV-01](../../../intervals-and-absolute-value-equations/AV-01/README.md) | Solved | missing-statement | Not audited here. |
+| [AV-01](../../../intervals-and-absolute-value-equations/AV-01/README.md) | Solved | shared-statement-source | Not audited here. |
 | [AV-02](../../../intervals-and-absolute-value-equations/AV-02/README.md) | Solved | missing-statement | Not audited here. |
 | [AV-03](../../../intervals-and-absolute-value-equations/AV-03/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [FR-01](../../../frames-and-matrix-designs/FR-01/README.md) | Open | missing-statement | Not audited here. |
@@ -55,9 +55,9 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [IE-06](../../../linear-systems-and-elimination/IE-06/README.md) | Open | missing-statement | Not audited here. |
 | [IE-07](../../../eigenvalues-and-inverse-problems/IE-07/README.md) | Open | missing-statement | Not audited here. |
 | [IE-08](../../../eigenvalues-and-inverse-problems/IE-08/README.md) | Solved | missing-statement | Not audited here. |
-| [IE-10](../../../eigenvalues-and-inverse-problems/IE-10/README.md) | Solved | missing-statement | Not audited here. |
+| [IE-10](../../../eigenvalues-and-inverse-problems/IE-10/README.md) | Solved | shared-statement-source | Not audited here. |
 | [IE-11](../../../linear-systems-and-elimination/IE-11/README.md) | Open | missing-statement | Not audited here. |
-| [IE-12](../../../linear-systems-and-elimination/IE-12/README.md) | Solved | missing-statement | Not audited here. |
+| [IE-12](../../../linear-systems-and-elimination/IE-12/README.md) | Solved | shared-statement-source | Not audited here. |
 | [IE-13](../../../linear-systems-and-elimination/IE-13/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IE-14](../../../linear-systems-and-elimination/IE-14/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IE-15](../../../linear-systems-and-elimination/IE-15/README.md) | Lean verified | local-statement-source | Not audited here. |
@@ -66,8 +66,8 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [IE-18](../../../linear-systems-and-elimination/IE-18/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IE-19](../../../linear-systems-and-elimination/IE-19/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IE-20](../../../linear-systems-and-elimination/IE-20/README.md) | Partially resolved | missing-statement | Not audited here. |
-| [IE-21](../../../linear-systems-and-elimination/IE-21/README.md) | Solved | local-scope-gap | The full target is an axiom and the SphericalRowLaw semantic boundary is unimplemented. |
-| [IE-22](../../../linear-systems-and-elimination/IE-22/README.md) | Solved | local-scope-gap | The full target is an axiom; complete semantic and proof obligations remain. |
+| [IE-21](../../../linear-systems-and-elimination/IE-21/README.md) | Solved | shared-statement-source | The full target is an axiom and the SphericalRowLaw semantic boundary is unimplemented. |
+| [IE-22](../../../linear-systems-and-elimination/IE-22/README.md) | Solved | shared-statement-source | The full target is an axiom; complete semantic and proof obligations remain. |
 | [IE-23](../../../linear-systems-and-elimination/IE-23/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IE-24](../../../linear-systems-and-elimination/IE-24/README.md) | Open | missing-statement | Not audited here. |
 | [IE-25](../../../linear-systems-and-elimination/IE-25/README.md) | Open | missing-statement | Not audited here. |
@@ -83,7 +83,7 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [IV-02](../../../intervals-and-absolute-value-equations/IV-02/README.md) | Solved | local-scope-gap | ComplexityContract contains unconstrained propositions, without computational semantics. |
 | [IV-03](../../../intervals-and-absolute-value-equations/IV-03/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [IV-04](../../../intervals-and-absolute-value-equations/IV-04/README.md) | Solved | local-scope-gap | The complexity target is absent, and raw coordinate sets are required to be intervals instead of defining their hulls. |
-| [IV-05](../../../intervals-and-absolute-value-equations/IV-05/README.md) | Solved | missing-statement | Not audited here. |
+| [IV-05](../../../intervals-and-absolute-value-equations/IV-05/README.md) | Solved | shared-statement-source | Not audited here. |
 | [IV-06](../../../intervals-and-absolute-value-equations/IV-06/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [KE-01](../../../linear-systems-and-elimination/KE-01/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [KE-02](../../../eigenvalues-and-inverse-problems/KE-02/README.md) | Partially resolved | missing-statement | Not audited here. |
@@ -182,7 +182,7 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [RA-16](../../../randomized-and-low-rank-approximation/RA-16/README.md) | Open | missing-statement | Not audited here. |
 | [RA-17](../../../randomized-and-low-rank-approximation/RA-17/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [RA-18](../../../randomized-and-low-rank-approximation/RA-18/README.md) | Partially resolved | missing-statement | Not audited here. |
-| [RA-19](../../../randomized-and-low-rank-approximation/RA-19/README.md) | Solved | missing-statement | Not audited here. |
+| [RA-19](../../../randomized-and-low-rank-approximation/RA-19/README.md) | Solved | shared-statement-source | Not audited here. |
 | [RA-20](../../../randomized-and-low-rank-approximation/RA-20/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [RE-01](../../../randomized-and-low-rank-approximation/RE-01/README.md) | Open | missing-statement | Not audited here. |
 | [RE-02](../../../randomized-and-low-rank-approximation/RE-02/README.md) | Open | missing-statement | Not audited here. |
@@ -240,6 +240,6 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 
 Within each status, finite explicit assertions can share basic matrix definitions. Computational, probabilistic, and algebraic-geometric targets require concrete models; uninterpreted predicates are not complete replacements for those targets.
 
-- **Solved (29):** AA-01, AV-01, AV-02, IE-08, IE-10, IE-12, IE-21, IE-22, IE-26, IV-02, IV-04, IV-05, KE-03, MD-06, MF-08, MI-16, NM-03, RA-04, RA-05, RA-19, RE-05, RE-06, TR-04, TR-06, TR-07, TR-08, TR-17, TR-20, TR-26.
+- **Solved (22):** AA-01, AV-02, IE-08, IE-26, IV-02, IV-04, KE-03, MD-06, MF-08, MI-16, NM-03, RA-04, RA-05, RE-05, RE-06, TR-04, TR-06, TR-07, TR-08, TR-17, TR-20, TR-26.
 - **Partially resolved (70):** AC-07, AC-08, AC-09, AC-11, AC-12, AC-13, AV-03, FR-02, FR-07, FR-08, FR-09, FR-10, FR-11, IE-03, IE-20, IE-27, IE-28, IS-04, IS-05, IV-01, KE-01, KE-02, MF-04, MF-15, MF-19, MF-20, MF-23, MI-01, MI-02, MI-05, MI-08, MI-09, MI-10, MI-11, MI-12, MI-14, MI-15, MI-17, MI-18, MI-25, MI-30, MI-31, NR-01, NR-02, PF-01, RA-01, RA-11, RA-14, RA-15, RA-17, RA-18, RE-03, SP-03, SP-08, SP-09, SP-10, SP-14, TR-03, TR-05, TR-10, TR-11, TR-12, TR-18, TR-19, TR-21, TR-25, TR-28, TR-29, TR-30, TR-31.
 - **Open (40):** AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-10, FR-01, FR-03, FR-04, FR-06, IE-06, IE-07, IE-11, IE-24, IE-25, IS-01, MD-01, MD-02, MD-05, MF-01, MF-09, MF-10, MF-11, MF-13, MF-17, MI-20, NM-01, RA-06, RA-16, RE-01, RE-02, SP-01, SP-02, SP-07, TR-09, TR-16, TR-22, TR-23, TR-24.

@@ -8,15 +8,15 @@
     "registered": 217,
     "classification": {
       "external-statement-source": 3,
-      "local-scope-gap": 6,
+      "local-scope-gap": 4,
       "local-statement-source": 62,
-      "missing-statement": 133,
-      "shared-statement-source": 13
+      "missing-statement": 128,
+      "shared-statement-source": 20
     },
     "statement_backlog_by_status": {
       "Open": 40,
       "Partially resolved": 70,
-      "Solved": 29
+      "Solved": 22
     }
   },
   "entries": [
@@ -429,13 +429,26 @@
       "published_sha256": "68205f4476868847a9332d5ab294d062882302f203e6903f4da3c43f61f5f091",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/intervals-and-absolute-value-equations/AV-01/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/AV-01/statement.json",
+        "module": "NLA.Statements.AV01",
+        "declaration": "NLA.Statements.AV01.Target",
+        "source_path": "lean-statements/NLA/Statements/AV01.lean",
+        "source_present": true,
+        "source_sha256": "34bc564a472d6cf0fea282c7b2c40fa1f909305c2b8a9360fb086b0ffa9b7732",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -1305,13 +1318,26 @@
       "published_sha256": "61c9f5e820b4201e6b34e55cd43e3b65bc0e746dcdef6551ccfe50602ebe644a",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/eigenvalues-and-inverse-problems/IE-10/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/IE-10/statement.json",
+        "module": "NLA.Statements.IE10",
+        "declaration": "NLA.Statements.IE10.Target",
+        "source_path": "lean-statements/NLA/Statements/IE10.lean",
+        "source_present": true,
+        "source_sha256": "55dd33eed940f0979222ae3f019a11192a9ee16e6d3b5c2ca5016c17b0079c74",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -1361,13 +1387,26 @@
       "published_sha256": "a46926ac2cec003913f0ae71d3f4b54dfb44e82bb90daeaa3ab79ed757421b77",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/linear-systems-and-elimination/IE-12/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/IE-12/statement.json",
+        "module": "NLA.Statements.IE12",
+        "declaration": "NLA.Statements.IE12.Target",
+        "source_path": "lean-statements/NLA/Statements/IE12.lean",
+        "source_present": true,
+        "source_sha256": "3b87e45a6896f7cf31fed7338265475bb1ced9f8e7c161ccda7ad8f877bb1343",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -1709,7 +1748,7 @@
       "published_sha256": "71783a338942837a9c37bf2d50801484e711e55ee36a8da62d009bad518ae3ba",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/linear-systems-and-elimination/IE-21/README.md",
-      "classification": "local-scope-gap",
+      "classification": "shared-statement-source",
       "local_project": "linear-systems-and-elimination/IE-21/lean",
       "local_statement_path": "linear-systems-and-elimination/IE-21/lean/Challenge.lean",
       "solution_source_present": true,
@@ -1719,7 +1758,20 @@
         "linear-systems-and-elimination/IE-21/lean/Solution.lean": "5cf3e14c3b837ec56ba9259d62693f7995df5ff690273627517faf3528ff71b4"
       },
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/IE-21/statement.json",
+        "module": "NLA.Statements.IE21",
+        "declaration": "NLA.Statements.IE21.Target",
+        "source_path": "lean-statements/NLA/Statements/IE21.lean",
+        "source_present": true,
+        "source_sha256": "1f7be864caa62471c32345a2960aa284c3c83f11028bb764756ebd557389b45e",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [
         "The full target is an axiom and the SphericalRowLaw semantic boundary is unimplemented."
       ],
@@ -1743,7 +1795,7 @@
       "published_sha256": "273ce377e8de3f575be53104f156f0436ffb571a3a464bb5d5693c0aa510c344",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/linear-systems-and-elimination/IE-22/README.md",
-      "classification": "local-scope-gap",
+      "classification": "shared-statement-source",
       "local_project": "linear-systems-and-elimination/IE-22/lean",
       "local_statement_path": "linear-systems-and-elimination/IE-22/lean/Challenge.lean",
       "solution_source_present": true,
@@ -1753,7 +1805,20 @@
         "linear-systems-and-elimination/IE-22/lean/Solution.lean": "250bf3748e2611a038a93f1d990027a22a36e50c916839439967f561bbacbb28"
       },
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/IE-22/statement.json",
+        "module": "NLA.Statements.IE22",
+        "declaration": "NLA.Statements.IE22.Target",
+        "source_path": "lean-statements/NLA/Statements/IE22.lean",
+        "source_present": true,
+        "source_sha256": "ba02136d23a3065c7764ac6b6d6c8a8712fc89862664cccc11dbf2c038f83d05",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [
         "The full target is an axiom; complete semantic and proof obligations remain."
       ],
@@ -2256,13 +2321,26 @@
       "published_sha256": "09f68840d5c42b3b101532620a8900a7253f6f881bfa59ad99e80ff21c16a87c",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/intervals-and-absolute-value-equations/IV-05/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/IV-05/statement.json",
+        "module": "NLA.Statements.IV05",
+        "declaration": "NLA.Statements.IV05.Target",
+        "source_path": "lean-statements/NLA/Statements/IV05.lean",
+        "source_present": true,
+        "source_sha256": "a75a5713d7c6672efa85a16e08615b302cde068da7c7bd2218030b07abf51807",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -6304,13 +6382,26 @@
       "published_sha256": "e952b7183d746bae9c3750ac47e8e2a878808e5287a56bf3b106f44c975c8db3",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/randomized-and-low-rank-approximation/RA-19/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/RA-19/statement.json",
+        "module": "NLA.Statements.RA19",
+        "declaration": "NLA.Statements.RA19.Target",
+        "source_path": "lean-statements/NLA/Statements/RA19.lean",
+        "source_present": true,
+        "source_sha256": "680a77490e093611c835ab6d074e67267274474d22c12158490da5aaade63845",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",

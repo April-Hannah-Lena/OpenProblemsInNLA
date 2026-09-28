@@ -1,4 +1,16 @@
 import NLA.Statements.KernelSmoke
+import NLA.Statements.AV01
+import Reviewed.AV01
+import NLA.Statements.IE10
+import Reviewed.IE10
+import NLA.Statements.IE12
+import Reviewed.IE12
+import NLA.Statements.IE21
+import Reviewed.IE21
+import NLA.Statements.IE22
+import Reviewed.IE22
+import NLA.Statements.IV05
+import Reviewed.IV05
 import NLA.Statements.MD03
 import Reviewed.MD03
 import NLA.Statements.MD04
@@ -15,6 +27,8 @@ import NLA.Statements.RA12
 import Reviewed.RA12
 import NLA.Statements.RA13
 import Reviewed.RA13
+import NLA.Statements.RA19
+import Reviewed.RA19
 import NLA.Statements.SP11
 import Reviewed.SP11
 import NLA.Statements.SP12
@@ -29,6 +43,12 @@ import Reviewed.TR14
 /- Generated identity certificates only; no catalog proposition is asserted. -/
 namespace NLA.Statements.ComparatorControl
 theorem log_two_upper : Real.log 2 < (7 / 10 : ℝ) := by sorry
+theorem identity_AV01 : NLA.Statements.AV01.Target = NLA.ReviewedStatements.AV01.Target := by sorry
+theorem identity_IE10 : NLA.Statements.IE10.Target = NLA.ReviewedStatements.IE10.Target := by sorry
+theorem identity_IE12 : NLA.Statements.IE12.Target = NLA.ReviewedStatements.IE12.Target := by sorry
+theorem identity_IE21 : NLA.Statements.IE21.Target = NLA.ReviewedStatements.IE21.Target := by sorry
+theorem identity_IE22 : NLA.Statements.IE22.Target = NLA.ReviewedStatements.IE22.Target := by sorry
+theorem identity_IV05 : NLA.Statements.IV05.Target = NLA.ReviewedStatements.IV05.Target := by sorry
 theorem identity_MD03 : NLA.Statements.MD03.Target = NLA.ReviewedStatements.MD03.Target := by sorry
 theorem identity_MD04 : NLA.Statements.MD04.Target = NLA.ReviewedStatements.MD04.Target := by sorry
 theorem identity_MF03 : NLA.Statements.MF03.Target = NLA.ReviewedStatements.MF03.Target := by sorry
@@ -37,6 +57,7 @@ theorem identity_PF05 : NLA.Statements.PF05.Target = NLA.ReviewedStatements.PF05
 theorem identity_RA10 : NLA.Statements.RA10.Target = NLA.ReviewedStatements.RA10.Target := by sorry
 theorem identity_RA12 : NLA.Statements.RA12.Target = NLA.ReviewedStatements.RA12.Target := by sorry
 theorem identity_RA13 : NLA.Statements.RA13.Target = NLA.ReviewedStatements.RA13.Target := by sorry
+theorem identity_RA19 : NLA.Statements.RA19.Target = NLA.ReviewedStatements.RA19.Target := by sorry
 theorem identity_SP11 : NLA.Statements.SP11.Target = NLA.ReviewedStatements.SP11.Target := by sorry
 theorem identity_SP12 : NLA.Statements.SP12.Target = NLA.ReviewedStatements.SP12.Target := by sorry
 theorem identity_SP13 : NLA.Statements.SP13.Target = NLA.ReviewedStatements.SP13.Target := by sorry
