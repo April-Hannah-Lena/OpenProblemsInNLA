@@ -3,8 +3,18 @@ import NLA.Statements.MD03
 import Reviewed.MD03
 import NLA.Statements.MD04
 import Reviewed.MD04
+import NLA.Statements.MF03
+import Reviewed.MF03
 import NLA.Statements.PF04
 import Reviewed.PF04
+import NLA.Statements.PF05
+import Reviewed.PF05
+import NLA.Statements.RA10
+import Reviewed.RA10
+import NLA.Statements.RA12
+import Reviewed.RA12
+import NLA.Statements.RA13
+import Reviewed.RA13
 import NLA.Statements.SP11
 import Reviewed.SP11
 import NLA.Statements.SP12
@@ -18,21 +28,36 @@ theorem log_two_upper : Real.log 2 < (7 / 10 : ℝ) :=
   NLA.Statements.KernelSmoke.log_two_upper
 theorem identity_MD03 : NLA.Statements.MD03.Target = NLA.ReviewedStatements.MD03.Target := by rfl
 theorem identity_MD04 : NLA.Statements.MD04.Target = NLA.ReviewedStatements.MD04.Target := by rfl
+theorem identity_MF03 : NLA.Statements.MF03.Target = NLA.ReviewedStatements.MF03.Target := by rfl
 theorem identity_PF04 : NLA.Statements.PF04.Target = NLA.ReviewedStatements.PF04.Target := by rfl
+theorem identity_PF05 : NLA.Statements.PF05.Target = NLA.ReviewedStatements.PF05.Target := by rfl
+theorem identity_RA10 : NLA.Statements.RA10.Target = NLA.ReviewedStatements.RA10.Target := by rfl
+theorem identity_RA12 : NLA.Statements.RA12.Target = NLA.ReviewedStatements.RA12.Target := by rfl
+theorem identity_RA13 : NLA.Statements.RA13.Target = NLA.ReviewedStatements.RA13.Target := by rfl
 theorem identity_SP11 : NLA.Statements.SP11.Target = NLA.ReviewedStatements.SP11.Target := by rfl
 theorem identity_SP12 : NLA.Statements.SP12.Target = NLA.ReviewedStatements.SP12.Target := by rfl
 theorem identity_TR14 : NLA.Statements.TR14.Target = NLA.ReviewedStatements.TR14.Target := by rfl
 #assert_trust kernel NLA.Statements.ComparatorControl.log_two_upper
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_MD03
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_MD04
+#assert_trust kernel NLA.Statements.ComparatorControl.identity_MF03
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_PF04
+#assert_trust kernel NLA.Statements.ComparatorControl.identity_PF05
+#assert_trust kernel NLA.Statements.ComparatorControl.identity_RA10
+#assert_trust kernel NLA.Statements.ComparatorControl.identity_RA12
+#assert_trust kernel NLA.Statements.ComparatorControl.identity_RA13
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_SP11
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_SP12
 #assert_trust kernel NLA.Statements.ComparatorControl.identity_TR14
 #print axioms NLA.Statements.ComparatorControl.log_two_upper
 #print axioms NLA.Statements.ComparatorControl.identity_MD03
 #print axioms NLA.Statements.ComparatorControl.identity_MD04
+#print axioms NLA.Statements.ComparatorControl.identity_MF03
 #print axioms NLA.Statements.ComparatorControl.identity_PF04
+#print axioms NLA.Statements.ComparatorControl.identity_PF05
+#print axioms NLA.Statements.ComparatorControl.identity_RA10
+#print axioms NLA.Statements.ComparatorControl.identity_RA12
+#print axioms NLA.Statements.ComparatorControl.identity_RA13
 #print axioms NLA.Statements.ComparatorControl.identity_SP11
 #print axioms NLA.Statements.ComparatorControl.identity_SP12
 #print axioms NLA.Statements.ComparatorControl.identity_TR14

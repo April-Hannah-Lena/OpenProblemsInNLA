@@ -9,8 +9,8 @@ Registered entries: **217**.
 - external-statement-source: **3**
 - local-scope-gap: **6**
 - local-statement-source: **62**
-- missing-statement: **140**
-- shared-statement-source: **6**
+- missing-statement: **135**
+- shared-statement-source: **11**
 
 The six existing scope gaps remain explicit even when a new shared statement is recorded. IE-01, TR-01, and MI-32 already cite pinned external formalizations and are tracked separately from entries with no Lean statement. Copied historical and review projects do not count.
 
@@ -98,7 +98,7 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [MD-06](../../../matrix-discrepancy-and-optimization/MD-06/README.md) | Solved | local-scope-gap | Graph probability and local-minimum semantics remain parameters of an abstract Semantics structure. |
 | [MF-01](../../../matrix-functions-and-stability/MF-01/README.md) | Open | missing-statement | Not audited here. |
 | [MF-02](../../../matrix-functions-and-stability/MF-02/README.md) | Lean verified | local-statement-source | Not audited here. |
-| [MF-03](../../../matrix-functions-and-stability/MF-03/README.md) | Solved | missing-statement | Not audited here. |
+| [MF-03](../../../matrix-functions-and-stability/MF-03/README.md) | Solved | shared-statement-source | Not audited here. |
 | [MF-04](../../../matrix-functions-and-stability/MF-04/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [MF-05](../../../matrix-functions-and-stability/MF-05/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [MF-06](../../../matrix-functions-and-stability/MF-06/README.md) | Lean verified | local-statement-source | Not audited here. |
@@ -163,7 +163,7 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [PF-02](../../../nonnegative-and-positive-factorizations/PF-02/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [PF-03](../../../nonnegative-and-positive-factorizations/PF-03/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [PF-04](../../../nonnegative-and-positive-factorizations/PF-04/README.md) | Solved | shared-statement-source | Not audited here. |
-| [PF-05](../../../nonnegative-and-positive-factorizations/PF-05/README.md) | Solved | missing-statement | Not audited here. |
+| [PF-05](../../../nonnegative-and-positive-factorizations/PF-05/README.md) | Solved | shared-statement-source | Not audited here. |
 | [RA-01](../../../randomized-and-low-rank-approximation/RA-01/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [RA-02](../../../randomized-and-low-rank-approximation/RA-02/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [RA-03](../../../randomized-and-low-rank-approximation/RA-03/README.md) | Lean verified | local-statement-source | Not audited here. |
@@ -173,10 +173,10 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 | [RA-07](../../../randomized-and-low-rank-approximation/RA-07/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [RA-08](../../../randomized-and-low-rank-approximation/RA-08/README.md) | Lean verified | local-statement-source | Not audited here. |
 | [RA-09](../../../randomized-and-low-rank-approximation/RA-09/README.md) | Lean verified | local-statement-source | Not audited here. |
-| [RA-10](../../../randomized-and-low-rank-approximation/RA-10/README.md) | Solved | missing-statement | Not audited here. |
+| [RA-10](../../../randomized-and-low-rank-approximation/RA-10/README.md) | Solved | shared-statement-source | Not audited here. |
 | [RA-11](../../../randomized-and-low-rank-approximation/RA-11/README.md) | Partially resolved | missing-statement | Not audited here. |
-| [RA-12](../../../randomized-and-low-rank-approximation/RA-12/README.md) | Solved | missing-statement | Not audited here. |
-| [RA-13](../../../randomized-and-low-rank-approximation/RA-13/README.md) | Solved | missing-statement | Not audited here. |
+| [RA-12](../../../randomized-and-low-rank-approximation/RA-12/README.md) | Solved | shared-statement-source | Not audited here. |
+| [RA-13](../../../randomized-and-low-rank-approximation/RA-13/README.md) | Solved | shared-statement-source | Not audited here. |
 | [RA-14](../../../randomized-and-low-rank-approximation/RA-14/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [RA-15](../../../randomized-and-low-rank-approximation/RA-15/README.md) | Partially resolved | missing-statement | Not audited here. |
 | [RA-16](../../../randomized-and-low-rank-approximation/RA-16/README.md) | Open | missing-statement | Not audited here. |
@@ -240,6 +240,6 @@ Regenerate with `python3 tools/statement_inventory.py --base-ref <published-comm
 
 Within each status, finite explicit assertions can share basic matrix definitions. Computational, probabilistic, and algebraic-geometric targets require concrete models; uninterpreted predicates are not complete replacements for those targets.
 
-- **Solved (36):** AA-01, AV-01, AV-02, IE-08, IE-10, IE-12, IE-21, IE-22, IE-26, IV-02, IV-04, IV-05, KE-03, MD-06, MF-03, MF-08, MI-16, NM-03, PF-05, RA-04, RA-05, RA-10, RA-12, RA-13, RA-19, RE-05, RE-06, SP-13, TR-04, TR-06, TR-07, TR-08, TR-13, TR-17, TR-20, TR-26.
+- **Solved (31):** AA-01, AV-01, AV-02, IE-08, IE-10, IE-12, IE-21, IE-22, IE-26, IV-02, IV-04, IV-05, KE-03, MD-06, MF-08, MI-16, NM-03, RA-04, RA-05, RA-19, RE-05, RE-06, SP-13, TR-04, TR-06, TR-07, TR-08, TR-13, TR-17, TR-20, TR-26.
 - **Partially resolved (70):** AC-07, AC-08, AC-09, AC-11, AC-12, AC-13, AV-03, FR-02, FR-07, FR-08, FR-09, FR-10, FR-11, IE-03, IE-20, IE-27, IE-28, IS-04, IS-05, IV-01, KE-01, KE-02, MF-04, MF-15, MF-19, MF-20, MF-23, MI-01, MI-02, MI-05, MI-08, MI-09, MI-10, MI-11, MI-12, MI-14, MI-15, MI-17, MI-18, MI-25, MI-30, MI-31, NR-01, NR-02, PF-01, RA-01, RA-11, RA-14, RA-15, RA-17, RA-18, RE-03, SP-03, SP-08, SP-09, SP-10, SP-14, TR-03, TR-05, TR-10, TR-11, TR-12, TR-18, TR-19, TR-21, TR-25, TR-28, TR-29, TR-30, TR-31.
 - **Open (40):** AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-10, FR-01, FR-03, FR-04, FR-06, IE-06, IE-07, IE-11, IE-24, IE-25, IS-01, MD-01, MD-02, MD-05, MF-01, MF-09, MF-10, MF-11, MF-13, MF-17, MI-20, NM-01, RA-06, RA-16, RE-01, RE-02, SP-01, SP-02, SP-07, TR-09, TR-16, TR-22, TR-23, TR-24.

@@ -10,13 +10,13 @@
       "external-statement-source": 3,
       "local-scope-gap": 6,
       "local-statement-source": 62,
-      "missing-statement": 140,
-      "shared-statement-source": 6
+      "missing-statement": 135,
+      "shared-statement-source": 11
     },
     "statement_backlog_by_status": {
       "Open": 40,
       "Partially resolved": 70,
-      "Solved": 36
+      "Solved": 31
     }
   },
   "entries": [
@@ -2779,13 +2779,26 @@
       "published_sha256": "57a39aef2af14ff19c83100fdb037de571ebb525ca836c045ddba6d91ae40f5a",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/matrix-functions-and-stability/MF-03/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/MF-03/statement.json",
+        "module": "NLA.Statements.MF03",
+        "declaration": "NLA.Statements.MF03.Target",
+        "source_path": "lean-statements/NLA/Statements/MF03.lean",
+        "source_present": true,
+        "source_sha256": "35f494bd3efdc2d710aa14927c9ee4f6664355199c331f85308f850a533f9f24",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -5601,13 +5614,26 @@
       "published_sha256": "f7acc0629067696f7aa2828673740e286730fb9654348b742752eb146a840f71",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/nonnegative-and-positive-factorizations/PF-05/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/PF-05/statement.json",
+        "module": "NLA.Statements.PF05",
+        "declaration": "NLA.Statements.PF05.Target",
+        "source_path": "lean-statements/NLA/Statements/PF05.lean",
+        "source_present": true,
+        "source_sha256": "3ac9a2fb395d96c3b61c6f2593144caac010da4bfafd2d96f86627aa7a75859d",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -5973,13 +5999,26 @@
       "published_sha256": "cbf022a051a4fd445b49fa977e1f2541e332d588b4c039a14588ce234f4eb742",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/randomized-and-low-rank-approximation/RA-10/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/RA-10/statement.json",
+        "module": "NLA.Statements.RA10",
+        "declaration": "NLA.Statements.RA10.Target",
+        "source_path": "lean-statements/NLA/Statements/RA10.lean",
+        "source_present": true,
+        "source_sha256": "dd7235bc531fd808d7eb5c591b42c618fe8eba1104af4d54c981742d77d22c82",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -6031,13 +6070,26 @@
       "published_sha256": "4771d76230e0a37ccf706b9d7fc0824d257856835d099465963cd200c0adb573",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/randomized-and-low-rank-approximation/RA-12/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/RA-12/statement.json",
+        "module": "NLA.Statements.RA12",
+        "declaration": "NLA.Statements.RA12.Target",
+        "source_path": "lean-statements/NLA/Statements/RA12.lean",
+        "source_present": true,
+        "source_sha256": "e27319f57c2f997197684ce0d4f6576b748a97cd4fb13c4fcc73c7b6a9657b8c",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
@@ -6060,13 +6112,26 @@
       "published_sha256": "16a973ffc9040332e2a521a6a2d2938dcb95df736304185f88ea195a8c78a377",
       "canonical_unchanged_from_base": true,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/80c0e3e638b2f26dcb3a00353651fc3d2215dd65/randomized-and-low-rank-approximation/RA-13/README.md",
-      "classification": "missing-statement",
+      "classification": "shared-statement-source",
       "local_project": null,
       "local_statement_path": null,
       "solution_source_present": false,
       "local_sources": {},
       "external_project": null,
-      "campaign": null,
+      "campaign": {
+        "metadata_path": "docs/lean/statements/RA-13/statement.json",
+        "module": "NLA.Statements.RA13",
+        "declaration": "NLA.Statements.RA13.Target",
+        "source_path": "lean-statements/NLA/Statements/RA13.lean",
+        "source_present": true,
+        "source_sha256": "97df340b6fb8111fa70f1a210634b84f56abec5b82ff625b064a46f7b14d7372",
+        "metadata_issues": [],
+        "review_phases_recorded": [
+          "lean-boundary",
+          "specification"
+        ],
+        "fidelity_verdict": "not-established-by-inventory"
+      },
       "exactness_concerns": [],
       "completeness": "not-independently-assessed-by-inventory",
       "proof_verification": "not-run-by-inventory",
