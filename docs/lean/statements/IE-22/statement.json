@@ -88,7 +88,7 @@
         "docs/lean/statements/verification/2026-09-28-row-deletion/NLA-Statements-RowDeletion.lean.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "docs/lean/statements/verification/2026-09-28-row-deletion/Reviewed-IE21.lean.log": "4075d3c93899be82144eabce679ae22994bf9d5fb69920d48b579b5329a8dfcd",
         "docs/lean/statements/verification/2026-09-28-row-deletion/Reviewed-IE22.lean.log": "aa67719db751110f3d51d97ae23413602d7cea37944339eff9d7f6e2238e8391",
-        "docs/lean/statements/verification/2026-09-28-row-deletion/receipt.json": "7ff9787e46bc198849ca5a8a82ea3fdbffc42c50a1a5f110fba958bf7d0fb8e9",
+        "docs/lean/statements/verification/2026-09-28-row-deletion/receipt.json": "e7a700745478b94731a81189a3ea44149f63b63e28eee04b874cdc804b552c3b",
         "lean-statements/NLA/Statements/IE22.lean": "ba02136d23a3065c7764ac6b6d6c8a8712fc89862664cccc11dbf2c038f83d05",
         "lean-statements/NLA/Statements/Infrastructure.lean": "8e019f11ea18ec66b50563648c39af76e41881912a3fb5f56002adf1850fcc37",
         "lean-statements/NLA/Statements/RowDeletion.lean": "e8e7fd9a7e38961d319fc70c44c56d34444c2e5420b8d973d08b367d60ebb36b",
@@ -109,7 +109,7 @@
         "Target explicitly conjoins the upper property at sqrt(TrimmedMoment a) and its failure for every smaller real c. The negation applies to the complete same property; it preserves the original optimality quantifiers including negative candidate constants.",
         "The erroneous old extra SupremumConverges condition is absent, as required by the reviewed specification. No stronger all-m rate theorem or matrix probabilistic assumption is silently added.",
         "Live/frozen source bodies were mechanically compared, allowing only the standard comment and namespace rename. The shared RowDeletion and Infrastructure modules, all pins, notes and full original source/specification are bound through the actual local import closure.",
-        "The retained fresh root macOS receipts report successful shared/live/frozen compilation and actual rfl identity checks. Logs report only propext, Classical.choice and Quot.sound. This reviewer inspected the evidence and definitions; it did not independently run Lean or Linux Comparator. No catalog proposition is proved by the statement declaration."
+        "The retained fresh author-local root macOS receipts report successful shared/live/frozen compilation and actual rfl identity checks. Logs report only propext, Classical.choice and Quot.sound. This reviewer inspected the evidence and definitions; it did not independently run Lean or Linux Comparator. No catalog proposition is proved by the statement declaration."
       ],
       "limits": "Independent AI-agent final source-level fidelity review, independent of specification author /root/infra_audit and implementation author /root. Approval concerns the exact mathematical meanings and bound source bytes, not target truth or an independently executed kernel/CI run.",
       "external_sources_inspected": [
@@ -140,7 +140,7 @@
         }
       ],
       "report_path": "docs/lean/statements/IE-22/reviews/lean-boundary-statement_design.md",
-      "report_sha256": "4e0c8e6bd96e44a3294dcb4c01443cba1b257333b51fc93dd3434b31cdb711ca"
+      "report_sha256": "8b844362e44f35efd36143ecf4a7f1665af069ec11ecb0e22e0e40903a1ba263"
     },
     {
       "schema_version": 1,

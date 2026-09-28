@@ -97,6 +97,44 @@ class StatementGates(unittest.TestCase):
         self.assertNotIn("sorry", files["IdentitySolution.lean"])
         self.assertEqual(json.loads(files["comparator.json"])["definition_names"], [])
 
+    def test_generated_checks_include_all_direct_computation_controls_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            for relative in (
+                "NLA/Computation/SVDControls.lean",
+                "NLA/Computation/Controls.lean",
+                "NLA/Computation/BandIntervalControls.lean",
+                "NLA/Computation/OrdinaryMachine.lean",
+                "NLA/Computation/Nested/HiddenControls.lean",
+                "NLA/Statements/UnrelatedControls.lean",
+                "OtherControls.lean",
+            ):
+                path = root / check.PACKAGE / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("-- fixture module\n")
+            text = check.generated_checks(root, [])
+            self.assertIn("import NLA\n", text)
+            self.assertIn("import StatementControls\n", text)
+            self.assertEqual(
+                [line for line in text.splitlines() if line.startswith("import NLA.Computation.")],
+                ["import NLA.Computation.BandIntervalControls",
+                 "import NLA.Computation.Controls",
+                 "import NLA.Computation.SVDControls"],
+            )
+            for excluded in ("OrdinaryMachine", "HiddenControls", "UnrelatedControls", "OtherControls"):
+                self.assertNotIn(excluded, text)
+
+    def test_computation_control_symlinks_are_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            source = root / "external.lean"
+            source.write_text("-- not a retained local control\n")
+            link = root / check.PACKAGE / "NLA/Computation/AliasControls.lean"
+            link.parent.mkdir(parents=True)
+            link.symlink_to(source)
+            with self.assertRaisesRegex(ValueError, "symbolic links"):
+                check.generated_checks(root, [])
+
     def test_complete_review_metadata_and_import_binding(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()

@@ -168,8 +168,22 @@ def freeze(root: Path, problem_id: str) -> None:
     print(destination.relative_to(root))
 
 
+def computation_controls(root: Path) -> list[str]:
+    """Discover only direct computation control modules, in stable order."""
+    directory = root / PACKAGE / "NLA/Computation"
+    modules = []
+    for path in sorted(directory.glob("*Controls.lean")):
+        if path.is_file():
+            relative = path.relative_to(root)
+            contained(root, relative.as_posix())
+            modules.append("NLA.Computation." + path.stem)
+    return modules
+
+
 def generated_checks(root: Path, entries: list[dict]) -> str:
-    imports = ["import NLA.Statements.Infrastructure", "import LeanCert.Tactic.Verification"]
+    imports = ["import NLA", "import StatementControls",
+               "import NLA.Statements.Infrastructure", "import LeanCert.Tactic.Verification"]
+    imports.extend(f"import {module}" for module in computation_controls(root))
     body = ["set_option leancert.trust \"kernel\"", "set_option autoImplicit false"]
     for data in entries:
         compact = data["id"].replace("-", "")
@@ -287,6 +301,7 @@ def main() -> None:
     inputs = {p.relative_to(root).as_posix(): digest(p) for p in (root / PACKAGE).rglob("*.lean") if ".lake" not in p.parts}
     inputs.update({p.as_posix(): digest(root / p) for p in PINS})
     modules = ["NLA", "StatementControls", "IdentitySolution"]
+    modules.extend(computation_controls(root))
     modules.extend(e["module"] for e in entries)
     modules.extend("Reviewed." + e["id"].replace("-", "") for e in entries)
     build = subprocess.run(["lake", "build", *modules], cwd=root / PACKAGE, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

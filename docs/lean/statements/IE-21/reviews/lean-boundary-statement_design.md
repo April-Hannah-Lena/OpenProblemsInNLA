@@ -25,7 +25,7 @@ Verdict: **approve** for these bound bytes.
 
 10. Live/frozen source bodies were mechanically compared, allowing only the standard comment and namespace rename. The shared RowDeletion and Infrastructure modules, all pins, notes and full original source/specification are bound through the actual local import closure.
 
-11. The retained fresh root macOS receipts report successful shared/live/frozen compilation and actual rfl identity checks. Logs report only propext, Classical.choice and Quot.sound. This reviewer inspected the evidence and definitions; it did not independently run Lean or Linux Comparator. No catalog proposition is proved by the statement declaration.
+11. The retained fresh author-local root macOS receipts report successful shared/live/frozen compilation and actual rfl identity checks. Logs report only propext, Classical.choice and Quot.sound. This reviewer inspected the evidence and definitions; it did not independently run Lean or Linux Comparator. No catalog proposition is proved by the statement declaration.
 
 ## Pinned external definitions inspected
 
@@ -47,7 +47,7 @@ Verdict: **approve** for these bound bytes.
 - docs/lean/statements/verification/2026-09-28-row-deletion/NLA-Statements-RowDeletion.lean.log: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 - docs/lean/statements/verification/2026-09-28-row-deletion/Reviewed-IE21.lean.log: 4075d3c93899be82144eabce679ae22994bf9d5fb69920d48b579b5329a8dfcd
 - docs/lean/statements/verification/2026-09-28-row-deletion/Reviewed-IE22.lean.log: aa67719db751110f3d51d97ae23413602d7cea37944339eff9d7f6e2238e8391
-- docs/lean/statements/verification/2026-09-28-row-deletion/receipt.json: 7ff9787e46bc198849ca5a8a82ea3fdbffc42c50a1a5f110fba958bf7d0fb8e9
+- docs/lean/statements/verification/2026-09-28-row-deletion/receipt.json: e7a700745478b94731a81189a3ea44149f63b63e28eee04b874cdc804b552c3b
 - lean-statements/NLA/Statements/IE21.lean: 1f7be864caa62471c32345a2960aa284c3c83f11028bb764756ebd557389b45e
 - lean-statements/NLA/Statements/Infrastructure.lean: 8e019f11ea18ec66b50563648c39af76e41881912a3fb5f56002adf1850fcc37
 - lean-statements/NLA/Statements/RowDeletion.lean: e8e7fd9a7e38961d319fc70c44c56d34444c2e5420b8d973d08b367d60ebb36b

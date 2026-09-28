@@ -1,5 +1,5 @@
 {
-  "scope": "Independent root macOS Lean elaboration and identity checks only; target truth and Linux Comparator not certified.",
+  "scope": "Root author-local macOS Lean elaboration and identity checks only; target truth and Linux Comparator not certified.",
   "lean": "/Users/ajt253/Documents/ConvergenceOfAAA_chatgpt6/lean/.tools/lean-4.33.1-darwin_aarch64/bin/lean",
   "files": [
     {

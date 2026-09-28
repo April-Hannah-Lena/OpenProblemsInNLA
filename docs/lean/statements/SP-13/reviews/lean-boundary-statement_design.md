@@ -21,7 +21,7 @@ Verdict: **approve** for these bound bytes.
 
 8. Complete original/specification and implementation notes were compared to the actual source. The frozen copy is mechanically identical except the documented leading comment and namespace rename. The hash bindings include the transitive local source closure, pins and notes.
 
-9. The source defines, rather than proves, Target. Global kernel trust and both statement/trust assertions are present. The retained pinned macOS live/frozen logs report the standard three axioms; root receipt reports exit zero for these modules and rfl identity checks. This reviewer inspected those records but did not independently rerun Lean or Linux Comparator.
+9. The source defines, rather than proves, Target. Global kernel trust and both statement/trust assertions are present. The retained pinned macOS live/frozen logs report the standard three axioms; the author-local root receipt reports exit zero for these modules and rfl identity checks. This reviewer inspected those records but did not independently rerun Lean or Linux Comparator.
 
 ## Pinned external definitions inspected
 
@@ -42,7 +42,7 @@ Verdict: **approve** for these bound bytes.
 - docs/lean/statements/verification/2026-09-28-spectral-hankel/CheckSpectralHankel.log: 1797afd3028dada80af15ade3887c347c346978237cd707a058d188fb3f2b412
 - docs/lean/statements/verification/2026-09-28-spectral-hankel/NLA-Statements-SP13.lean.log: 92a7d7f26a2939678b592687f8520f16aeb7eb1b3558c83b550410f6bc45fa94
 - docs/lean/statements/verification/2026-09-28-spectral-hankel/Reviewed-SP13.lean.log: be873456de4999ca5516e06405e1a4c436ed7b90aad60b07afe67fa76bcae16f
-- docs/lean/statements/verification/2026-09-28-spectral-hankel/receipt.json: c94e9c9b9e643caaa9074f2fdb983abbce28d1789e1b14b3f253ea7e09cc1556
+- docs/lean/statements/verification/2026-09-28-spectral-hankel/receipt.json: 0fd2fe5b25646c0794268333e35e0815dc617c397fc38d6eba125ad9095f0881
 - eigenvalues-and-inverse-problems/SP-13/README.md: 3db39d15a2d3879c0e72a983dd78197bcc8b99ac256a07fcaeee5b6f0962a57a
 - lean-statements/NLA/Statements/Infrastructure.lean: 8e019f11ea18ec66b50563648c39af76e41881912a3fb5f56002adf1850fcc37
 - lean-statements/NLA/Statements/SP13.lean: 59b9796c201eb0991479586d4372bbaf4500ad26fcfadd2bb5691c29653b089b
@@ -53,4 +53,4 @@ Verdict: **approve** for these bound bytes.
 
 ## Limits
 
-Independent AI-agent source-level final boundary review, independent of /root, who authored the specification and implementation. It approves mathematical/model correspondence of the exact definition bytes, not the truth of the catalog problem. Root-owned compile receipts were inspected as evidence; no independent execution or Linux Comparator pass is asserted here.
+Independent AI-agent source-level final boundary review, independent of /root, who authored the specification and implementation. It approves mathematical/model correspondence of the exact definition bytes, not the truth of the catalog problem. Author-local root compile receipts were inspected as evidence; no independent execution or Linux Comparator pass is asserted here.
