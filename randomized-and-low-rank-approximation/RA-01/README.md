@@ -13,8 +13,8 @@
 
 ## Further partial result - 29 September 2026
 
-**Author:** Diar Heidary. [*Iterated-logarithmic pivot bounds for randomly
-pivoted Cholesky*](RA-01.pdf), submitted manuscript, 29 September 2026.
+[*Iterated-logarithmic pivot bounds for randomly pivoted Cholesky*](RA-01.pdf),
+submitted manuscript, 29 September 2026.
 
 Theorems 1.1 and 1.2 (pp. 3-4) give sufficient pivot counts for the original
 coordinate, exact-arithmetic RPCholesky law on every finite complex Hermitian
