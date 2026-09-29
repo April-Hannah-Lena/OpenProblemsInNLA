@@ -29,6 +29,10 @@ def plain_pdf_title(title):
 
 def restore_pdf_layout(identifier, body):
     """Keep document commands out of the public mathematical statements."""
+    if identifier == "RA-01":
+        # Keep each dated partial result together after the new manuscript notice.
+        body = body.replace("## Partial resolution - 13 September 2026\n",
+                            "\\newpage\n\n## Partial resolution - 13 September 2026\n", 1)
     if identifier == "SP-04":
         # Keep the complete retained question together after verification notices.
         heading = "## Original problem statement\n"
