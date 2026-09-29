@@ -137,6 +137,8 @@ and `Quot.sound`, with no replaceable definitions. No numerical interval
 certificate or trusted native evaluation is used. See [verification](verification/)
 and [reviews](reviews/) for recorded checks, source hashes, scope and limitations.
 Local compilation and the fresh sandboxed Linux check are separate gates.
+Both passed; the authoritative [Linux run](https://github.com/marcusdavidwebb/OpenProblemsInNLA/actions/runs/36544197412)
+accepted all 36 unchanged proof inputs on 29 September 2026.
 
 The mathematical resolution is credited to Sidney Holden, Center for
 Computational Biology, Flatiron Institute, Simons Foundation, New York, USA.

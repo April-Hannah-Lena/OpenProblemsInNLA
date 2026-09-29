@@ -100,3 +100,62 @@ The draft PR correctly presents the full proof as awaiting fresh Linux verificat
 | `reviews/final-2-preflight.log` | `4ccdf80c3a1137e0d425e6bb36d199b085d6e46ccf93e91204ed286d9a31af89` |
 
 No Linux evidence or status-promotion approval is supplied by this addendum. The pending gate immediately above remains in force.
+
+## 2026-09-29: authoritative Linux evidence and publication approval
+
+**Verdict: APPROVE the retained fresh Linux verification and the final `Lean verified` promotion for the entire original TR-07 target. This addendum supersedes all earlier pending-Linux, pending-evidence, and pending-promotion wording in this report.** Those earlier paragraphs remain as historical records of the evidence available during each phase. No mathematical proof was changed for this review, and this approval does not claim that a pull request has already been submitted.
+
+I independently read the actual artifact and all its logs in the main repository workspace. I also independently fetched the unauthenticated public GitHub API run, artifact, and jobs endpoints; these requests succeeded. [Run 36544197412](https://github.com/marcusdavidwebb/OpenProblemsInNLA/actions/runs/36544197412) is completed with conclusion `success`, at revision `4aa20f0e6ad92037a616c81fa8b1d7f57abca2dc`. Artifact `11022101809`, named `lean-TR-07`, is linked to this exact run and revision. GitHub publishes its SHA256 as
+`4ca8da9a1849c52f054b77c4706131df4b78e1c60617c7898c267beafad660d3`,
+which equals my digest of the retained original ZIP. Verification job `109326693985` ran on `ubuntu-24.04`; every step of that job succeeded, including preparation of unprivileged Linux isolation and the fresh sandboxed statement, axiom, and kernel check. The separate workflow-level `checker-controls` job was skipped; I do not count it as a passed job. The per-project controls were actually executed, as their logs demonstrate below.
+
+The independently fetched API fields agree with the retained `GITHUB_RUN.json`, `GITHUB_ARTIFACTS.json`, and `GITHUB_JOBS.json`. I verified all **18** entries of the final retained evidence checksum manifest and compared all **13** original ZIP payload files byte for byte with the extracted files. I verified all **69** receipt inputs against Git blobs from the immutable CI revision. Every one of the **36** frozen proof inputs agrees across the current source, original approved proof commit `810014241511510dce72a418e1ba80a4cd4c7a7e`, proof manifest, Linux receipt, and CI revision. The exact target, definitions, Challenge, Solution, configuration, and pins are therefore the previously reviewed ones. These independent checks are retained in [final-2-linux-checks.log](final-2-linux-checks.log), SHA256 `d5b46752565fa83bafbe9a99355577a8b89d34c4f4aa53324d100ddbbff81430`.
+
+The receipt records `comparator-accepted`, the correct project and exported theorem, no definition holes, and only the three permitted axioms. Its tool receipt identifies Lean 4.33.1 on x86_64 Linux and the pinned Forsythe checker commit `8d1b0c0545a77b40245e84705aa7d273e6c81e62`. The source-lock SHA256 `b3833b07916e5db77579b9cc53ca582282f6a841f36d6a60d693e5b02d342b6b` matches the repository file. The checker tools and workflows are unchanged between the originally reviewed proof commit and the CI revision.
+
+I inspected every artifact log, including bootstrap, dependency retrieval, Mathlib cache, service probe, sandbox, all controls, and the actual candidate Comparator run. The dependency log checks out the pinned Mathlib and transitive revisions; the project modules are then visibly rebuilt in a fresh temporary project. The candidate log separately builds and exports Challenge and Solution, with the deliberate placeholder warning only in Challenge, and ends with default-kernel acceptance, `Your solution is okay!`, and `EXIT_STATUS=0`. Thus the result is more than a cached local build or a success label.
+
+All five Comparator regressions have their expected outcomes. The default-kernel controls accept the honest inductive/quotient fixture, reject the raw proof with the wrong type, and reject the quotient post-check mismatch. The separate negative fixtures reject `sorryAx` and the generated native-decision axiom, each at the illegal-axiom check with exit status one. The sandbox probes show private namespaces, no effective capabilities, `no_new_privs`, denied writes outside the allowed build area, read-only export, denied host/network/AF_UNIX access, and rejection of nested namespace writes and all four permissive/unsupported option cases. The sandbox UID is 1001. The service and bootstrap checks succeed. No expected rejection is being confused with a failure of the candidate theorem.
+
+The retained evidence binding is:
+
+| Evidence file under `verification/linux-36544197412/` | SHA256 |
+| --- | --- |
+| `artifact.zip` | `4ca8da9a1849c52f054b77c4706131df4b78e1c60617c7898c267beafad660d3` |
+| `PROVENANCE.json` | `f6897729bcd9362c8c9f997251e7786d1b107fe30cdb2afc3e68ef23f964e7f9` |
+| `SHA256.json` | `6ab34e7c2c2437923f2ec6ce6e80ceb18d48043c933d0694f0f1f929593e57bc` |
+| `GITHUB_RUN.json` | `fd959c7bb639b71046f76015266db341adac7c40f313521f02b5b899272e43f3` |
+| `GITHUB_ARTIFACTS.json` | `fcaa622747625a31a00cd29692b43283fec5a8c28930862cef0a073d13913281` |
+| `GITHUB_JOBS.json` | `d7557ba514c2a924c425d7b76c7d15cedb455d2f9c61479168b9a6449011f398` |
+| `verify-20260929T084153Z-3983/result.json` | `5304e20473a8f639262f778f523a2d79fcfc1fc831176cdd68bfa2c6812be28c` |
+| `verify-20260929T084153Z-3983/comparator.log` | `bbdb47c0c3f6a9651918488270e8ab6ce688a701e412ba4b4a28c54911b592fd` |
+
+The evidence checksum manifest binds the remaining individually inspected logs. The proof manifest remains SHA256 `a499fc82cdebbe416686d7ecda0f105b50bad7bde1b9ba5fbdae71815ee4832e`.
+
+### Final publication documents
+
+I reviewed the actual final canonical README, resolution-archive entry, metadata, proof guide, verification guide, review index, draft PR, generated index diffs, and generated TeX. I also read text extracted from both final PDF pages; I do not claim a separate raster/visual inspection. The narrow renderer change adds only `TR-07` to the existing set that labels formal-verification dates as `Verification check`, and the resulting PDF contains that accurate footer. It does not change the mathematical target or render other entries differently.
+
+The canonical statement and its entire historical tail, beginning at `## Problem statement`, are byte-identical to the source revision. The original `TR-07` registry entry and canonical path remain unchanged. The generated catalog changes move exactly this retained entry from solved to Lean verified, changing the evidence counts from 42/64 to 41/65 without changing the open-problem count or any ID. The documentation links the exact immutable checked revision and public run, distinguishes prior informal AI review from kernel verification, preserves mathematical attribution, and expressly excludes the source's stronger exponential finite bound and positive-fraction theorem from the formalized scope.
+
+The metadata now correctly sets `whole_problem_verified: true` and `canonical_status: Lean verified` for the complete original target. I independently reran the manifest validator after promotion: schema and Comparator coverage PASS. Both independent nonauthor mathematical reviews and their separate Linux evidence roles are accurately disclosed. No external human review or source-author endorsement is claimed. The draft PR describes a proposed contribution; this review does not assert that its submission has occurred.
+
+These final packaging changes lie outside the unchanged 36 proof inputs. The Linux run proves the immutable proof snapshot; the correspondence between that snapshot and the later documentation is established by this review and the exact hashes below, not by claiming that CI checked documents written afterward. Paths in this table are repository-relative unless prefixed `lean/`, in which case they are relative to `randomized-and-low-rank-approximation/TR-07/`.
+
+| Final publication file | SHA256 |
+| --- | --- |
+| `randomized-and-low-rank-approximation/TR-07/README.md` | `1789276f7e6c84f6d419eb6501ebd964795ab16a13a6c568400942937cdc9893` |
+| `randomized-and-low-rank-approximation/TR-07/problem.tex` | `e4c0491e40fa7d52d59867ca2b3f9de0a36e581551452db00a99172fb1d29de8` |
+| `randomized-and-low-rank-approximation/TR-07/problem.pdf` | `92f3dffb20028c9ca879df65d4e60b79d39531d7a9282b5c3ee78bbf42860b95` |
+| `lean/formalization.yaml` | `2c994ca0c2e2d7d6d53d9cefcf13394f805709e26d94d609e7be48dd933a32eb` |
+| `lean/README.md` | `73d7251e5947a0ddeb6a8cba64cd36d731646358b08d4babff1063180a9dd91e` |
+| `lean/verification/README.md` | `2199f6c6362d29e7a0a3a5cae6fa9aea7532fdea24ac25cf9d3cebd977edfed9` |
+| `lean/reviews/README.md` | `f28c74529d5026af422c7b9dbe506d75463afed70de905166114351cae56a67f` |
+| `lean/DRAFT_PR.md` | `7910de4514fb00d9ed730e2dfc76edc3b29236f32e75abeb4047f7ffb165af50` |
+| `RESOLVED.md` | `335069c6e566939196c808d541f996d4f1807199c600496a1fa65301ed51b45d` |
+| `CATALOG.md` | `096747c3c482c75a96977d572b6691e8c399c553ca72581914cc1f7db52d41a2` |
+| `README.md` | `9ead0ea4532948f7e7f9b5447427bbb822ae2fb05e5c4ef7de9a0df2d8c8a029` |
+| `randomized-and-low-rank-approximation/README.md` | `5e21f4a66b60462017902af946c91d5d415e8709ce845e5c6719bfdde841f30e` |
+| `tools/render_problems.py` | `a8d536c2b20d349c7dd104f7e03f4054e3ad7b8fbd7359cd4a509c8a2e7eebf9` |
+
+The mathematical approval, real Linux verification, source binding, and publication-fidelity review are now complete. I approve the final status promotion at these hashes; no pending mathematical or verification gate remains in this report. This remains an independent AI-agent review, and publication/submission is a separate action.

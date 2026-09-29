@@ -6,8 +6,9 @@ project:
     uniform column subset tends to zero in probability for every admissible
     deterministic fixed-sparsity matrix sequence. The complete proof builds
     locally on macOS and its transitive axiom audit passes. Fresh sandboxed
-    Linux verification is pending; two independent nonauthor AI agents
-    approved the complete final mathematical source.
+    Linux Comparator and default-kernel verification passed on 29 September
+    2026. Two independent nonauthor AI agents approved the complete final
+    mathematical source; their evidence addenda review the retained receipt.
   authors:
     - 'OpenAI Codex AI agent /root (formalization coauthor)'
     - 'OpenAI Codex AI agent /root/choose_tensors (formalization coauthor)'
@@ -92,8 +93,8 @@ status:
     and every eta > 0, the exact uniform r_k-subset probability of
     eta < smallestSingular tends to zero. Arbitrary signs, repeated column
     values and unrestricted support intersections are included.
-  whole_problem_verified: false
-  canonical_status: Solved
+  whole_problem_verified: true
+  canonical_status: Lean verified
   sorry_count: 0
   sorry_in_definitions: 0
   source_scan_note: >-
@@ -101,7 +102,7 @@ status:
     from the Solution import graph. The complete proof development has no
     unresolved placeholders. Local compilation and axiom checks pass;
     two independent final mathematical reviews approve the full source.
-    Fresh Linux verification remains pending.
+    Fresh Linux verification passed for all 36 unchanged frozen proof inputs.
   axioms: [propext, Classical.choice, Quot.sound]
   main_results:
     - declaration: NLA.TR07.random_column_subsets
@@ -110,13 +111,14 @@ status:
       axioms: [propext, Classical.choice, Quot.sound]
       comparator_config: comparator.json
       verification_status: >-
-        Local macOS build PASS, including Solution and Challenge, recorded
-        in verification/local-build.log. The complete exported theorem's
-        transitive axiom closure is exactly the three permitted standard
-        axioms, recorded in verification/axioms.log. Fresh unprivileged
-        Linux Comparator and default-kernel verification and rejection controls
-        are pending. Both independent final AI-agent reviews approve the
-        complete mathematical source.
+        PASS on 2026-09-29: fresh Ubuntu Comparator, default-kernel replay,
+        permitted-axiom checks and rejection controls in run 36544197412,
+        revision 4aa20f0e6ad92037a616c81fa8b1d7f57abca2dc. All 36 proof
+        input hashes match verification/PROOF_SHA256.json and the retained
+        machine-readable result. The local build and transitive axiom audit
+        also pass. Two independent final mathematical AI-agent reviews
+        approve the entire original theorem.
+
 fidelity:
   divergences: >-
     The entire original asymptotic target is retained. Explicit r_k <= n_k
@@ -150,7 +152,7 @@ fidelity:
     are not advertised. No numerical spectrum, floating-point calculation,
     unproved certificate, probabilistic oracle or new axiom is used.
 review:
-  status: 'Two independent pre-proof approvals and two independent final mathematical AI-agent approvals; Linux evidence pending'
+  status: 'Two independent pre-proof approvals and two independent final AI-agent approvals, with Linux evidence addenda'
   reviewers:
     - 'OpenAI Codex AI agent /root/choose_algebra'
     - 'OpenAI Codex AI agent /root/environment'
@@ -165,7 +167,9 @@ review:
     binding all 36 proof inputs to revision
     810014241511510dce72a418e1ba80a4cd4c7a7e. Each reviewer independently
     rebuilt and audited the complete source. No human peer review is claimed.
-    Authoritative fresh Linux verification and its evidence review remain pending.
+    Actual Linux verification evidence is retained at
+    verification/linux-36544197412, separately from the local checks;
+    dated reviewer addenda inspect its receipt, controls and source hashes.
 alignment:
   original_target: 'Canonical TR-07 problem statement at revision 80c0e3e638b2f26dcb3a00353651fc3d2215dd65'
   target_record: NUMERICAL_TARGETS.md

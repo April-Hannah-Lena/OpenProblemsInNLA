@@ -23,6 +23,8 @@ Earlier bounded core audits are retained in [core-1](core-1.md) and
 
 These are independent AI-agent source reviews, not human peer review or
 source-author endorsement. The proof authors' own checks are not counted
-as independent review. Fresh authoritative Linux Comparator/kernel
-verification and review of its receipt remain pending. Mathematical
-approval alone does not authorize the catalog status `Lean verified`.
+as independent review. Fresh authoritative Linux Comparator/kernel verification passed on
+29 September 2026 in run 36544197412. Dated addenda in the final reports
+inspect its actual receipt, control logs, source hashes and final
+publication documentation. This mechanical evidence is separate from
+mathematical approval.

@@ -39,7 +39,7 @@
 | [RE-05](RE-05/README.md) | Pure relative error for approximation by a linear matrix family | **✅ SOLVED** | challenging | interesting to the community | [PDF](RE-05/problem.pdf) · [TeX](RE-05/problem.tex) |
 | [RE-06](RE-06/README.md) | Nonadaptive queries for finite-family matrix approximation | **✅ SOLVED** | challenging | interesting to the community | [PDF](RE-06/problem.pdf) · [TeX](RE-06/problem.tex) |
 | [TR-01](TR-01/README.md) | Optimal dimension for a rerandomized Hadamard embedding | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](TR-01/problem.pdf) · [TeX](TR-01/problem.tex) |
-| [TR-07](TR-07/README.md) | Random column subsets of arbitrary fixed-sparsity matrices | **✅ SOLVED** | challenging | interesting to the community | [PDF](TR-07/problem.pdf) · [TeX](TR-07/problem.tex) |
+| [TR-07](TR-07/README.md) | Random column subsets of arbitrary fixed-sparsity matrices | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](TR-07/problem.pdf) · [TeX](TR-07/problem.tex) |
 | [TR-08](TR-08/README.md) | Sharp sparsity threshold for injectivity of a random sparse rectangular matrix | **✅ SOLVED** | challenging | interesting to the community | [PDF](TR-08/problem.pdf) · [TeX](TR-08/problem.tex) |
 
 Ratings are editorial; each entry explains both ratings and the scope of its status evidence. [Definitions](../README.md#problem-status).
