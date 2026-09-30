@@ -2,7 +2,7 @@
 
 **110 problems with open targets:** 40 open and 70 partially resolved. **107 other retained entries**, excluded from the open count.
 
-**Resolution evidence:** 41 solved (published or independently audited); 65 solved with Lean verification.
+**Resolution evidence:** 40 solved (published or independently audited); 66 solved with Lean verification.
 
 Each entry records its own literature-check date. Literature checks are bounded; ratings are editorial. “Impact” uses the canonical `Importance` field.
 
