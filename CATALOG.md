@@ -2,7 +2,7 @@
 
 **110 problems with open targets:** 40 open and 70 partially resolved. **107 other retained entries**, excluded from the open count.
 
-**Resolution evidence:** 41 solved (published or independently audited); 65 solved with Lean verification.
+**Resolution evidence:** 40 solved (published or independently audited); 66 solved with Lean verification.
 
 Each entry records its own literature-check date. Literature checks are bounded; ratings are editorial. “Impact” uses the canonical `Importance` field.
 
@@ -155,7 +155,7 @@ Retained entries outside the open count:
 | [RE-05](randomized-and-low-rank-approximation/RE-05/README.md) | Pure relative error for approximation by a linear matrix family | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RE-05/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RE-05/problem.tex) |
 | [RE-06](randomized-and-low-rank-approximation/RE-06/README.md) | Nonadaptive queries for finite-family matrix approximation | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RE-06/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RE-06/problem.tex) |
 | [TR-01](randomized-and-low-rank-approximation/TR-01/README.md) | Optimal dimension for a rerandomized Hadamard embedding | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/TR-01/problem.pdf) · [TeX](randomized-and-low-rank-approximation/TR-01/problem.tex) |
-| [TR-07](randomized-and-low-rank-approximation/TR-07/README.md) | Random column subsets of arbitrary fixed-sparsity matrices | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/TR-07/problem.pdf) · [TeX](randomized-and-low-rank-approximation/TR-07/problem.tex) |
+| [TR-07](randomized-and-low-rank-approximation/TR-07/README.md) | Random column subsets of arbitrary fixed-sparsity matrices | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/TR-07/problem.pdf) · [TeX](randomized-and-low-rank-approximation/TR-07/problem.tex) |
 | [TR-08](randomized-and-low-rank-approximation/TR-08/README.md) | Sharp sparsity threshold for injectivity of a random sparse rectangular matrix | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/TR-08/problem.pdf) · [TeX](randomized-and-low-rank-approximation/TR-08/problem.tex) |
 
 
