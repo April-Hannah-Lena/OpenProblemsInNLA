@@ -13,13 +13,13 @@ If one of your favorite open problems is solved here, we strongly encourage you 
 [NLA, explained](https://nla-explained.com/) welcomes papers and videos that explain proofs from this repository, with credit to the original authors and sources. If you would like to help make these results easier to understand, consider contributing an explanation.
 
 <!-- catalog-summary -->
-**110 problems with open targets:** 40 open and 70 partially resolved. **107 other retained entries**, excluded from the open count.
+**109 problems with open targets:** 39 open and 70 partially resolved. **108 other retained entries**, excluded from the open count.
 
-**Resolution evidence:** 40 solved (published or independently audited); 66 solved with Lean verification.
+**Resolution evidence:** 40 solved (published or independently audited); 67 solved with Lean verification.
 
 Each entry records its own literature-check date. Literature checks are bounded; ratings are editorial. “Impact” uses the canonical `Importance` field.
 
-**[Browse all 110 open targets →](CATALOG.md)** · **[Solved and claimed solutions →](RESOLVED.md)**
+**[Browse all 109 open targets →](CATALOG.md)** · **[Solved and claimed solutions →](RESOLVED.md)**
 <!-- /catalog-summary -->
 
 ## Special thanks
@@ -36,7 +36,7 @@ If you would like to get involved but don't know how, please email [townsend@cor
 | --- | ---: |
 | [Linear systems and elimination](linear-systems-and-elimination/README.md) | 9 |
 | [Eigenvalues and inverse problems](eigenvalues-and-inverse-problems/README.md) | 13 |
-| [Matrix functions and stability](matrix-functions-and-stability/README.md) | 11 |
+| [Matrix functions and stability](matrix-functions-and-stability/README.md) | 10 |
 | [Randomized and low-rank approximation](randomized-and-low-rank-approximation/README.md) | 12 |
 | [Tensor computations](tensor-computations/README.md) | 17 |
 | [Nonnegative and positive factorizations](nonnegative-and-positive-factorizations/README.md) | 4 |
