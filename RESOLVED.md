@@ -1193,6 +1193,14 @@ every rejected candidate.
 
 Submitted by Diar Haidary; [submission record and preserved manuscript sources](references/haidary-resolutions-2026-09-30/README.md). These statuses record supplied informal AI audits, not external human peer review or formal verification. Original problem IDs, targets, prior results and dated historical checks are retained.
 
+## TR-21 — supplied AI-audited resolution, 2026-10-01
+
+**[TR-21](tensor-computations/TR-21/README.md): Solved, affirmative.** Theorem 1.1 of the [revised manuscript](references/haidary-resolutions-2026-09-30/TR-21-Seginer-comparison-revised.pdf) proves the expected injective-norm comparison with the largest expected Euclidean fiber norm for every rectangular format and arbitrary integrable iid mean-zero real entries, with constants depending only on the order. This settles the full Lucca–Pesenti Conjecture 1.8, including dimension-dependent laws and every Bernoulli density, without higher moments.
+
+The proof extends Zhou–Zhu's shared-class discrepancy, joint-rate and heavy-tuple framework across magnitude labels, and uses Lucca–Pesenti's sparse-tail Theorem 1.4 and Corollary 4.3 and Seginer's matrix Corollary 2.2. Its attribution also credits the Kahn–Szemerédi lineage and Zhou–Zhu's earlier tensor work; precise references and the additional step are given on the canonical page and in the manuscript.
+
+Submitted by Diar Haidary; [supplied ChatGPT 6 Pro audit and revision](https://chatgpt.com/share/6abd7541-acb0-83ed-a0bc-fde3f977bf84), [preserved source](references/haidary-resolutions-2026-09-30/TR-21-Seginer-comparison-revised.tex) and [submission record](references/haidary-resolutions-2026-09-30/README.md). This records an informal AI audit, not external human peer review or formal verification. The original conjecture remains above the resolution, with its historical ratings and literature check retained.
+
 ## Recording a new resolution
 
 1. Keep the original problem ID, folder and statement. Do not delete or reuse the ID.

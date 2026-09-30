@@ -1,8 +1,8 @@
 # All problems and their status
 
-**107 problems with open targets:** 39 open and 68 partially resolved. **110 other retained entries**, excluded from the open count.
+**106 problems with open targets:** 39 open and 67 partially resolved. **111 other retained entries**, excluded from the open count.
 
-**Resolution evidence:** 43 solved (published or independently audited); 66 solved with Lean verification.
+**Resolution evidence:** 44 solved (published or independently audited); 66 solved with Lean verification.
 
 Each entry records its own literature-check date. Literature checks are bounded; ratings are editorial. “Impact” uses the canonical `Importance` field.
 
@@ -171,7 +171,6 @@ Retained entries outside the open count:
 | [TR-16](tensor-computations/TR-16/README.md) | Monotonicity of the average number of critical rank-one approximations | **🔵 OPEN** | challenging | interesting to specialist | [PDF](tensor-computations/TR-16/problem.pdf) · [TeX](tensor-computations/TR-16/problem.tex) |
 | [TR-18](tensor-computations/TR-18/README.md) | Near-optimal type-2 bound for Gaussian sums of symmetric tensors | **🟡 PARTIAL** | extreme | broadly interesting | [PDF](tensor-computations/TR-18/problem.pdf) · [TeX](tensor-computations/TR-18/problem.tex) |
 | [TR-19](tensor-computations/TR-19/README.md) | Exact best-rank-one approximation ratios for general tensor formats | **🟡 PARTIAL** | extreme | interesting to the community | [PDF](tensor-computations/TR-19/problem.pdf) · [TeX](tensor-computations/TR-19/problem.tex) |
-| [TR-21](tensor-computations/TR-21/README.md) | A Seginer theorem for arbitrary independent identically distributed tensor entries | **🟡 PARTIAL** | challenging | interesting to the community | [PDF](tensor-computations/TR-21/problem.pdf) · [TeX](tensor-computations/TR-21/problem.tex) |
 | [TR-22](tensor-computations/TR-22/README.md) | Discreteness from below of asymptotic tensor rank | **🔵 OPEN** | extreme | interesting to the community | [PDF](tensor-computations/TR-22/problem.pdf) · [TeX](tensor-computations/TR-22/problem.tex) |
 | [TR-23](tensor-computations/TR-23/README.md) | Irreducibility of asymptotic tensor-rank sublevel varieties | **🔵 OPEN** | extreme | interesting to specialist | [PDF](tensor-computations/TR-23/problem.pdf) · [TeX](tensor-computations/TR-23/problem.tex) |
 | [TR-24](tensor-computations/TR-24/README.md) | Degree-five, six, and nine generation of the Salmon tensor ideal | **🔵 OPEN** | extreme | interesting to specialist | [PDF](tensor-computations/TR-24/problem.pdf) · [TeX](tensor-computations/TR-24/problem.tex) |
@@ -192,6 +191,7 @@ Retained entries outside the open count:
 | [TR-15](tensor-computations/TR-15/README.md) | Nonnegative H-eigenvalue inheritance from odd-order Hankel tensors | **🏆 LEAN VERIFIED** | challenging | interesting to specialist | [PDF](tensor-computations/TR-15/problem.pdf) · [TeX](tensor-computations/TR-15/problem.tex) |
 | [TR-17](tensor-computations/TR-17/README.md) | Frobenius inner products minimize the algebraic complexity of rank-one approximation | **✅ SOLVED** | challenging | interesting to the community | [PDF](tensor-computations/TR-17/problem.pdf) · [TeX](tensor-computations/TR-17/problem.tex) |
 | [TR-20](tensor-computations/TR-20/README.md) | Rayleigh–Ritz discriminant degrees for rank-one matrices | **✅ SOLVED** | challenging | interesting to specialist | [PDF](tensor-computations/TR-20/problem.pdf) · [TeX](tensor-computations/TR-20/problem.tex) |
+| [TR-21](tensor-computations/TR-21/README.md) | A Seginer theorem for arbitrary independent identically distributed tensor entries | **✅ SOLVED** | challenging | interesting to the community | [PDF](tensor-computations/TR-21/problem.pdf) · [TeX](tensor-computations/TR-21/problem.tex) |
 | [TR-26](tensor-computations/TR-26/README.md) | Degrees of the two Rayleigh–Ritz discriminant parts for rational normal curves | **✅ SOLVED** | challenging | interesting to specialist | [PDF](tensor-computations/TR-26/problem.pdf) · [TeX](tensor-computations/TR-26/problem.tex) |
 | [TR-27](tensor-computations/TR-27/README.md) | Border-rank deficiency forcing strict submultiplicativity at the tensor square | **🏆 LEAN VERIFIED** | extreme | interesting to the community | [PDF](tensor-computations/TR-27/problem.pdf) · [TeX](tensor-computations/TR-27/problem.tex) |
 

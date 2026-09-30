@@ -13,9 +13,9 @@
       "shared-statement-source": 30
     },
     "statement_backlog_by_status": {
-      "Open": 40,
-      "Partially resolved": 70,
-      "Solved": 10
+      "Open": 39,
+      "Partially resolved": 67,
+      "Solved": 14
     }
   },
   "entries": [
@@ -916,12 +916,12 @@
     {
       "id": "FR-10",
       "title": "Sharp sampling complexity for Walsh restricted isometries",
-      "status": "Partially resolved",
+      "status": "Solved",
       "historical_difficulty": "extreme",
       "canonical_path": "frames-and-matrix-designs/FR-10/README.md",
-      "canonical_sha256": "0fbbb368b8e40eaff3d754522cc23d70948fa6112a20bff8f9823e222331d014",
+      "canonical_sha256": "6e7f8ddb900da1cef486a6196c3ac277e79c7d0c953099b0e27441efea569e44",
       "published_sha256": "0fbbb368b8e40eaff3d754522cc23d70948fa6112a20bff8f9823e222331d014",
-      "canonical_unchanged_from_base": true,
+      "canonical_unchanged_from_base": false,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/baa79cd88c1ec889d122254a1c361608b8ff7c74/frames-and-matrix-designs/FR-10/README.md",
       "classification": "missing-statement",
       "local_project": null,
@@ -936,7 +936,8 @@
       "statement_complexity_estimate": {
         "level": "high",
         "domains": [
-          "probability-and-limits"
+          "probability-and-limits",
+          "finite-algebra-or-combinatorics"
         ],
         "basis": "keyword triage of canonical README; requires statement-author review"
       }
@@ -3870,13 +3871,13 @@
         "matrix-functions-and-stability/MF-21/lean/MF21/LogSquaredMesh.lean": "faeca4b2e92aa3c88f741e7ddb3b40dbbca70353b6587e760b3ede33a33c5635",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21CoefficientUniqueness.lean": "96212645705e88344c1323aedc62638868c2fcae883bf8577797b44de509c4af",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21TraceSeries.lean": "2db46c1fa4a9fc75efb8709a9413145bde464969abd2762351bfc88ebefbf6db",
+        "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence.lean": "4ec6b2218f9eb615a1f1375e2620234ce36c5555fcca5fa3e42e448dbea9053b",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/ETranscendental.lean": "7cf361e9979a0b68e932a6105c89a0e74bed28d4d3070ac947b370c681942ef0",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/HermiteLindemann.lean": "bd754566761fe4e7b34441420962d2d5d1d1c5a409ebca41e9346f55258df108",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/MonicRootSums.lean": "24a2c11a9eb995ce2fc712ea581a00347761735a926a93dbf4490bbfa1132cfd",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/PiLindemann.lean": "04e8580903b4a931cff19d4abbc398bf717bbbc6b7cc4072630266155f46246e",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/PiTranscendental.lean": "948e3ee2e5d7318937cd331aa2c142eff162193cc8c25dc2a66cee2d4626a821",
         "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence/SubsetSumEsymm.lean": "57a317148b047b86922be713ea28ecdff461b8ddf411db03bd952c22621eef58",
-        "matrix-functions-and-stability/MF-21/lean/MF21/MF21Transcendence.lean": "4ec6b2218f9eb615a1f1375e2620234ce36c5555fcca5fa3e42e448dbea9053b",
         "matrix-functions-and-stability/MF-21/lean/MF21/PerturbedPhase.lean": "cc57f9714142d442e530ad3839769ae450c7be65cfdb5d7ec7f4033c64a0080d",
         "matrix-functions-and-stability/MF-21/lean/MF21/PhaseCellRoot.lean": "07477c5d3daac6f5f66ebb2ede34b533ba3debe144db4bdbc49e7896226c35d5",
         "matrix-functions-and-stability/MF-21/lean/MF21/PhaseCutoffs.lean": "4f7edac54dd7693dd61ef9b864ce764f184ced3a1253d800e4acb71cd52b4753",
@@ -5173,12 +5174,12 @@
     {
       "id": "MI-31",
       "title": "Sharp parameter dependence for structured Gaussian operator norms",
-      "status": "Partially resolved",
+      "status": "Solved",
       "historical_difficulty": "challenging",
       "canonical_path": "matrix-inequalities-and-norms/MI-31/README.md",
-      "canonical_sha256": "9d015b4643a65d460721802b76acde3c6bb9b11e6a01ee62b2ceac358824b569",
+      "canonical_sha256": "9d49717605baf2379896f6360417092c70bb74773120002cd5f4c15950a04093",
       "published_sha256": "9d015b4643a65d460721802b76acde3c6bb9b11e6a01ee62b2ceac358824b569",
-      "canonical_unchanged_from_base": true,
+      "canonical_unchanged_from_base": false,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/baa79cd88c1ec889d122254a1c361608b8ff7c74/matrix-inequalities-and-norms/MI-31/README.md",
       "classification": "missing-statement",
       "local_project": null,
@@ -6043,12 +6044,12 @@
     {
       "id": "RA-06",
       "title": "Sensitivity-dependent row sampling for $`\\ell_p`$ embeddings when p exceeds two",
-      "status": "Open",
+      "status": "Solved",
       "historical_difficulty": "challenging",
       "canonical_path": "randomized-and-low-rank-approximation/RA-06/README.md",
-      "canonical_sha256": "6ae2d5f97449362c9bc26919c10e2460d195e356ea3aecc5c984da65ad76a5e2",
+      "canonical_sha256": "5ee10eb6d467ef6ebbd56955cdc95b2a1ff0613231d7e5ed6814679491d78f98",
       "published_sha256": "6ae2d5f97449362c9bc26919c10e2460d195e356ea3aecc5c984da65ad76a5e2",
-      "canonical_unchanged_from_base": true,
+      "canonical_unchanged_from_base": false,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/baa79cd88c1ec889d122254a1c361608b8ff7c74/randomized-and-low-rank-approximation/RA-06/README.md",
       "classification": "missing-statement",
       "local_project": null,
@@ -8013,12 +8014,12 @@
     {
       "id": "TR-21",
       "title": "A Seginer theorem for arbitrary independent identically distributed tensor entries",
-      "status": "Partially resolved",
+      "status": "Solved",
       "historical_difficulty": "challenging",
       "canonical_path": "tensor-computations/TR-21/README.md",
-      "canonical_sha256": "185119ca1420a4c34c9c0f257a2d7a7c946032da0999bf906e1c71df7f5aadf2",
+      "canonical_sha256": "645fab1674f258c7d120c880118f296ab2066b25ddd257e55bd5b1ad2e84e764",
       "published_sha256": "185119ca1420a4c34c9c0f257a2d7a7c946032da0999bf906e1c71df7f5aadf2",
-      "canonical_unchanged_from_base": true,
+      "canonical_unchanged_from_base": false,
       "published_source_url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/baa79cd88c1ec889d122254a1c361608b8ff7c74/tensor-computations/TR-21/README.md",
       "classification": "missing-statement",
       "local_project": null,
