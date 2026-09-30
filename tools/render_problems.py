@@ -92,7 +92,7 @@ def render(source):
         # Keep the unchanged original target together after its resolution notice.
         # This PDF-only layout instruction should not appear on the GitHub page.
         body = body.replace("## Context and notation\n", "\\newpage\n\n## Context and notation\n", 1)
-    if identifier in {"SP-13", "IE-26"}:
+    if identifier in {"SP-13", "IE-26", "TR-13"}:
         # Keep the complete retained target together after its resolution notice.
         body = body.replace("## Statement\n", "\\newpage\n\n## Statement\n", 1)
     # GitHub-relative links become usable links in a downloaded PDF or TeX file.
@@ -114,7 +114,7 @@ def render(source):
         tex = result.stdout
         if identifier == "TR-27":
             tex = tex.replace("headheight=15pt", "headheight=20pt")
-        if identifier in {"IE-02", "IE-04", "IE-14", "IV-03", "KE-05", "MF-05", "MF-12", "MF-18", "MF-21", "MF-22", "MI-24", "MI-27", "MI-28", "NM-04", "NR-04", "PF-03", "SP-04", "SP-05", "SP-15", "TR-27"}:
+        if identifier in {"IE-02", "IE-04", "IE-14", "IV-03", "KE-05", "MF-05", "MF-12", "MF-18", "MF-21", "MF-22", "MI-24", "MI-27", "MI-28", "NM-04", "NR-04", "PF-03", "SP-04", "SP-05", "SP-15", "TR-07", "TR-27"}:
             # These publication dates record formal verification, not a literature search.
             tex = tex.replace("Literature check:", "Verification check:")
         # The code spans in this catalog are literal search phrases. Set them
