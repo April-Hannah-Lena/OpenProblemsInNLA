@@ -87,7 +87,7 @@ def local_imports(project):
                 module = module.replace("«", "").replace("»", "")
                 if re.fullmatch(r"[\w.]+", module):
                     pending.append(project.joinpath(*module.split(".")).with_suffix(".lean"))
-    return sorted(visited)
+    return sorted(visited, key=lambda source: source.as_posix())
 
 
 def campaign_record(root, identifier, canonical_path, source_hash):
