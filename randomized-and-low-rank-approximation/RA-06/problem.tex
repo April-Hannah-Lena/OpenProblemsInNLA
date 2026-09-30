@@ -60,6 +60,45 @@ must control all directions with nearly linear total-sensitivity cost;
 community impact is instance-sensitive regression and subspace
 sketching.
 
+\subsection{Statement}\label{statement}
+
+Fix \(p>2\). For a full-column-rank matrix
+\(A\in\mathbb R^{n\times d}\), with rows \(a_i^T\), set
+
+\[s_i=\sup_{x\ne0}\frac{|a_i^Tx|^p}{\|Ax\|_p^p},\qquad
+\mathcal S=\sum_{i=1}^n s_i.\]
+
+For a scalar \(\alpha>0\), retain row \(i\) independently with
+probability
+
+\[q_i=\min\{1,1/n+s_i/\alpha\},\]
+
+and scale each retained row by \(q_i^{-1/p}\); let \(\widetilde A\) be
+the resulting matrix.
+
+Do constants \(C_p,c_p>0\) exist such that, for every \(A\) and
+\(0<\varepsilon,\delta<1/2\), one can choose \(\alpha\) with
+
+\[\sum_iq_i\leq C_p\varepsilon^{-2}(\mathcal S+d)
+\log^{c_p}\!\left(\frac{2nd}{\varepsilon\delta}\right),\]
+
+while, with probability at least \(1-\delta\),
+
+\[(1-\varepsilon)\|Ax\|_p^p\leq\|\widetilde Ax\|_p^p
+\leq(1+\varepsilon)\|Ax\|_p^p
+\qquad\text{for all }x\in\mathbb R^d?\]
+
+The size is the expected number of retained rows. The question concerns
+this independent sampling rule based on the ordinary \(\ell_p\)
+sensitivities, not arbitrary row weights or augmented sensitivities.
+
+This would exploit easy instances through total sensitivity rather than
+using the worst-case dimension-only bound. It applies directly to
+sketching \(\ell_p\) regression and other computations on the column
+space of \(A\). The p\textgreater2 ordinary-sensitivity theorem of
+Woodruff--Yasuda has size
+\(\widetilde O_p(\varepsilon^{-2}\mathcal S^{2-2/p})\).
+
 \subsection{Resolution --- 2026-09-30}\label{resolution-2026-09-30}
 
 \textbf{Negative resolution for every fixed real exponent} \(p>2\).
@@ -104,44 +143,8 @@ dimension regime and the requested presentation fixes. This is an
 informal AI audit, not external human peer review or formal
 proof-assistant certification. See the
 \href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/references/haidary-resolutions-2026-09-30/README.md}{submission
-record}. Historical ratings and the original target are retained below.
-
-Fix \(p>2\). For a full-column-rank matrix
-\(A\in\mathbb R^{n\times d}\), with rows \(a_i^T\), set
-
-\[s_i=\sup_{x\ne0}\frac{|a_i^Tx|^p}{\|Ax\|_p^p},\qquad
-\mathcal S=\sum_{i=1}^n s_i.\]
-
-For a scalar \(\alpha>0\), retain row \(i\) independently with
-probability
-
-\[q_i=\min\{1,1/n+s_i/\alpha\},\]
-
-and scale each retained row by \(q_i^{-1/p}\); let \(\widetilde A\) be
-the resulting matrix.
-
-Do constants \(C_p,c_p>0\) exist such that, for every \(A\) and
-\(0<\varepsilon,\delta<1/2\), one can choose \(\alpha\) with
-
-\[\sum_iq_i\leq C_p\varepsilon^{-2}(\mathcal S+d)
-\log^{c_p}\!\left(\frac{2nd}{\varepsilon\delta}\right),\]
-
-while, with probability at least \(1-\delta\),
-
-\[(1-\varepsilon)\|Ax\|_p^p\leq\|\widetilde Ax\|_p^p
-\leq(1+\varepsilon)\|Ax\|_p^p
-\qquad\text{for all }x\in\mathbb R^d?\]
-
-The size is the expected number of retained rows. The question concerns
-this independent sampling rule based on the ordinary \(\ell_p\)
-sensitivities, not arbitrary row weights or augmented sensitivities.
-
-This would exploit easy instances through total sensitivity rather than
-using the worst-case dimension-only bound. It applies directly to
-sketching \(\ell_p\) regression and other computations on the column
-space of \(A\). The p\textgreater2 ordinary-sensitivity theorem of
-Woodruff--Yasuda has size
-\(\widetilde O_p(\varepsilon^{-2}\mathcal S^{2-2/p})\).
+record}. Historical ratings are retained, and the original target is
+retained above.
 
 \newpage
 \subsection{References}\label{references}
