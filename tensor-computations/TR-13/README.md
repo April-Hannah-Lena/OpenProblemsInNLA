@@ -16,6 +16,36 @@
 The recovered AI-assisted proof passed independent agent review; this is not external human peer review or formal certification. The original target and dated source audit are retained. Difficulty, importance and rating rationale are historical. No novelty or priority claim is made.
 <!-- /colbrook-recovered-tensors -->
 
+## Complete Lean formalization — 28 September 2026
+
+A [complete Lean proof](https://github.com/marcusdavidwebb/OpenProblemsInNLA/tree/a95148f74de9b452e2f0df04aaf135bef627183e/tensor-computations/TR-13/lean) now proves the entire retained target, including
+every odd $`m\ge5`$, every $`n\ge2`$, and all five ranks. The declaration
+`NLA.TR13.generic_rank_equality` constructs a nonempty principal Zariski-open
+set and proves the common value $`\lceil(m(n-1)+1)/2\rceil`$. Ordinary-border
+limits range over arbitrary tensors in the full ambient space. The definitions,
+source correspondence and exact conventions are documented in the
+[project README](lean/README.md) and [frozen targets](lean/NUMERICAL_TARGETS.md).
+
+**Local verification:** Lean 4.33.1 with Mathlib
+`0df444a360eaa60ab8c11dca51a86af692955474`; all transitive dependencies are pinned.
+The [successful macOS build and axiom report](lean/verification/macos-full.log)
+checks the complete declaration and records only `propext`, `Classical.choice`
+and `Quot.sound`. The solution contains no unfinished proof or custom axiom;
+the separate comparison challenge is never imported by it. Reproduction
+commands and source hashes are retained in [verification](lean/verification/README.md).
+
+**Draft verification status:** authoritative Linux Comparator checks and two
+fully independent final reviews remain pending. Two pre-proof statement reviews
+and scoped component cross-reviews are retained, with each agent's authorship
+exclusions made explicit in the [review index](lean/reviews/README.md).
+The catalog therefore remains **Solved**, without a Lean-verified promotion.
+
+The implementation was generated with OpenAI Codex agents. Matthew J. Colbrook
+retains credit for the mathematical resolution, and Nie and Ye for the
+conjecture and prior results. The formalization uses an elementary Prony
+reconstruction for the upper bound and a uniform Koszul certificate, including
+the binary case. No human or source-author endorsement is claimed.
+
 ## Statement
 
 Fix an odd integer $`m\ge5`$ and $`n\ge2`$. A complex Hankel tensor $`H`$ of order $`m`$ and dimension $`n`$ has entries
