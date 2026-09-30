@@ -88,7 +88,7 @@ def render(source):
         # Keep the unchanged original target together after its resolution notice.
         # This PDF-only layout instruction should not appear on the GitHub page.
         body = body.replace("## Context and notation\n", "\\newpage\n\n## Context and notation\n", 1)
-    if identifier in {"SP-13", "IE-26"}:
+    if identifier in {"SP-13", "IE-26", "TR-13"}:
         # Keep the complete retained target together after its resolution notice.
         body = body.replace("## Statement\n", "\\newpage\n\n## Statement\n", 1)
     # GitHub-relative links become usable links in a downloaded PDF or TeX file.

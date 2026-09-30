@@ -10,6 +10,8 @@ I have several motivations for starting this repository:
 
 If one of your favorite open problems is solved here, we strongly encourage you to improve the proof, write about it, and publish it. We only have three hopes: (1) You will reference this GitHub repository as the original proof source (see below), (2) Add your preprint to the repository, and (3) Update any information about the problem in the repository. 
 
+[NLA, explained](https://nla-explained.com/) welcomes papers and videos that explain proofs from this repository, with credit to the original authors and sources. If you would like to help make these results easier to understand, consider contributing an explanation.
+
 <!-- catalog-summary -->
 **110 problems with open targets:** 40 open and 70 partially resolved. **107 other retained entries**, excluded from the open count.
 
