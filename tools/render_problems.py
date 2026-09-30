@@ -29,6 +29,10 @@ def plain_pdf_title(title):
 
 def restore_pdf_layout(identifier, body):
     """Keep document commands out of the public mathematical statements."""
+    if identifier == "RA-01":
+        # Keep each dated partial result together after the new manuscript notice.
+        body = body.replace("## Partial resolution - 13 September 2026\n",
+                            "\\newpage\n\n## Partial resolution - 13 September 2026\n", 1)
     if identifier == "SP-04":
         # Keep the complete retained question together after verification notices.
         heading = "## Original problem statement\n"
@@ -110,7 +114,7 @@ def render(source):
         tex = result.stdout
         if identifier == "TR-27":
             tex = tex.replace("headheight=15pt", "headheight=20pt")
-        if identifier in {"IE-02", "IE-04", "IE-14", "IV-03", "KE-05", "MF-05", "MF-12", "MF-18", "MF-21", "MF-22", "MI-24", "MI-27", "MI-28", "NM-04", "NR-04", "PF-03", "SP-04", "SP-05", "SP-15", "TR-27"}:
+        if identifier in {"IE-02", "IE-04", "IE-14", "IV-03", "KE-05", "MF-05", "MF-12", "MF-18", "MF-21", "MF-22", "MI-24", "MI-27", "MI-28", "NM-04", "NR-04", "PF-03", "SP-04", "SP-05", "SP-15", "TR-07", "TR-27"}:
             # These publication dates record formal verification, not a literature search.
             tex = tex.replace("Literature check:", "Verification check:")
         # The code spans in this catalog are literal search phrases. Set them
