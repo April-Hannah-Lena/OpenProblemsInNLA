@@ -2,7 +2,7 @@
 
 Author: OpenAI Codex AI agent `/root`, 2026-09-28. Preimplementation specification; independent approval is required before Lean implementation.
 
-Permanent ID `TR-13`; canonical path `tensor-computations/TR-13/README.md`; original campaign base `80c0e3e638b2f26dcb3a00353651fc3d2215dd65`. The preimplementation source snapshot had SHA-256 `da720e9599af7271686127b618b21038685e52a754031c2d43915c9d255f015f`; it and the original specification and approvals are retained in [the source-refresh archive](reviews/source-refresh-2026-09-30/README.md). On 30 September 2026, source provenance was refreshed to include the later formalization notice. `ORIGINAL.md` now preserves the current complete canonical README byte for byte, with its hash recorded in `statement.json`. The mathematical specification below, canonical status, author credit and original target are unchanged.
+Permanent ID `TR-13`; canonical path `tensor-computations/TR-13/README.md`; campaign base `80c0e3e638b2f26dcb3a00353651fc3d2215dd65`. The complete canonical README is preserved byte-for-byte in `ORIGINAL.md` (SHA-256 `da720e9599af7271686127b618b21038685e52a754031c2d43915c9d255f015f`). Canonical status, author credit and original mathematical target are unchanged.
 
 ## Exact target
 

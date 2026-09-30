@@ -1,8 +1,8 @@
 # Complete problem statements in Lean
 
-This campaign starts from published commit
-`80c0e3e638b2f26dcb3a00353651fc3d2215dd65` (the exact resolved base is recorded
-by the inventory). It preserves the permanent registry and the complete
+This campaign began at published commit
+`80c0e3e638b2f26dcb3a00353651fc3d2215dd65`; the inventory records its current
+published baseline. It preserves the permanent registry and the complete
 canonical problem pages. It adds statements for solved, partially resolved,
 and open targets without changing their mathematical status.
 
