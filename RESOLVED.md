@@ -1183,6 +1183,16 @@ Other historical exclusions and full-proof claims remain documented in the
 This page highlights resolutions and former catalog IDs; it is not a list of
 every rejected candidate.
 
+## MI-31, FR-10 and RA-06 — supplied AI-audited resolutions, 2026-09-30
+
+| Problem | Outcome and exact scope | Resolution and review |
+| --- | --- | --- |
+| [MI-31](matrix-inequalities-and-norms/MI-31/README.md) | **Solved, affirmative**, incorporating the entropy-convention correction described on the canonical page; absolute constant uniform in dimensions, exponents and variance profile. | Bednorz–Martynek–Meller, [arXiv:2609.22927v1](https://arxiv.org/abs/2609.22927v1), Theorem 1.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd40d2-7d54-83ed-96b3-d674c1c20eb0). The preprint is titled a candidate proof. |
+| [FR-10](frames-and-matrix-designs/FR-10/README.md) | **Solved, affirmative**; exact with-replacement model and whole sparsity range, with one sample at sparsity one and universal-constant order given on the canonical page. | [Revised manuscript](references/haidary-resolutions-2026-09-30/Walsh_RIP_with_replacement_revised.pdf), Theorem 1.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd4125-5848-83eb-9598-f9b2d8822c71). A trivial extension of [BIK, arXiv:2609.22568v1](https://arxiv.org/abs/2609.22568v1), as described by the submitter; no novelty or priority claimed. |
+| [RA-06](randomized-and-low-rank-approximation/RA-06/README.md) | **Solved, negative**, for every fixed real p greater than two; complete-graph incidence counterexamples violate the quadratic inverse-accuracy expected-size budget, including any fixed polylogarithmic factor. | [Revised manuscript](references/haidary-resolutions-2026-09-30/ra06-counterexample-revised.pdf), Theorem 5.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd3ea9-6310-83ed-8d37-edc449055572). No novelty or priority claimed. |
+
+Submitted by Diar Haidary; [submission record and preserved manuscript sources](references/haidary-resolutions-2026-09-30/README.md). These statuses record supplied informal AI audits, not external human peer review or formal verification. Original problem IDs, targets, prior results and dated historical checks are retained.
+
 ## Recording a new resolution
 
 1. Keep the original problem ID, folder and statement. Do not delete or reuse the ID.

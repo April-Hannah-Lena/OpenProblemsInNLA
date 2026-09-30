@@ -3,9 +3,25 @@
 **Difficulty:** challenging  
 **Importance:** interesting to the community  
 **Rating rationale:** Challenging because ordinary sensitivities must control all directions with nearly linear total-sensitivity cost; community impact is instance-sensitive regression and subspace sketching.  
-**Last checked:** 2026-09-10  
+**Last checked:** 2026-09-30  
 
-**Status:** Open  
+**Status:** Solved  
+
+## Resolution — 2026-09-30
+
+**Negative resolution for every fixed real exponent** $`p>2`$. Theorem 5.1 of [*An Accuracy Obstruction for lp Row Sparsification: A Complete-Graph Counterexample to RA-06*](../../references/haidary-resolutions-2026-09-30/ra06-counterexample-revised.pdf) ([LaTeX source](../../references/haidary-resolutions-2026-09-30/ra06-counterexample-revised.tex)), dated 30 September 2026, refutes the original expected-size guarantee with exactly its ordinary sensitivities, independent retention rule, rescaling and simultaneous norm-power preservation.
+
+The grounded incidence matrix of the complete graph on $`v`$ vertices has $`n=\binom v2`$, $`d=v-1`$, and equal row sensitivities
+
+```math
+s_i=\frac1{1+(v-2)2^{1-p}},\qquad \mathcal S=\Theta_p(d).
+```
+
+Under $`v-1\ge6^{-p}\varepsilon^{-(p+1)}`$, Corollary 4.2 forces expected sample size $`\Omega_p((\mathcal S+d)\varepsilon^{-p})`$ even for one successful realization of the prescribed common-probability sampler. Taking $`\varepsilon=b^{-1}`$, $`\delta=1/4`$ and $`v=\lceil b^{p+2}\rceil`$ contradicts every fixed polylogarithmic multiplier of the proposed quadratic inverse-accuracy budget. The floor and saturation in the original rule are included.
+
+Theorem 3.1 and Corollary 3.2 also give a support obstruction for arbitrary nonnegative reweighted row subsets, with a success-probability factor for randomized expected support. The obstruction concerns accuracy dependence in an explicit growing-dimension regime; it does not rule out nearly linear sensitivity dependence at fixed accuracy and does not concern unrestricted linear sketches.
+
+**Attribution and review.** The original conjecture and sampling model are credited to Woodruff–Yasuda, Section 3 and Definition 1.1/Theorem 1.5. **No novelty or priority is claimed for this local manuscript.** The supplied [ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd3ea9-6310-83ed-8d37-edc449055572) reports that the mathematical core refutes RA-06 and derives the arbitrary-weight strengthening. Its follow-up revision incorporates that strengthening, direct attribution, the explicit dimension regime and the requested presentation fixes. This is an informal AI audit, not external human peer review or formal proof-assistant certification. See the [submission record](../../references/haidary-resolutions-2026-09-30/README.md). Historical ratings and the original target are retained below.
 
 Fix $`p>2`$. For a full-column-rank matrix $`A\in\mathbb R^{n\times d}`$, with rows $`a_i^T`$, set
 

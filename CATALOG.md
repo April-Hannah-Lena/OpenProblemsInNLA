@@ -1,8 +1,8 @@
 # All problems and their status
 
-**110 problems with open targets:** 40 open and 70 partially resolved. **107 other retained entries**, excluded from the open count.
+**107 problems with open targets:** 39 open and 68 partially resolved. **110 other retained entries**, excluded from the open count.
 
-**Resolution evidence:** 40 solved (published or independently audited); 66 solved with Lean verification.
+**Resolution evidence:** 43 solved (published or independently audited); 66 solved with Lean verification.
 
 Each entry records its own literature-check date. Literature checks are bounded; ratings are editorial. “Impact” uses the canonical `Importance` field.
 
@@ -123,7 +123,6 @@ Retained entries outside the open count:
 | ID | Problem | Status | Difficulty | Impact | Read / source |
 | --- | --- | --- | --- | --- | --- |
 | [RA-01](randomized-and-low-rank-approximation/RA-01/README.md) | Optimal pivot count for RPCholesky trace approximation | **🟡 PARTIAL** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-01/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-01/problem.tex) |
-| [RA-06](randomized-and-low-rank-approximation/RA-06/README.md) | Sensitivity-dependent row sampling for $`\ell_p`$ embeddings when p exceeds two | **🔵 OPEN** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-06/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-06/problem.tex) |
 | [RA-11](randomized-and-low-rank-approximation/RA-11/README.md) | Optimal trace-estimation complexity using Kronecker matrix-vector queries | **🟡 PARTIAL** | extreme | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-11/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-11/problem.tex) |
 | [RA-14](randomized-and-low-rank-approximation/RA-14/README.md) | Optimal query complexity of spectral rank-$`k`$ approximation | **🟡 PARTIAL** | extreme | broadly interesting | [PDF](randomized-and-low-rank-approximation/RA-14/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-14/problem.tex) |
 | [RA-15](randomized-and-low-rank-approximation/RA-15/README.md) | Query complexity from Schatten to spectral norms | **🟡 PARTIAL** | extreme | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-15/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-15/problem.tex) |
@@ -144,6 +143,7 @@ Retained entries outside the open count:
 | [RA-03](randomized-and-low-rank-approximation/RA-03/README.md) | Improve the randomized LU squared-error factor to $`2^k`$ | **🏆 LEAN VERIFIED** | challenging | interesting to specialist | [PDF](randomized-and-low-rank-approximation/RA-03/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-03/problem.tex) |
 | [RA-04](randomized-and-low-rank-approximation/RA-04/README.md) | Clustered singular-value gaps in randomized block Krylov approximation | **✅ SOLVED** | hard | interesting to specialist | [PDF](randomized-and-low-rank-approximation/RA-04/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-04/problem.tex) |
 | [RA-05](randomized-and-low-rank-approximation/RA-05/README.md) | Sharp joint rank and accuracy dependence for strong $`\ell_p`$ subspace coresets | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-05/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-05/problem.tex) |
+| [RA-06](randomized-and-low-rank-approximation/RA-06/README.md) | Sensitivity-dependent row sampling for $`\ell_p`$ embeddings when p exceeds two | **✅ SOLVED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-06/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-06/problem.tex) |
 | [RA-07](randomized-and-low-rank-approximation/RA-07/README.md) | Convexity of the expected error of volume-sampled column subsets | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-07/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-07/problem.tex) |
 | [RA-08](randomized-and-low-rank-approximation/RA-08/README.md) | Concave-function transfer of spectral low-rank error | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-08/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-08/problem.tex) |
 | [RA-09](randomized-and-low-rank-approximation/RA-09/README.md) | Concave-function transfer of Frobenius low-rank error | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](randomized-and-low-rank-approximation/RA-09/problem.pdf) · [TeX](randomized-and-low-rank-approximation/RA-09/problem.tex) |
@@ -238,7 +238,6 @@ Retained entries outside the open count:
 | [MI-20](matrix-inequalities-and-norms/MI-20/README.md) | Sharp subquadratic Lee constants for sums of matrices | **🔵 OPEN** | challenging | interesting to the community | [PDF](matrix-inequalities-and-norms/MI-20/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-20/problem.tex) |
 | [MI-25](matrix-inequalities-and-norms/MI-25/README.md) | Dimension-independent Hlawka constants for Schatten norms | **🟡 PARTIAL** | challenging | interesting to the community | [PDF](matrix-inequalities-and-norms/MI-25/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-25/problem.tex) |
 | [MI-30](matrix-inequalities-and-norms/MI-30/README.md) | Product inequality for disjoint principal minors of Wishart matrices | **🟡 PARTIAL** | challenging | interesting to specialist | [PDF](matrix-inequalities-and-norms/MI-30/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-30/problem.tex) |
-| [MI-31](matrix-inequalities-and-norms/MI-31/README.md) | Sharp parameter dependence for structured Gaussian operator norms | **🟡 PARTIAL** | challenging | interesting to the community | [PDF](matrix-inequalities-and-norms/MI-31/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-31/problem.tex) |
 
 Retained entries outside the open count:
 
@@ -259,6 +258,7 @@ Retained entries outside the open count:
 | [MI-27](matrix-inequalities-and-norms/MI-27/README.md) | Constant one in the logarithmic commutator inequality | **🏆 LEAN VERIFIED** | challenging | broadly interesting | [PDF](matrix-inequalities-and-norms/MI-27/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-27/problem.tex) |
 | [MI-28](matrix-inequalities-and-norms/MI-28/README.md) | Ghabries's determinant comparison for arbitrary nonnegative base powers | **🏆 LEAN VERIFIED** | challenging | interesting to specialist | [PDF](matrix-inequalities-and-norms/MI-28/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-28/problem.tex) |
 | [MI-29](matrix-inequalities-and-norms/MI-29/README.md) | Modulus-order determinant comparison with an arbitrary base power | **🏆 LEAN VERIFIED** | challenging | interesting to specialist | [PDF](matrix-inequalities-and-norms/MI-29/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-29/problem.tex) |
+| [MI-31](matrix-inequalities-and-norms/MI-31/README.md) | Sharp parameter dependence for structured Gaussian operator norms | **✅ SOLVED** | challenging | interesting to the community | [PDF](matrix-inequalities-and-norms/MI-31/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-31/problem.tex) |
 | [MI-32](matrix-inequalities-and-norms/MI-32/README.md) | Spectral norms of independent entries with regular moment growth | **🏆 LEAN VERIFIED** | challenging | interesting to the community | [PDF](matrix-inequalities-and-norms/MI-32/problem.pdf) · [TeX](matrix-inequalities-and-norms/MI-32/problem.tex) |
 
 
@@ -274,7 +274,6 @@ Retained entries outside the open count:
 | [FR-07](frames-and-matrix-designs/FR-07/README.md) | Zauner's conjecture on maximal complex equiangular tight frames | **🟡 PARTIAL** | extreme | broadly interesting | [PDF](frames-and-matrix-designs/FR-07/problem.pdf) · [TeX](frames-and-matrix-designs/FR-07/problem.tex) |
 | [FR-08](frames-and-matrix-designs/FR-08/README.md) | Hadamard matrices at every admissible order | **🟡 PARTIAL** | extreme | broadly interesting | [PDF](frames-and-matrix-designs/FR-08/problem.pdf) · [TeX](frames-and-matrix-designs/FR-08/problem.tex) |
 | [FR-09](frames-and-matrix-designs/FR-09/README.md) | Complex equiangular tight frames with twice the dimension | **🟡 PARTIAL** | extreme | interesting to the community | [PDF](frames-and-matrix-designs/FR-09/problem.pdf) · [TeX](frames-and-matrix-designs/FR-09/problem.tex) |
-| [FR-10](frames-and-matrix-designs/FR-10/README.md) | Sharp sampling complexity for Walsh restricted isometries | **🟡 PARTIAL** | extreme | broadly interesting | [PDF](frames-and-matrix-designs/FR-10/problem.pdf) · [TeX](frames-and-matrix-designs/FR-10/problem.tex) |
 | [FR-11](frames-and-matrix-designs/FR-11/README.md) | The minimum number of quadratic measurements for generalized phase retrieval | **🟡 PARTIAL** | challenging | interesting to the community | [PDF](frames-and-matrix-designs/FR-11/problem.pdf) · [TeX](frames-and-matrix-designs/FR-11/problem.tex) |
 
 Retained entries outside the open count:
@@ -282,6 +281,7 @@ Retained entries outside the open count:
 | ID | Problem | Status | Difficulty | Impact | Read / source |
 | --- | --- | --- | --- | --- | --- |
 | [FR-05](frames-and-matrix-designs/FR-05/README.md) | Vanishing injectivity probability at 4d minus 5 complex phase measurements | **🟠 SOLUTION CLAIMED** | challenging | interesting to the community | [PDF](frames-and-matrix-designs/FR-05/problem.pdf) · [TeX](frames-and-matrix-designs/FR-05/problem.tex) |
+| [FR-10](frames-and-matrix-designs/FR-10/README.md) | Sharp sampling complexity for Walsh restricted isometries | **✅ SOLVED** | extreme | broadly interesting | [PDF](frames-and-matrix-designs/FR-10/problem.pdf) · [TeX](frames-and-matrix-designs/FR-10/problem.tex) |
 | [FR-12](frames-and-matrix-designs/FR-12/README.md) | Counting real Hadamard matrices | **🏆 LEAN VERIFIED** | extreme | interesting to the community | [PDF](frames-and-matrix-designs/FR-12/problem.pdf) · [TeX](frames-and-matrix-designs/FR-12/problem.tex) |
 
 

@@ -2,11 +2,27 @@
 
 **Difficulty:** extreme  
 **Importance:** broadly interesting  
-**Status:** Partially resolved  
-**Last checked:** 2026-09-11
+**Status:** Solved  
+**Last checked:** 2026-09-30
 
 **Rating rationale:** Closing the uniform logarithmic sampling gap is a longstanding restricted-isometry barrier comparable in scale to the cyclic Fourier problem, with consequences for sparse recovery and fast sketches.
 
+
+## Resolution — 2026-09-30
+
+**Affirmative resolution.** Theorem 1.1 of [*Walsh restricted isometries under sampling with replacement*](../../references/haidary-resolutions-2026-09-30/Walsh_RIP_with_replacement_revised.pdf) ([LaTeX source](../../references/haidary-resolutions-2026-09-30/Walsh_RIP_with_replacement_revised.tex)), working manuscript dated 30 September 2026, proves
+
+```math
+m_*(N,1)=1,\qquad
+c\,k\log(2k)\log(2eN/k)\le m_*(N,k)
+\le C\,k\log(2k)\log(2eN/k)\quad(2\le k\le N),
+```
+
+with universal constants (the manuscript gives $`c=1/2000`$). This settles the exact with-replacement model, distortion $`1/2`$, success probability $`0.9`$, and whole sparsity range in the original target. Sections 2–4 extend the entropic encoding and probability argument to indexed repeated row occurrences, including sample counts above $`N`$; Sections 5–6 give the affine-subspace lower bound and all-sparsity completion.
+
+**Attribution.** The submitter describes this manuscript as a trivial extension of W. Burstein, A. Iosevich and B. Krause, *Restricted isometry of sampled Fourier and Hadamard matrices via entropic descent*, [arXiv:2609.22568v1](https://arxiv.org/abs/2609.22568v1). The improved logarithmic upper rate and entropic encoding input are credited to that work. The lower-bound subspace obstruction is credited to Błasiok–Lopatto–Luh–Marcinek–Rao. **No novelty or priority is claimed for this local manuscript.** The order estimate does not supersede Colbrook's sharper endpoint leading constants recorded below.
+
+**Review.** The supplied [ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd4125-5848-83eb-9598-f9b2d8822c71) reports no substantive gap in the repeated-occurrence extension, paired-sign argument, fixed-draw affine second moment, or all-sparsity completion. The revised source incorporates the audit's LaTeX repair and explicit citations to BIK Lemmas 4.1–4.2 and 6.1. This is an informal AI audit, not external human peer review or formal proof-assistant certification. See the [submission record](../../references/haidary-resolutions-2026-09-30/README.md). Historical ratings and the original target are retained below; the September 11 partial-status notice is superseded by this resolution.
 
 <!-- colbrook-frames -->
 ## Reviewed submission - 2026-09-11
