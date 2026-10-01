@@ -56,12 +56,13 @@ The complete harness exited 0. Two independent retrospective AI statement
 reviews and separate upper/lower source reviews are retained; no external
 human peer review is claimed.
 
-The [verified proof revision](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/ac582d01532a914538cbfb74863437b18433038a/matrix-functions-and-stability/MF-17/lean) fixes the mathematical inputs.
+The [published proof revision](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/cad3785440a2678b5b30aa8133d425e709b6811d/matrix-functions-and-stability/MF-17/lean) fixes the mathematical inputs.
 See the [canonical evidence section](matrix-functions-and-stability/MF-17/README.md#lean-proof-and-verification-evidence)
 for the immutable source revision, pins, exact declarations, reproduction
-commands, logs, axiom reports and review scope. The proof revision is local
-until this draft branch is published. The original ID, canonical path and
-mathematical target are unchanged.
+commands, logs, axiom reports and review scope. The maintainer review matched
+the published proof inputs to the SHA-256 hashes in the retained local-run
+receipt; it did not rerun Lean or the Linux verifier. The original ID,
+canonical path and mathematical target are unchanged.
 
 ### 🟠 FR-05 — vanishing phase-retrieval injectivity probability — Zhangsong Li
 
@@ -1207,6 +1208,24 @@ Other historical exclusions and full-proof claims remain documented in the
 [source record](references/SOURCES.md#important-historical-questions-excluded).
 This page highlights resolutions and former catalog IDs; it is not a list of
 every rejected candidate.
+
+## MI-31, FR-10 and RA-06 — supplied AI-audited resolutions, 2026-09-30
+
+| Problem | Outcome and exact scope | Resolution and review |
+| --- | --- | --- |
+| [MI-31](matrix-inequalities-and-norms/MI-31/README.md) | **Solved, affirmative**, incorporating the entropy-convention correction described on the canonical page; absolute constant uniform in dimensions, exponents and variance profile. | Bednorz–Martynek–Meller, [arXiv:2609.22927v1](https://arxiv.org/abs/2609.22927v1), Theorem 1.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd40d2-7d54-83ed-96b3-d674c1c20eb0). The preprint is titled a candidate proof. |
+| [FR-10](frames-and-matrix-designs/FR-10/README.md) | **Solved, affirmative**; exact with-replacement model and whole sparsity range, with one sample at sparsity one and universal-constant order given on the canonical page. | [Revised manuscript](references/haidary-resolutions-2026-09-30/Walsh_RIP_with_replacement_revised.pdf), Theorem 1.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd4125-5848-83eb-9598-f9b2d8822c71). A trivial extension of [BIK, arXiv:2609.22568v1](https://arxiv.org/abs/2609.22568v1), as described by the submitter; no novelty or priority claimed. |
+| [RA-06](randomized-and-low-rank-approximation/RA-06/README.md) | **Solved, negative**, for every fixed real p greater than two; complete-graph incidence counterexamples violate the quadratic inverse-accuracy expected-size budget, including any fixed polylogarithmic factor. | [Revised manuscript](references/haidary-resolutions-2026-09-30/ra06-counterexample-revised.pdf), Theorem 5.1; [supplied ChatGPT 6 Pro audit](https://chatgpt.com/share/6abd3ea9-6310-83ed-8d37-edc449055572). No novelty or priority claimed. |
+
+Submitted by Diar Haidary; [submission record and preserved manuscript sources](references/haidary-resolutions-2026-09-30/README.md). These statuses record supplied informal AI audits, not external human peer review or formal verification. Original problem IDs, targets, prior results and dated historical checks are retained.
+
+## TR-21 — supplied AI-audited resolution, 2026-10-01
+
+**[TR-21](tensor-computations/TR-21/README.md): Solved, affirmative.** Theorem 1.1 of the [revised manuscript](references/haidary-resolutions-2026-09-30/TR-21-Seginer-comparison-revised.pdf) proves the expected injective-norm comparison with the largest expected Euclidean fiber norm for every rectangular format and arbitrary integrable iid mean-zero real entries, with constants depending only on the order. This settles the full Lucca–Pesenti Conjecture 1.8, including dimension-dependent laws and every Bernoulli density, without higher moments.
+
+The proof extends Zhou–Zhu's shared-class discrepancy, joint-rate and heavy-tuple framework across magnitude labels, and uses Lucca–Pesenti's sparse-tail Theorem 1.4 and Corollary 4.3 and Seginer's matrix Corollary 2.2. Its attribution also credits the Kahn–Szemerédi lineage and Zhou–Zhu's earlier tensor work; precise references and the additional step are given on the canonical page and in the manuscript.
+
+Submitted by Diar Haidary; [supplied ChatGPT 6 Pro audit and revision](https://chatgpt.com/share/6abd7541-acb0-83ed-a0bc-fde3f977bf84), [preserved source](references/haidary-resolutions-2026-09-30/TR-21-Seginer-comparison-revised.tex) and [submission record](references/haidary-resolutions-2026-09-30/README.md). This records an informal AI audit, not external human peer review or formal verification. The original conjecture remains above the resolution, with its historical ratings and literature check retained.
 
 ## Recording a new resolution
 

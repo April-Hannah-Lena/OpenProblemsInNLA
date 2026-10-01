@@ -57,7 +57,11 @@ and default-kernel run on 30 September 2026. The checked source revision is
 `ac582d01532a914538cbfb74863437b18433038a`; subsequent changes add evidence
 and publication metadata without changing the Lean sources or contracts.
 The manifest distinguishes retrospective AI source review from actual runtime
-verification. All work remains local until the draft branch is published.
+verification. The [published source snapshot](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/cad3785440a2678b5b30aa8133d425e709b6811d/matrix-functions-and-stability/MF-17/lean)
+contains the same Lean sources, contracts and dependency pins, as checked
+against the receipt hashes in the [maintainer integration review](reviews/maintainer-integration-2026-09-30.md).
+The run's original local commit was not published; use the published snapshot
+to reproduce its mathematical inputs.
 
 For the repository's authoritative check, use the shared
 [Linux verification workflow](../../../tools/lean/HARNESS.md) from the repository

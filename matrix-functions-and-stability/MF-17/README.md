@@ -62,12 +62,18 @@ The [verification report](lean/verification/README.md),
 [driver log](lean/verification/linux-verification/driver.log) retain the actual
 local execution evidence.
 
-The immutable [proof-source snapshot](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/ac582d01532a914538cbfb74863437b18433038a/matrix-functions-and-stability/MF-17/lean) is commit
-`ac582d01532a914538cbfb74863437b18433038a`. It uses Lean 4.33.1 and Mathlib
+The published immutable [proof-source snapshot](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/cad3785440a2678b5b30aa8133d425e709b6811d/matrix-functions-and-stability/MF-17/lean)
+is commit `cad37854`. It uses Lean 4.33.1 and Mathlib
 `0df444a360eaa60ab8c11dca51a86af692955474`, with all other dependencies fixed
-in `lean/lake-manifest.json`. This submission is a local PR draft: the commit
-link becomes publicly accessible when that branch is published. No remote
-repository or hosted CI was modified.
+in `lean/lake-manifest.json`.
+
+The retained run receipt names the submitter's
+unpublished local commit `ac582d01`.
+The [maintainer integration review](lean/reviews/maintainer-integration-2026-09-30.md)
+matched every Lean file, dependency pin and Comparator configuration in the
+published snapshot to that receipt's SHA-256 hashes. The catalog reviewed
+the retained Linux execution evidence; this integration review did not rerun
+Lean or the Linux verifier.
 
 The inverse and envelope-finiteness contracts cover every semigroup in the
 original class for $`M\geq1`$ (and nonnegative time for the envelope).
@@ -85,7 +91,7 @@ The [reports](lean/reviews/) record their coverage and accepted corrections.
 These are AI source reviews, not external human peer review.
 
 On Linux with the [checker prerequisites](../../tools/lean/HARNESS.md), run
-from the repository root at the recorded source revision:
+from the repository root at the published proof-source snapshot:
 
 ```
 python3 tools/lean/harness.py bootstrap /tmp/mf17-tools

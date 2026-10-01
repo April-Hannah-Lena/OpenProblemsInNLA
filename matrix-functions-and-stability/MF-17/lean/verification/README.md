@@ -36,7 +36,8 @@ adapted lower construction and refined constants.
 
 Lean is 4.33.1; Mathlib is pinned to
 `0df444a360eaa60ab8c11dca51a86af692955474`. All other dependencies are fixed
-in `../lake-manifest.json`. From the repository root at the checked revision,
+in `../lake-manifest.json`. From the repository root at the
+[published source snapshot](https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/cad3785440a2678b5b30aa8133d425e709b6811d),
 on non-root Linux meeting `tools/lean/HARNESS.md`:
 
 ```sh
@@ -58,8 +59,12 @@ statement-type script initially needed explicit theorem arguments; its
 corrected version is in the verified source revision. None of the 221 supplied
 solution source files or the reviewed Challenge statements changed.
 Later documentation, metadata and evidence additions do not alter those
-verified mathematical inputs. The source revision is local until this draft
-branch is published; no remote repository or hosted CI was modified.
+verified mathematical inputs. The original local run commit was not published.
+The [maintainer integration review](../reviews/maintainer-integration-2026-09-30.md)
+matched the published snapshot's Lean sources, dependency pins, configuration,
+numerical targets and original review reports to this receipt's hashes. The
+catalog reviewed these retained execution records without rerunning Lean or
+the Linux verifier. The historical receipt and runtime logs remain unchanged.
 
 ## Earlier unsuccessful attempts
 

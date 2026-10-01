@@ -124,15 +124,20 @@ log}, and
 \href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-functions-and-stability/MF-17/lean/verification/linux-verification/driver.log}{driver
 log} retain the actual local execution evidence.
 
-The immutable
-\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/ac582d01532a914538cbfb74863437b18433038a/matrix-functions-and-stability/MF-17/lean}{proof-source
-snapshot} is commit \textit{ac582d01532a914538cbfb74863437b18433038a}.
-It uses Lean 4.33.1 and Mathlib
+The published immutable
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/tree/cad3785440a2678b5b30aa8133d425e709b6811d/matrix-functions-and-stability/MF-17/lean}{proof-source
+snapshot} is commit \textit{cad37854}. It uses Lean 4.33.1 and Mathlib
 \textit{0df444a360eaa60ab8c11dca51a86af692955474}, with all other
-dependencies fixed in \textit{lean/lake-manifest.json}. This submission
-is a local PR draft: the commit link becomes publicly accessible when
-that branch is published. No remote repository or hosted CI was
-modified.
+dependencies fixed in \textit{lean/lake-manifest.json}.
+
+The retained run receipt names the submitter's unpublished local commit
+\textit{ac582d01}. The
+\href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/matrix-functions-and-stability/MF-17/lean/reviews/maintainer-integration-2026-09-30.md}{maintainer
+integration review} matched every Lean file, dependency pin and
+Comparator configuration in the published snapshot to that receipt's
+SHA-256 hashes. The catalog reviewed the retained Linux execution
+evidence; this integration review did not rerun Lean or the Linux
+verifier.
 
 The inverse and envelope-finiteness contracts cover every semigroup in
 the original class for \(M\geq1\) (and nonnegative time for the
@@ -157,8 +162,8 @@ reviews, not external human peer review.
 
 On Linux with the
 \href{https://github.com/ajt60gaibb/OpenProblemsInNLA/blob/main/tools/lean/HARNESS.md}{checker
-prerequisites}, run from the repository root at the recorded source
-revision:
+prerequisites}, run from the repository root at the published
+proof-source snapshot:
 
 \begin{verbatim}
 python3 tools/lean/harness.py bootstrap /tmp/mf17-tools

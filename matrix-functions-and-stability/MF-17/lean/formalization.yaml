@@ -126,7 +126,9 @@ verification:
   target_types: verification/statement-types.log
   axiom_report: verification/axioms.log
   isolated_comparator: verification/linux-verification/result.json
-  published_to_github: false
+  published_to_github: true
+  published_source_revision: cad3785440a2678b5b30aa8133d425e709b6811d
+  publication_review: reviews/maintainer-integration-2026-09-30.md
   isolated_log: verification/linux-verification/comparator.log
   driver_log: verification/linux-verification/driver.log
   source_revision: ac582d01532a914538cbfb74863437b18433038a
